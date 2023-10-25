@@ -1,0 +1,120 @@
+[
+	{
+		"primarySampleMaterial":"EDTAWB",
+		"aliquotMaterialList":
+		[
+			{"material":"EDTA"},
+			{"material":"EDTABUF"},
+			{"material":"DHZB_ZB"}
+		]
+	}, 
+
+	{
+		"primarySampleMaterial":"URN",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_urins"},
+			{"material":"NUM_urinf"}
+		]
+	},
+
+	{
+		"primarySampleMaterial":"NUM_bal",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_balf"},
+			{"material":"NUM_balc"}
+		]
+	},
+
+	{
+		"primarySampleMaterial":"NUM_pbmc_hep",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_heppl"},
+			{"material":"NUM_PBMC_C"}
+		]
+	},
+
+	{
+		"primarySampleMaterial":"NUM_pbmc_cpt",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_heppl"},
+			{"material":"NUM_PBMC_C"}
+		]
+	},
+
+	{
+		"primarySampleMaterial":"NUM_pbmc_edta",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_PBMC_EDTAPL"},
+			{"material":"NUM_PBMC_C"}
+		]
+	},
+	
+	{
+		"primarySampleMaterial":"EDTABUF",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_DNA"}
+			
+		]
+	}, 
+	
+	{
+		"primarySampleMaterial":"DHZB_ZB",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_DNA"}
+		
+		]
+	},
+	
+	{
+		"primarySampleMaterial":"NUM_ZB",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_DNA"}
+		
+		]
+	},
+	
+	{
+		"primarySampleMaterial":"PAXgene",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_RNA"}
+		
+		]
+	},
+	
+	{
+		"primarySampleMaterial":"NUM_pax",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_RNA"}
+		
+		]
+	},
+	{
+		"primarySampleMaterial":"NUM_rachenabstrich",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_rachenabstrich"}
+		
+		]
+	},
+	{
+		"primarySampleMaterial":"NUM_nasen-rachenabstrich",
+		"aliquotMaterialList":
+		[
+			{"material":"NUM_nasen-rachenabstrich"}
+		
+		]
+	}
+
+	
+	
+]
