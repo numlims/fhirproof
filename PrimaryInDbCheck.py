@@ -5,14 +5,18 @@ from FhirCheck import *
 
 class PrimaryInDbCheck(FhirCheck):
 
+    def __init__(self, fp):
+        self.fp = fp
+
     # check checks whether the sample is in db if it is a master
     def check(self, entry):
+        
         resource = entry["resource"]
 
-        sampleid = fh.sample_id(resource)
+        sampleid = fh.sampleid(resource)
 
         samplerow = sample(sampleid)
 
         if samplerow == None and fh.type(resource) == "MASTER":
-            error("sample " + sampleid + " is type master but it is not in the db.")
+            self.err("sample " + sampleid + " is type master but it is not in the db.")
 

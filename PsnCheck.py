@@ -4,9 +4,11 @@ from FhirCheck import *
 import fhirhelp as fh
 
 class PsnCheck(FhirCheck):
-    
+
+    def __init__(self, fp):
+        self.fp = fp
+        
     def check(self, entry):
-        self.entrybyfhirid[entry["fullUrl"]] = entry
 
         """
         Ist das LIMS-Pseudonym (Limspsn) für den Patienten der in der DB zum
@@ -20,6 +22,7 @@ class PsnCheck(FhirCheck):
         """
 
         resource = entry["resource"]
+        sampleid = fh.sampleid(resource)
 
         result = qfad("""
         select idc.psn from centraxx_sample s 
@@ -36,17 +39,15 @@ class PsnCheck(FhirCheck):
 
         if len(result) == 0:
             if fh.type(resource) == "MASTER":
-                error("no patient psn in db for sample " + sampleid)
+                self.err("no patient psn in db for sample " + sampleid)
         elif fh.limspsn(resource) != result[0]["psn"]:
-            error("limspsn for sample " + sampleid + " is " + fh.limspsn(resource) + " in json and " + result[0]["psn"] + " in db")
+            self.err("limspsn for sample " + sampleid + " is " + fh.limspsn(resource) + " in json and " + result[0]["psn"] + " in db")
 
         """
         Wenn das Sample ein Derived/Aliquot ist, ist die Limspsn im
         Json-Parent die gleiche?
         """
-
-
-
-
-
-
+        parentresource = self.fp.parent(entry)
+        if parentresource != None:
+            if fh.limspsn(parentresource) != fh.limspsn(resource):
+                self.err("the limpspsn of sample " + sampleid + " is " + fh.limspsn(resource) + " in json, but " + fh.limspsn(parentresource) + " of its parent in json")

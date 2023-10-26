@@ -7,7 +7,7 @@
 # parent_sampleid
 # org
 # restmenge
-# sample_id
+# sampleid
 # type
 
 # Die Doku für das Specimen-Json ist auf Simplifier,
@@ -53,12 +53,12 @@ def org(resource):
 def restmenge(resource):
     return resource["container"][0]["specimenQuantity"]["value"]
 
-# sample_id tries to find the sample id in resource
+# sampleid tries to find the sample id in resource
 # Die Datenbankabfrage braucht die Sample-ID. `sample_id` sucht die
 # `SAMPLEID` im Json. Dafür gehen wir über das `identifier` Feld. Die
 # `SAMPLEID` ist derjenige `identifier`, in dessen `type.coding` Array
 # ein `code` `SAMPLEID` ist.
-def sample_id(resource):
+def sampleid(resource):
     if "identifier" not in resource:
         if type(resource) != "ALIQUOTGROUP":
             print("maybe error: entry " + entry["fullUrl"] + " is not aliquotgroup and has no identifier field (needed for sampleid).")

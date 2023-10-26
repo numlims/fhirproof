@@ -14,7 +14,7 @@ class BehealterCheck(FhirCheck):
 
         container = resource["container"][0]["identifier"][0]["value"]
         if fh.type(resource) == "MASTER" and container != "ORG":
-            error("container for sample " + sampleid + " should be ORG (Originalcontainer) but is " + container)
+            self.err("container for sample " + sampleid + " should be ORG (Originalcontainer) but is " + container)
         if fh.type(resource) == "DERIVED" and container != "NUM_AliContainer":
-            error("container for sample " + sampleid + " should be NUM_AliContainer but is " + container)
+            self.err("container for sample " + sampleid + " should be NUM_AliContainer but is " + container)
 

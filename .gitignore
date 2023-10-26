@@ -1,3 +1,5 @@
 db.ini
 dump.txt
 *~
+__*
+logs/*

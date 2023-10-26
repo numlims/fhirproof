@@ -19,7 +19,7 @@ class LocationCheck(FhirCheck):
                         if ee["url"] == "https://fhir.centraxx.de/extension/sample/sampleLocationPath":
                             locpath = ee["valueString"]
             if locpath == None:
-                error("no location path for sample " + sampleid + ", there should be one though.")
+                self.err("no location path for sample " + sampleid + ", there should be one though.")
 
             """
             Der Lagerort ist ein Pfad, der entweder mit einem Rack endet oder
@@ -35,5 +35,5 @@ class LocationCheck(FhirCheck):
                 shortpath = re.sub(" -->.*$", "", locpath)
                 result = query_fetch_all(query, shortpath)
                 if len(result) == 0:
-                    error("location " + locpath + " for sample " + sampleid + " is not in db.") 
+                    self.err("location " + locpath + " for sample " + sampleid + " is not in db.") 
 

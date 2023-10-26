@@ -27,6 +27,7 @@ class DatesCheck(FhirCheck):
         Reihenfolge sind.
         """
         resource = entry["resource"]
+        sampleid = fh.sampleid(resource)
         timechain = [] # ascending order
         if fh.type(resource) == "MASTER" or fh.type(resource) == "DERIVED":
             timechain.append(["collection date", self.isodate(resource["collection"]["collectedDateTime"])])
@@ -53,7 +54,7 @@ class DatesCheck(FhirCheck):
                     deriv_date = True
                     timechain.append(["derival date", self.isodate(e["valueDateTime"])])
             if deriv_date == False:
-                error("no derival date for sample " + sampleid)
+                self.err("no derival date for sample " + sampleid)
 
 
         """
@@ -68,7 +69,7 @@ class DatesCheck(FhirCheck):
                     repo_date = True
                     timechain.append(["reposition date", self.isodate(e["valueDateTime"])])
             if repo_date == False:
-                error("no reposition date for sample " + sampleid)
+                self.err("no reposition date for sample " + sampleid)
 
 
 
@@ -80,7 +81,7 @@ class DatesCheck(FhirCheck):
         # print("timechain: " + str(timechain))
         for i in range(1, len(timechain)):
             if timechain[i][1] < timechain[i-1][1]: # [1] accesses the dates
-                error("in sample " + sampleid + " is " + timechain[i][0] + " before " + timechain[i-1][0]) # [0] accesses the names
+                self.err("in sample " + sampleid + " is " + timechain[i][0] + " before " + timechain[i-1][0]) # [0] accesses the names
 
 
 

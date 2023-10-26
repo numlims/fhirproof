@@ -27,7 +27,7 @@ class OrgCheck(FhirCheck):
         """
         resource = entry["resource"]
 
-        sampleid = fh.sample_id(resource)
+        sampleid = fh.sampleid(resource)
 
         # get db org
         query = """
@@ -45,18 +45,18 @@ class OrgCheck(FhirCheck):
         wird woanders gecheckt, und Deriveds müssen nicht unbedingt schon in
         der Datenbank sein.
         """
-
+        db_org = ""
         # is there a result
         if len(result) == 0:
-            error("no organisation in db for sample " + sampleid)
+            self.err("no organisation in db for sample " + sampleid)
         else:
             db_org = result[0]["code"]
 
         # get json org
         json_org = fh.org(resource)
         if json_org == None:
-            error("no organisation in json for sample " + sampleid)
+            self.err("no organisation in json for sample " + sampleid)
 
         # do the orgs match?
         if db_org != json_org:
-            error("organisation units don't match for sample " + sampleid + ", json org is " + json_org + ", db org is " + db_org)
+            self.err("organisation units don't match for sample " + sampleid + ", json org is " + json_org + ", db org is " + db_org)
