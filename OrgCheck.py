@@ -28,14 +28,16 @@ class OrgCheck(FhirCheck):
         resource = entry["resource"]
 
         sampleid = fh.sampleid(resource)
+        """
 
+        """
         # get db org
         query = """
         select ou.code from centraxx_organisationunit ou 
         inner join centraxx_patientorgunit pou on ou.oid = pou.orgunit_oid
         inner join centraxx_patientcontainer pc on pou.patientcontainer_oid = pc.oid
         inner join centraxx_sample s on pc.oid = s.patientcontainer
-        inner join centraxx_sampleidcontainer sidc on sidc.sample = s.oid where sidc.psn = ?"""
+        inner join centraxx_sampleidcontainer sidc on sidc.sample = s.oid where sidc.psn = ? where ou.code != 'NUM'"""
 
         result = qfad(query, sampleid)
 
