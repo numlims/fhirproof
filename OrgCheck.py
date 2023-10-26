@@ -1,5 +1,7 @@
 # OrgCheck checks the organisation of a fhir entry
 
+## something fixed
+
 import re
 
 from dbcon import *
@@ -28,9 +30,11 @@ class OrgCheck(FhirCheck):
         resource = entry["resource"]
 
         sampleid = fh.sampleid(resource)
+        
         """
-
+        Der Patient keonnte zu Organisationseinheiten gehoeren, wegen Patientenzusammenfuehrungen. Dann waere die eine OE 'NUM'. Die filtern wir raus.
         """
+        
         # get db org
         query = """
         select ou.code from centraxx_organisationunit ou 
