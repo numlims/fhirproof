@@ -100,7 +100,7 @@ class Fhirproof:
             """
             self.aqtgchildless[entry["fullUrl"]] = True
             
-            # aqtmat.check(entry)
+            aqtmat.check(entry)
 
             sampleid = fh.sampleid(entry['resource'])
             if sampleid is None:
