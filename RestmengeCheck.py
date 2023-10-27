@@ -12,8 +12,8 @@ class RestmengeCheck(FhirCheck):
     def check(self, entry):
         # remember restmenge
         """
-        Bei Masters mit Aliquoten soll die Restmenge größer null
-        sein, bei Masters ohne Aliquote soll die Restmenge null sein.
+        Bei Masters mit Aliquoten soll die Restmenge null
+        sein, bei Masters ohne Aliquote soll die Restmenge groesser null sein.
 
 Wie finden wir die Restmenge im Json? In der Simplifier Doku gibt es
         specimen.container.specimenQuantity:restAmount. Das zeigt auf
