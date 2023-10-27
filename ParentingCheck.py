@@ -1,9 +1,10 @@
+# ParentingCheck checks that parent references add up
+
 import re
 
 from FhirCheck import *
 import fhirhelp as fh
 
-# ParentingCheck checks that parent references add up
 class ParentingCheck(FhirCheck):
 
     def __init__(self, fp):
