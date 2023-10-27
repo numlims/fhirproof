@@ -1,4 +1,4 @@
-# OrgCheck checks the organisation of a fhir entry
+# RestmengeCheck checks the rest amount of a fhir entry
 
 import re
 
