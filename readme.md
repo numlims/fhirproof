@@ -5,13 +5,13 @@ können und loggt errors in `logs/fhirproof.log`.
 
 # Checks
 
-## Primärprobe in DB
+## Primärprobe in DB: PrimaryInDbCheck
 
 Wenn die Probe eine Primärprobe (MASTER) im Json ist, sollte es sie
 schon in der Datenbank geben. Derived Proben muss es nicht unbedingt
 schon in der Datenbank geben, sie können neu dazu kommen.
 
-## Zeitangaben
+## Zeitangaben: DatesCheck
 
 Proben sollten in dieser zeitlichen Reihenfolge verarbeitet werden: 
 
@@ -20,53 +20,33 @@ Laboreingang (Received)  <br/>
 Zentrifugation [wenn da] <br/>
 Aliquotierung (Derival) [bei Aliquoten]   <br/>
 
-## Proben-Container
+## Proben-Container: BehealterCheck
 
 Primärproben sollen Originalcontainer sein, Aliquot-Deriveds NUM
 Aliquotcontainer.
 
-## Lagerort
+## Lagerort: LocationCheck
 
 Gibt es den Lagerort in der DB? Für alle Aliquot-Deriveds ist der
 Lagerort angegeben, außer ihre Restmenge ist null. Bei Primärproben
 ist nur bei Speichel und PaxGene ein Lagerort angegeben.
 
-Der Lagerort darf nie ein UserWorkspace sein.
+Der Lagerort muss existieren und etwas anderes als UserWorkspace sein.
 
 ## Zentrifugationsart
 
-TODO. Bei der Zentrifugation können wir vielleicht die Art checken. 
+Todo: Es wird geprüft, ob die Zentrifugationsart die in den Json Daten
+angegeben ist auch in der DB existiert.
 
-Die Zentrifugationsart ist abhängig vom Primärmaterial. Das Mapping
-dafür steht in Centraxx > Administration > Stammdaten > Probe >
-Probenvorlagen (unten links click auf 'alle x anzeigen'). Ja?
-
-Die Zentrifugationstabelle: Centraxx > Administration > Stammdaten >
-Probe > Probenarten > Zentrifugationsart 
-
-Das Mapping von Probenmaterial auf Zentrifugationssprec liegt in
-Centraxx > Administration > Stammdaten > Probe > Probendaten >
-Probenart. 
-
-
-
-SOP Manual liegt in Betriebsunterlagen J:\30_DZHK-Lims\20 -
-NUM-Einrichtung\Leitfäden & SOPs\NAPKON
-SOPs\SOP-Manual_NAPKON_V4.0_final.pdf 
-
-SPREC means Standard Preanalytical Code
-(https://www.isber.org/page/SPREC). 
-
-
-## Organisationsunit von Patient und Probe
+## Organisationsunit von Patient und Probe: OrgCheck
 
 Die Organisationunit vom Patienten der Probe muss die selbe sein.
 
-## Childless Aliquot Group
+## Childless Aliquot Group: ParentingCheck
 
 Aliquotgruppen sollen nicht ohne Deriveds sein, die an ihnen hängen.
 
-## LIMS-Pseudonym
+## LIMS-Pseudonym: PsnCheck
 
 Das LIMS-Pseudonym (Limspsn) für den Patienten der in der DB zum
 Sample gehört soll das gleiche wie im Json sein.
@@ -74,31 +54,18 @@ Sample gehört soll das gleiche wie im Json sein.
 Wenn das Sample ein Derived/Aliquot ist, soll die Limspsn im
 Json-Parent die gleiche sein.
 
-## Restmenge
+## Restmenge: RestmengeCheck
 
 Bei Masters mit Aliquoten soll die Restmenge null sein, bei Masters
 ohne Aliquote soll die Restmenge groesser null sein.
 
-## Material
+## Material: DerivmatCheck
 
 Das Material eines Entries soll seinem Parent Entry entsprechen,
 sofern es einen Parent gibt. Ist der Entry ein Derived (Aliquot), muss
 es das gleiche Material sein wie seine Parent-Aliquotgroup.
 
-Sind wir bei einer Aliquotgroup, kann ihr Material eine Reihe von
-Werten sein, abhängig von ihrem Primary Parent. Es steht in
-2023-03_03_MaterialAliquotingMapping.json und kann heruntergeladen werden über Centraxx > Workflow >
-Workflow-Prozesse > tecanupload6 > Parameter edieren (Werkzeug icon) >
-MATERIALALIQUOTMAPPINGTABLE > Download icon.
-
-Das gleiche Mapping steht auch im Workflow samplepipettingbyschema9 >
-Parameter edieren (Werkzeug icon) > MaterialMappingTable.
-
-In der Datei stehen die Materiale als Codes. An ein Mapping von Codes
-zu Klarnamen kommt man über Centraxx > Administration > Stammdaten >
-Probe > Probendaten > Probenart.
-
-Das Code-Klarnamen Mapping kann man auch über die Datenbank abfragen,
+Das Code-Klarnamen Mapping kann man über die Datenbank abfragen,
 indem man von `sampletype.code` zu `multilingualentry.value` über die
 verbindende Tabelle `sampletype_ml_name` geht.
 
@@ -111,8 +78,6 @@ verbindende Tabelle `sampletype_ml_name` geht.
 Ohne order by ml.lang kommt manchmal Deutsch zuerst, manchmal English.
 
 Die Namen zu den Codes sind im Anhang.
-
-
 
 ## Test
 
