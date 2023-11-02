@@ -30,9 +30,15 @@ class DatesCheck(FhirCheck):
         sampleid = fh.sampleid(resource)
         timechain = [] # ascending order
         if fh.type(resource) == "MASTER" or fh.type(resource) == "DERIVED":
-            timechain.append(["collection date", self.isodate(resource["collection"]["collectedDateTime"])])
+            if "collection" not in resource or "collectedDateTime" not in resource["collection"]:
+                self.err("no collection date in " + sampleid)
+            else:
+                timechain.append(["collection date", self.isodate(resource["collection"]["collectedDateTime"])])
         if fh.type(resource) == "MASTER":
-            timechain.append(["received date", self.isodate(resource["receivedTime"])])
+            if "receivedTime" not in resource:
+                self.err("no receivedTime in sample " + sampleid)
+            else:
+                timechain.append(["received date", self.isodate(resource["receivedTime"])])
         if fh.type(resource) == "MASTER" or fh.type(resource) == "DERIVED":
             centri_date = None
             for e in resource["extension"]:

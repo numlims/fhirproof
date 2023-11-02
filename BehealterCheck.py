@@ -11,7 +11,8 @@ class BehealterCheck(FhirCheck):
 
         """
         resource = entry["resource"]
-
+        sampleid = fh.sampleid(resource)
+        
         container = resource["container"][0]["identifier"][0]["value"]
         if fh.type(resource) == "MASTER" and container != "ORG":
             self.err("container for sample " + sampleid + " should be ORG (Originalcontainer) but is " + container)
