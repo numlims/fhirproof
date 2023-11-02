@@ -92,6 +92,11 @@ Auf dem Test-Applikations-Server liegen Import Dateien in
 C:\applications\centraxx-home\fhir-custom-export\num_wuerz\import\CASE*
  und in C:\applications\kairos\FHIR-Importer\Dresden\error
 
+## Log
+
+A little example how to extract certain sampleids from the logfile is
+in `scripts/sampleids-from-log.sh`.
+
 ## Anhang
 
 Codes und Namen. 
