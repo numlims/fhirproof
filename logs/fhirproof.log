@@ -1174,3 +1174,1427 @@
 2023-10-26 09:03:48,949:ERROR: aliquotgroup Specimen/1055130 is childless.
 2023-10-26 09:03:48,949:ERROR: aliquotgroup Specimen/1055131 is childless.
 2023-10-26 09:03:48,950:ERROR: aliquotgroup Specimen/1055132 is childless.
+2023-11-02 09:04:32,597:ERROR: aliquotgroup Specimen/1053138 has no parent.
+2023-11-02 09:33:00,569:ERROR: no organisation in db for sample BBD7587588769
+2023-11-02 09:33:00,569:ERROR: organisation units don't match for sample BBD7587588769, json org is NUM_DD, db org is 
+2023-11-02 09:33:00,655:ERROR: no organisation in db for sample BBD7923797710
+2023-11-02 09:33:00,655:ERROR: organisation units don't match for sample BBD7923797710, json org is NUM_DD, db org is 
+2023-11-02 09:33:00,745:ERROR: no organisation in db for sample BBD5136710309
+2023-11-02 09:33:00,745:ERROR: organisation units don't match for sample BBD5136710309, json org is NUM_DD, db org is 
+2023-11-02 09:33:00,831:ERROR: no organisation in db for sample BBD3892060926
+2023-11-02 09:33:00,831:ERROR: organisation units don't match for sample BBD3892060926, json org is NUM_DD, db org is 
+2023-11-02 09:33:00,945:ERROR: no organisation in db for sample BBD1836631974
+2023-11-02 09:33:00,945:ERROR: organisation units don't match for sample BBD1836631974, json org is NUM_DD, db org is 
+2023-11-02 09:33:01,055:ERROR: no organisation in db for sample BBD6178189752
+2023-11-02 09:33:01,055:ERROR: organisation units don't match for sample BBD6178189752, json org is NUM_DD, db org is 
+2023-11-02 09:33:01,160:ERROR: no organisation in db for sample BBD8351255809
+2023-11-02 09:33:01,160:ERROR: organisation units don't match for sample BBD8351255809, json org is NUM_DD, db org is 
+2023-11-02 09:33:01,274:ERROR: no organisation in db for sample BBD4793204149
+2023-11-02 09:33:01,274:ERROR: organisation units don't match for sample BBD4793204149, json org is NUM_DD, db org is 
+2023-11-02 09:33:01,378:ERROR: no organisation in db for sample BBD5999932695
+2023-11-02 09:33:01,379:ERROR: organisation units don't match for sample BBD5999932695, json org is NUM_DD, db org is 
+2023-11-02 09:33:01,466:ERROR: no organisation in db for sample BBD2537587360
+2023-11-02 09:33:01,466:ERROR: organisation units don't match for sample BBD2537587360, json org is NUM_DD, db org is 
+2023-11-02 09:33:01,557:ERROR: no organisation in db for sample BBD9207867146
+2023-11-02 09:33:01,557:ERROR: organisation units don't match for sample BBD9207867146, json org is NUM_DD, db org is 
+2023-11-02 09:33:01,657:ERROR: no organisation in db for sample BBD7506195259
+2023-11-02 09:33:01,658:ERROR: organisation units don't match for sample BBD7506195259, json org is NUM_DD, db org is 
+2023-11-02 09:33:01,759:ERROR: no organisation in db for sample BBD1236382437
+2023-11-02 09:33:01,760:ERROR: organisation units don't match for sample BBD1236382437, json org is NUM_DD, db org is 
+2023-11-02 09:33:01,879:ERROR: no organisation in db for sample BBD0674842616
+2023-11-02 09:33:01,880:ERROR: organisation units don't match for sample BBD0674842616, json org is NUM_DD, db org is 
+2023-11-02 09:33:01,980:ERROR: no organisation in db for sample BBD4471585397
+2023-11-02 09:33:01,980:ERROR: organisation units don't match for sample BBD4471585397, json org is NUM_DD, db org is 
+2023-11-02 09:33:02,077:ERROR: no organisation in db for sample BBD0488843753
+2023-11-02 09:33:02,077:ERROR: organisation units don't match for sample BBD0488843753, json org is NUM_DD, db org is 
+2023-11-02 09:33:03,202:ERROR: no organisation in db for sample BBD4330891475
+2023-11-02 09:33:03,202:ERROR: organisation units don't match for sample BBD4330891475, json org is NUM_DD, db org is 
+2023-11-02 09:33:03,295:ERROR: no organisation in db for sample BBD1255762915
+2023-11-02 09:33:03,295:ERROR: organisation units don't match for sample BBD1255762915, json org is NUM_DD, db org is 
+2023-11-02 09:33:03,378:ERROR: no organisation in db for sample BBD8702978987
+2023-11-02 09:33:03,378:ERROR: organisation units don't match for sample BBD8702978987, json org is NUM_DD, db org is 
+2023-11-02 09:33:03,462:ERROR: no organisation in db for sample BBD7211358645
+2023-11-02 09:33:03,462:ERROR: organisation units don't match for sample BBD7211358645, json org is NUM_DD, db org is 
+2023-11-02 09:33:03,546:ERROR: no organisation in db for sample BBD9138255518
+2023-11-02 09:33:03,546:ERROR: organisation units don't match for sample BBD9138255518, json org is NUM_DD, db org is 
+2023-11-02 09:33:03,662:ERROR: no organisation in db for sample BBD3690850842
+2023-11-02 09:33:03,662:ERROR: organisation units don't match for sample BBD3690850842, json org is NUM_DD, db org is 
+2023-11-02 09:33:03,756:ERROR: no organisation in db for sample BBD4303402500
+2023-11-02 09:33:03,756:ERROR: organisation units don't match for sample BBD4303402500, json org is NUM_DD, db org is 
+2023-11-02 09:33:03,847:ERROR: no organisation in db for sample BBD9769524429
+2023-11-02 09:33:03,847:ERROR: organisation units don't match for sample BBD9769524429, json org is NUM_DD, db org is 
+2023-11-02 09:33:03,934:ERROR: no organisation in db for sample BBD2586298096
+2023-11-02 09:33:03,934:ERROR: organisation units don't match for sample BBD2586298096, json org is NUM_DD, db org is 
+2023-11-02 09:33:04,018:ERROR: no organisation in db for sample BBD6041129206
+2023-11-02 09:33:04,018:ERROR: organisation units don't match for sample BBD6041129206, json org is NUM_DD, db org is 
+2023-11-02 09:33:04,105:ERROR: no organisation in db for sample BBD9281459522
+2023-11-02 09:33:04,105:ERROR: organisation units don't match for sample BBD9281459522, json org is NUM_DD, db org is 
+2023-11-02 09:33:04,192:ERROR: no organisation in db for sample BBD6322674262
+2023-11-02 09:33:04,193:ERROR: organisation units don't match for sample BBD6322674262, json org is NUM_DD, db org is 
+2023-11-02 09:33:04,275:ERROR: no organisation in db for sample BBD0256994556
+2023-11-02 09:33:04,276:ERROR: organisation units don't match for sample BBD0256994556, json org is NUM_DD, db org is 
+2023-11-02 09:33:04,359:ERROR: no organisation in db for sample BBD2418859524
+2023-11-02 09:33:04,359:ERROR: organisation units don't match for sample BBD2418859524, json org is NUM_DD, db org is 
+2023-11-02 09:33:04,442:ERROR: no organisation in db for sample BBD4666625811
+2023-11-02 09:33:04,442:ERROR: organisation units don't match for sample BBD4666625811, json org is NUM_DD, db org is 
+2023-11-02 09:33:04,805:ERROR: no organisation in db for sample BBD0397728106
+2023-11-02 09:33:04,805:ERROR: organisation units don't match for sample BBD0397728106, json org is NUM_DD, db org is 
+2023-11-02 09:33:04,898:ERROR: no organisation in db for sample BBD0309623490
+2023-11-02 09:33:04,898:ERROR: organisation units don't match for sample BBD0309623490, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,050:ERROR: no organisation in db for sample BBD8710999196
+2023-11-02 09:33:06,050:ERROR: organisation units don't match for sample BBD8710999196, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,133:ERROR: no organisation in db for sample BBD0410113032
+2023-11-02 09:33:06,133:ERROR: organisation units don't match for sample BBD0410113032, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,218:ERROR: no organisation in db for sample BBD0894642982
+2023-11-02 09:33:06,218:ERROR: organisation units don't match for sample BBD0894642982, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,300:ERROR: no organisation in db for sample BBD8489848076
+2023-11-02 09:33:06,300:ERROR: organisation units don't match for sample BBD8489848076, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,381:ERROR: no organisation in db for sample BBD5224501095
+2023-11-02 09:33:06,381:ERROR: organisation units don't match for sample BBD5224501095, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,463:ERROR: no organisation in db for sample BBD8284425525
+2023-11-02 09:33:06,463:ERROR: organisation units don't match for sample BBD8284425525, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,572:ERROR: no organisation in db for sample BBD9021438417
+2023-11-02 09:33:06,572:ERROR: organisation units don't match for sample BBD9021438417, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,681:ERROR: no organisation in db for sample BBD8369247535
+2023-11-02 09:33:06,681:ERROR: organisation units don't match for sample BBD8369247535, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,783:ERROR: no organisation in db for sample BBD1794111617
+2023-11-02 09:33:06,784:ERROR: organisation units don't match for sample BBD1794111617, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,887:ERROR: no organisation in db for sample BBD1858548120
+2023-11-02 09:33:06,887:ERROR: organisation units don't match for sample BBD1858548120, json org is NUM_DD, db org is 
+2023-11-02 09:33:06,987:ERROR: no organisation in db for sample BBD4764422498
+2023-11-02 09:33:06,988:ERROR: organisation units don't match for sample BBD4764422498, json org is NUM_DD, db org is 
+2023-11-02 09:33:07,069:ERROR: no organisation in db for sample BBD1034779917
+2023-11-02 09:33:07,069:ERROR: organisation units don't match for sample BBD1034779917, json org is NUM_DD, db org is 
+2023-11-02 09:33:07,153:ERROR: no organisation in db for sample BBD4791809805
+2023-11-02 09:33:07,153:ERROR: organisation units don't match for sample BBD4791809805, json org is NUM_DD, db org is 
+2023-11-02 09:33:07,240:ERROR: no organisation in db for sample BBD2379423937
+2023-11-02 09:33:07,240:ERROR: organisation units don't match for sample BBD2379423937, json org is NUM_DD, db org is 
+2023-11-02 09:33:07,322:ERROR: no organisation in db for sample BBD6880417986
+2023-11-02 09:33:07,322:ERROR: organisation units don't match for sample BBD6880417986, json org is NUM_DD, db org is 
+2023-11-02 09:33:07,409:ERROR: no organisation in db for sample BBD0579290094
+2023-11-02 09:33:07,409:ERROR: organisation units don't match for sample BBD0579290094, json org is NUM_DD, db org is 
+2023-11-02 09:33:07,495:ERROR: no organisation in db for sample BBD7437865308
+2023-11-02 09:33:07,495:ERROR: organisation units don't match for sample BBD7437865308, json org is NUM_DD, db org is 
+2023-11-02 09:33:07,598:ERROR: no organisation in db for sample BBD5425583400
+2023-11-02 09:33:07,599:ERROR: organisation units don't match for sample BBD5425583400, json org is NUM_DD, db org is 
+2023-11-02 09:33:07,690:ERROR: no organisation in db for sample BBD4919820582
+2023-11-02 09:33:07,690:ERROR: organisation units don't match for sample BBD4919820582, json org is NUM_DD, db org is 
+2023-11-02 09:33:07,773:ERROR: no organisation in db for sample BBD3212551874
+2023-11-02 09:33:07,773:ERROR: organisation units don't match for sample BBD3212551874, json org is NUM_DD, db org is 
+2023-11-02 09:33:08,936:ERROR: no organisation in db for sample BBD4638766996
+2023-11-02 09:33:08,936:ERROR: organisation units don't match for sample BBD4638766996, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,024:ERROR: no organisation in db for sample BBD3606565192
+2023-11-02 09:33:09,024:ERROR: organisation units don't match for sample BBD3606565192, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,108:ERROR: no organisation in db for sample BBD5422496070
+2023-11-02 09:33:09,108:ERROR: organisation units don't match for sample BBD5422496070, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,193:ERROR: no organisation in db for sample BBD6549574810
+2023-11-02 09:33:09,193:ERROR: organisation units don't match for sample BBD6549574810, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,280:ERROR: no organisation in db for sample BBD5004135786
+2023-11-02 09:33:09,280:ERROR: organisation units don't match for sample BBD5004135786, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,365:ERROR: no organisation in db for sample BBD1786116802
+2023-11-02 09:33:09,366:ERROR: organisation units don't match for sample BBD1786116802, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,450:ERROR: no organisation in db for sample BBD5020518270
+2023-11-02 09:33:09,450:ERROR: organisation units don't match for sample BBD5020518270, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,538:ERROR: no organisation in db for sample BBD2528091071
+2023-11-02 09:33:09,538:ERROR: organisation units don't match for sample BBD2528091071, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,623:ERROR: no organisation in db for sample BBD5895296337
+2023-11-02 09:33:09,624:ERROR: organisation units don't match for sample BBD5895296337, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,653:ERROR: in sample 1366340001 is received date before collection date
+2023-11-02 09:33:09,696:ERROR: in sample BBD1237370946 is centrifugation date before collection date
+2023-11-02 09:33:09,754:ERROR: no organisation in db for sample BBD1237370946
+2023-11-02 09:33:09,754:ERROR: organisation units don't match for sample BBD1237370946, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,783:ERROR: in sample BBD0740405702 is centrifugation date before collection date
+2023-11-02 09:33:09,853:ERROR: no organisation in db for sample BBD0740405702
+2023-11-02 09:33:09,853:ERROR: organisation units don't match for sample BBD0740405702, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,894:ERROR: in sample BBD8407536450 is centrifugation date before collection date
+2023-11-02 09:33:09,956:ERROR: no organisation in db for sample BBD8407536450
+2023-11-02 09:33:09,956:ERROR: organisation units don't match for sample BBD8407536450, json org is NUM_DD, db org is 
+2023-11-02 09:33:09,985:ERROR: in sample BBD1137623081 is centrifugation date before collection date
+2023-11-02 09:33:10,044:ERROR: no organisation in db for sample BBD1137623081
+2023-11-02 09:33:10,045:ERROR: organisation units don't match for sample BBD1137623081, json org is NUM_DD, db org is 
+2023-11-02 09:33:10,074:ERROR: in sample BBD3234730258 is centrifugation date before collection date
+2023-11-02 09:33:10,134:ERROR: no organisation in db for sample BBD3234730258
+2023-11-02 09:33:10,134:ERROR: organisation units don't match for sample BBD3234730258, json org is NUM_DD, db org is 
+2023-11-02 09:33:10,148:ERROR: aliquotgroup Specimen/1053138 is childless.
+2023-11-02 09:33:10,148:ERROR: aliquotgroup Specimen/1053145 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053150 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053161 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053169 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053177 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053140 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053141 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053142 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053143 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053144 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053147 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053148 is childless.
+2023-11-02 09:33:10,149:ERROR: aliquotgroup Specimen/1053149 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053152 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053153 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053154 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053156 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053157 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053158 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053159 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053160 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053163 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053164 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053165 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053166 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053168 is childless.
+2023-11-02 09:33:10,150:ERROR: aliquotgroup Specimen/1053171 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1053172 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1053173 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1053174 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1053176 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1053179 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1053180 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1053181 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1053182 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1053183 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1055080 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1055087 is childless.
+2023-11-02 09:33:10,151:ERROR: aliquotgroup Specimen/1055092 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055103 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055111 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055119 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055082 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055083 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055084 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055085 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055086 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055089 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055090 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055091 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055094 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055095 is childless.
+2023-11-02 09:33:10,152:ERROR: aliquotgroup Specimen/1055096 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055098 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055099 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055100 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055101 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055102 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055105 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055106 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055107 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055108 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055110 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055113 is childless.
+2023-11-02 09:33:10,153:ERROR: aliquotgroup Specimen/1055114 is childless.
+2023-11-02 09:33:10,154:ERROR: aliquotgroup Specimen/1055115 is childless.
+2023-11-02 09:33:10,154:ERROR: aliquotgroup Specimen/1055116 is childless.
+2023-11-02 09:33:10,154:ERROR: aliquotgroup Specimen/1055118 is childless.
+2023-11-02 09:33:10,154:ERROR: aliquotgroup Specimen/1055121 is childless.
+2023-11-02 09:33:10,154:ERROR: aliquotgroup Specimen/1055122 is childless.
+2023-11-02 09:33:10,154:ERROR: aliquotgroup Specimen/1055123 is childless.
+2023-11-02 09:33:10,154:ERROR: aliquotgroup Specimen/1055124 is childless.
+2023-11-02 09:33:10,154:ERROR: aliquotgroup Specimen/1055125 is childless.
+2023-11-02 09:33:10,154:ERROR: aliquotgroup Specimen/1055126 is childless.
+2023-11-02 09:33:10,154:ERROR: aliquotgroup Specimen/1055128 is childless.
+2023-11-02 09:33:10,155:ERROR: aliquotgroup Specimen/1055129 is childless.
+2023-11-02 09:33:10,155:ERROR: aliquotgroup Specimen/1055130 is childless.
+2023-11-02 09:33:10,155:ERROR: aliquotgroup Specimen/1055131 is childless.
+2023-11-02 09:33:10,155:ERROR: aliquotgroup Specimen/1055132 is childless.
+2023-11-02 09:33:39,251:INFO: checking aliquotgroup Specimen/1053138
+2023-11-02 09:33:39,251:ERROR: aliquotgroup Specimen/1053138 has no parent.
+2023-11-02 09:34:22,119:INFO: checking aliquotgroup Specimen/1053138
+2023-11-02 09:34:22,119:ERROR: aliquotgroup Specimen/1053138 has no parent.
+2023-11-02 09:34:44,011:INFO: checking aliquotgroup Specimen/1053138
+2023-11-02 09:34:44,012:ERROR: aliquotgroup Specimen/1053138 has no parent.
+2023-11-02 09:35:26,604:INFO: checking aliquotgroup Specimen/1053138
+2023-11-02 09:35:26,604:ERROR: aliquotgroup Specimen/1053138 has no parent.
+2023-11-02 09:35:26,657:INFO: checking aliquotgroup Specimen/1053145
+2023-11-02 09:35:26,657:ERROR: aliquotgroup Specimen/1053145 has no parent.
+2023-11-02 09:35:26,700:INFO: checking aliquotgroup Specimen/1053150
+2023-11-02 09:35:26,700:ERROR: aliquotgroup Specimen/1053150 has no parent.
+2023-11-02 09:35:26,742:INFO: checking aliquotgroup Specimen/1053161
+2023-11-02 09:35:26,743:ERROR: aliquotgroup Specimen/1053161 has no parent.
+2023-11-02 09:35:26,795:INFO: checking aliquotgroup Specimen/1053169
+2023-11-02 09:35:26,795:ERROR: aliquotgroup Specimen/1053169 has no parent.
+2023-11-02 09:35:26,849:INFO: checking aliquotgroup Specimen/1053177
+2023-11-02 09:35:26,849:ERROR: aliquotgroup Specimen/1053177 has no parent.
+2023-11-02 09:35:26,896:INFO: checking aliquotgroup Specimen/1053139
+2023-11-02 09:35:26,896:INFO: checking aliquotgroup Specimen/1053146
+2023-11-02 09:35:26,897:INFO: checking aliquotgroup Specimen/1053151
+2023-11-02 09:35:26,897:INFO: checking aliquotgroup Specimen/1053155
+2023-11-02 09:35:26,897:INFO: checking aliquotgroup Specimen/1053162
+2023-11-02 09:35:26,897:INFO: checking aliquotgroup Specimen/1053167
+2023-11-02 09:36:06,171:INFO: checking aliquotgroup Specimen/1053138
+2023-11-02 09:36:06,171:ERROR: aliquotgroup Specimen/1053138 has no parent.
+2023-11-02 09:36:06,226:INFO: checking aliquotgroup Specimen/1053145
+2023-11-02 09:36:06,226:ERROR: aliquotgroup Specimen/1053145 has no parent.
+2023-11-02 09:36:06,271:INFO: checking aliquotgroup Specimen/1053150
+2023-11-02 09:36:06,271:ERROR: aliquotgroup Specimen/1053150 has no parent.
+2023-11-02 09:36:06,313:INFO: checking aliquotgroup Specimen/1053161
+2023-11-02 09:36:06,313:ERROR: aliquotgroup Specimen/1053161 has no parent.
+2023-11-02 09:36:06,375:INFO: checking aliquotgroup Specimen/1053169
+2023-11-02 09:36:06,376:ERROR: aliquotgroup Specimen/1053169 has no parent.
+2023-11-02 09:36:06,437:INFO: checking aliquotgroup Specimen/1053177
+2023-11-02 09:36:06,437:ERROR: aliquotgroup Specimen/1053177 has no parent.
+2023-11-02 09:36:06,490:INFO: checking aliquotgroup Specimen/1053139
+2023-11-02 09:36:06,490:INFO: checking aliquotgroup Specimen/1053146
+2023-11-02 09:36:06,490:INFO: checking aliquotgroup Specimen/1053151
+2023-11-02 09:36:06,490:INFO: checking aliquotgroup Specimen/1053155
+2023-11-02 09:36:06,491:INFO: checking aliquotgroup Specimen/1053162
+2023-11-02 09:36:06,491:INFO: checking aliquotgroup Specimen/1053167
+2023-11-02 09:36:06,491:ERROR: material of aliquotegroup Specimen/1053167 is NUM_RNA, but the material of its primary-parent 1366300399 is NUM_pbmc_edta
+2023-11-02 09:36:06,491:INFO: checking aliquotgroup Specimen/1053170
+2023-11-02 09:36:06,491:INFO: checking aliquotgroup Specimen/1053175
+2023-11-02 09:36:06,492:ERROR: material of aliquotegroup Specimen/1053175 is NUM_RNA, but the material of its primary-parent 1366300499 is NUM_pbmc_edta
+2023-11-02 09:36:06,492:INFO: checking aliquotgroup Specimen/1053178
+2023-11-02 09:36:06,492:INFO: checking aliquotgroup Specimen/1053140
+2023-11-02 09:36:06,492:ERROR: aliquotgroup Specimen/1053140 has no parent.
+2023-11-02 09:36:06,581:ERROR: no organisation in db for sample BBD7587588769
+2023-11-02 09:36:06,581:ERROR: organisation units don't match for sample BBD7587588769, json org is NUM_DD, db org is 
+2023-11-02 09:36:06,599:INFO: checking aliquotgroup Specimen/1053141
+2023-11-02 09:36:06,599:ERROR: aliquotgroup Specimen/1053141 has no parent.
+2023-11-02 09:36:06,673:ERROR: no organisation in db for sample BBD7923797710
+2023-11-02 09:36:06,673:ERROR: organisation units don't match for sample BBD7923797710, json org is NUM_DD, db org is 
+2023-11-02 09:36:06,689:INFO: checking aliquotgroup Specimen/1053142
+2023-11-02 09:36:06,689:ERROR: aliquotgroup Specimen/1053142 has no parent.
+2023-11-02 09:36:06,772:ERROR: no organisation in db for sample BBD5136710309
+2023-11-02 09:36:06,773:ERROR: organisation units don't match for sample BBD5136710309, json org is NUM_DD, db org is 
+2023-11-02 09:36:06,790:INFO: checking aliquotgroup Specimen/1053143
+2023-11-02 09:36:06,790:ERROR: aliquotgroup Specimen/1053143 has no parent.
+2023-11-02 09:36:06,859:ERROR: no organisation in db for sample BBD3892060926
+2023-11-02 09:36:06,859:ERROR: organisation units don't match for sample BBD3892060926, json org is NUM_DD, db org is 
+2023-11-02 09:36:06,873:INFO: checking aliquotgroup Specimen/1053144
+2023-11-02 09:36:06,873:ERROR: aliquotgroup Specimen/1053144 has no parent.
+2023-11-02 09:36:06,952:ERROR: no organisation in db for sample BBD1836631974
+2023-11-02 09:36:06,952:ERROR: organisation units don't match for sample BBD1836631974, json org is NUM_DD, db org is 
+2023-11-02 09:36:06,967:INFO: checking aliquotgroup Specimen/1053147
+2023-11-02 09:36:06,968:ERROR: aliquotgroup Specimen/1053147 has no parent.
+2023-11-02 09:36:07,044:ERROR: no organisation in db for sample BBD6178189752
+2023-11-02 09:36:07,044:ERROR: organisation units don't match for sample BBD6178189752, json org is NUM_DD, db org is 
+2023-11-02 09:36:07,058:INFO: checking aliquotgroup Specimen/1053148
+2023-11-02 09:36:07,059:ERROR: aliquotgroup Specimen/1053148 has no parent.
+2023-11-02 09:36:07,161:ERROR: no organisation in db for sample BBD8351255809
+2023-11-02 09:36:07,161:ERROR: organisation units don't match for sample BBD8351255809, json org is NUM_DD, db org is 
+2023-11-02 09:36:07,188:INFO: checking aliquotgroup Specimen/1053149
+2023-11-02 09:36:07,189:ERROR: aliquotgroup Specimen/1053149 has no parent.
+2023-11-02 09:36:07,270:ERROR: no organisation in db for sample BBD4793204149
+2023-11-02 09:36:07,270:ERROR: organisation units don't match for sample BBD4793204149, json org is NUM_DD, db org is 
+2023-11-02 09:36:07,287:INFO: checking aliquotgroup Specimen/1053152
+2023-11-02 09:36:07,287:ERROR: aliquotgroup Specimen/1053152 has no parent.
+2023-11-02 09:36:07,382:ERROR: no organisation in db for sample BBD5999932695
+2023-11-02 09:36:07,383:ERROR: organisation units don't match for sample BBD5999932695, json org is NUM_DD, db org is 
+2023-11-02 09:36:07,397:INFO: checking aliquotgroup Specimen/1053153
+2023-11-02 09:36:07,397:ERROR: aliquotgroup Specimen/1053153 has no parent.
+2023-11-02 09:36:07,466:ERROR: no organisation in db for sample BBD2537587360
+2023-11-02 09:36:07,466:ERROR: organisation units don't match for sample BBD2537587360, json org is NUM_DD, db org is 
+2023-11-02 09:36:07,480:INFO: checking aliquotgroup Specimen/1053154
+2023-11-02 09:36:07,481:ERROR: aliquotgroup Specimen/1053154 has no parent.
+2023-11-02 09:36:07,577:ERROR: no organisation in db for sample BBD9207867146
+2023-11-02 09:36:07,578:ERROR: organisation units don't match for sample BBD9207867146, json org is NUM_DD, db org is 
+2023-11-02 09:36:07,598:INFO: checking aliquotgroup Specimen/1053156
+2023-11-02 09:36:07,599:ERROR: aliquotgroup Specimen/1053156 has no parent.
+2023-11-02 09:36:07,690:ERROR: no organisation in db for sample BBD7506195259
+2023-11-02 09:36:07,690:ERROR: organisation units don't match for sample BBD7506195259, json org is NUM_DD, db org is 
+2023-11-02 09:36:07,711:INFO: checking aliquotgroup Specimen/1053157
+2023-11-02 09:36:07,711:ERROR: aliquotgroup Specimen/1053157 has no parent.
+2023-11-02 09:36:07,795:ERROR: no organisation in db for sample BBD1236382437
+2023-11-02 09:36:07,795:ERROR: organisation units don't match for sample BBD1236382437, json org is NUM_DD, db org is 
+2023-11-02 09:36:08,859:INFO: checking aliquotgroup Specimen/1053158
+2023-11-02 09:36:08,860:ERROR: aliquotgroup Specimen/1053158 has no parent.
+2023-11-02 09:36:08,931:ERROR: no organisation in db for sample BBD0674842616
+2023-11-02 09:36:08,931:ERROR: organisation units don't match for sample BBD0674842616, json org is NUM_DD, db org is 
+2023-11-02 09:36:08,946:INFO: checking aliquotgroup Specimen/1053159
+2023-11-02 09:36:08,946:ERROR: aliquotgroup Specimen/1053159 has no parent.
+2023-11-02 09:36:09,016:ERROR: no organisation in db for sample BBD4471585397
+2023-11-02 09:36:09,016:ERROR: organisation units don't match for sample BBD4471585397, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,031:INFO: checking aliquotgroup Specimen/1053160
+2023-11-02 09:36:09,031:ERROR: aliquotgroup Specimen/1053160 has no parent.
+2023-11-02 09:36:09,102:ERROR: no organisation in db for sample BBD0488843753
+2023-11-02 09:36:09,102:ERROR: organisation units don't match for sample BBD0488843753, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,116:INFO: checking aliquotgroup Specimen/1053163
+2023-11-02 09:36:09,117:ERROR: aliquotgroup Specimen/1053163 has no parent.
+2023-11-02 09:36:09,197:ERROR: no organisation in db for sample BBD4330891475
+2023-11-02 09:36:09,197:ERROR: organisation units don't match for sample BBD4330891475, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,211:INFO: checking aliquotgroup Specimen/1053164
+2023-11-02 09:36:09,211:ERROR: aliquotgroup Specimen/1053164 has no parent.
+2023-11-02 09:36:09,281:ERROR: no organisation in db for sample BBD1255762915
+2023-11-02 09:36:09,282:ERROR: organisation units don't match for sample BBD1255762915, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,296:INFO: checking aliquotgroup Specimen/1053165
+2023-11-02 09:36:09,296:ERROR: aliquotgroup Specimen/1053165 has no parent.
+2023-11-02 09:36:09,366:ERROR: no organisation in db for sample BBD8702978987
+2023-11-02 09:36:09,366:ERROR: organisation units don't match for sample BBD8702978987, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,379:INFO: checking aliquotgroup Specimen/1053166
+2023-11-02 09:36:09,379:ERROR: aliquotgroup Specimen/1053166 has no parent.
+2023-11-02 09:36:09,452:ERROR: no organisation in db for sample BBD7211358645
+2023-11-02 09:36:09,452:ERROR: organisation units don't match for sample BBD7211358645, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,467:INFO: checking aliquotgroup Specimen/1053168
+2023-11-02 09:36:09,468:ERROR: aliquotgroup Specimen/1053168 has no parent.
+2023-11-02 09:36:09,541:ERROR: no organisation in db for sample BBD9138255518
+2023-11-02 09:36:09,541:ERROR: organisation units don't match for sample BBD9138255518, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,556:INFO: checking aliquotgroup Specimen/1053171
+2023-11-02 09:36:09,556:ERROR: aliquotgroup Specimen/1053171 has no parent.
+2023-11-02 09:36:09,631:ERROR: no organisation in db for sample BBD3690850842
+2023-11-02 09:36:09,632:ERROR: organisation units don't match for sample BBD3690850842, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,646:INFO: checking aliquotgroup Specimen/1053172
+2023-11-02 09:36:09,646:ERROR: aliquotgroup Specimen/1053172 has no parent.
+2023-11-02 09:36:09,720:ERROR: no organisation in db for sample BBD4303402500
+2023-11-02 09:36:09,721:ERROR: organisation units don't match for sample BBD4303402500, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,737:INFO: checking aliquotgroup Specimen/1053173
+2023-11-02 09:36:09,737:ERROR: aliquotgroup Specimen/1053173 has no parent.
+2023-11-02 09:36:09,819:ERROR: no organisation in db for sample BBD9769524429
+2023-11-02 09:36:09,819:ERROR: organisation units don't match for sample BBD9769524429, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,843:INFO: checking aliquotgroup Specimen/1053174
+2023-11-02 09:36:09,843:ERROR: aliquotgroup Specimen/1053174 has no parent.
+2023-11-02 09:36:09,917:ERROR: no organisation in db for sample BBD2586298096
+2023-11-02 09:36:09,917:ERROR: organisation units don't match for sample BBD2586298096, json org is NUM_DD, db org is 
+2023-11-02 09:36:09,932:INFO: checking aliquotgroup Specimen/1053176
+2023-11-02 09:36:09,932:ERROR: aliquotgroup Specimen/1053176 has no parent.
+2023-11-02 09:36:10,002:ERROR: no organisation in db for sample BBD6041129206
+2023-11-02 09:36:10,002:ERROR: organisation units don't match for sample BBD6041129206, json org is NUM_DD, db org is 
+2023-11-02 09:36:10,015:INFO: checking aliquotgroup Specimen/1053179
+2023-11-02 09:36:10,016:ERROR: aliquotgroup Specimen/1053179 has no parent.
+2023-11-02 09:36:10,085:ERROR: no organisation in db for sample BBD9281459522
+2023-11-02 09:36:10,085:ERROR: organisation units don't match for sample BBD9281459522, json org is NUM_DD, db org is 
+2023-11-02 09:36:10,101:INFO: checking aliquotgroup Specimen/1053180
+2023-11-02 09:36:10,101:ERROR: aliquotgroup Specimen/1053180 has no parent.
+2023-11-02 09:36:10,175:ERROR: no organisation in db for sample BBD6322674262
+2023-11-02 09:36:10,175:ERROR: organisation units don't match for sample BBD6322674262, json org is NUM_DD, db org is 
+2023-11-02 09:36:10,189:INFO: checking aliquotgroup Specimen/1053181
+2023-11-02 09:36:10,189:ERROR: aliquotgroup Specimen/1053181 has no parent.
+2023-11-02 09:36:10,262:ERROR: no organisation in db for sample BBD0256994556
+2023-11-02 09:36:10,262:ERROR: organisation units don't match for sample BBD0256994556, json org is NUM_DD, db org is 
+2023-11-02 09:36:10,278:INFO: checking aliquotgroup Specimen/1053182
+2023-11-02 09:36:10,278:ERROR: aliquotgroup Specimen/1053182 has no parent.
+2023-11-02 09:36:10,350:ERROR: no organisation in db for sample BBD2418859524
+2023-11-02 09:36:10,350:ERROR: organisation units don't match for sample BBD2418859524, json org is NUM_DD, db org is 
+2023-11-02 09:36:10,364:INFO: checking aliquotgroup Specimen/1053183
+2023-11-02 09:36:10,364:ERROR: aliquotgroup Specimen/1053183 has no parent.
+2023-11-02 09:36:10,435:ERROR: no organisation in db for sample BBD4666625811
+2023-11-02 09:36:10,435:ERROR: organisation units don't match for sample BBD4666625811, json org is NUM_DD, db org is 
+2023-11-02 09:36:10,450:INFO: checking aliquotgroup Specimen/1055080
+2023-11-02 09:36:10,450:ERROR: aliquotgroup Specimen/1055080 has no parent.
+2023-11-02 09:36:10,493:INFO: checking aliquotgroup Specimen/1055087
+2023-11-02 09:36:10,493:ERROR: aliquotgroup Specimen/1055087 has no parent.
+2023-11-02 09:36:10,536:INFO: checking aliquotgroup Specimen/1055092
+2023-11-02 09:36:10,536:ERROR: aliquotgroup Specimen/1055092 has no parent.
+2023-11-02 09:36:10,580:INFO: checking aliquotgroup Specimen/1055103
+2023-11-02 09:36:10,580:ERROR: aliquotgroup Specimen/1055103 has no parent.
+2023-11-02 09:36:11,692:INFO: checking aliquotgroup Specimen/1055111
+2023-11-02 09:36:11,693:ERROR: aliquotgroup Specimen/1055111 has no parent.
+2023-11-02 09:36:11,738:INFO: checking aliquotgroup Specimen/1055119
+2023-11-02 09:36:11,739:ERROR: aliquotgroup Specimen/1055119 has no parent.
+2023-11-02 09:36:11,782:INFO: checking aliquotgroup Specimen/1055081
+2023-11-02 09:36:11,783:INFO: checking aliquotgroup Specimen/1055088
+2023-11-02 09:36:11,783:INFO: checking aliquotgroup Specimen/1055093
+2023-11-02 09:36:11,783:INFO: checking aliquotgroup Specimen/1055097
+2023-11-02 09:36:11,783:INFO: checking aliquotgroup Specimen/1055104
+2023-11-02 09:36:11,783:INFO: checking aliquotgroup Specimen/1055109
+2023-11-02 09:36:11,783:ERROR: material of aliquotegroup Specimen/1055109 is NUM_RNA, but the material of its primary-parent 1366320391 is NUM_pbmc_edta
+2023-11-02 09:36:11,784:INFO: checking aliquotgroup Specimen/1055112
+2023-11-02 09:36:11,784:INFO: checking aliquotgroup Specimen/1055117
+2023-11-02 09:36:11,784:ERROR: material of aliquotegroup Specimen/1055117 is NUM_RNA, but the material of its primary-parent 1366320491 is NUM_pbmc_edta
+2023-11-02 09:36:11,784:INFO: checking aliquotgroup Specimen/1055120
+2023-11-02 09:36:11,784:INFO: checking aliquotgroup Specimen/1055082
+2023-11-02 09:36:11,784:ERROR: aliquotgroup Specimen/1055082 has no parent.
+2023-11-02 09:36:11,855:ERROR: no organisation in db for sample BBD0397728106
+2023-11-02 09:36:11,856:ERROR: organisation units don't match for sample BBD0397728106, json org is NUM_DD, db org is 
+2023-11-02 09:36:11,870:INFO: checking aliquotgroup Specimen/1055083
+2023-11-02 09:36:11,871:ERROR: aliquotgroup Specimen/1055083 has no parent.
+2023-11-02 09:36:11,944:ERROR: no organisation in db for sample BBD0309623490
+2023-11-02 09:36:11,944:ERROR: organisation units don't match for sample BBD0309623490, json org is NUM_DD, db org is 
+2023-11-02 09:36:11,959:INFO: checking aliquotgroup Specimen/1055084
+2023-11-02 09:36:11,959:ERROR: aliquotgroup Specimen/1055084 has no parent.
+2023-11-02 09:36:12,053:ERROR: no organisation in db for sample BBD8710999196
+2023-11-02 09:36:12,054:ERROR: organisation units don't match for sample BBD8710999196, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,073:INFO: checking aliquotgroup Specimen/1055085
+2023-11-02 09:36:12,074:ERROR: aliquotgroup Specimen/1055085 has no parent.
+2023-11-02 09:36:12,144:ERROR: no organisation in db for sample BBD0410113032
+2023-11-02 09:36:12,144:ERROR: organisation units don't match for sample BBD0410113032, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,163:INFO: checking aliquotgroup Specimen/1055086
+2023-11-02 09:36:12,163:ERROR: aliquotgroup Specimen/1055086 has no parent.
+2023-11-02 09:36:12,245:ERROR: no organisation in db for sample BBD0894642982
+2023-11-02 09:36:12,245:ERROR: organisation units don't match for sample BBD0894642982, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,270:INFO: checking aliquotgroup Specimen/1055089
+2023-11-02 09:36:12,271:ERROR: aliquotgroup Specimen/1055089 has no parent.
+2023-11-02 09:36:12,342:ERROR: no organisation in db for sample BBD8489848076
+2023-11-02 09:36:12,342:ERROR: organisation units don't match for sample BBD8489848076, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,356:INFO: checking aliquotgroup Specimen/1055090
+2023-11-02 09:36:12,356:ERROR: aliquotgroup Specimen/1055090 has no parent.
+2023-11-02 09:36:12,428:ERROR: no organisation in db for sample BBD5224501095
+2023-11-02 09:36:12,428:ERROR: organisation units don't match for sample BBD5224501095, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,442:INFO: checking aliquotgroup Specimen/1055091
+2023-11-02 09:36:12,442:ERROR: aliquotgroup Specimen/1055091 has no parent.
+2023-11-02 09:36:12,513:ERROR: no organisation in db for sample BBD8284425525
+2023-11-02 09:36:12,513:ERROR: organisation units don't match for sample BBD8284425525, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,526:INFO: checking aliquotgroup Specimen/1055094
+2023-11-02 09:36:12,527:ERROR: aliquotgroup Specimen/1055094 has no parent.
+2023-11-02 09:36:12,600:ERROR: no organisation in db for sample BBD9021438417
+2023-11-02 09:36:12,601:ERROR: organisation units don't match for sample BBD9021438417, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,615:INFO: checking aliquotgroup Specimen/1055095
+2023-11-02 09:36:12,616:ERROR: aliquotgroup Specimen/1055095 has no parent.
+2023-11-02 09:36:12,687:ERROR: no organisation in db for sample BBD8369247535
+2023-11-02 09:36:12,687:ERROR: organisation units don't match for sample BBD8369247535, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,704:INFO: checking aliquotgroup Specimen/1055096
+2023-11-02 09:36:12,704:ERROR: aliquotgroup Specimen/1055096 has no parent.
+2023-11-02 09:36:12,779:ERROR: no organisation in db for sample BBD1794111617
+2023-11-02 09:36:12,779:ERROR: organisation units don't match for sample BBD1794111617, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,795:INFO: checking aliquotgroup Specimen/1055098
+2023-11-02 09:36:12,796:ERROR: aliquotgroup Specimen/1055098 has no parent.
+2023-11-02 09:36:12,868:ERROR: no organisation in db for sample BBD1858548120
+2023-11-02 09:36:12,868:ERROR: organisation units don't match for sample BBD1858548120, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,885:INFO: checking aliquotgroup Specimen/1055099
+2023-11-02 09:36:12,885:ERROR: aliquotgroup Specimen/1055099 has no parent.
+2023-11-02 09:36:12,954:ERROR: no organisation in db for sample BBD4764422498
+2023-11-02 09:36:12,954:ERROR: organisation units don't match for sample BBD4764422498, json org is NUM_DD, db org is 
+2023-11-02 09:36:12,968:INFO: checking aliquotgroup Specimen/1055100
+2023-11-02 09:36:12,968:ERROR: aliquotgroup Specimen/1055100 has no parent.
+2023-11-02 09:36:13,036:ERROR: no organisation in db for sample BBD1034779917
+2023-11-02 09:36:13,037:ERROR: organisation units don't match for sample BBD1034779917, json org is NUM_DD, db org is 
+2023-11-02 09:36:13,051:INFO: checking aliquotgroup Specimen/1055101
+2023-11-02 09:36:13,052:ERROR: aliquotgroup Specimen/1055101 has no parent.
+2023-11-02 09:36:13,144:ERROR: no organisation in db for sample BBD4791809805
+2023-11-02 09:36:13,144:ERROR: organisation units don't match for sample BBD4791809805, json org is NUM_DD, db org is 
+2023-11-02 09:36:13,159:INFO: checking aliquotgroup Specimen/1055102
+2023-11-02 09:36:13,159:ERROR: aliquotgroup Specimen/1055102 has no parent.
+2023-11-02 09:36:13,230:ERROR: no organisation in db for sample BBD2379423937
+2023-11-02 09:36:13,231:ERROR: organisation units don't match for sample BBD2379423937, json org is NUM_DD, db org is 
+2023-11-02 09:36:13,246:INFO: checking aliquotgroup Specimen/1055105
+2023-11-02 09:36:13,246:ERROR: aliquotgroup Specimen/1055105 has no parent.
+2023-11-02 09:36:13,320:ERROR: no organisation in db for sample BBD6880417986
+2023-11-02 09:36:13,320:ERROR: organisation units don't match for sample BBD6880417986, json org is NUM_DD, db org is 
+2023-11-02 09:36:13,335:INFO: checking aliquotgroup Specimen/1055106
+2023-11-02 09:36:13,335:ERROR: aliquotgroup Specimen/1055106 has no parent.
+2023-11-02 09:36:13,406:ERROR: no organisation in db for sample BBD0579290094
+2023-11-02 09:36:13,407:ERROR: organisation units don't match for sample BBD0579290094, json org is NUM_DD, db org is 
+2023-11-02 09:36:13,421:INFO: checking aliquotgroup Specimen/1055107
+2023-11-02 09:36:13,421:ERROR: aliquotgroup Specimen/1055107 has no parent.
+2023-11-02 09:36:14,583:ERROR: no organisation in db for sample BBD7437865308
+2023-11-02 09:36:14,583:ERROR: organisation units don't match for sample BBD7437865308, json org is NUM_DD, db org is 
+2023-11-02 09:36:14,600:INFO: checking aliquotgroup Specimen/1055108
+2023-11-02 09:36:14,600:ERROR: aliquotgroup Specimen/1055108 has no parent.
+2023-11-02 09:36:14,672:ERROR: no organisation in db for sample BBD5425583400
+2023-11-02 09:36:14,672:ERROR: organisation units don't match for sample BBD5425583400, json org is NUM_DD, db org is 
+2023-11-02 09:36:14,686:INFO: checking aliquotgroup Specimen/1055110
+2023-11-02 09:36:14,687:ERROR: aliquotgroup Specimen/1055110 has no parent.
+2023-11-02 09:36:14,758:ERROR: no organisation in db for sample BBD4919820582
+2023-11-02 09:36:14,758:ERROR: organisation units don't match for sample BBD4919820582, json org is NUM_DD, db org is 
+2023-11-02 09:36:14,772:INFO: checking aliquotgroup Specimen/1055113
+2023-11-02 09:36:14,772:ERROR: aliquotgroup Specimen/1055113 has no parent.
+2023-11-02 09:36:14,841:ERROR: no organisation in db for sample BBD3212551874
+2023-11-02 09:36:14,841:ERROR: organisation units don't match for sample BBD3212551874, json org is NUM_DD, db org is 
+2023-11-02 09:36:14,860:INFO: checking aliquotgroup Specimen/1055114
+2023-11-02 09:36:14,860:ERROR: aliquotgroup Specimen/1055114 has no parent.
+2023-11-02 09:36:14,964:ERROR: no organisation in db for sample BBD4638766996
+2023-11-02 09:36:14,964:ERROR: organisation units don't match for sample BBD4638766996, json org is NUM_DD, db org is 
+2023-11-02 09:36:14,984:INFO: checking aliquotgroup Specimen/1055115
+2023-11-02 09:36:14,984:ERROR: aliquotgroup Specimen/1055115 has no parent.
+2023-11-02 09:36:15,056:ERROR: no organisation in db for sample BBD3606565192
+2023-11-02 09:36:15,056:ERROR: organisation units don't match for sample BBD3606565192, json org is NUM_DD, db org is 
+2023-11-02 09:36:15,069:INFO: checking aliquotgroup Specimen/1055116
+2023-11-02 09:36:15,070:ERROR: aliquotgroup Specimen/1055116 has no parent.
+2023-11-02 09:36:15,141:ERROR: no organisation in db for sample BBD5422496070
+2023-11-02 09:36:15,141:ERROR: organisation units don't match for sample BBD5422496070, json org is NUM_DD, db org is 
+2023-11-02 09:36:15,155:INFO: checking aliquotgroup Specimen/1055118
+2023-11-02 09:36:15,156:ERROR: aliquotgroup Specimen/1055118 has no parent.
+2023-11-02 09:36:15,236:ERROR: no organisation in db for sample BBD6549574810
+2023-11-02 09:36:15,237:ERROR: organisation units don't match for sample BBD6549574810, json org is NUM_DD, db org is 
+2023-11-02 09:36:15,257:INFO: checking aliquotgroup Specimen/1055121
+2023-11-02 09:36:15,258:ERROR: aliquotgroup Specimen/1055121 has no parent.
+2023-11-02 09:36:15,356:ERROR: no organisation in db for sample BBD5004135786
+2023-11-02 09:36:15,356:ERROR: organisation units don't match for sample BBD5004135786, json org is NUM_DD, db org is 
+2023-11-02 09:36:15,369:INFO: checking aliquotgroup Specimen/1055122
+2023-11-02 09:36:15,369:ERROR: aliquotgroup Specimen/1055122 has no parent.
+2023-11-02 09:36:15,440:ERROR: no organisation in db for sample BBD1786116802
+2023-11-02 09:36:15,440:ERROR: organisation units don't match for sample BBD1786116802, json org is NUM_DD, db org is 
+2023-11-02 09:36:15,455:INFO: checking aliquotgroup Specimen/1055123
+2023-11-02 09:36:15,456:ERROR: aliquotgroup Specimen/1055123 has no parent.
+2023-11-02 09:36:15,538:ERROR: no organisation in db for sample BBD5020518270
+2023-11-02 09:36:15,539:ERROR: organisation units don't match for sample BBD5020518270, json org is NUM_DD, db org is 
+2023-11-02 09:36:15,563:INFO: checking aliquotgroup Specimen/1055124
+2023-11-02 09:36:15,563:ERROR: aliquotgroup Specimen/1055124 has no parent.
+2023-11-02 09:36:15,633:ERROR: no organisation in db for sample BBD2528091071
+2023-11-02 09:36:15,634:ERROR: organisation units don't match for sample BBD2528091071, json org is NUM_DD, db org is 
+2023-11-02 09:36:15,648:INFO: checking aliquotgroup Specimen/1055125
+2023-11-02 09:36:15,648:ERROR: aliquotgroup Specimen/1055125 has no parent.
+2023-11-02 09:36:15,716:ERROR: no organisation in db for sample BBD5895296337
+2023-11-02 09:36:15,716:ERROR: organisation units don't match for sample BBD5895296337, json org is NUM_DD, db org is 
+2023-11-02 09:36:15,730:INFO: checking aliquotgroup Specimen/1055126
+2023-11-02 09:36:15,731:ERROR: aliquotgroup Specimen/1055126 has no parent.
+2023-11-02 09:36:15,756:ERROR: in sample 1366340001 is received date before collection date
+2023-11-02 09:36:15,792:INFO: checking aliquotgroup Specimen/1055127
+2023-11-02 09:36:15,792:INFO: checking aliquotgroup Specimen/1055128
+2023-11-02 09:36:15,792:ERROR: aliquotgroup Specimen/1055128 has no parent.
+2023-11-02 09:36:15,806:ERROR: in sample BBD1237370946 is centrifugation date before collection date
+2023-11-02 09:36:15,860:ERROR: no organisation in db for sample BBD1237370946
+2023-11-02 09:36:15,860:ERROR: organisation units don't match for sample BBD1237370946, json org is NUM_DD, db org is 
+2023-11-02 09:36:15,874:INFO: checking aliquotgroup Specimen/1055129
+2023-11-02 09:36:15,874:ERROR: aliquotgroup Specimen/1055129 has no parent.
+2023-11-02 09:36:15,888:ERROR: in sample BBD0740405702 is centrifugation date before collection date
+2023-11-02 09:36:15,944:ERROR: no organisation in db for sample BBD0740405702
+2023-11-02 09:36:15,944:ERROR: organisation units don't match for sample BBD0740405702, json org is NUM_DD, db org is 
+2023-11-02 09:36:15,958:INFO: checking aliquotgroup Specimen/1055130
+2023-11-02 09:36:15,958:ERROR: aliquotgroup Specimen/1055130 has no parent.
+2023-11-02 09:36:15,972:ERROR: in sample BBD8407536450 is centrifugation date before collection date
+2023-11-02 09:36:16,035:ERROR: no organisation in db for sample BBD8407536450
+2023-11-02 09:36:16,035:ERROR: organisation units don't match for sample BBD8407536450, json org is NUM_DD, db org is 
+2023-11-02 09:36:16,058:INFO: checking aliquotgroup Specimen/1055131
+2023-11-02 09:36:16,058:ERROR: aliquotgroup Specimen/1055131 has no parent.
+2023-11-02 09:36:16,074:ERROR: in sample BBD1137623081 is centrifugation date before collection date
+2023-11-02 09:36:16,132:ERROR: no organisation in db for sample BBD1137623081
+2023-11-02 09:36:16,132:ERROR: organisation units don't match for sample BBD1137623081, json org is NUM_DD, db org is 
+2023-11-02 09:36:16,147:INFO: checking aliquotgroup Specimen/1055132
+2023-11-02 09:36:16,147:ERROR: aliquotgroup Specimen/1055132 has no parent.
+2023-11-02 09:36:16,161:ERROR: in sample BBD3234730258 is centrifugation date before collection date
+2023-11-02 09:36:16,214:ERROR: no organisation in db for sample BBD3234730258
+2023-11-02 09:36:16,214:ERROR: organisation units don't match for sample BBD3234730258, json org is NUM_DD, db org is 
+2023-11-02 09:36:16,229:ERROR: aliquotgroup Specimen/1053138 is childless.
+2023-11-02 09:36:16,229:ERROR: aliquotgroup Specimen/1053145 is childless.
+2023-11-02 09:36:16,229:ERROR: aliquotgroup Specimen/1053150 is childless.
+2023-11-02 09:36:16,229:ERROR: aliquotgroup Specimen/1053161 is childless.
+2023-11-02 09:36:16,229:ERROR: aliquotgroup Specimen/1053169 is childless.
+2023-11-02 09:36:16,229:ERROR: aliquotgroup Specimen/1053177 is childless.
+2023-11-02 09:36:16,230:ERROR: aliquotgroup Specimen/1053140 is childless.
+2023-11-02 09:36:16,230:ERROR: aliquotgroup Specimen/1053141 is childless.
+2023-11-02 09:36:16,230:ERROR: aliquotgroup Specimen/1053142 is childless.
+2023-11-02 09:36:16,230:ERROR: aliquotgroup Specimen/1053143 is childless.
+2023-11-02 09:36:16,230:ERROR: aliquotgroup Specimen/1053144 is childless.
+2023-11-02 09:36:16,230:ERROR: aliquotgroup Specimen/1053147 is childless.
+2023-11-02 09:36:16,230:ERROR: aliquotgroup Specimen/1053148 is childless.
+2023-11-02 09:36:16,230:ERROR: aliquotgroup Specimen/1053149 is childless.
+2023-11-02 09:36:16,230:ERROR: aliquotgroup Specimen/1053152 is childless.
+2023-11-02 09:36:16,231:ERROR: aliquotgroup Specimen/1053153 is childless.
+2023-11-02 09:36:16,231:ERROR: aliquotgroup Specimen/1053154 is childless.
+2023-11-02 09:36:16,231:ERROR: aliquotgroup Specimen/1053156 is childless.
+2023-11-02 09:36:16,231:ERROR: aliquotgroup Specimen/1053157 is childless.
+2023-11-02 09:36:16,231:ERROR: aliquotgroup Specimen/1053158 is childless.
+2023-11-02 09:36:16,231:ERROR: aliquotgroup Specimen/1053159 is childless.
+2023-11-02 09:36:16,231:ERROR: aliquotgroup Specimen/1053160 is childless.
+2023-11-02 09:36:16,231:ERROR: aliquotgroup Specimen/1053163 is childless.
+2023-11-02 09:36:16,231:ERROR: aliquotgroup Specimen/1053164 is childless.
+2023-11-02 09:36:16,231:ERROR: aliquotgroup Specimen/1053165 is childless.
+2023-11-02 09:36:16,232:ERROR: aliquotgroup Specimen/1053166 is childless.
+2023-11-02 09:36:16,232:ERROR: aliquotgroup Specimen/1053168 is childless.
+2023-11-02 09:36:16,232:ERROR: aliquotgroup Specimen/1053171 is childless.
+2023-11-02 09:36:16,232:ERROR: aliquotgroup Specimen/1053172 is childless.
+2023-11-02 09:36:16,232:ERROR: aliquotgroup Specimen/1053173 is childless.
+2023-11-02 09:36:16,232:ERROR: aliquotgroup Specimen/1053174 is childless.
+2023-11-02 09:36:16,232:ERROR: aliquotgroup Specimen/1053176 is childless.
+2023-11-02 09:36:16,232:ERROR: aliquotgroup Specimen/1053179 is childless.
+2023-11-02 09:36:16,233:ERROR: aliquotgroup Specimen/1053180 is childless.
+2023-11-02 09:36:16,233:ERROR: aliquotgroup Specimen/1053181 is childless.
+2023-11-02 09:36:16,233:ERROR: aliquotgroup Specimen/1053182 is childless.
+2023-11-02 09:36:16,233:ERROR: aliquotgroup Specimen/1053183 is childless.
+2023-11-02 09:36:16,233:ERROR: aliquotgroup Specimen/1055080 is childless.
+2023-11-02 09:36:16,233:ERROR: aliquotgroup Specimen/1055087 is childless.
+2023-11-02 09:36:16,233:ERROR: aliquotgroup Specimen/1055092 is childless.
+2023-11-02 09:36:16,233:ERROR: aliquotgroup Specimen/1055103 is childless.
+2023-11-02 09:36:16,234:ERROR: aliquotgroup Specimen/1055111 is childless.
+2023-11-02 09:36:16,234:ERROR: aliquotgroup Specimen/1055119 is childless.
+2023-11-02 09:36:16,234:ERROR: aliquotgroup Specimen/1055082 is childless.
+2023-11-02 09:36:16,234:ERROR: aliquotgroup Specimen/1055083 is childless.
+2023-11-02 09:36:16,234:ERROR: aliquotgroup Specimen/1055084 is childless.
+2023-11-02 09:36:16,234:ERROR: aliquotgroup Specimen/1055085 is childless.
+2023-11-02 09:36:16,235:ERROR: aliquotgroup Specimen/1055086 is childless.
+2023-11-02 09:36:16,235:ERROR: aliquotgroup Specimen/1055089 is childless.
+2023-11-02 09:36:16,235:ERROR: aliquotgroup Specimen/1055090 is childless.
+2023-11-02 09:36:16,235:ERROR: aliquotgroup Specimen/1055091 is childless.
+2023-11-02 09:36:16,235:ERROR: aliquotgroup Specimen/1055094 is childless.
+2023-11-02 09:36:16,235:ERROR: aliquotgroup Specimen/1055095 is childless.
+2023-11-02 09:36:16,235:ERROR: aliquotgroup Specimen/1055096 is childless.
+2023-11-02 09:36:16,236:ERROR: aliquotgroup Specimen/1055098 is childless.
+2023-11-02 09:36:16,236:ERROR: aliquotgroup Specimen/1055099 is childless.
+2023-11-02 09:36:16,236:ERROR: aliquotgroup Specimen/1055100 is childless.
+2023-11-02 09:36:16,236:ERROR: aliquotgroup Specimen/1055101 is childless.
+2023-11-02 09:36:16,236:ERROR: aliquotgroup Specimen/1055102 is childless.
+2023-11-02 09:36:16,236:ERROR: aliquotgroup Specimen/1055105 is childless.
+2023-11-02 09:36:16,236:ERROR: aliquotgroup Specimen/1055106 is childless.
+2023-11-02 09:36:16,236:ERROR: aliquotgroup Specimen/1055107 is childless.
+2023-11-02 09:36:16,236:ERROR: aliquotgroup Specimen/1055108 is childless.
+2023-11-02 09:36:16,237:ERROR: aliquotgroup Specimen/1055110 is childless.
+2023-11-02 09:36:16,237:ERROR: aliquotgroup Specimen/1055113 is childless.
+2023-11-02 09:36:16,237:ERROR: aliquotgroup Specimen/1055114 is childless.
+2023-11-02 09:36:16,237:ERROR: aliquotgroup Specimen/1055115 is childless.
+2023-11-02 09:36:16,237:ERROR: aliquotgroup Specimen/1055116 is childless.
+2023-11-02 09:36:16,237:ERROR: aliquotgroup Specimen/1055118 is childless.
+2023-11-02 09:36:16,238:ERROR: aliquotgroup Specimen/1055121 is childless.
+2023-11-02 09:36:16,238:ERROR: aliquotgroup Specimen/1055122 is childless.
+2023-11-02 09:36:16,238:ERROR: aliquotgroup Specimen/1055123 is childless.
+2023-11-02 09:36:16,238:ERROR: aliquotgroup Specimen/1055124 is childless.
+2023-11-02 09:36:16,238:ERROR: aliquotgroup Specimen/1055125 is childless.
+2023-11-02 09:36:16,238:ERROR: aliquotgroup Specimen/1055126 is childless.
+2023-11-02 09:36:16,238:ERROR: aliquotgroup Specimen/1055128 is childless.
+2023-11-02 09:36:16,239:ERROR: aliquotgroup Specimen/1055129 is childless.
+2023-11-02 09:36:16,239:ERROR: aliquotgroup Specimen/1055130 is childless.
+2023-11-02 09:36:16,239:ERROR: aliquotgroup Specimen/1055131 is childless.
+2023-11-02 09:36:16,239:ERROR: aliquotgroup Specimen/1055132 is childless.
+2023-11-02 10:11:07,889:INFO: checking aliquotgroup Specimen/1053138
+2023-11-02 10:11:07,889:ERROR: FhirCheck: aliquotgroup Specimen/1053138 has no parent.
+2023-11-02 10:11:07,957:INFO: checking aliquotgroup Specimen/1053145
+2023-11-02 10:11:07,958:ERROR: FhirCheck: aliquotgroup Specimen/1053145 has no parent.
+2023-11-02 10:11:08,008:INFO: checking aliquotgroup Specimen/1053150
+2023-11-02 10:11:08,008:ERROR: FhirCheck: aliquotgroup Specimen/1053150 has no parent.
+2023-11-02 10:11:08,056:INFO: checking aliquotgroup Specimen/1053161
+2023-11-02 10:11:08,056:ERROR: FhirCheck: aliquotgroup Specimen/1053161 has no parent.
+2023-11-02 10:11:08,114:INFO: checking aliquotgroup Specimen/1053169
+2023-11-02 10:11:08,115:ERROR: FhirCheck: aliquotgroup Specimen/1053169 has no parent.
+2023-11-02 10:11:08,176:INFO: checking aliquotgroup Specimen/1053177
+2023-11-02 10:11:08,177:ERROR: FhirCheck: aliquotgroup Specimen/1053177 has no parent.
+2023-11-02 10:11:08,240:INFO: checking aliquotgroup Specimen/1053139
+2023-11-02 10:11:08,240:INFO: checking aliquotgroup Specimen/1053146
+2023-11-02 10:11:08,241:INFO: checking aliquotgroup Specimen/1053151
+2023-11-02 10:11:08,241:INFO: checking aliquotgroup Specimen/1053155
+2023-11-02 10:11:08,241:INFO: checking aliquotgroup Specimen/1053162
+2023-11-02 10:11:08,241:INFO: checking aliquotgroup Specimen/1053167
+2023-11-02 10:11:08,241:ERROR: FhirCheck: material of aliquotegroup Specimen/1053167 is NUM_RNA, but the material of its primary-parent 1366300399 is NUM_pbmc_edta
+2023-11-02 10:11:08,241:INFO: checking aliquotgroup Specimen/1053170
+2023-11-02 10:11:08,242:INFO: checking aliquotgroup Specimen/1053175
+2023-11-02 10:11:08,242:ERROR: FhirCheck: material of aliquotegroup Specimen/1053175 is NUM_RNA, but the material of its primary-parent 1366300499 is NUM_pbmc_edta
+2023-11-02 10:11:08,242:INFO: checking aliquotgroup Specimen/1053178
+2023-11-02 10:11:08,242:INFO: checking aliquotgroup Specimen/1053140
+2023-11-02 10:11:08,242:ERROR: FhirCheck: aliquotgroup Specimen/1053140 has no parent.
+2023-11-02 10:11:08,318:ERROR: FhirCheck: no organisation in db for sample BBD7587588769
+2023-11-02 10:11:08,318:ERROR: FhirCheck: organisation units don't match for sample BBD7587588769, json org is NUM_DD, db org is 
+2023-11-02 10:11:08,336:INFO: checking aliquotgroup Specimen/1053141
+2023-11-02 10:11:08,336:ERROR: FhirCheck: aliquotgroup Specimen/1053141 has no parent.
+2023-11-02 10:11:08,406:ERROR: FhirCheck: no organisation in db for sample BBD7923797710
+2023-11-02 10:11:08,406:ERROR: FhirCheck: organisation units don't match for sample BBD7923797710, json org is NUM_DD, db org is 
+2023-11-02 10:11:08,419:INFO: checking aliquotgroup Specimen/1053142
+2023-11-02 10:11:08,419:ERROR: FhirCheck: aliquotgroup Specimen/1053142 has no parent.
+2023-11-02 10:11:08,496:ERROR: FhirCheck: no organisation in db for sample BBD5136710309
+2023-11-02 10:11:08,497:ERROR: FhirCheck: organisation units don't match for sample BBD5136710309, json org is NUM_DD, db org is 
+2023-11-02 10:11:08,514:INFO: checking aliquotgroup Specimen/1053143
+2023-11-02 10:11:08,515:ERROR: FhirCheck: aliquotgroup Specimen/1053143 has no parent.
+2023-11-02 10:11:08,611:ERROR: FhirCheck: no organisation in db for sample BBD3892060926
+2023-11-02 10:11:08,612:ERROR: FhirCheck: organisation units don't match for sample BBD3892060926, json org is NUM_DD, db org is 
+2023-11-02 10:11:08,633:INFO: checking aliquotgroup Specimen/1053144
+2023-11-02 10:11:08,634:ERROR: FhirCheck: aliquotgroup Specimen/1053144 has no parent.
+2023-11-02 10:11:08,709:ERROR: FhirCheck: no organisation in db for sample BBD1836631974
+2023-11-02 10:11:08,709:ERROR: FhirCheck: organisation units don't match for sample BBD1836631974, json org is NUM_DD, db org is 
+2023-11-02 10:11:08,722:INFO: checking aliquotgroup Specimen/1053147
+2023-11-02 10:11:08,722:ERROR: FhirCheck: aliquotgroup Specimen/1053147 has no parent.
+2023-11-02 10:11:08,817:ERROR: FhirCheck: no organisation in db for sample BBD6178189752
+2023-11-02 10:11:08,817:ERROR: FhirCheck: organisation units don't match for sample BBD6178189752, json org is NUM_DD, db org is 
+2023-11-02 10:11:08,836:INFO: checking aliquotgroup Specimen/1053148
+2023-11-02 10:11:08,837:ERROR: FhirCheck: aliquotgroup Specimen/1053148 has no parent.
+2023-11-02 10:11:08,916:ERROR: FhirCheck: no organisation in db for sample BBD8351255809
+2023-11-02 10:11:08,916:ERROR: FhirCheck: organisation units don't match for sample BBD8351255809, json org is NUM_DD, db org is 
+2023-11-02 10:11:08,935:INFO: checking aliquotgroup Specimen/1053149
+2023-11-02 10:11:08,936:ERROR: FhirCheck: aliquotgroup Specimen/1053149 has no parent.
+2023-11-02 10:11:09,028:ERROR: FhirCheck: no organisation in db for sample BBD4793204149
+2023-11-02 10:11:09,028:ERROR: FhirCheck: organisation units don't match for sample BBD4793204149, json org is NUM_DD, db org is 
+2023-11-02 10:11:09,048:INFO: checking aliquotgroup Specimen/1053152
+2023-11-02 10:11:09,048:ERROR: FhirCheck: aliquotgroup Specimen/1053152 has no parent.
+2023-11-02 10:11:09,126:ERROR: FhirCheck: no organisation in db for sample BBD5999932695
+2023-11-02 10:11:09,126:ERROR: FhirCheck: organisation units don't match for sample BBD5999932695, json org is NUM_DD, db org is 
+2023-11-02 10:11:09,142:INFO: checking aliquotgroup Specimen/1053153
+2023-11-02 10:11:09,142:ERROR: FhirCheck: aliquotgroup Specimen/1053153 has no parent.
+2023-11-02 10:11:09,216:ERROR: FhirCheck: no organisation in db for sample BBD2537587360
+2023-11-02 10:11:09,216:ERROR: FhirCheck: organisation units don't match for sample BBD2537587360, json org is NUM_DD, db org is 
+2023-11-02 10:11:09,232:INFO: checking aliquotgroup Specimen/1053154
+2023-11-02 10:11:09,232:ERROR: FhirCheck: aliquotgroup Specimen/1053154 has no parent.
+2023-11-02 10:11:09,312:ERROR: FhirCheck: no organisation in db for sample BBD9207867146
+2023-11-02 10:11:09,312:ERROR: FhirCheck: organisation units don't match for sample BBD9207867146, json org is NUM_DD, db org is 
+2023-11-02 10:11:09,329:INFO: checking aliquotgroup Specimen/1053156
+2023-11-02 10:11:09,329:ERROR: FhirCheck: aliquotgroup Specimen/1053156 has no parent.
+2023-11-02 10:11:09,412:ERROR: FhirCheck: no organisation in db for sample BBD7506195259
+2023-11-02 10:11:09,412:ERROR: FhirCheck: organisation units don't match for sample BBD7506195259, json org is NUM_DD, db org is 
+2023-11-02 10:11:09,432:INFO: checking aliquotgroup Specimen/1053157
+2023-11-02 10:11:09,432:ERROR: FhirCheck: aliquotgroup Specimen/1053157 has no parent.
+2023-11-02 10:11:09,510:ERROR: FhirCheck: no organisation in db for sample BBD1236382437
+2023-11-02 10:11:09,510:ERROR: FhirCheck: organisation units don't match for sample BBD1236382437, json org is NUM_DD, db org is 
+2023-11-02 10:11:09,526:INFO: checking aliquotgroup Specimen/1053158
+2023-11-02 10:11:09,527:ERROR: FhirCheck: aliquotgroup Specimen/1053158 has no parent.
+2023-11-02 10:11:09,600:ERROR: FhirCheck: no organisation in db for sample BBD0674842616
+2023-11-02 10:11:09,600:ERROR: FhirCheck: organisation units don't match for sample BBD0674842616, json org is NUM_DD, db org is 
+2023-11-02 10:11:09,616:INFO: checking aliquotgroup Specimen/1053159
+2023-11-02 10:11:09,616:ERROR: FhirCheck: aliquotgroup Specimen/1053159 has no parent.
+2023-11-02 10:11:09,695:ERROR: FhirCheck: no organisation in db for sample BBD4471585397
+2023-11-02 10:11:09,695:ERROR: FhirCheck: organisation units don't match for sample BBD4471585397, json org is NUM_DD, db org is 
+2023-11-02 10:11:09,711:INFO: checking aliquotgroup Specimen/1053160
+2023-11-02 10:11:09,711:ERROR: FhirCheck: aliquotgroup Specimen/1053160 has no parent.
+2023-11-02 10:11:09,789:ERROR: FhirCheck: no organisation in db for sample BBD0488843753
+2023-11-02 10:11:09,790:ERROR: FhirCheck: organisation units don't match for sample BBD0488843753, json org is NUM_DD, db org is 
+2023-11-02 10:11:09,805:INFO: checking aliquotgroup Specimen/1053163
+2023-11-02 10:11:09,805:ERROR: FhirCheck: aliquotgroup Specimen/1053163 has no parent.
+2023-11-02 10:11:10,963:ERROR: FhirCheck: no organisation in db for sample BBD4330891475
+2023-11-02 10:11:10,963:ERROR: FhirCheck: organisation units don't match for sample BBD4330891475, json org is NUM_DD, db org is 
+2023-11-02 10:11:10,978:INFO: checking aliquotgroup Specimen/1053164
+2023-11-02 10:11:10,978:ERROR: FhirCheck: aliquotgroup Specimen/1053164 has no parent.
+2023-11-02 10:11:11,047:ERROR: FhirCheck: no organisation in db for sample BBD1255762915
+2023-11-02 10:11:11,047:ERROR: FhirCheck: organisation units don't match for sample BBD1255762915, json org is NUM_DD, db org is 
+2023-11-02 10:11:11,061:INFO: checking aliquotgroup Specimen/1053165
+2023-11-02 10:11:11,061:ERROR: FhirCheck: aliquotgroup Specimen/1053165 has no parent.
+2023-11-02 10:11:11,132:ERROR: FhirCheck: no organisation in db for sample BBD8702978987
+2023-11-02 10:11:11,132:ERROR: FhirCheck: organisation units don't match for sample BBD8702978987, json org is NUM_DD, db org is 
+2023-11-02 10:11:11,147:INFO: checking aliquotgroup Specimen/1053166
+2023-11-02 10:11:11,148:ERROR: FhirCheck: aliquotgroup Specimen/1053166 has no parent.
+2023-11-02 10:11:11,225:ERROR: FhirCheck: no organisation in db for sample BBD7211358645
+2023-11-02 10:11:11,225:ERROR: FhirCheck: organisation units don't match for sample BBD7211358645, json org is NUM_DD, db org is 
+2023-11-02 10:11:11,239:INFO: checking aliquotgroup Specimen/1053168
+2023-11-02 10:11:11,239:ERROR: FhirCheck: aliquotgroup Specimen/1053168 has no parent.
+2023-11-02 10:11:11,313:ERROR: FhirCheck: no organisation in db for sample BBD9138255518
+2023-11-02 10:11:11,314:ERROR: FhirCheck: organisation units don't match for sample BBD9138255518, json org is NUM_DD, db org is 
+2023-11-02 10:11:11,343:INFO: checking aliquotgroup Specimen/1053171
+2023-11-02 10:11:11,343:ERROR: FhirCheck: aliquotgroup Specimen/1053171 has no parent.
+2023-11-02 10:11:11,431:ERROR: FhirCheck: no organisation in db for sample BBD3690850842
+2023-11-02 10:11:11,431:ERROR: FhirCheck: organisation units don't match for sample BBD3690850842, json org is NUM_DD, db org is 
+2023-11-02 10:11:11,445:INFO: checking aliquotgroup Specimen/1053172
+2023-11-02 10:11:11,445:ERROR: FhirCheck: aliquotgroup Specimen/1053172 has no parent.
+2023-11-02 10:11:11,519:ERROR: FhirCheck: no organisation in db for sample BBD4303402500
+2023-11-02 10:11:11,519:ERROR: FhirCheck: organisation units don't match for sample BBD4303402500, json org is NUM_DD, db org is 
+2023-11-02 10:11:11,534:INFO: checking aliquotgroup Specimen/1053173
+2023-11-02 10:11:11,534:ERROR: FhirCheck: aliquotgroup Specimen/1053173 has no parent.
+2023-11-02 10:11:11,618:ERROR: FhirCheck: no organisation in db for sample BBD9769524429
+2023-11-02 10:11:11,618:ERROR: FhirCheck: organisation units don't match for sample BBD9769524429, json org is NUM_DD, db org is 
+2023-11-02 10:11:11,638:INFO: checking aliquotgroup Specimen/1053174
+2023-11-02 10:11:11,639:ERROR: FhirCheck: aliquotgroup Specimen/1053174 has no parent.
+2023-11-02 10:11:11,722:ERROR: FhirCheck: no organisation in db for sample BBD2586298096
+2023-11-02 10:11:11,722:ERROR: FhirCheck: organisation units don't match for sample BBD2586298096, json org is NUM_DD, db org is 
+2023-11-02 10:11:11,738:INFO: checking aliquotgroup Specimen/1053176
+2023-11-02 10:11:11,739:ERROR: FhirCheck: aliquotgroup Specimen/1053176 has no parent.
+2023-11-02 10:11:11,815:ERROR: FhirCheck: no organisation in db for sample BBD6041129206
+2023-11-02 10:11:11,815:ERROR: FhirCheck: organisation units don't match for sample BBD6041129206, json org is NUM_DD, db org is 
+2023-11-02 10:11:11,831:INFO: checking aliquotgroup Specimen/1053179
+2023-11-02 10:11:11,832:ERROR: FhirCheck: aliquotgroup Specimen/1053179 has no parent.
+2023-11-02 10:11:11,908:ERROR: FhirCheck: no organisation in db for sample BBD9281459522
+2023-11-02 10:11:11,908:ERROR: FhirCheck: organisation units don't match for sample BBD9281459522, json org is NUM_DD, db org is 
+2023-11-02 10:11:11,924:INFO: checking aliquotgroup Specimen/1053180
+2023-11-02 10:11:11,924:ERROR: FhirCheck: aliquotgroup Specimen/1053180 has no parent.
+2023-11-02 10:11:11,999:ERROR: FhirCheck: no organisation in db for sample BBD6322674262
+2023-11-02 10:11:12,000:ERROR: FhirCheck: organisation units don't match for sample BBD6322674262, json org is NUM_DD, db org is 
+2023-11-02 10:11:12,015:INFO: checking aliquotgroup Specimen/1053181
+2023-11-02 10:11:12,015:ERROR: FhirCheck: aliquotgroup Specimen/1053181 has no parent.
+2023-11-02 10:11:12,087:ERROR: FhirCheck: no organisation in db for sample BBD0256994556
+2023-11-02 10:11:12,087:ERROR: FhirCheck: organisation units don't match for sample BBD0256994556, json org is NUM_DD, db org is 
+2023-11-02 10:11:12,103:INFO: checking aliquotgroup Specimen/1053182
+2023-11-02 10:11:12,103:ERROR: FhirCheck: aliquotgroup Specimen/1053182 has no parent.
+2023-11-02 10:11:12,175:ERROR: FhirCheck: no organisation in db for sample BBD2418859524
+2023-11-02 10:11:12,175:ERROR: FhirCheck: organisation units don't match for sample BBD2418859524, json org is NUM_DD, db org is 
+2023-11-02 10:11:12,190:INFO: checking aliquotgroup Specimen/1053183
+2023-11-02 10:11:12,190:ERROR: FhirCheck: aliquotgroup Specimen/1053183 has no parent.
+2023-11-02 10:11:12,264:ERROR: FhirCheck: no organisation in db for sample BBD4666625811
+2023-11-02 10:11:12,264:ERROR: FhirCheck: organisation units don't match for sample BBD4666625811, json org is NUM_DD, db org is 
+2023-11-02 10:11:12,278:INFO: checking aliquotgroup Specimen/1055080
+2023-11-02 10:11:12,278:ERROR: FhirCheck: aliquotgroup Specimen/1055080 has no parent.
+2023-11-02 10:11:12,323:INFO: checking aliquotgroup Specimen/1055087
+2023-11-02 10:11:12,323:ERROR: FhirCheck: aliquotgroup Specimen/1055087 has no parent.
+2023-11-02 10:11:12,365:INFO: checking aliquotgroup Specimen/1055092
+2023-11-02 10:11:12,365:ERROR: FhirCheck: aliquotgroup Specimen/1055092 has no parent.
+2023-11-02 10:11:12,409:INFO: checking aliquotgroup Specimen/1055103
+2023-11-02 10:11:12,409:ERROR: FhirCheck: aliquotgroup Specimen/1055103 has no parent.
+2023-11-02 10:11:12,450:INFO: checking aliquotgroup Specimen/1055111
+2023-11-02 10:11:12,450:ERROR: FhirCheck: aliquotgroup Specimen/1055111 has no parent.
+2023-11-02 10:11:12,493:INFO: checking aliquotgroup Specimen/1055119
+2023-11-02 10:11:12,493:ERROR: FhirCheck: aliquotgroup Specimen/1055119 has no parent.
+2023-11-02 10:11:12,533:INFO: checking aliquotgroup Specimen/1055081
+2023-11-02 10:11:12,533:INFO: checking aliquotgroup Specimen/1055088
+2023-11-02 10:11:12,534:INFO: checking aliquotgroup Specimen/1055093
+2023-11-02 10:11:12,534:INFO: checking aliquotgroup Specimen/1055097
+2023-11-02 10:11:12,534:INFO: checking aliquotgroup Specimen/1055104
+2023-11-02 10:11:12,534:INFO: checking aliquotgroup Specimen/1055109
+2023-11-02 10:11:12,535:ERROR: FhirCheck: material of aliquotegroup Specimen/1055109 is NUM_RNA, but the material of its primary-parent 1366320391 is NUM_pbmc_edta
+2023-11-02 10:11:12,535:INFO: checking aliquotgroup Specimen/1055112
+2023-11-02 10:11:12,535:INFO: checking aliquotgroup Specimen/1055117
+2023-11-02 10:11:12,535:ERROR: FhirCheck: material of aliquotegroup Specimen/1055117 is NUM_RNA, but the material of its primary-parent 1366320491 is NUM_pbmc_edta
+2023-11-02 10:11:12,535:INFO: checking aliquotgroup Specimen/1055120
+2023-11-02 10:11:12,536:INFO: checking aliquotgroup Specimen/1055082
+2023-11-02 10:11:12,536:ERROR: FhirCheck: aliquotgroup Specimen/1055082 has no parent.
+2023-11-02 10:11:12,606:ERROR: FhirCheck: no organisation in db for sample BBD0397728106
+2023-11-02 10:11:12,606:ERROR: FhirCheck: organisation units don't match for sample BBD0397728106, json org is NUM_DD, db org is 
+2023-11-02 10:11:12,621:INFO: checking aliquotgroup Specimen/1055083
+2023-11-02 10:11:12,622:ERROR: FhirCheck: aliquotgroup Specimen/1055083 has no parent.
+2023-11-02 10:11:12,690:ERROR: FhirCheck: no organisation in db for sample BBD0309623490
+2023-11-02 10:11:12,690:ERROR: FhirCheck: organisation units don't match for sample BBD0309623490, json org is NUM_DD, db org is 
+2023-11-02 10:11:13,739:INFO: checking aliquotgroup Specimen/1055084
+2023-11-02 10:11:13,739:ERROR: FhirCheck: aliquotgroup Specimen/1055084 has no parent.
+2023-11-02 10:11:13,835:ERROR: FhirCheck: no organisation in db for sample BBD8710999196
+2023-11-02 10:11:13,835:ERROR: FhirCheck: organisation units don't match for sample BBD8710999196, json org is NUM_DD, db org is 
+2023-11-02 10:11:13,850:INFO: checking aliquotgroup Specimen/1055085
+2023-11-02 10:11:13,850:ERROR: FhirCheck: aliquotgroup Specimen/1055085 has no parent.
+2023-11-02 10:11:13,943:ERROR: FhirCheck: no organisation in db for sample BBD0410113032
+2023-11-02 10:11:13,943:ERROR: FhirCheck: organisation units don't match for sample BBD0410113032, json org is NUM_DD, db org is 
+2023-11-02 10:11:13,962:INFO: checking aliquotgroup Specimen/1055086
+2023-11-02 10:11:13,963:ERROR: FhirCheck: aliquotgroup Specimen/1055086 has no parent.
+2023-11-02 10:11:14,034:ERROR: FhirCheck: no organisation in db for sample BBD0894642982
+2023-11-02 10:11:14,035:ERROR: FhirCheck: organisation units don't match for sample BBD0894642982, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,049:INFO: checking aliquotgroup Specimen/1055089
+2023-11-02 10:11:14,049:ERROR: FhirCheck: aliquotgroup Specimen/1055089 has no parent.
+2023-11-02 10:11:14,117:ERROR: FhirCheck: no organisation in db for sample BBD8489848076
+2023-11-02 10:11:14,117:ERROR: FhirCheck: organisation units don't match for sample BBD8489848076, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,131:INFO: checking aliquotgroup Specimen/1055090
+2023-11-02 10:11:14,131:ERROR: FhirCheck: aliquotgroup Specimen/1055090 has no parent.
+2023-11-02 10:11:14,203:ERROR: FhirCheck: no organisation in db for sample BBD5224501095
+2023-11-02 10:11:14,203:ERROR: FhirCheck: organisation units don't match for sample BBD5224501095, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,217:INFO: checking aliquotgroup Specimen/1055091
+2023-11-02 10:11:14,218:ERROR: FhirCheck: aliquotgroup Specimen/1055091 has no parent.
+2023-11-02 10:11:14,289:ERROR: FhirCheck: no organisation in db for sample BBD8284425525
+2023-11-02 10:11:14,289:ERROR: FhirCheck: organisation units don't match for sample BBD8284425525, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,306:INFO: checking aliquotgroup Specimen/1055094
+2023-11-02 10:11:14,306:ERROR: FhirCheck: aliquotgroup Specimen/1055094 has no parent.
+2023-11-02 10:11:14,380:ERROR: FhirCheck: no organisation in db for sample BBD9021438417
+2023-11-02 10:11:14,381:ERROR: FhirCheck: organisation units don't match for sample BBD9021438417, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,395:INFO: checking aliquotgroup Specimen/1055095
+2023-11-02 10:11:14,395:ERROR: FhirCheck: aliquotgroup Specimen/1055095 has no parent.
+2023-11-02 10:11:14,483:ERROR: FhirCheck: no organisation in db for sample BBD8369247535
+2023-11-02 10:11:14,483:ERROR: FhirCheck: organisation units don't match for sample BBD8369247535, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,499:INFO: checking aliquotgroup Specimen/1055096
+2023-11-02 10:11:14,499:ERROR: FhirCheck: aliquotgroup Specimen/1055096 has no parent.
+2023-11-02 10:11:14,570:ERROR: FhirCheck: no organisation in db for sample BBD1794111617
+2023-11-02 10:11:14,570:ERROR: FhirCheck: organisation units don't match for sample BBD1794111617, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,585:INFO: checking aliquotgroup Specimen/1055098
+2023-11-02 10:11:14,586:ERROR: FhirCheck: aliquotgroup Specimen/1055098 has no parent.
+2023-11-02 10:11:14,655:ERROR: FhirCheck: no organisation in db for sample BBD1858548120
+2023-11-02 10:11:14,655:ERROR: FhirCheck: organisation units don't match for sample BBD1858548120, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,669:INFO: checking aliquotgroup Specimen/1055099
+2023-11-02 10:11:14,669:ERROR: FhirCheck: aliquotgroup Specimen/1055099 has no parent.
+2023-11-02 10:11:14,752:ERROR: FhirCheck: no organisation in db for sample BBD4764422498
+2023-11-02 10:11:14,752:ERROR: FhirCheck: organisation units don't match for sample BBD4764422498, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,766:INFO: checking aliquotgroup Specimen/1055100
+2023-11-02 10:11:14,766:ERROR: FhirCheck: aliquotgroup Specimen/1055100 has no parent.
+2023-11-02 10:11:14,862:ERROR: FhirCheck: no organisation in db for sample BBD1034779917
+2023-11-02 10:11:14,862:ERROR: FhirCheck: organisation units don't match for sample BBD1034779917, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,883:INFO: checking aliquotgroup Specimen/1055101
+2023-11-02 10:11:14,884:ERROR: FhirCheck: aliquotgroup Specimen/1055101 has no parent.
+2023-11-02 10:11:14,973:ERROR: FhirCheck: no organisation in db for sample BBD4791809805
+2023-11-02 10:11:14,973:ERROR: FhirCheck: organisation units don't match for sample BBD4791809805, json org is NUM_DD, db org is 
+2023-11-02 10:11:14,991:INFO: checking aliquotgroup Specimen/1055102
+2023-11-02 10:11:14,991:ERROR: FhirCheck: aliquotgroup Specimen/1055102 has no parent.
+2023-11-02 10:11:25,998:INFO: checking aliquotgroup Specimen/1053138
+2023-11-02 10:11:25,998:ERROR: AqtMatCheck: aliquotgroup Specimen/1053138 has no parent.
+2023-11-02 10:11:26,051:INFO: checking aliquotgroup Specimen/1053145
+2023-11-02 10:11:26,051:ERROR: AqtMatCheck: aliquotgroup Specimen/1053145 has no parent.
+2023-11-02 10:11:26,092:INFO: checking aliquotgroup Specimen/1053150
+2023-11-02 10:11:26,092:ERROR: AqtMatCheck: aliquotgroup Specimen/1053150 has no parent.
+2023-11-02 10:11:26,136:INFO: checking aliquotgroup Specimen/1053161
+2023-11-02 10:11:26,136:ERROR: AqtMatCheck: aliquotgroup Specimen/1053161 has no parent.
+2023-11-02 10:11:26,190:INFO: checking aliquotgroup Specimen/1053169
+2023-11-02 10:11:26,191:ERROR: AqtMatCheck: aliquotgroup Specimen/1053169 has no parent.
+2023-11-02 10:11:26,245:INFO: checking aliquotgroup Specimen/1053177
+2023-11-02 10:11:26,245:ERROR: AqtMatCheck: aliquotgroup Specimen/1053177 has no parent.
+2023-11-02 10:11:26,318:INFO: checking aliquotgroup Specimen/1053139
+2023-11-02 10:11:26,319:INFO: checking aliquotgroup Specimen/1053146
+2023-11-02 10:11:26,319:INFO: checking aliquotgroup Specimen/1053151
+2023-11-02 10:11:26,320:INFO: checking aliquotgroup Specimen/1053155
+2023-11-02 10:11:26,320:INFO: checking aliquotgroup Specimen/1053162
+2023-11-02 10:11:26,320:INFO: checking aliquotgroup Specimen/1053167
+2023-11-02 10:11:26,320:ERROR: AqtMatCheck: material of aliquotegroup Specimen/1053167 is NUM_RNA, but the material of its primary-parent 1366300399 is NUM_pbmc_edta
+2023-11-02 10:11:26,321:INFO: checking aliquotgroup Specimen/1053170
+2023-11-02 10:11:26,321:INFO: checking aliquotgroup Specimen/1053175
+2023-11-02 10:11:26,321:ERROR: AqtMatCheck: material of aliquotegroup Specimen/1053175 is NUM_RNA, but the material of its primary-parent 1366300499 is NUM_pbmc_edta
+2023-11-02 10:11:26,322:INFO: checking aliquotgroup Specimen/1053178
+2023-11-02 10:11:26,322:INFO: checking aliquotgroup Specimen/1053140
+2023-11-02 10:11:26,322:ERROR: AqtMatCheck: aliquotgroup Specimen/1053140 has no parent.
+2023-11-02 10:11:26,418:ERROR: OrgCheck: no organisation in db for sample BBD7587588769
+2023-11-02 10:11:26,418:ERROR: OrgCheck: organisation units don't match for sample BBD7587588769, json org is NUM_DD, db org is 
+2023-11-02 10:11:26,439:INFO: checking aliquotgroup Specimen/1053141
+2023-11-02 10:11:26,439:ERROR: AqtMatCheck: aliquotgroup Specimen/1053141 has no parent.
+2023-11-02 10:11:26,526:ERROR: OrgCheck: no organisation in db for sample BBD7923797710
+2023-11-02 10:11:26,526:ERROR: OrgCheck: organisation units don't match for sample BBD7923797710, json org is NUM_DD, db org is 
+2023-11-02 10:11:26,543:INFO: checking aliquotgroup Specimen/1053142
+2023-11-02 10:11:26,543:ERROR: AqtMatCheck: aliquotgroup Specimen/1053142 has no parent.
+2023-11-02 10:11:27,663:ERROR: OrgCheck: no organisation in db for sample BBD5136710309
+2023-11-02 10:11:27,663:ERROR: OrgCheck: organisation units don't match for sample BBD5136710309, json org is NUM_DD, db org is 
+2023-11-02 10:11:27,683:INFO: checking aliquotgroup Specimen/1053143
+2023-11-02 10:11:27,683:ERROR: AqtMatCheck: aliquotgroup Specimen/1053143 has no parent.
+2023-11-02 10:11:27,756:ERROR: OrgCheck: no organisation in db for sample BBD3892060926
+2023-11-02 10:11:27,757:ERROR: OrgCheck: organisation units don't match for sample BBD3892060926, json org is NUM_DD, db org is 
+2023-11-02 10:11:27,771:INFO: checking aliquotgroup Specimen/1053144
+2023-11-02 10:11:27,771:ERROR: AqtMatCheck: aliquotgroup Specimen/1053144 has no parent.
+2023-11-02 10:11:27,842:ERROR: OrgCheck: no organisation in db for sample BBD1836631974
+2023-11-02 10:11:27,842:ERROR: OrgCheck: organisation units don't match for sample BBD1836631974, json org is NUM_DD, db org is 
+2023-11-02 10:11:27,857:INFO: checking aliquotgroup Specimen/1053147
+2023-11-02 10:11:27,857:ERROR: AqtMatCheck: aliquotgroup Specimen/1053147 has no parent.
+2023-11-02 10:11:27,929:ERROR: OrgCheck: no organisation in db for sample BBD6178189752
+2023-11-02 10:11:27,929:ERROR: OrgCheck: organisation units don't match for sample BBD6178189752, json org is NUM_DD, db org is 
+2023-11-02 10:11:27,944:INFO: checking aliquotgroup Specimen/1053148
+2023-11-02 10:11:27,944:ERROR: AqtMatCheck: aliquotgroup Specimen/1053148 has no parent.
+2023-11-02 10:11:28,024:ERROR: OrgCheck: no organisation in db for sample BBD8351255809
+2023-11-02 10:11:28,024:ERROR: OrgCheck: organisation units don't match for sample BBD8351255809, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,044:INFO: checking aliquotgroup Specimen/1053149
+2023-11-02 10:11:28,044:ERROR: AqtMatCheck: aliquotgroup Specimen/1053149 has no parent.
+2023-11-02 10:11:28,133:ERROR: OrgCheck: no organisation in db for sample BBD4793204149
+2023-11-02 10:11:28,133:ERROR: OrgCheck: organisation units don't match for sample BBD4793204149, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,153:INFO: checking aliquotgroup Specimen/1053152
+2023-11-02 10:11:28,153:ERROR: AqtMatCheck: aliquotgroup Specimen/1053152 has no parent.
+2023-11-02 10:11:28,234:ERROR: OrgCheck: no organisation in db for sample BBD5999932695
+2023-11-02 10:11:28,235:ERROR: OrgCheck: organisation units don't match for sample BBD5999932695, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,250:INFO: checking aliquotgroup Specimen/1053153
+2023-11-02 10:11:28,251:ERROR: AqtMatCheck: aliquotgroup Specimen/1053153 has no parent.
+2023-11-02 10:11:28,323:ERROR: OrgCheck: no organisation in db for sample BBD2537587360
+2023-11-02 10:11:28,323:ERROR: OrgCheck: organisation units don't match for sample BBD2537587360, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,339:INFO: checking aliquotgroup Specimen/1053154
+2023-11-02 10:11:28,339:ERROR: AqtMatCheck: aliquotgroup Specimen/1053154 has no parent.
+2023-11-02 10:11:28,413:ERROR: OrgCheck: no organisation in db for sample BBD9207867146
+2023-11-02 10:11:28,414:ERROR: OrgCheck: organisation units don't match for sample BBD9207867146, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,428:INFO: checking aliquotgroup Specimen/1053156
+2023-11-02 10:11:28,428:ERROR: AqtMatCheck: aliquotgroup Specimen/1053156 has no parent.
+2023-11-02 10:11:28,504:ERROR: OrgCheck: no organisation in db for sample BBD7506195259
+2023-11-02 10:11:28,504:ERROR: OrgCheck: organisation units don't match for sample BBD7506195259, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,521:INFO: checking aliquotgroup Specimen/1053157
+2023-11-02 10:11:28,521:ERROR: AqtMatCheck: aliquotgroup Specimen/1053157 has no parent.
+2023-11-02 10:11:28,598:ERROR: OrgCheck: no organisation in db for sample BBD1236382437
+2023-11-02 10:11:28,598:ERROR: OrgCheck: organisation units don't match for sample BBD1236382437, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,615:INFO: checking aliquotgroup Specimen/1053158
+2023-11-02 10:11:28,615:ERROR: AqtMatCheck: aliquotgroup Specimen/1053158 has no parent.
+2023-11-02 10:11:28,683:ERROR: OrgCheck: no organisation in db for sample BBD0674842616
+2023-11-02 10:11:28,684:ERROR: OrgCheck: organisation units don't match for sample BBD0674842616, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,699:INFO: checking aliquotgroup Specimen/1053159
+2023-11-02 10:11:28,699:ERROR: AqtMatCheck: aliquotgroup Specimen/1053159 has no parent.
+2023-11-02 10:11:28,767:ERROR: OrgCheck: no organisation in db for sample BBD4471585397
+2023-11-02 10:11:28,767:ERROR: OrgCheck: organisation units don't match for sample BBD4471585397, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,785:INFO: checking aliquotgroup Specimen/1053160
+2023-11-02 10:11:28,786:ERROR: AqtMatCheck: aliquotgroup Specimen/1053160 has no parent.
+2023-11-02 10:11:28,887:ERROR: OrgCheck: no organisation in db for sample BBD0488843753
+2023-11-02 10:11:28,887:ERROR: OrgCheck: organisation units don't match for sample BBD0488843753, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,906:INFO: checking aliquotgroup Specimen/1053163
+2023-11-02 10:11:28,907:ERROR: AqtMatCheck: aliquotgroup Specimen/1053163 has no parent.
+2023-11-02 10:11:28,976:ERROR: OrgCheck: no organisation in db for sample BBD4330891475
+2023-11-02 10:11:28,976:ERROR: OrgCheck: organisation units don't match for sample BBD4330891475, json org is NUM_DD, db org is 
+2023-11-02 10:11:28,990:INFO: checking aliquotgroup Specimen/1053164
+2023-11-02 10:11:28,990:ERROR: AqtMatCheck: aliquotgroup Specimen/1053164 has no parent.
+2023-11-02 10:11:29,060:ERROR: OrgCheck: no organisation in db for sample BBD1255762915
+2023-11-02 10:11:29,060:ERROR: OrgCheck: organisation units don't match for sample BBD1255762915, json org is NUM_DD, db org is 
+2023-11-02 10:11:29,075:INFO: checking aliquotgroup Specimen/1053165
+2023-11-02 10:11:29,075:ERROR: AqtMatCheck: aliquotgroup Specimen/1053165 has no parent.
+2023-11-02 10:11:29,146:ERROR: OrgCheck: no organisation in db for sample BBD8702978987
+2023-11-02 10:11:29,146:ERROR: OrgCheck: organisation units don't match for sample BBD8702978987, json org is NUM_DD, db org is 
+2023-11-02 10:11:29,160:INFO: checking aliquotgroup Specimen/1053166
+2023-11-02 10:11:29,161:ERROR: AqtMatCheck: aliquotgroup Specimen/1053166 has no parent.
+2023-11-02 10:11:29,231:ERROR: OrgCheck: no organisation in db for sample BBD7211358645
+2023-11-02 10:11:29,231:ERROR: OrgCheck: organisation units don't match for sample BBD7211358645, json org is NUM_DD, db org is 
+2023-11-02 10:11:29,246:INFO: checking aliquotgroup Specimen/1053168
+2023-11-02 10:11:29,247:ERROR: AqtMatCheck: aliquotgroup Specimen/1053168 has no parent.
+2023-11-02 10:11:29,317:ERROR: OrgCheck: no organisation in db for sample BBD9138255518
+2023-11-02 10:11:29,318:ERROR: OrgCheck: organisation units don't match for sample BBD9138255518, json org is NUM_DD, db org is 
+2023-11-02 10:11:29,330:INFO: checking aliquotgroup Specimen/1053171
+2023-11-02 10:11:29,330:ERROR: AqtMatCheck: aliquotgroup Specimen/1053171 has no parent.
+2023-11-02 10:11:29,397:ERROR: OrgCheck: no organisation in db for sample BBD3690850842
+2023-11-02 10:11:29,397:ERROR: OrgCheck: organisation units don't match for sample BBD3690850842, json org is NUM_DD, db org is 
+2023-11-02 10:11:29,410:INFO: checking aliquotgroup Specimen/1053172
+2023-11-02 10:11:29,411:ERROR: AqtMatCheck: aliquotgroup Specimen/1053172 has no parent.
+2023-11-02 10:11:30,539:ERROR: OrgCheck: no organisation in db for sample BBD4303402500
+2023-11-02 10:11:30,540:ERROR: OrgCheck: organisation units don't match for sample BBD4303402500, json org is NUM_DD, db org is 
+2023-11-02 10:11:30,556:INFO: checking aliquotgroup Specimen/1053173
+2023-11-02 10:11:30,557:ERROR: AqtMatCheck: aliquotgroup Specimen/1053173 has no parent.
+2023-11-02 10:11:30,634:ERROR: OrgCheck: no organisation in db for sample BBD9769524429
+2023-11-02 10:11:30,634:ERROR: OrgCheck: organisation units don't match for sample BBD9769524429, json org is NUM_DD, db org is 
+2023-11-02 10:11:30,653:INFO: checking aliquotgroup Specimen/1053174
+2023-11-02 10:11:30,654:ERROR: AqtMatCheck: aliquotgroup Specimen/1053174 has no parent.
+2023-11-02 10:11:30,726:ERROR: OrgCheck: no organisation in db for sample BBD2586298096
+2023-11-02 10:11:30,727:ERROR: OrgCheck: organisation units don't match for sample BBD2586298096, json org is NUM_DD, db org is 
+2023-11-02 10:11:30,742:INFO: checking aliquotgroup Specimen/1053176
+2023-11-02 10:11:30,742:ERROR: AqtMatCheck: aliquotgroup Specimen/1053176 has no parent.
+2023-11-02 10:11:30,823:ERROR: OrgCheck: no organisation in db for sample BBD6041129206
+2023-11-02 10:11:30,824:ERROR: OrgCheck: organisation units don't match for sample BBD6041129206, json org is NUM_DD, db org is 
+2023-11-02 10:11:30,852:INFO: checking aliquotgroup Specimen/1053179
+2023-11-02 10:11:30,852:ERROR: AqtMatCheck: aliquotgroup Specimen/1053179 has no parent.
+2023-11-02 10:11:30,928:ERROR: OrgCheck: no organisation in db for sample BBD9281459522
+2023-11-02 10:11:30,928:ERROR: OrgCheck: organisation units don't match for sample BBD9281459522, json org is NUM_DD, db org is 
+2023-11-02 10:11:30,942:INFO: checking aliquotgroup Specimen/1053180
+2023-11-02 10:11:30,942:ERROR: AqtMatCheck: aliquotgroup Specimen/1053180 has no parent.
+2023-11-02 10:11:31,009:ERROR: OrgCheck: no organisation in db for sample BBD6322674262
+2023-11-02 10:11:31,009:ERROR: OrgCheck: organisation units don't match for sample BBD6322674262, json org is NUM_DD, db org is 
+2023-11-02 10:11:31,022:INFO: checking aliquotgroup Specimen/1053181
+2023-11-02 10:11:31,023:ERROR: AqtMatCheck: aliquotgroup Specimen/1053181 has no parent.
+2023-11-02 10:11:31,092:ERROR: OrgCheck: no organisation in db for sample BBD0256994556
+2023-11-02 10:11:31,092:ERROR: OrgCheck: organisation units don't match for sample BBD0256994556, json org is NUM_DD, db org is 
+2023-11-02 10:11:31,108:INFO: checking aliquotgroup Specimen/1053182
+2023-11-02 10:11:31,108:ERROR: AqtMatCheck: aliquotgroup Specimen/1053182 has no parent.
+2023-11-02 10:11:51,775:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053138
+2023-11-02 10:11:51,775:ERROR: AqtMatCheck: aliquotgroup Specimen/1053138 has no parent.
+2023-11-02 10:11:51,831:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053145
+2023-11-02 10:11:51,831:ERROR: AqtMatCheck: aliquotgroup Specimen/1053145 has no parent.
+2023-11-02 10:11:51,873:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053150
+2023-11-02 10:11:51,873:ERROR: AqtMatCheck: aliquotgroup Specimen/1053150 has no parent.
+2023-11-02 10:11:51,914:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053161
+2023-11-02 10:11:51,914:ERROR: AqtMatCheck: aliquotgroup Specimen/1053161 has no parent.
+2023-11-02 10:11:51,989:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053169
+2023-11-02 10:11:51,989:ERROR: AqtMatCheck: aliquotgroup Specimen/1053169 has no parent.
+2023-11-02 10:11:52,049:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053177
+2023-11-02 10:11:52,049:ERROR: AqtMatCheck: aliquotgroup Specimen/1053177 has no parent.
+2023-11-02 10:11:52,112:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053139
+2023-11-02 10:11:52,113:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053146
+2023-11-02 10:11:52,113:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053151
+2023-11-02 10:11:52,113:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053155
+2023-11-02 10:11:52,113:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053162
+2023-11-02 10:11:52,114:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053167
+2023-11-02 10:11:52,114:ERROR: AqtMatCheck: material of aliquotegroup Specimen/1053167 is NUM_RNA, but the material of its primary-parent 1366300399 is NUM_pbmc_edta
+2023-11-02 10:11:52,114:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053170
+2023-11-02 10:11:52,114:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053175
+2023-11-02 10:11:52,115:ERROR: AqtMatCheck: material of aliquotegroup Specimen/1053175 is NUM_RNA, but the material of its primary-parent 1366300499 is NUM_pbmc_edta
+2023-11-02 10:11:52,115:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053178
+2023-11-02 10:11:52,115:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053140
+2023-11-02 10:11:52,115:ERROR: AqtMatCheck: aliquotgroup Specimen/1053140 has no parent.
+2023-11-02 10:11:52,190:ERROR: OrgCheck: no organisation in db for sample BBD7587588769
+2023-11-02 10:11:52,190:ERROR: OrgCheck: organisation units don't match for sample BBD7587588769, json org is NUM_DD, db org is 
+2023-11-02 10:11:52,208:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053141
+2023-11-02 10:11:52,208:ERROR: AqtMatCheck: aliquotgroup Specimen/1053141 has no parent.
+2023-11-02 10:11:52,278:ERROR: OrgCheck: no organisation in db for sample BBD7923797710
+2023-11-02 10:11:52,278:ERROR: OrgCheck: organisation units don't match for sample BBD7923797710, json org is NUM_DD, db org is 
+2023-11-02 10:11:52,292:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053142
+2023-11-02 10:11:52,292:ERROR: AqtMatCheck: aliquotgroup Specimen/1053142 has no parent.
+2023-11-02 10:11:52,369:ERROR: OrgCheck: no organisation in db for sample BBD5136710309
+2023-11-02 10:11:52,369:ERROR: OrgCheck: organisation units don't match for sample BBD5136710309, json org is NUM_DD, db org is 
+2023-11-02 10:11:52,386:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053143
+2023-11-02 10:11:52,386:ERROR: AqtMatCheck: aliquotgroup Specimen/1053143 has no parent.
+2023-11-02 10:11:52,459:ERROR: OrgCheck: no organisation in db for sample BBD3892060926
+2023-11-02 10:11:52,459:ERROR: OrgCheck: organisation units don't match for sample BBD3892060926, json org is NUM_DD, db org is 
+2023-11-02 10:11:52,473:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053144
+2023-11-02 10:11:52,473:ERROR: AqtMatCheck: aliquotgroup Specimen/1053144 has no parent.
+2023-11-02 10:11:52,544:ERROR: OrgCheck: no organisation in db for sample BBD1836631974
+2023-11-02 10:11:52,544:ERROR: OrgCheck: organisation units don't match for sample BBD1836631974, json org is NUM_DD, db org is 
+2023-11-02 10:11:52,559:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053147
+2023-11-02 10:11:52,559:ERROR: AqtMatCheck: aliquotgroup Specimen/1053147 has no parent.
+2023-11-02 10:11:52,630:ERROR: OrgCheck: no organisation in db for sample BBD6178189752
+2023-11-02 10:11:52,630:ERROR: OrgCheck: organisation units don't match for sample BBD6178189752, json org is NUM_DD, db org is 
+2023-11-02 10:11:52,644:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053148
+2023-11-02 10:11:52,645:ERROR: AqtMatCheck: aliquotgroup Specimen/1053148 has no parent.
+2023-11-02 10:11:52,726:ERROR: OrgCheck: no organisation in db for sample BBD8351255809
+2023-11-02 10:11:52,726:ERROR: OrgCheck: organisation units don't match for sample BBD8351255809, json org is NUM_DD, db org is 
+2023-11-02 10:11:52,746:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053149
+2023-11-02 10:11:52,746:ERROR: AqtMatCheck: aliquotgroup Specimen/1053149 has no parent.
+2023-11-02 10:11:52,826:ERROR: OrgCheck: no organisation in db for sample BBD4793204149
+2023-11-02 10:11:52,826:ERROR: OrgCheck: organisation units don't match for sample BBD4793204149, json org is NUM_DD, db org is 
+2023-11-02 10:11:52,847:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053152
+2023-11-02 10:11:52,848:ERROR: AqtMatCheck: aliquotgroup Specimen/1053152 has no parent.
+2023-11-02 10:11:52,942:ERROR: OrgCheck: no organisation in db for sample BBD5999932695
+2023-11-02 10:11:52,942:ERROR: OrgCheck: organisation units don't match for sample BBD5999932695, json org is NUM_DD, db org is 
+2023-11-02 10:11:52,955:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053153
+2023-11-02 10:11:52,956:ERROR: AqtMatCheck: aliquotgroup Specimen/1053153 has no parent.
+2023-11-02 10:11:54,063:ERROR: OrgCheck: no organisation in db for sample BBD2537587360
+2023-11-02 10:11:54,063:ERROR: OrgCheck: organisation units don't match for sample BBD2537587360, json org is NUM_DD, db org is 
+2023-11-02 10:11:54,078:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053154
+2023-11-02 10:11:54,078:ERROR: AqtMatCheck: aliquotgroup Specimen/1053154 has no parent.
+2023-11-02 10:11:54,151:ERROR: OrgCheck: no organisation in db for sample BBD9207867146
+2023-11-02 10:11:54,151:ERROR: OrgCheck: organisation units don't match for sample BBD9207867146, json org is NUM_DD, db org is 
+2023-11-02 10:11:54,166:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053156
+2023-11-02 10:11:54,166:ERROR: AqtMatCheck: aliquotgroup Specimen/1053156 has no parent.
+2023-11-02 10:11:54,249:ERROR: OrgCheck: no organisation in db for sample BBD7506195259
+2023-11-02 10:11:54,249:ERROR: OrgCheck: organisation units don't match for sample BBD7506195259, json org is NUM_DD, db org is 
+2023-11-02 10:11:54,272:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053157
+2023-11-02 10:11:54,272:ERROR: AqtMatCheck: aliquotgroup Specimen/1053157 has no parent.
+2023-11-02 10:11:54,362:ERROR: OrgCheck: no organisation in db for sample BBD1236382437
+2023-11-02 10:11:54,362:ERROR: OrgCheck: organisation units don't match for sample BBD1236382437, json org is NUM_DD, db org is 
+2023-11-02 10:11:54,379:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053158
+2023-11-02 10:11:54,380:ERROR: AqtMatCheck: aliquotgroup Specimen/1053158 has no parent.
+2023-11-02 10:11:54,465:ERROR: OrgCheck: no organisation in db for sample BBD0674842616
+2023-11-02 10:11:54,465:ERROR: OrgCheck: organisation units don't match for sample BBD0674842616, json org is NUM_DD, db org is 
+2023-11-02 10:11:54,482:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053159
+2023-11-02 10:11:54,482:ERROR: AqtMatCheck: aliquotgroup Specimen/1053159 has no parent.
+2023-11-02 10:11:54,567:ERROR: OrgCheck: no organisation in db for sample BBD4471585397
+2023-11-02 10:11:54,567:ERROR: OrgCheck: organisation units don't match for sample BBD4471585397, json org is NUM_DD, db org is 
+2023-11-02 10:11:54,585:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053160
+2023-11-02 10:11:54,586:ERROR: AqtMatCheck: aliquotgroup Specimen/1053160 has no parent.
+2023-11-02 10:11:54,672:ERROR: OrgCheck: no organisation in db for sample BBD0488843753
+2023-11-02 10:11:54,672:ERROR: OrgCheck: organisation units don't match for sample BBD0488843753, json org is NUM_DD, db org is 
+2023-11-02 10:11:54,691:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053163
+2023-11-02 10:11:54,691:ERROR: AqtMatCheck: aliquotgroup Specimen/1053163 has no parent.
+2023-11-02 10:11:54,772:ERROR: OrgCheck: no organisation in db for sample BBD4330891475
+2023-11-02 10:11:54,772:ERROR: OrgCheck: organisation units don't match for sample BBD4330891475, json org is NUM_DD, db org is 
+2023-11-02 10:11:54,787:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053164
+2023-11-02 10:11:54,788:ERROR: AqtMatCheck: aliquotgroup Specimen/1053164 has no parent.
+2023-11-02 10:11:54,861:ERROR: OrgCheck: no organisation in db for sample BBD1255762915
+2023-11-02 10:11:54,861:ERROR: OrgCheck: organisation units don't match for sample BBD1255762915, json org is NUM_DD, db org is 
+2023-11-02 10:11:54,877:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053165
+2023-11-02 10:11:54,877:ERROR: AqtMatCheck: aliquotgroup Specimen/1053165 has no parent.
+2023-11-02 10:11:54,952:ERROR: OrgCheck: no organisation in db for sample BBD8702978987
+2023-11-02 10:11:54,952:ERROR: OrgCheck: organisation units don't match for sample BBD8702978987, json org is NUM_DD, db org is 
+2023-11-02 10:11:54,967:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053166
+2023-11-02 10:11:54,967:ERROR: AqtMatCheck: aliquotgroup Specimen/1053166 has no parent.
+2023-11-02 10:11:55,039:ERROR: OrgCheck: no organisation in db for sample BBD7211358645
+2023-11-02 10:11:55,039:ERROR: OrgCheck: organisation units don't match for sample BBD7211358645, json org is NUM_DD, db org is 
+2023-11-02 10:11:55,055:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053168
+2023-11-02 10:11:55,055:ERROR: AqtMatCheck: aliquotgroup Specimen/1053168 has no parent.
+2023-11-02 10:11:55,128:ERROR: OrgCheck: no organisation in db for sample BBD9138255518
+2023-11-02 10:11:55,128:ERROR: OrgCheck: organisation units don't match for sample BBD9138255518, json org is NUM_DD, db org is 
+2023-11-02 10:11:55,145:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053171
+2023-11-02 10:11:55,146:ERROR: AqtMatCheck: aliquotgroup Specimen/1053171 has no parent.
+2023-11-02 10:11:55,224:ERROR: OrgCheck: no organisation in db for sample BBD3690850842
+2023-11-02 10:11:55,224:ERROR: OrgCheck: organisation units don't match for sample BBD3690850842, json org is NUM_DD, db org is 
+2023-11-02 10:11:55,239:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053172
+2023-11-02 10:11:55,239:ERROR: AqtMatCheck: aliquotgroup Specimen/1053172 has no parent.
+2023-11-02 10:11:55,315:ERROR: OrgCheck: no organisation in db for sample BBD4303402500
+2023-11-02 10:11:55,315:ERROR: OrgCheck: organisation units don't match for sample BBD4303402500, json org is NUM_DD, db org is 
+2023-11-02 10:11:55,331:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053173
+2023-11-02 10:11:55,331:ERROR: AqtMatCheck: aliquotgroup Specimen/1053173 has no parent.
+2023-11-02 10:11:55,414:ERROR: OrgCheck: no organisation in db for sample BBD9769524429
+2023-11-02 10:11:55,414:ERROR: OrgCheck: organisation units don't match for sample BBD9769524429, json org is NUM_DD, db org is 
+2023-11-02 10:11:55,433:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053174
+2023-11-02 10:11:55,434:ERROR: AqtMatCheck: aliquotgroup Specimen/1053174 has no parent.
+2023-11-02 10:11:55,513:ERROR: OrgCheck: no organisation in db for sample BBD2586298096
+2023-11-02 10:11:55,513:ERROR: OrgCheck: organisation units don't match for sample BBD2586298096, json org is NUM_DD, db org is 
+2023-11-02 10:11:55,530:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053176
+2023-11-02 10:11:55,530:ERROR: AqtMatCheck: aliquotgroup Specimen/1053176 has no parent.
+2023-11-02 10:11:55,616:ERROR: OrgCheck: no organisation in db for sample BBD6041129206
+2023-11-02 10:11:55,616:ERROR: OrgCheck: organisation units don't match for sample BBD6041129206, json org is NUM_DD, db org is 
+2023-11-02 10:11:55,633:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053179
+2023-11-02 10:11:55,633:ERROR: AqtMatCheck: aliquotgroup Specimen/1053179 has no parent.
+2023-11-02 10:11:55,714:ERROR: OrgCheck: no organisation in db for sample BBD9281459522
+2023-11-02 10:11:55,715:ERROR: OrgCheck: organisation units don't match for sample BBD9281459522, json org is NUM_DD, db org is 
+2023-11-02 10:11:55,730:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053180
+2023-11-02 10:11:55,730:ERROR: AqtMatCheck: aliquotgroup Specimen/1053180 has no parent.
+2023-11-02 10:11:55,806:ERROR: OrgCheck: no organisation in db for sample BBD6322674262
+2023-11-02 10:11:55,806:ERROR: OrgCheck: organisation units don't match for sample BBD6322674262, json org is NUM_DD, db org is 
+2023-11-02 10:11:55,821:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053181
+2023-11-02 10:11:55,821:ERROR: AqtMatCheck: aliquotgroup Specimen/1053181 has no parent.
+2023-11-02 10:11:55,894:ERROR: OrgCheck: no organisation in db for sample BBD0256994556
+2023-11-02 10:11:55,894:ERROR: OrgCheck: organisation units don't match for sample BBD0256994556, json org is NUM_DD, db org is 
+2023-11-02 10:11:55,908:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053182
+2023-11-02 10:11:55,908:ERROR: AqtMatCheck: aliquotgroup Specimen/1053182 has no parent.
+2023-11-02 10:11:57,019:ERROR: OrgCheck: no organisation in db for sample BBD2418859524
+2023-11-02 10:11:57,019:ERROR: OrgCheck: organisation units don't match for sample BBD2418859524, json org is NUM_DD, db org is 
+2023-11-02 10:11:57,034:INFO: AqtMatCheck: checking aliquotgroup Specimen/1053183
+2023-11-02 10:11:57,035:ERROR: AqtMatCheck: aliquotgroup Specimen/1053183 has no parent.
+2023-11-02 10:11:57,107:ERROR: OrgCheck: no organisation in db for sample BBD4666625811
+2023-11-02 10:11:57,107:ERROR: OrgCheck: organisation units don't match for sample BBD4666625811, json org is NUM_DD, db org is 
+2023-11-02 10:11:57,122:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055080
+2023-11-02 10:11:57,122:ERROR: AqtMatCheck: aliquotgroup Specimen/1055080 has no parent.
+2023-11-02 10:11:57,162:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055087
+2023-11-02 10:11:57,163:ERROR: AqtMatCheck: aliquotgroup Specimen/1055087 has no parent.
+2023-11-02 10:11:57,205:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055092
+2023-11-02 10:11:57,205:ERROR: AqtMatCheck: aliquotgroup Specimen/1055092 has no parent.
+2023-11-02 10:11:57,249:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055103
+2023-11-02 10:11:57,249:ERROR: AqtMatCheck: aliquotgroup Specimen/1055103 has no parent.
+2023-11-02 10:11:57,290:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055111
+2023-11-02 10:11:57,291:ERROR: AqtMatCheck: aliquotgroup Specimen/1055111 has no parent.
+2023-11-02 10:11:57,333:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055119
+2023-11-02 10:11:57,333:ERROR: AqtMatCheck: aliquotgroup Specimen/1055119 has no parent.
+2023-11-02 10:11:57,375:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055081
+2023-11-02 10:11:57,375:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055088
+2023-11-02 10:11:57,375:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055093
+2023-11-02 10:11:57,375:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055097
+2023-11-02 10:11:57,376:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055104
+2023-11-02 10:11:57,376:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055109
+2023-11-02 10:11:57,376:ERROR: AqtMatCheck: material of aliquotegroup Specimen/1055109 is NUM_RNA, but the material of its primary-parent 1366320391 is NUM_pbmc_edta
+2023-11-02 10:11:57,376:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055112
+2023-11-02 10:11:57,376:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055117
+2023-11-02 10:11:57,376:ERROR: AqtMatCheck: material of aliquotegroup Specimen/1055117 is NUM_RNA, but the material of its primary-parent 1366320491 is NUM_pbmc_edta
+2023-11-02 10:11:57,376:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055120
+2023-11-02 10:11:57,377:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055082
+2023-11-02 10:11:57,377:ERROR: AqtMatCheck: aliquotgroup Specimen/1055082 has no parent.
+2023-11-02 10:11:57,450:ERROR: OrgCheck: no organisation in db for sample BBD0397728106
+2023-11-02 10:11:57,450:ERROR: OrgCheck: organisation units don't match for sample BBD0397728106, json org is NUM_DD, db org is 
+2023-11-02 10:11:57,465:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055083
+2023-11-02 10:11:57,465:ERROR: AqtMatCheck: aliquotgroup Specimen/1055083 has no parent.
+2023-11-02 10:11:57,539:ERROR: OrgCheck: no organisation in db for sample BBD0309623490
+2023-11-02 10:11:57,539:ERROR: OrgCheck: organisation units don't match for sample BBD0309623490, json org is NUM_DD, db org is 
+2023-11-02 10:11:57,553:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055084
+2023-11-02 10:11:57,554:ERROR: AqtMatCheck: aliquotgroup Specimen/1055084 has no parent.
+2023-11-02 10:11:57,628:ERROR: OrgCheck: no organisation in db for sample BBD8710999196
+2023-11-02 10:11:57,628:ERROR: OrgCheck: organisation units don't match for sample BBD8710999196, json org is NUM_DD, db org is 
+2023-11-02 10:11:57,643:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055085
+2023-11-02 10:11:57,643:ERROR: AqtMatCheck: aliquotgroup Specimen/1055085 has no parent.
+2023-11-02 10:11:57,715:ERROR: OrgCheck: no organisation in db for sample BBD0410113032
+2023-11-02 10:11:57,715:ERROR: OrgCheck: organisation units don't match for sample BBD0410113032, json org is NUM_DD, db org is 
+2023-11-02 10:11:57,730:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055086
+2023-11-02 10:11:57,731:ERROR: AqtMatCheck: aliquotgroup Specimen/1055086 has no parent.
+2023-11-02 10:11:57,808:ERROR: OrgCheck: no organisation in db for sample BBD0894642982
+2023-11-02 10:11:57,808:ERROR: OrgCheck: organisation units don't match for sample BBD0894642982, json org is NUM_DD, db org is 
+2023-11-02 10:11:57,823:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055089
+2023-11-02 10:11:57,823:ERROR: AqtMatCheck: aliquotgroup Specimen/1055089 has no parent.
+2023-11-02 10:11:57,897:ERROR: OrgCheck: no organisation in db for sample BBD8489848076
+2023-11-02 10:11:57,897:ERROR: OrgCheck: organisation units don't match for sample BBD8489848076, json org is NUM_DD, db org is 
+2023-11-02 10:11:57,913:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055090
+2023-11-02 10:11:57,913:ERROR: AqtMatCheck: aliquotgroup Specimen/1055090 has no parent.
+2023-11-02 10:11:57,988:ERROR: OrgCheck: no organisation in db for sample BBD5224501095
+2023-11-02 10:11:57,988:ERROR: OrgCheck: organisation units don't match for sample BBD5224501095, json org is NUM_DD, db org is 
+2023-11-02 10:11:58,002:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055091
+2023-11-02 10:11:58,002:ERROR: AqtMatCheck: aliquotgroup Specimen/1055091 has no parent.
+2023-11-02 10:11:58,078:ERROR: OrgCheck: no organisation in db for sample BBD8284425525
+2023-11-02 10:11:58,078:ERROR: OrgCheck: organisation units don't match for sample BBD8284425525, json org is NUM_DD, db org is 
+2023-11-02 10:11:58,096:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055094
+2023-11-02 10:11:58,096:ERROR: AqtMatCheck: aliquotgroup Specimen/1055094 has no parent.
+2023-11-02 10:11:58,174:ERROR: OrgCheck: no organisation in db for sample BBD9021438417
+2023-11-02 10:11:58,174:ERROR: OrgCheck: organisation units don't match for sample BBD9021438417, json org is NUM_DD, db org is 
+2023-11-02 10:11:58,188:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055095
+2023-11-02 10:11:58,188:ERROR: AqtMatCheck: aliquotgroup Specimen/1055095 has no parent.
+2023-11-02 10:11:58,258:ERROR: OrgCheck: no organisation in db for sample BBD8369247535
+2023-11-02 10:11:58,258:ERROR: OrgCheck: organisation units don't match for sample BBD8369247535, json org is NUM_DD, db org is 
+2023-11-02 10:11:58,273:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055096
+2023-11-02 10:11:58,273:ERROR: AqtMatCheck: aliquotgroup Specimen/1055096 has no parent.
+2023-11-02 10:11:58,345:ERROR: OrgCheck: no organisation in db for sample BBD1794111617
+2023-11-02 10:11:58,345:ERROR: OrgCheck: organisation units don't match for sample BBD1794111617, json org is NUM_DD, db org is 
+2023-11-02 10:11:58,360:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055098
+2023-11-02 10:11:58,360:ERROR: AqtMatCheck: aliquotgroup Specimen/1055098 has no parent.
+2023-11-02 10:11:58,428:ERROR: OrgCheck: no organisation in db for sample BBD1858548120
+2023-11-02 10:11:58,428:ERROR: OrgCheck: organisation units don't match for sample BBD1858548120, json org is NUM_DD, db org is 
+2023-11-02 10:11:58,447:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055099
+2023-11-02 10:11:58,447:ERROR: AqtMatCheck: aliquotgroup Specimen/1055099 has no parent.
+2023-11-02 10:11:58,521:ERROR: OrgCheck: no organisation in db for sample BBD4764422498
+2023-11-02 10:11:58,521:ERROR: OrgCheck: organisation units don't match for sample BBD4764422498, json org is NUM_DD, db org is 
+2023-11-02 10:11:58,534:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055100
+2023-11-02 10:11:58,535:ERROR: AqtMatCheck: aliquotgroup Specimen/1055100 has no parent.
+2023-11-02 10:11:58,617:ERROR: OrgCheck: no organisation in db for sample BBD1034779917
+2023-11-02 10:11:58,617:ERROR: OrgCheck: organisation units don't match for sample BBD1034779917, json org is NUM_DD, db org is 
+2023-11-02 10:11:58,640:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055101
+2023-11-02 10:11:58,640:ERROR: AqtMatCheck: aliquotgroup Specimen/1055101 has no parent.
+2023-11-02 10:11:58,724:ERROR: OrgCheck: no organisation in db for sample BBD4791809805
+2023-11-02 10:11:58,724:ERROR: OrgCheck: organisation units don't match for sample BBD4791809805, json org is NUM_DD, db org is 
+2023-11-02 10:11:58,738:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055102
+2023-11-02 10:11:58,738:ERROR: AqtMatCheck: aliquotgroup Specimen/1055102 has no parent.
+2023-11-02 10:11:59,881:ERROR: OrgCheck: no organisation in db for sample BBD2379423937
+2023-11-02 10:11:59,882:ERROR: OrgCheck: organisation units don't match for sample BBD2379423937, json org is NUM_DD, db org is 
+2023-11-02 10:11:59,902:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055105
+2023-11-02 10:11:59,903:ERROR: AqtMatCheck: aliquotgroup Specimen/1055105 has no parent.
+2023-11-02 10:11:59,979:ERROR: OrgCheck: no organisation in db for sample BBD6880417986
+2023-11-02 10:11:59,979:ERROR: OrgCheck: organisation units don't match for sample BBD6880417986, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,001:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055106
+2023-11-02 10:12:00,001:ERROR: AqtMatCheck: aliquotgroup Specimen/1055106 has no parent.
+2023-11-02 10:12:00,074:ERROR: OrgCheck: no organisation in db for sample BBD0579290094
+2023-11-02 10:12:00,074:ERROR: OrgCheck: organisation units don't match for sample BBD0579290094, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,089:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055107
+2023-11-02 10:12:00,089:ERROR: AqtMatCheck: aliquotgroup Specimen/1055107 has no parent.
+2023-11-02 10:12:00,168:ERROR: OrgCheck: no organisation in db for sample BBD7437865308
+2023-11-02 10:12:00,168:ERROR: OrgCheck: organisation units don't match for sample BBD7437865308, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,183:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055108
+2023-11-02 10:12:00,184:ERROR: AqtMatCheck: aliquotgroup Specimen/1055108 has no parent.
+2023-11-02 10:12:00,269:ERROR: OrgCheck: no organisation in db for sample BBD5425583400
+2023-11-02 10:12:00,270:ERROR: OrgCheck: organisation units don't match for sample BBD5425583400, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,292:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055110
+2023-11-02 10:12:00,292:ERROR: AqtMatCheck: aliquotgroup Specimen/1055110 has no parent.
+2023-11-02 10:12:00,363:ERROR: OrgCheck: no organisation in db for sample BBD4919820582
+2023-11-02 10:12:00,363:ERROR: OrgCheck: organisation units don't match for sample BBD4919820582, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,378:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055113
+2023-11-02 10:12:00,378:ERROR: AqtMatCheck: aliquotgroup Specimen/1055113 has no parent.
+2023-11-02 10:12:00,451:ERROR: OrgCheck: no organisation in db for sample BBD3212551874
+2023-11-02 10:12:00,451:ERROR: OrgCheck: organisation units don't match for sample BBD3212551874, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,466:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055114
+2023-11-02 10:12:00,466:ERROR: AqtMatCheck: aliquotgroup Specimen/1055114 has no parent.
+2023-11-02 10:12:00,544:ERROR: OrgCheck: no organisation in db for sample BBD4638766996
+2023-11-02 10:12:00,544:ERROR: OrgCheck: organisation units don't match for sample BBD4638766996, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,558:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055115
+2023-11-02 10:12:00,558:ERROR: AqtMatCheck: aliquotgroup Specimen/1055115 has no parent.
+2023-11-02 10:12:00,627:ERROR: OrgCheck: no organisation in db for sample BBD3606565192
+2023-11-02 10:12:00,627:ERROR: OrgCheck: organisation units don't match for sample BBD3606565192, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,642:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055116
+2023-11-02 10:12:00,642:ERROR: AqtMatCheck: aliquotgroup Specimen/1055116 has no parent.
+2023-11-02 10:12:00,711:ERROR: OrgCheck: no organisation in db for sample BBD5422496070
+2023-11-02 10:12:00,711:ERROR: OrgCheck: organisation units don't match for sample BBD5422496070, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,725:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055118
+2023-11-02 10:12:00,725:ERROR: AqtMatCheck: aliquotgroup Specimen/1055118 has no parent.
+2023-11-02 10:12:00,796:ERROR: OrgCheck: no organisation in db for sample BBD6549574810
+2023-11-02 10:12:00,797:ERROR: OrgCheck: organisation units don't match for sample BBD6549574810, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,812:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055121
+2023-11-02 10:12:00,812:ERROR: AqtMatCheck: aliquotgroup Specimen/1055121 has no parent.
+2023-11-02 10:12:00,883:ERROR: OrgCheck: no organisation in db for sample BBD5004135786
+2023-11-02 10:12:00,883:ERROR: OrgCheck: organisation units don't match for sample BBD5004135786, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,897:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055122
+2023-11-02 10:12:00,897:ERROR: AqtMatCheck: aliquotgroup Specimen/1055122 has no parent.
+2023-11-02 10:12:00,967:ERROR: OrgCheck: no organisation in db for sample BBD1786116802
+2023-11-02 10:12:00,967:ERROR: OrgCheck: organisation units don't match for sample BBD1786116802, json org is NUM_DD, db org is 
+2023-11-02 10:12:00,980:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055123
+2023-11-02 10:12:00,981:ERROR: AqtMatCheck: aliquotgroup Specimen/1055123 has no parent.
+2023-11-02 10:12:01,074:ERROR: OrgCheck: no organisation in db for sample BBD5020518270
+2023-11-02 10:12:01,074:ERROR: OrgCheck: organisation units don't match for sample BBD5020518270, json org is NUM_DD, db org is 
+2023-11-02 10:12:01,089:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055124
+2023-11-02 10:12:01,089:ERROR: AqtMatCheck: aliquotgroup Specimen/1055124 has no parent.
+2023-11-02 10:12:01,159:ERROR: OrgCheck: no organisation in db for sample BBD2528091071
+2023-11-02 10:12:01,159:ERROR: OrgCheck: organisation units don't match for sample BBD2528091071, json org is NUM_DD, db org is 
+2023-11-02 10:12:01,174:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055125
+2023-11-02 10:12:01,175:ERROR: AqtMatCheck: aliquotgroup Specimen/1055125 has no parent.
+2023-11-02 10:12:01,249:ERROR: OrgCheck: no organisation in db for sample BBD5895296337
+2023-11-02 10:12:01,250:ERROR: OrgCheck: organisation units don't match for sample BBD5895296337, json org is NUM_DD, db org is 
+2023-11-02 10:12:01,267:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055126
+2023-11-02 10:12:01,267:ERROR: AqtMatCheck: aliquotgroup Specimen/1055126 has no parent.
+2023-11-02 10:12:01,282:ERROR: DatesCheck: in sample 1366340001 is received date before collection date
+2023-11-02 10:12:01,312:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055127
+2023-11-02 10:12:01,312:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055128
+2023-11-02 10:12:01,313:ERROR: AqtMatCheck: aliquotgroup Specimen/1055128 has no parent.
+2023-11-02 10:12:01,327:ERROR: DatesCheck: in sample BBD1237370946 is centrifugation date before collection date
+2023-11-02 10:12:01,384:ERROR: OrgCheck: no organisation in db for sample BBD1237370946
+2023-11-02 10:12:01,384:ERROR: OrgCheck: organisation units don't match for sample BBD1237370946, json org is NUM_DD, db org is 
+2023-11-02 10:12:01,400:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055129
+2023-11-02 10:12:01,400:ERROR: AqtMatCheck: aliquotgroup Specimen/1055129 has no parent.
+2023-11-02 10:12:01,415:ERROR: DatesCheck: in sample BBD0740405702 is centrifugation date before collection date
+2023-11-02 10:12:01,476:ERROR: OrgCheck: no organisation in db for sample BBD0740405702
+2023-11-02 10:12:01,476:ERROR: OrgCheck: organisation units don't match for sample BBD0740405702, json org is NUM_DD, db org is 
+2023-11-02 10:12:01,489:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055130
+2023-11-02 10:12:01,489:ERROR: AqtMatCheck: aliquotgroup Specimen/1055130 has no parent.
+2023-11-02 10:12:01,503:ERROR: DatesCheck: in sample BBD8407536450 is centrifugation date before collection date
+2023-11-02 10:12:01,557:ERROR: OrgCheck: no organisation in db for sample BBD8407536450
+2023-11-02 10:12:01,557:ERROR: OrgCheck: organisation units don't match for sample BBD8407536450, json org is NUM_DD, db org is 
+2023-11-02 10:12:01,571:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055131
+2023-11-02 10:12:01,571:ERROR: AqtMatCheck: aliquotgroup Specimen/1055131 has no parent.
+2023-11-02 10:12:01,585:ERROR: DatesCheck: in sample BBD1137623081 is centrifugation date before collection date
+2023-11-02 10:12:02,725:ERROR: OrgCheck: no organisation in db for sample BBD1137623081
+2023-11-02 10:12:02,725:ERROR: OrgCheck: organisation units don't match for sample BBD1137623081, json org is NUM_DD, db org is 
+2023-11-02 10:12:02,740:INFO: AqtMatCheck: checking aliquotgroup Specimen/1055132
+2023-11-02 10:12:02,740:ERROR: AqtMatCheck: aliquotgroup Specimen/1055132 has no parent.
+2023-11-02 10:12:02,754:ERROR: DatesCheck: in sample BBD3234730258 is centrifugation date before collection date
+2023-11-02 10:12:02,810:ERROR: OrgCheck: no organisation in db for sample BBD3234730258
+2023-11-02 10:12:02,810:ERROR: OrgCheck: organisation units don't match for sample BBD3234730258, json org is NUM_DD, db org is 
+2023-11-02 10:12:02,823:ERROR: ParentingCheck: aliquotgroup Specimen/1053138 is childless.
+2023-11-02 10:12:02,823:ERROR: ParentingCheck: aliquotgroup Specimen/1053145 is childless.
+2023-11-02 10:12:02,823:ERROR: ParentingCheck: aliquotgroup Specimen/1053150 is childless.
+2023-11-02 10:12:02,823:ERROR: ParentingCheck: aliquotgroup Specimen/1053161 is childless.
+2023-11-02 10:12:02,824:ERROR: ParentingCheck: aliquotgroup Specimen/1053169 is childless.
+2023-11-02 10:12:02,824:ERROR: ParentingCheck: aliquotgroup Specimen/1053177 is childless.
+2023-11-02 10:12:02,824:ERROR: ParentingCheck: aliquotgroup Specimen/1053140 is childless.
+2023-11-02 10:12:02,824:ERROR: ParentingCheck: aliquotgroup Specimen/1053141 is childless.
+2023-11-02 10:12:02,824:ERROR: ParentingCheck: aliquotgroup Specimen/1053142 is childless.
+2023-11-02 10:12:02,824:ERROR: ParentingCheck: aliquotgroup Specimen/1053143 is childless.
+2023-11-02 10:12:02,824:ERROR: ParentingCheck: aliquotgroup Specimen/1053144 is childless.
+2023-11-02 10:12:02,824:ERROR: ParentingCheck: aliquotgroup Specimen/1053147 is childless.
+2023-11-02 10:12:02,825:ERROR: ParentingCheck: aliquotgroup Specimen/1053148 is childless.
+2023-11-02 10:12:02,825:ERROR: ParentingCheck: aliquotgroup Specimen/1053149 is childless.
+2023-11-02 10:12:02,825:ERROR: ParentingCheck: aliquotgroup Specimen/1053152 is childless.
+2023-11-02 10:12:02,825:ERROR: ParentingCheck: aliquotgroup Specimen/1053153 is childless.
+2023-11-02 10:12:02,825:ERROR: ParentingCheck: aliquotgroup Specimen/1053154 is childless.
+2023-11-02 10:12:02,825:ERROR: ParentingCheck: aliquotgroup Specimen/1053156 is childless.
+2023-11-02 10:12:02,825:ERROR: ParentingCheck: aliquotgroup Specimen/1053157 is childless.
+2023-11-02 10:12:02,825:ERROR: ParentingCheck: aliquotgroup Specimen/1053158 is childless.
+2023-11-02 10:12:02,825:ERROR: ParentingCheck: aliquotgroup Specimen/1053159 is childless.
+2023-11-02 10:12:02,826:ERROR: ParentingCheck: aliquotgroup Specimen/1053160 is childless.
+2023-11-02 10:12:02,826:ERROR: ParentingCheck: aliquotgroup Specimen/1053163 is childless.
+2023-11-02 10:12:02,826:ERROR: ParentingCheck: aliquotgroup Specimen/1053164 is childless.
+2023-11-02 10:12:02,826:ERROR: ParentingCheck: aliquotgroup Specimen/1053165 is childless.
+2023-11-02 10:12:02,826:ERROR: ParentingCheck: aliquotgroup Specimen/1053166 is childless.
+2023-11-02 10:12:02,826:ERROR: ParentingCheck: aliquotgroup Specimen/1053168 is childless.
+2023-11-02 10:12:02,826:ERROR: ParentingCheck: aliquotgroup Specimen/1053171 is childless.
+2023-11-02 10:12:02,826:ERROR: ParentingCheck: aliquotgroup Specimen/1053172 is childless.
+2023-11-02 10:12:02,827:ERROR: ParentingCheck: aliquotgroup Specimen/1053173 is childless.
+2023-11-02 10:12:02,827:ERROR: ParentingCheck: aliquotgroup Specimen/1053174 is childless.
+2023-11-02 10:12:02,827:ERROR: ParentingCheck: aliquotgroup Specimen/1053176 is childless.
+2023-11-02 10:12:02,827:ERROR: ParentingCheck: aliquotgroup Specimen/1053179 is childless.
+2023-11-02 10:12:02,827:ERROR: ParentingCheck: aliquotgroup Specimen/1053180 is childless.
+2023-11-02 10:12:02,827:ERROR: ParentingCheck: aliquotgroup Specimen/1053181 is childless.
+2023-11-02 10:12:02,827:ERROR: ParentingCheck: aliquotgroup Specimen/1053182 is childless.
+2023-11-02 10:12:02,828:ERROR: ParentingCheck: aliquotgroup Specimen/1053183 is childless.
+2023-11-02 10:12:02,828:ERROR: ParentingCheck: aliquotgroup Specimen/1055080 is childless.
+2023-11-02 10:12:02,828:ERROR: ParentingCheck: aliquotgroup Specimen/1055087 is childless.
+2023-11-02 10:12:02,828:ERROR: ParentingCheck: aliquotgroup Specimen/1055092 is childless.
+2023-11-02 10:12:02,828:ERROR: ParentingCheck: aliquotgroup Specimen/1055103 is childless.
+2023-11-02 10:12:02,828:ERROR: ParentingCheck: aliquotgroup Specimen/1055111 is childless.
+2023-11-02 10:12:02,828:ERROR: ParentingCheck: aliquotgroup Specimen/1055119 is childless.
+2023-11-02 10:12:02,828:ERROR: ParentingCheck: aliquotgroup Specimen/1055082 is childless.
+2023-11-02 10:12:02,828:ERROR: ParentingCheck: aliquotgroup Specimen/1055083 is childless.
+2023-11-02 10:12:02,828:ERROR: ParentingCheck: aliquotgroup Specimen/1055084 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055085 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055086 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055089 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055090 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055091 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055094 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055095 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055096 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055098 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055099 is childless.
+2023-11-02 10:12:02,829:ERROR: ParentingCheck: aliquotgroup Specimen/1055100 is childless.
+2023-11-02 10:12:02,830:ERROR: ParentingCheck: aliquotgroup Specimen/1055101 is childless.
+2023-11-02 10:12:02,830:ERROR: ParentingCheck: aliquotgroup Specimen/1055102 is childless.
+2023-11-02 10:12:02,830:ERROR: ParentingCheck: aliquotgroup Specimen/1055105 is childless.
+2023-11-02 10:12:02,830:ERROR: ParentingCheck: aliquotgroup Specimen/1055106 is childless.
+2023-11-02 10:12:02,830:ERROR: ParentingCheck: aliquotgroup Specimen/1055107 is childless.
+2023-11-02 10:12:02,830:ERROR: ParentingCheck: aliquotgroup Specimen/1055108 is childless.
+2023-11-02 10:12:02,830:ERROR: ParentingCheck: aliquotgroup Specimen/1055110 is childless.
+2023-11-02 10:12:02,830:ERROR: ParentingCheck: aliquotgroup Specimen/1055113 is childless.
+2023-11-02 10:12:02,830:ERROR: ParentingCheck: aliquotgroup Specimen/1055114 is childless.
+2023-11-02 10:12:02,830:ERROR: ParentingCheck: aliquotgroup Specimen/1055115 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055116 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055118 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055121 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055122 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055123 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055124 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055125 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055126 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055128 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055129 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055130 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055131 is childless.
+2023-11-02 10:12:02,831:ERROR: ParentingCheck: aliquotgroup Specimen/1055132 is childless.

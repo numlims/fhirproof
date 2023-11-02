@@ -1,4 +1,4 @@
-# DerivmatCheck checks the organisation of a fhir entry
+# DerivmatCheck checks the material of a derived (aliquot) entry
 
 import re
 
