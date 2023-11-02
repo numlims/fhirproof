@@ -11,6 +11,7 @@ class LocationCheck(FhirCheck):
         ist nur bei Speichel und PaxGene ein Lagerort angegeben.
         """
         resource = entry["resource"]
+        sampleid = fh.sampleid(resource)
         if (fh.type(resource) == "DERIVED" and fh.restmenge(resource) > 0) or (fh.type(resource) == "MASTER" and (fh.material(resource) == "NUM_speichel" or fh.material(resource) == "PAXgene")):
             locpath = None
             for e in resource["extension"]:

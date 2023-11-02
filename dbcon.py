@@ -4,8 +4,6 @@ import pyodbc
 import configparser
 import os
 
-from flask import current_app # for logging?
-
 # getDatabaseConnection returns the database connection
 def get_database_connection(target_system: str = 'num_test', database=None):
     return pyodbc.connect(get_conn_str(target_system, database))

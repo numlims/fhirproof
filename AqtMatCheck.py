@@ -3,6 +3,7 @@
 import re
 
 from dbcon import *
+import json
 from FhirCheck import *
 import fhirhelp as fh
 
@@ -18,7 +19,7 @@ class AqtMatCheck(FhirCheck):
         """
 
         resource = entry["resource"]        
-        print("checking aliquotgroup " + entry["fullUrl"])
+        self.info("checking aliquotgroup " + entry["fullUrl"])
 
         # read pamm
         ALIQUOT_MATERIAL_MAP = "2023-03_03_MaterialAliquotingMapping.json"
@@ -36,8 +37,9 @@ class AqtMatCheck(FhirCheck):
 
         # parent
         pid = fh.parent_sampleid(resource)
-        if not pid:
+        if pid == None:
             self.err("aliquotgroup " + entry["fullUrl"] + " has no parent.")
+            return
 
         parent = self.fp.entrybysampleid[pid]
         
@@ -48,4 +50,4 @@ class AqtMatCheck(FhirCheck):
             if parent_material != child_material:
                 self.err("material of aliquotegroup " + entry["fullUrl"] + " is " + child_material + ", but the material of its primary-parent " + fh.sample_id(parent["resource"]) + " is " + parent_material)
         elif not child_material in pamm[parent_material]: # mappings in pamm
-            self.err("material of aliquotegroup " + entry["fullUrl"] + " is " + child_material + ", but the material of its primary-parent " + fh.sample_id(parent["resource"]) + " is " + parent_material)
+            self.err("material of aliquotegroup " + entry["fullUrl"] + " is " + child_material + ", but the material of its primary-parent " + fh.sampleid(parent["resource"]) + " is " + parent_material)

@@ -98,12 +98,12 @@ class Fhirproof:
             im Json keine Sampleid gibt. Aliquotgruppen haben keine Sampleid, ihre
             Checks machen wir bevor wir weiter gehen.
             """
-            self.aqtgchildless[entry["fullUrl"]] = True
-            
-            aqtmat.check(entry)
+            if fh.type(entry['resource']) == "ALIQUOTGROUP":
+                self.aqtgchildless[entry["fullUrl"]] = True
+                aqtmat.check(entry)
 
             sampleid = fh.sampleid(entry['resource'])
-            if sampleid is None:
+            if sampleid == None:
                 continue
 
             self.entrybysampleid[sampleid] = entry
