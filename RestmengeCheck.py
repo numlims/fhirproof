@@ -31,6 +31,13 @@ Wir führen Buch. Begegnen wir einem Aliquot, merken wir uns in
         if fh.type(resource) == "DERIVED":
             self.fp.shouldzerorest[fh.parent_fhirid(resource)] = True
 
+        """
+        Wenn die Restmenge null ist darf es keinen Lagerort geben.
+        """
+        rm = fh.restmenge(resource)
+        if (rm == None or rm == 0) and fh.lagerort(resource) != None:
+            self.err("restmenge for sample " + sampleid + " is zero, and there is a sampleLocation given, please remove the sampleLocation")
+
 
     def end(self):
         for entry in self.entries:
