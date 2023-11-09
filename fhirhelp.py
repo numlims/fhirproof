@@ -1,6 +1,7 @@
 # fhirhelp.py offers help functions for fhir json bundles.
 
 # it offers these functions:
+# lagerort
 # limspsn
 # material
 # parent_fhirid
@@ -12,6 +13,13 @@
 
 # Die Doku für das Specimen-Json ist auf Simplifier,
 # https://simplifier.net/CentraXX-Structures/Specimen/~details.
+
+# lagerort gets the sampleLocation
+def lagerort(resource):
+    for e in resource["extension"]:
+        if e["url"] == "https://fhir.centraxx.de/extension/sample/sampleLocation":
+            return e["valueReference"]["identifier"]["value"]
+    return None
 
 # limspsn gets the lims psn from the resource
 def limspsn(resource):
@@ -51,6 +59,8 @@ def org(resource):
 
 # restmenge returns the restmenge of the sample
 def restmenge(resource):
+    if not "value" in resource["container"][0]["specimenQuantity"]:
+        return None
     return resource["container"][0]["specimenQuantity"]["value"]
 
 # sampleid tries to find the sample id in resource

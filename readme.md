@@ -94,8 +94,12 @@ C:\applications\centraxx-home\fhir-custom-export\num_wuerz\import\CASE*
 
 ## Log
 
-A little example how to extract certain sampleids from the logfile is
-in `scripts/sampleids-from-log.sh`.
+A little shell pipeline for extracting certain sampleids from the
+logfile is in `scripts/sampleids-from-log.sh`.
+
+## Down the line
+
+Vielleicht eine groovy Version zum Einbinden in Centraxx.
 
 ## Anhang
 
