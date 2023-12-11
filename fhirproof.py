@@ -3,6 +3,8 @@
 # fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
 # können und loggt in `logs/fhirproof.log`.
 
+# usage: fhirproof.py <file name> <user name>
+
 import json
 import logging
 from pathlib import Path
@@ -13,11 +15,12 @@ from PrimaryInDbCheck import *
 from DatesCheck import *
 from LocationCheck import *
 from BehealterCheck import *
-from OrgCheck import *
+from OUCheck import *
 from ParentingCheck import *
 from PsnCheck import *
 from RestmengeCheck import *
 from DerivmatCheck import *
+from MayUserEditOUCheck import *
 
 # Fhirproof reads fhir json from stdin and checks the entries
 class Fhirproof:
@@ -66,6 +69,11 @@ class Fhirproof:
 
         self._setuplog()
 
+        if len(sys.argv) != 3:
+            print("usage: fhirproof.py <file name> <user name>")
+            return
+        
+
         # read
         namein = sys.argv[1]
         filein = open(namein)
@@ -73,17 +81,21 @@ class Fhirproof:
 
         jsonin = json.loads(textin)
 
+        # name of fhir user
+        user = sys.argv[2]
+
         # initialize checks
         aqtmat = AqtMatCheck(self)
         primary_in_db = PrimaryInDbCheck(self)
         dates = DatesCheck(self)
         location = LocationCheck(self)
         behealter = BehealterCheck(self)
-        org = OrgCheck(self)
+        ou = OUCheck(self)
         parenting = ParentingCheck(self)
         psn = PsnCheck(self)
         restmenge = RestmengeCheck(self)
         derivmat = DerivmatCheck(self)
+        mayeditou = MayUserEditOUCheck(self)
 
         # run checks
         for entry in jsonin["entry"]:
@@ -119,7 +131,7 @@ class Fhirproof:
             #<behealter>>
             behealter.check(entry)
             #<org>>
-            org.check(entry)
+            ou.check(entry)
             #<parenting>>
             parenting.check(entry)
             #<psn>>
@@ -128,6 +140,8 @@ class Fhirproof:
             restmenge.check(entry)
             # derived material
             derivmat.check(entry)
+            # edit oe?
+            #mayeditou.check(entry, user)
 
         restmenge.end()
         parenting.end()
@@ -137,3 +151,5 @@ def main():
     Fhirproof()
 
 main()
+
+

@@ -11,7 +11,10 @@ import fhirhelp as fh
 class OrgCheck(FhirCheck):
 
     def check(self, entry):
-        # only do if sample in db?
+
+        resource = entry["resource"]
+
+        sampleid = fh.sampleid(resource)
         
         """
         Ist die Organisationunit vom Patienten und die der Probe die selbe?
@@ -27,12 +30,8 @@ class OrgCheck(FhirCheck):
         wieder über `sampleidcontainer` gehen.
         
         """
-        resource = entry["resource"]
-
-        sampleid = fh.sampleid(resource)
-        
         """
-        Der Patient keonnte zu Organisationseinheiten gehoeren, wegen Patientenzusammenfuehrungen. Dann waere die eine OE 'NUM'. Die filtern wir raus.
+        Der Patient keonnte zu mehreren Organisationseinheiten gehoeren, wegen Patientenzusammenfuehrungen. Dann waere die eine OE 'NUM'. Die filtern wir raus.
         """
         
         # get db org
@@ -43,23 +42,42 @@ class OrgCheck(FhirCheck):
         inner join centraxx_sample s on pc.oid = s.patientcontainer
         inner join centraxx_sampleidcontainer sidc on sidc.sample = s.oid where sidc.psn = ? and ou.code != 'NUM'"""
 
-        result = qfad(query, sampleid)
+        dborgres = qfad(query, sampleid)
+
+        """Wenn es die Probe in der Datenbank gibt checken wir die DB-Org der
+        Probe gegen die Json-Org der Probe. Wenn es die Probe nicht in
+        der Datenbank gibt, oder es keine DB-Org der Probe gibt,
+        checken wir die DB-Org des Patienten gegen die Json-Org der
+        Probe.
 
         """
-        Wir machen den Check nur, wenn es die Probe in der Datenbank gibt. Das
-        sollte hier reichen: Dass Primärproben in der Datenbank sein sollen
-        wird woanders gecheckt, und Deriveds müssen nicht unbedingt schon in
-        der Datenbank sein.
-        """
+
+        sample = sample(sampleid)
+        
+        # get json org
+        json_org = fh.org(resource)
+
+        typ = fh.type(resource)
+        if typ == "MASTER":
+            if json_org != None:
+                # check
+        else if typ == "DERIVED":
+            if sample != None:
+                if json_org != None:
+                    # check
+            else:
+                if json_org == None:
+                    # error
+                else:
+                    # check if oe of patient in db is oe in json
+        
         db_org = ""
         # is there a result
-        if len(result) == 0:
+        if len(dborgres) == 0:
             self.err("no organisation in db for sample " + sampleid)
         else:
             db_org = result[0]["code"]
 
-        # get json org
-        json_org = fh.org(resource)
         if json_org == None:
             self.err("no organisation in json for sample " + sampleid)
 
