@@ -18,10 +18,13 @@
 def lagerort(resource):
     for e in resource["extension"]:
         if e["url"] == "https://fhir.centraxx.de/extension/sample/sampleLocation":
-            return e["valueReference"]["identifier"]["value"]
+            # return e["valueReference"]["identifier"]["value"]
+            for ee in e["extension"]:
+                if ee["url"] == "https://fhir.centraxx.de/extension/sample/sampleLocationPath":
+                    return ee["valueString"]
     return None
 
-# limspsn gets the lims psn from the resource
+# limspsn gets the lims psn of the patient
 def limspsn(resource):
     for coding in resource["subject"]["identifier"]["type"]["coding"]:
         if coding["code"] == "LIMSPSN":

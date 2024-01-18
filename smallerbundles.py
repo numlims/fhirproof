@@ -1,4 +1,5 @@
 # smallerbundles.py splits one file of json bundles in several files
+# usage: python smallerbundles.py <fhir json file>
 
 import json
 from pathlib import Path
@@ -28,7 +29,10 @@ def main():
                 "entry": outbundle
             }
             print(len(outbundle))
-            json.dump(out, open("out/" + Path(namein).stem + "_p" + str(nout) + ".json", "w"))
+            # remove the _Px from name before adding it, two _Px_Px crashes the upload
+            a = Path(namein).stem.split("_")
+            name = "_".join(a[0:len(a)-1])
+            json.dump(out, open("out/" + name + "_p" + str(nout) + ".json", "w"))
             
             nout = nout + 1
             outbundle = []

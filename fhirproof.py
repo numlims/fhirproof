@@ -9,6 +9,7 @@ import json
 import logging
 from pathlib import Path
 import sys
+import fhirhelp as fh
 
 from AqtMatCheck import *
 from PrimaryInDbCheck import *
@@ -97,6 +98,11 @@ class Fhirproof:
         derivmat = DerivmatCheck(self)
         mayeditou = MayUserEditOUCheck(self)
 
+        # count for some stats
+        aqtg_count = 0
+        master_count = 0
+        derived_count = 0
+
         # run checks
         for entry in jsonin["entry"]:
             # keep arrays up to date
@@ -111,6 +117,7 @@ class Fhirproof:
             Checks machen wir bevor wir weiter gehen.
             """
             if fh.type(entry['resource']) == "ALIQUOTGROUP":
+                aqtg_count += 1
                 self.aqtgchildless[entry["fullUrl"]] = True
                 aqtmat.check(entry)
 
@@ -119,6 +126,11 @@ class Fhirproof:
                 continue
 
             self.entrybysampleid[sampleid] = entry
+
+            if fh.type(entry['resource']) == "DERIVED":
+                derived_count += 1
+            if fh.type(entry['resource']) == "MASTER":
+                master_count += 1
             
             ## non-aliquote checks
             
@@ -145,6 +157,14 @@ class Fhirproof:
 
         restmenge.end()
         parenting.end()
+
+        
+        self.log.info(
+            str(aqtg_count) + " aliquot groups\n" +
+            str(master_count) + " master samples\n" +
+            str(derived_count) + " derived samples\n" +
+            str(len(jsonin['entry'])) + " total\n" )
+
 
 # main runs fhirproof
 def main():

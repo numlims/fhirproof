@@ -35,6 +35,7 @@ Wir führen Buch. Begegnen wir einem Aliquot, merken wir uns in
         Wenn die Restmenge null ist darf es keinen Lagerort geben.
         """
         rm = fh.restmenge(resource)
+        sampleid = fh.sampleid(entry["resource"])
         if (rm == None or rm == 0) and fh.lagerort(resource) != None:
             self.err("restmenge for sample " + sampleid + " is zero, and there is a sampleLocation given, please remove the sampleLocation")
 

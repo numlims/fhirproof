@@ -5,11 +5,11 @@ import configparser
 import os
 
 # getDatabaseConnection returns the database connection
-def get_database_connection(target_system: str = 'num_test', database=None):
+def get_database_connection(target_system: str = 'num_prod', database=None):
     return pyodbc.connect(get_conn_str(target_system, database))
 
 #getConnStr returns the connection string
-def get_conn_str(target_system: str = 'num_test', database=None) -> str:
+def get_conn_str(target_system: str = 'num_prod', database=None) -> str:
     config = configparser.ConfigParser()
     base_name = os.path.dirname(__file__)
     config.read(os.path.join(base_name, 'db.ini'))
