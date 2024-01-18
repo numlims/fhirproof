@@ -41,6 +41,9 @@ class AqtMatCheck(FhirCheck):
             self.err("aliquotgroup " + entry["fullUrl"] + " has no parent.")
             return
 
+        if not pid in self.fp.entrybysampleid:
+            self.err("at aliquotgroup " + entry["fullUrl"] + ": the parent (id " + pid + ") hasn't been encountered yet.")
+            return
         parent = self.fp.entrybysampleid[pid]
         
         parent_material = fh.material(parent["resource"])

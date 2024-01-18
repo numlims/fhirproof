@@ -13,6 +13,10 @@ class ParentingCheck(FhirCheck):
     def check(self, entry):
         resource = entry["resource"]
         sampleid = fh.sampleid(resource)
+
+        """ 
+        Wir wuerden gerne checken, ob die Eltern-Kind Beziehungen zwischen Proben stimmen. Wenn eine Probe Derived ist, sollte sie auf einen Parent zeigen, der in der Json Datei vor der Probe kommt. Aliquotgruppen sollen nicht kinderlos sein.
+        """
         
         # is there a reference to a parent?
         if fh.type(resource) == "DERIVED":
