@@ -21,7 +21,7 @@ class PsnCheck(FhirCheck):
         sagen:
         """
 
-        resource = entry["resource"]
+        resource = entry.get("resource")
         sampleid = fh.sampleid(resource)
 
         result = self.db.qfad("""

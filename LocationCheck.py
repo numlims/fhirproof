@@ -14,15 +14,15 @@ class LocationCheck(FhirCheck):
         Lagerort angegeben, außer ihre Restmenge ist null. Bei Primärproben
         ist nur bei Speichel und PaxGene ein Lagerort angegeben.
         """
-        resource = entry["resource"]
+        resource = entry.get("resource")
         sampleid = fh.sampleid(resource)
         if (fh.type(resource) == "DERIVED" and fh.restmenge(resource) > 0) or (fh.type(resource) == "MASTER" and (fh.material(resource) == "NUM_speichel" or fh.material(resource) == "PAXgene")):
             locpath = None
-            for e in resource["extension"]:
-                if e["url"] == "https://fhir.centraxx.de/extension/sample/sampleLocation":
-                    for ee in e["extension"]:
-                        if ee["url"] == "https://fhir.centraxx.de/extension/sample/sampleLocationPath":
-                            locpath = ee["valueString"]
+            for e in resource.get("extension"):
+                if e.get("url") == "https://fhir.centraxx.de/extension/sample/sampleLocation":
+                    for ee in e.get("extension"):
+                        if ee.get("url") == "https://fhir.centraxx.de/extension/sample/sampleLocationPath":
+                            locpath = ee.get("valueString")
             if locpath == None:
                 self.err(f"no location path for sample {sampleid}, there should be one though.")
 

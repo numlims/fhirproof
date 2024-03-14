@@ -11,7 +11,7 @@ class PrimaryInDbCheck(FhirCheck):
     # check checks whether the sample is in db if it is a master
     def check(self, entry):
         
-        resource = entry["resource"]
+        resource = entry.get("resource")
 
         sampleid = fh.sampleid(resource)
 

@@ -18,7 +18,7 @@ class MayUserEditOUCheck(FhirCheck):
 
     # check checks whether user may edit the entry
     def check(self, entry, user):
-        resource = entry['resource']
+        resource = entry.get('resource')
         # get org unit
         orgunit = fh.org(resource)
         query = """

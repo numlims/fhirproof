@@ -11,7 +11,7 @@ class ParentingCheck(FhirCheck):
         FhirCheck.__init__(self, fp)
         
     def check(self, entry):
-        resource = entry["resource"]
+        resource = entry.get("resource")
         sampleid = fh.sampleid(resource)
 
         """ 

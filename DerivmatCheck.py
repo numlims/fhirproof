@@ -12,7 +12,7 @@ class DerivmatCheck(FhirCheck):
 
 
     def check(self, entry):
-        resource = entry["resource"]
+        resource = entry.get("resource")
         sampleid = fh.sampleid(resource)
 
         """
@@ -22,11 +22,11 @@ class DerivmatCheck(FhirCheck):
         Derived zu seiner Parent-Aliquotgroup kommen wir über die Fhirid.
         """
         
-        child_material = resource["type"]["coding"][0]["code"]
+        child_material = resource.get("type/coding/0/code")
 
         parentresource = self.fp.parent(entry)
         if fh.type(resource) == "DERIVED" and parentresource:
-            parent_material = parentresource["type"]["coding"][0]["code"]
+            parent_material = parentresource("type/coding/0/code")
             if parent_material != child_material:
                 self.err(f"parent and child material don't match, parent {p_fhirid} is of material {parent_material}, child {sampleid} is of material {child_material} (that's not SOP-conform)")
 

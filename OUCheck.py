@@ -19,7 +19,7 @@ class OUCheck(FhirCheck):
         Patienten holen wir aus der Datenbank.
         """
 
-        resource = entry["resource"]
+        resource = entry.get("resource")
 
         sampleid = fh.sampleid(resource)
 

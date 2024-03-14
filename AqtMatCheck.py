@@ -21,8 +21,8 @@ class AqtMatCheck(FhirCheck):
         Primary Parent. Sie sind nicht im Mapping gelistet, wir checken sie so.
         """
 
-        resource = entry["resource"]        
-        self.info(f"checking aliquotgroup {entry['fullUrl']}")
+        resource = entry.get("resource")
+        self.info(f"checking aliquotgroup {entry.get('fullUrl')}")
 
         # read pamm
         ALIQUOT_MATERIAL_MAP = "2023-03_03_MaterialAliquotingMapping.json"
@@ -36,12 +36,12 @@ class AqtMatCheck(FhirCheck):
 
         
         # child
-        child_material = resource["type"]["coding"][0]["code"]
+        child_material = resource.get("type/coding/0/code")
 
         # parent
         pid = fh.parent_sampleid(resource)
         if pid == None:
-            self.err(f"aliquotgroup {entry['fullUrl']} has no parent.")
+            self.err(f"aliquotgroup {entry.get('fullUrl')} has no parent.")
             return 
         
         parent_material = None
@@ -49,17 +49,17 @@ class AqtMatCheck(FhirCheck):
         if not pid in self.fp.entrybysampleid:
             res = self.tr.smpl(psn = pid)
             if len(res) == 0:
-                self.err(f"at aliquotgroup {entry['fullUrl']}: the parent (id {pid}) is not in the db and hasn't been encountered in the json yet.")
+                self.err(f"at aliquotgroup {entry.get('fullUrl')}: the parent (id {pid}) is not in the db and hasn't been encountered in the json yet.")
                 return 
-            parent_material = res[0]['sampletype.code']
+            parent_material = res.get("0/sampletype.code")
         else:
             parent = self.fp.entrybysampleid[pid]
-            parent_material = fh.material(parent["resource"])
+            parent_material = fh.material(parent.get("resource"))
 
         # check
         if parent_material in ["CIT", "SER"]:
             if parent_material != child_material:
-                self.err(f"material of aliquotegroup {entry['fullUrl']} is {child_material}, but the material of its primary-parent {fh.sample_id(parent['resource']} is {parent_material}")
+                self.err(f"material of aliquotegroup {entry.get('fullUrl')} is {child_material}, but the material of its primary-parent {fh.sample_id(parent('resource')} is {parent_material}")
         elif not child_material in pamm[parent_material]: # mappings in pamm
-            self.err(f"material of aliquotegroup {entry['fullUrl']} is {child_material}, but the material of its primary-parent {fh.sampleid(parent['resource'])} is {parent_material}")
+            self.err(f"material of aliquotegroup {entry.get('fullUrl')} is {child_material}, but the material of its primary-parent {fh.sampleid(parent.get('resource'))} is {parent_material}")
         

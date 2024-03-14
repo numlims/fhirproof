@@ -9,7 +9,9 @@ import json
 import logging
 from pathlib import Path
 import sys
+from dict_path import DictPath
 import fhirhelp as fh
+from traction import *
 
 from AqtMatCheck import *
 from PrimaryInDbCheck import *
@@ -22,8 +24,6 @@ from PsnCheck import *
 from RestmengeCheck import *
 from DerivmatCheck import *
 from MayUserEditOUCheck import *
-
-from traction import *
 
 # Fhirproof reads fhir json from stdin and checks the entries
 class Fhirproof:
@@ -101,7 +101,7 @@ class Fhirproof:
         # print("textin: " + textin)
         # print("after textin print")
 
-        jsonin = json.loads(textin)
+        jsonin = DictPath(json.loads(textin))
 
         if logdir == None:
             logdir = ""
@@ -129,9 +129,9 @@ class Fhirproof:
 
         
         # run checks
-        for entry in jsonin["entry"]:
+        for entry in jsonin.get("entry"):
             # keep arrays up to date
-            self.entrybyfhirid[entry["fullUrl"]] = entry
+            self.entrybyfhirid[entry.get("fullUrl")] = entry
 
             ## aliquote checks
             
@@ -141,21 +141,21 @@ class Fhirproof:
             im Json keine Sampleid gibt. Aliquotgruppen haben keine Sampleid, ihre
             Checks machen wir bevor wir weiter gehen.
             """
-            if fh.type(entry['resource']) == "ALIQUOTGROUP":
+            if fh.type(entry.get('resource')) == "ALIQUOTGROUP":
                 aqtg_count += 1
-                if not entry["fullUrl"] in self.aqtgchildless: # tmp way to prohibit overwrites
-                    self.aqtgchildless[entry["fullUrl"]] = True
+                if not entry.get("fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
+                    self.aqtgchildless[entry.get("fullUrl")] = True
                 aqtmat.check(entry)
 
-            sampleid = fh.sampleid(entry['resource'])
+            sampleid = fh.sampleid(entry.get('resource'))
             if sampleid == None:
                 continue
 
             self.entrybysampleid[sampleid] = entry
 
-            if fh.type(entry['resource']) == "DERIVED":
+            if fh.type(entry.get('resource')) == "DERIVED":
                 derived_count += 1
-            if fh.type(entry['resource']) == "MASTER":
+            if fh.type(entry.get('resource')) == "MASTER":
                 master_count += 1
             
             ## non-aliquote checks

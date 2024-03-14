@@ -29,7 +29,7 @@ Wir führen Buch. Begegnen wir einem Aliquot, merken wir uns in
         für sie `shouldzerorest` gilt, ihre Restmenge wirklich null ist.
         """
         self.entries.append(entry) # remember for later
-        resource = entry["resource"]
+        resource = entry.get("resource")
         self.fp.shouldzerorest[entry["fullUrl"]] = False
         # parents of derived-aliquotes should be with zero rest
         if fh.type(resource) == "DERIVED":
@@ -39,7 +39,7 @@ Wir führen Buch. Begegnen wir einem Aliquot, merken wir uns in
         Wenn die Restmenge null ist darf es keinen Lagerort geben.
         """
         rm = fh.restmenge(resource)
-        sampleid = fh.sampleid(entry["resource"])
+        sampleid = fh.sampleid(entry.get("resource"))
         if (rm == None or rm == 0) and fh.lagerort(resource) != None:
             self.err(f"restmenge for sample {sampleid} is zero, and there is a sampleLocation given, please remove the sampleLocation")
         
@@ -47,8 +47,8 @@ Wir führen Buch. Begegnen wir einem Aliquot, merken wir uns in
     def end(self):
         for entry in self.entries:
             #    restamount = entry["resource"]["container"][0]["specimenQuantity"]["value"]
-            restamount = fh.restmenge(entry["resource"])
-            sampleid = fh.sampleid(entry["resource"])
+            restamount = fh.restmenge(entry.get("resource"))
+            sampleid = fh.sampleid(entry.get("resource"))
             # should restamount be zero, but isn't?
-            if entry["fullUrl"] in self.fp.shouldzerorest and self.fp.shouldzerorest[entry["fullUrl"]] == True and restamount > 0:
+            if entry.get("fullUrl") in self.fp.shouldzerorest and self.fp.shouldzerorest[entry.get("fullUrl")] == True and restamount > 0:
                 self.err(f"restamount (container.specimenQuantity) for sample {sampleid} should be zero, but is {restamount}")
