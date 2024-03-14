@@ -4,7 +4,11 @@ from FhirCheck import *
 
 class LocationCheck(FhirCheck):
 
+    def __init__(self, fp):
+        FhirCheck.__init__(self, fp)
+
     def check(self, entry):
+        ok = True
         """
         Gibt es den Lagerort in der DB? Für alle Aliquot-Deriveds ist der
         Lagerort angegeben, außer ihre Restmenge ist null. Bei Primärproben
@@ -20,7 +24,7 @@ class LocationCheck(FhirCheck):
                         if ee["url"] == "https://fhir.centraxx.de/extension/sample/sampleLocationPath":
                             locpath = ee["valueString"]
             if locpath == None:
-                self.err("no location path for sample " + sampleid + ", there should be one though.")
+                self.err(f"no location path for sample {sampleid}, there should be one though.")
 
             """
             Der Lagerort ist ein Pfad, der entweder mit einem Rack endet oder
@@ -30,11 +34,12 @@ class LocationCheck(FhirCheck):
             Pfad und einmal mit abgeschnittenem Ende.
             """
             query = "select * from centraxx_samplelocation where locationpath = ?"
-            result = query_fetch_all(query, locpath)
+            result = self.db.qfa(query, locpath)
             if len(result) == 0:
                 # check the shorter path, non-greedy matching
                 shortpath = re.sub(" -->.*$", "", locpath)
-                result = query_fetch_all(query, shortpath)
+                result = self.db.qfa(query, shortpath)
                 if len(result) == 0:
-                    self.err("location " + locpath + " for sample " + sampleid + " is not in db.") 
+                    self.err(f"location {locpath} for sample {sampleid} is not in db.") 
+
 

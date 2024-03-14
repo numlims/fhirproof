@@ -1,9 +1,9 @@
 # fhirproof: fhir import checker
 
+# usage: fhirproof.py <file name> <user name> <log dir>
+
 # fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
 # können und loggt in `logs/fhirproof.log`.
-
-# usage: fhirproof.py <file name> <user name>
 
 import json
 import logging
@@ -22,6 +22,8 @@ from PsnCheck import *
 from RestmengeCheck import *
 from DerivmatCheck import *
 from MayUserEditOUCheck import *
+
+from traction import *
 
 # Fhirproof reads fhir json from stdin and checks the entries
 class Fhirproof:
@@ -48,13 +50,17 @@ class Fhirproof:
             return None
         return self.entrybyfhirid[pfhirid]['resource']
 
-    def _setuplog(self):
+    def _setuplog(self, logdir):
         # setup a logger to write to a file into logs folder
         log = logging.getLogger(__name__)
         log.setLevel(logging.INFO)
         formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
         # log to file
-        file_handler = logging.FileHandler( Path.joinpath(Path(__file__).parent.parent, 'logs/fhirproof.log'))
+        if logdir == "":
+            # logdir = Path.joinpath(Path(__file__).parent.parent, 'logs/')
+            logdir = "../logs"
+        # file_handler = logging.FileHandler(Path.joinpath(logdir, 'fhirproof.log'))
+        file_handler = logging.FileHandler(logdir + "/fhirproof.log")
         file_handler.setFormatter(formatter)
         log.addHandler(file_handler)
         # log to stdout
@@ -63,27 +69,45 @@ class Fhirproof:
         log.addHandler(stdout_handler)
         self.log = log
     
-    def __init__(self):
+    def __init__(self, target, file, user, logdir):
+
+        self.target = target
+        self.db = dbcq(target)
+        self.tr = traction(self.db)
+
+        # sys.stdin works on powershell
+        textin = ""
+        for line in file:
+            textin += line
+
+        self.textin = textin
+        self.user = user
+        self.logdir = logdir
+        self.ok = True
+
+    # init may not return anything, so run function
+    def run(self):
+        user = self.user
+        logdir = self.logdir
+        textin = self.textin
+
+        # print("textin: " + textin)
+        
         #print("hello fhirproof")
         #self.fruit = "apple"
         #print("self.fruit: " + self.fruit)
 
-        self._setuplog()
 
-        if len(sys.argv) != 3:
-            print("usage: fhirproof.py <file name> <user name>")
-            return
-        
-
-        # read
-        namein = sys.argv[1]
-        filein = open(namein)
-        textin = filein.read()
+        # print("textin: " + textin)
+        # print("after textin print")
 
         jsonin = json.loads(textin)
 
-        # name of fhir user
-        user = sys.argv[2]
+        if logdir == None:
+            logdir = ""
+
+        self._setuplog(logdir)
+        self.log.info(f"starting against {self.target}")
 
         # initialize checks
         aqtmat = AqtMatCheck(self)
@@ -103,6 +127,7 @@ class Fhirproof:
         master_count = 0
         derived_count = 0
 
+        
         # run checks
         for entry in jsonin["entry"]:
             # keep arrays up to date
@@ -118,7 +143,8 @@ class Fhirproof:
             """
             if fh.type(entry['resource']) == "ALIQUOTGROUP":
                 aqtg_count += 1
-                self.aqtgchildless[entry["fullUrl"]] = True
+                if not entry["fullUrl"] in self.aqtgchildless: # tmp way to prohibit overwrites
+                    self.aqtgchildless[entry["fullUrl"]] = True
                 aqtmat.check(entry)
 
             sampleid = fh.sampleid(entry['resource'])
@@ -143,7 +169,7 @@ class Fhirproof:
             #<behealter>>
             behealter.check(entry)
             #<org>>
-            ou.check(entry)
+            ou.check(entry) # todo uncomment again
             #<parenting>>
             parenting.check(entry)
             #<psn>>
@@ -153,23 +179,51 @@ class Fhirproof:
             # derived material
             derivmat.check(entry)
             # edit oe?
-            #mayeditou.check(entry, user)
+            # mayeditou.check(entry, user)
 
         restmenge.end()
         parenting.end()
 
         
-        self.log.info(
+        self.log.info(f"ended against {self.target}: "+
             str(aqtg_count) + " aliquot groups\n" +
             str(master_count) + " master samples\n" +
             str(derived_count) + " derived samples\n" +
             str(len(jsonin['entry'])) + " total\n" )
+        
+        return self.ok # written by FhirCheck.err()
 
 
 # main runs fhirproof
 def main():
-    Fhirproof()
+    if len(sys.argv) < 4:
+        print("usage: fhirproof.py <db target> <file name> <user name> [<log dir>]")
+        return
 
-main()
+    target = sys.argv[1] # db target
+
+    # read
+    # on powershell, there seem to be file-conversion issues with this
+    # namein = sys.argv[1]
+    # filein = open(namein)
+    # textin = filein.read()
+    
+    # name of fhir user
+    user = sys.argv[3]
+
+    logdir = None
+    # optional log dir, todo maybe do --log-dir mydir
+    if len(sys.argv) == 5:
+        logdir = sys.argv[4]
+
+    fp = Fhirproof(target, sys.stdin, user, logdir)
+    ok = fp.run()
+    if ok:
+        print("ok")
+    else:
+        print("error")
+
+if __name__ == "__main__":
+    main()
 
 

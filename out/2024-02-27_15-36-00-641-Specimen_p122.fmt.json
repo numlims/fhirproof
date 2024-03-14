@@ -1,0 +1,2100 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [
+    {
+      "fullUrl": "Specimen/361874",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "361874",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "MASTER"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+                "valueCoding": {
+                  "system": "urn:centraxx",
+                  "code": "NUM_BEGINN_ZENT"
+                }
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+                "valueDateTime": "2024-01-29T10:59:29.000+01:00"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "EXTSAMPLEID"
+                }
+              ]
+            },
+            "value": "ST9909943241"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "SAMPLEID"
+                }
+              ]
+            },
+            "value": "1403580004"
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "URN"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:35:18+01:00",
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:42:00+01:00",
+          "quantity": {
+            "value": 1,
+            "unit": "PC",
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "identifier": [
+              {
+                "system": "urn:centraxx",
+                "value": "ORG"
+              }
+            ],
+            "capacity": {
+              "value": 1,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            },
+            "specimenQuantity": {
+              "value": 0,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/361874"
+      }
+    },
+    {
+      "fullUrl": "Specimen/361875",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "361875",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+            "valueDateTime": "2024-01-29T10:48:53.000+01:00"
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+                "valueString": "NUM --> Klinikum Würzburg --> Ultra-Tiefkühlschrank POP -80°C"
+              }
+            ]
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "MASTER"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "EXTSAMPLEID"
+                }
+              ]
+            },
+            "value": "ST9909943251"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "SAMPLEID"
+                }
+              ]
+            },
+            "value": "1403570097"
+          }
+        ],
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "NUM_speichel"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:34:33+01:00",
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "value": 1,
+            "unit": "PC",
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "identifier": [
+              {
+                "system": "urn:centraxx",
+                "value": "ORG"
+              }
+            ],
+            "capacity": {
+              "value": 1,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            },
+            "specimenQuantity": {
+              "value": 1,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/361875"
+      }
+    },
+    {
+      "fullUrl": "Specimen/361876",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "361876",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "MASTER"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+                "valueCoding": {
+                  "system": "urn:centraxx",
+                  "code": "Sprec-B"
+                }
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+                "valueDateTime": "2024-01-29T10:38:11.000+01:00"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "EXTSAMPLEID"
+                }
+              ]
+            },
+            "value": "ST9909943261"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "SAMPLEID"
+                }
+              ]
+            },
+            "value": "1403560103"
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "CIT"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:35:22+01:00",
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "value": 1,
+            "unit": "PC",
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "identifier": [
+              {
+                "system": "urn:centraxx",
+                "value": "ORG"
+              }
+            ],
+            "capacity": {
+              "value": 1,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            },
+            "specimenQuantity": {
+              "value": 0,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/361876"
+      }
+    },
+    {
+      "fullUrl": "Specimen/361877",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "361877",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "MASTER"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+                "valueCoding": {
+                  "system": "urn:centraxx",
+                  "code": "Sprec-B"
+                }
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+                "valueDateTime": "2024-01-29T10:38:05.000+01:00"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "EXTSAMPLEID"
+                }
+              ]
+            },
+            "value": "ST9909943281"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "SAMPLEID"
+                }
+              ]
+            },
+            "value": "1403560207"
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "EDTAWB"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:36:26+01:00",
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "value": 1,
+            "unit": "PC",
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "identifier": [
+              {
+                "system": "urn:centraxx",
+                "value": "ORG"
+              }
+            ],
+            "capacity": {
+              "value": 1,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            },
+            "specimenQuantity": {
+              "value": 0,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/361877"
+      }
+    },
+    {
+      "fullUrl": "Specimen/361878",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "361878",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "MASTER"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+                "valueCoding": {
+                  "system": "urn:centraxx",
+                  "code": "Sprec-B"
+                }
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+                "valueDateTime": "2024-01-29T10:38:08.000+01:00"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "EXTSAMPLEID"
+                }
+              ]
+            },
+            "value": "ST9909943282"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "SAMPLEID"
+                }
+              ]
+            },
+            "value": "1403560307"
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "EDTAWB"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:36:20+01:00",
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "value": 1,
+            "unit": "PC",
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "identifier": [
+              {
+                "system": "urn:centraxx",
+                "value": "ORG"
+              }
+            ],
+            "capacity": {
+              "value": 1,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            },
+            "specimenQuantity": {
+              "value": 0,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/361878"
+      }
+    },
+    {
+      "fullUrl": "Specimen/361880",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "361880",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+            "valueDateTime": "2024-01-29T13:34:31.000+01:00"
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+                "valueString": "NUM --> Klinikum Würzburg --> Ultra-Tiefkühlschrank POP -80°C"
+              }
+            ]
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "MASTER"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "EXTSAMPLEID"
+                }
+              ]
+            },
+            "value": "ST9909943236"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "SAMPLEID"
+                }
+              ]
+            },
+            "value": "1403560596"
+          }
+        ],
+        "status": "available",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "NUM_pax"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:34:31+01:00",
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "value": 2.5,
+            "unit": "ML",
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "identifier": [
+              {
+                "system": "urn:centraxx",
+                "value": "ORG"
+              }
+            ],
+            "capacity": {
+              "value": 2.5,
+              "unit": "ML",
+              "system": "urn:centraxx"
+            },
+            "specimenQuantity": {
+              "value": 2.5,
+              "unit": "ML",
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/361880"
+      }
+    },
+    {
+      "fullUrl": "Specimen/361881",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "361881",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "MASTER"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+                "valueCoding": {
+                  "system": "urn:centraxx",
+                  "code": "CPT"
+                }
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+                "valueCoding": {
+                  "system": "urn:centraxx",
+                  "code": "NUM_BEGINN_ZENT"
+                }
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+                "valueDateTime": "2024-01-29T10:34:18.000+01:00"
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+                "valueCoding": {
+                  "system": "urn:centraxx",
+                  "code": "NUM_RT15min300gBremse"
+                }
+              },
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/secondProcessingDate",
+                "valueDateTime": "2024-01-29T10:55:18.000+01:00"
+              }
+            ]
+          }
+        ],
+        "identifier": [
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "EXTSAMPLEID"
+                }
+              ]
+            },
+            "value": "ST9909943216"
+          },
+          {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "SAMPLEID"
+                }
+              ]
+            },
+            "value": "1403560499"
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "NUM_pbmc_cpt"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:33:18+01:00",
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "value": 1,
+            "unit": "PC",
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "identifier": [
+              {
+                "system": "urn:centraxx",
+                "value": "ORG"
+              }
+            ],
+            "capacity": {
+              "value": 1,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            },
+            "specimenQuantity": {
+              "value": 0,
+              "unit": "PC",
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/361881"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362396",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362396",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "CIT"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:35:22+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560103"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362396"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362398",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362398",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "CIT"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:35:22+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560103"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362398"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362400",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362400",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "CIT"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:35:22+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560103"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362400"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362402",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362402",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "CIT"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:35:22+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560103"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362402"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362404",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362404",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "CIT"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:35:22+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560103"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362404"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362406",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362406",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "CIT"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:35:22+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560103"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362406"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362412",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362412",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "EDTA"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:36:20+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560307"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362412"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362414",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362414",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "EDTA"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:36:20+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560307"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362414"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362416",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362416",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "EDTA"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:36:20+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560307"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362416"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362418",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362418",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "EDTABUF"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:36:20+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560307"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362418"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362420",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362420",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "EDTA"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:36:26+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560207"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362420"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362422",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362422",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "EDTA"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:36:26+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560207"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362422"
+      }
+    },
+    {
+      "fullUrl": "Specimen/362424",
+      "resource": {
+        "resourceType": "Specimen",
+        "id": "362424",
+        "extension": [
+          {
+            "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+            "valueBoolean": false
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+            "valueReference": {
+              "identifier": {
+                "value": "NUM_W_SUEP"
+              }
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sampleCategory",
+            "valueCoding": {
+              "system": "urn:centraxx",
+              "code": "ALIQUOTGROUP"
+            }
+          },
+          {
+            "url": "https://fhir.centraxx.de/extension/sprec",
+            "extension": [
+              {
+                "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+                "valueBoolean": false
+              }
+            ]
+          }
+        ],
+        "status": "unavailable",
+        "type": {
+          "coding": [
+            {
+              "system": "urn:centraxx",
+              "code": "EDTA"
+            }
+          ]
+        },
+        "subject": {
+          "identifier": {
+            "type": {
+              "coding": [
+                {
+                  "system": "urn:centraxx",
+                  "code": "LIMSPSN"
+                }
+              ]
+            },
+            "value": "lims_154040143"
+          }
+        },
+        "receivedTime": "2024-01-29T10:36:26+01:00",
+        "parent": [
+          {
+            "identifier": {
+              "type": {
+                "coding": [
+                  {
+                    "code": "SAMPLEID"
+                  }
+                ]
+              },
+              "value": "1403560207"
+            }
+          }
+        ],
+        "collection": {
+          "collectedDateTime": "2024-01-29T09:59:00+01:00",
+          "quantity": {
+            "system": "urn:centraxx"
+          }
+        },
+        "container": [
+          {
+            "specimenQuantity": {
+              "system": "urn:centraxx"
+            }
+          }
+        ]
+      },
+      "request": {
+        "method": "POST",
+        "url": "Specimen/362424"
+      }
+    }
+  ]
+}

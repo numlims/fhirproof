@@ -14,6 +14,8 @@
 # Die Doku für das Specimen-Json ist auf Simplifier,
 # https://simplifier.net/CentraXX-Structures/Specimen/~details.
 
+from dict_path import DictPath # todo whole input as DictPath?
+
 # lagerort gets the sampleLocation
 def lagerort(resource):
     for e in resource["extension"]:
@@ -62,9 +64,11 @@ def org(resource):
 
 # restmenge returns the restmenge of the sample
 def restmenge(resource):
-    if not "value" in resource["container"][0]["specimenQuantity"]:
-        return None
-    return resource["container"][0]["specimenQuantity"]["value"]
+    pres = DictPath(resource)
+    #if not "value" in resource["container"][0]["specimenQuantity"]:
+    #    return None
+    #return resource["container"][0]["specimenQuantity"]["value"]
+    return pres.get("container/0/specimenQuantity/value")
 
 # sampleid tries to find the sample id in resource
 # Die Datenbankabfrage braucht die Sample-ID. `sample_id` sucht die

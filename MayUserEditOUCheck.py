@@ -13,6 +13,9 @@ User in CENTRAXX_PARTICIPANT
 
 class MayUserEditOUCheck(FhirCheck):
 
+    def __init__(self, fp):
+        FhirCheck.__init__(self, fp)
+
     # check checks whether user may edit the entry
     def check(self, entry, user):
         resource = entry['resource']
@@ -24,7 +27,8 @@ class MayUserEditOUCheck(FhirCheck):
         join centraxx_organisationunit as ou where poa.organisation = ou.oid
         where p.username = ? and ou.code = ?
         """
-        result = qfad(query, user, orgunit)
+        result = self.db.qfad(query, user, orgunit)
         if len(result) == 0:
-            self.err("user " + user + " may not edit the sample")
-            return
+            self.err(f"user {user} may not edit the sample")
+            return 
+

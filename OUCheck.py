@@ -2,14 +2,16 @@
 
 import re
 
-from dbcon import *
+# from dbcon import *
 from FhirCheck import *
 import fhirhelp as fh
 
 class OUCheck(FhirCheck):
 
-    def check(self, entry):
+    def __init__(self, fp):
+        FhirCheck.__init__(self, fp)
 
+    def check(self, entry):
         """
         Ist die Organisationunit vom Patienten und die der Probe die selbe?
 
@@ -21,7 +23,7 @@ class OUCheck(FhirCheck):
 
         sampleid = fh.sampleid(resource)
 
-        s = sample(sampleid)
+        s = self.tr.sample(sampleid)
 
         """
         Der Patient keonnte zu Organisationseinheiten gehoeren, wegen Patientenzusammenfuehrungen. Dann waere die eine OE 'NUM'. Die filtern wir raus.
@@ -36,7 +38,7 @@ class OUCheck(FhirCheck):
         """
         
         # get patient org from db
-        sampleorgres = qfad(sampleorgq, sampleid)
+        sampleorgres = self.db.qfad(sampleorgq, sampleid)
 
         # get sample org from json
         sampleorgjson = fh.org(resource)
@@ -68,7 +70,7 @@ class OUCheck(FhirCheck):
                 # OE nicht im JSON angegeben
                 if sampleorgjson == None:
                     # fehler
-                    self.err("there is no json org for derived sample " + sampleid)
+                    self.err("there is no json org for derived sample {sampleid}")
                 else:
                     # OE im JSON angegeben
 
@@ -82,27 +84,28 @@ class OUCheck(FhirCheck):
                     WHERE OU.CODE != 'NUM' AND IDCT.CODE=? AND IDC.PSN=?
                     """
                     psn = fh.limspsn(resource)
-                    patorg = qfad(patorgq, "LIMSPSN", psn)[0]['organisationunit.code'] # todo ist es immer LIMSPSN?
+                    patorg = self.db.qfad(patorgq, "LIMSPSN", psn)[0]['organisationunit.code'] # todo ist es immer LIMSPSN?
                     
                     # do the orgs of patient and sample match?
                     if sampleorgjson != patorg: # todo print patient psn
-                        self.err("organisation units don't match for patient and sample " + sampleid + ", json org of sample is " + sampleorgjson + ", db org of its patient is " + dborg)
+                        self.err(f"organisation units don't match for patient and sample {sampleid}, json org of sample is {sampleorgjson}, db org of its patient is {dborg}")
 
         # Aliquotgruppe: OE nicht notwendig
 
+    
     # _check checks whether db org and json org of sample match
     def _check(self, dbresult, jsonorg, sampleid):
         dborg = ""
         # is there a result
         if len(dbresult) == 0:
-            self.err("no organisation in db for sample " + sampleid)
+            self.err(f"no organisation in db for sample {sampleid}")
         else:
             dborg = dbresult[0]["organisationunit.code"]
 
         if jsonorg == None:
-            self.err("no organisation in json for sample " + sampleid)
+            self.err(f"no organisation in json for sample {sampleid}")
 
         # do the orgs of patient and sample match?
         if dborg != jsonorg:
-            self.err("organisation units don't match for sample " + sampleid + ", json org of sample is " + jsonorg + ", db org of is " + dborg)
+            self.err(f"organisation units don't match for sample {sampleid}, json org of sample is {jsonorg}, db org of is {dborg}")
 

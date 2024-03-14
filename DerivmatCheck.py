@@ -2,11 +2,14 @@
 
 import re
 
-from dbcon import *
 from FhirCheck import *
 import fhirhelp as fh
 
 class DerivmatCheck(FhirCheck):
+
+    def __init__(self, fp):
+        FhirCheck.__init__(self, fp)
+
 
     def check(self, entry):
         resource = entry["resource"]
@@ -25,4 +28,5 @@ class DerivmatCheck(FhirCheck):
         if fh.type(resource) == "DERIVED" and parentresource:
             parent_material = parentresource["type"]["coding"][0]["code"]
             if parent_material != child_material:
-                self.err("parent and child material don't match, parent " + p_fhirid + " is of material " + parent_material + ", child " + sampleid + " is of material " + child_material + " (that's not SOP-conform)")
+                self.err(f"parent and child material don't match, parent {p_fhirid} is of material {parent_material}, child {sampleid} is of material {child_material} (that's not SOP-conform)")
+

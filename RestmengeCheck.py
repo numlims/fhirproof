@@ -7,6 +7,10 @@ import fhirhelp as fh
 
 class RestmengeCheck(FhirCheck):
 
+    def __init__(self, fp):
+        FhirCheck.__init__(self, fp)
+
+
     entries = []
 
     def check(self, entry):
@@ -37,8 +41,8 @@ Wir führen Buch. Begegnen wir einem Aliquot, merken wir uns in
         rm = fh.restmenge(resource)
         sampleid = fh.sampleid(entry["resource"])
         if (rm == None or rm == 0) and fh.lagerort(resource) != None:
-            self.err("restmenge for sample " + sampleid + " is zero, and there is a sampleLocation given, please remove the sampleLocation")
-
+            self.err(f"restmenge for sample {sampleid} is zero, and there is a sampleLocation given, please remove the sampleLocation")
+        
 
     def end(self):
         for entry in self.entries:
@@ -47,4 +51,4 @@ Wir führen Buch. Begegnen wir einem Aliquot, merken wir uns in
             sampleid = fh.sampleid(entry["resource"])
             # should restamount be zero, but isn't?
             if entry["fullUrl"] in self.fp.shouldzerorest and self.fp.shouldzerorest[entry["fullUrl"]] == True and restamount > 0:
-                self.err("restamount (container.specimenQuantity) for sample " + sampleid + " should be zero, but is " + restamount)
+                self.err(f"restamount (container.specimenQuantity) for sample {sampleid} should be zero, but is {restamount}")
