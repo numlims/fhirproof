@@ -153,3 +153,7 @@ Codes und Namen.
 | SER | Serum | Serum |
 | Tempus | unnamed (Tempus™ Blood RNA Tube) | Tempus™ Blood RNA (Vollblut) |
 | URN | Urine | Urin |
+
+## license
+
+[cc0](https://creativecommons.org/publicdomain/zero/1.0/)
