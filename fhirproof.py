@@ -1,18 +1,6 @@
-# fhirproof: fhir import checker
-
-# usage: fhirproof.py <file name> <user name> <log dir>
-
-# fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
-# können und loggt in `logs/fhirproof.log`.
 
 import json
-import logging
-from pathlib import Path
-import sys
 from dict_path import DictPath
-import fhirhelp as fh
-from traction import *
-
 from AqtMatCheck import *
 from PrimaryInDbCheck import *
 from DatesCheck import *
@@ -24,6 +12,12 @@ from PsnCheck import *
 from RestmengeCheck import *
 from DerivmatCheck import *
 from MayUserEditOUCheck import *
+import fhirhelp as fh
+import logging
+import sys
+from traction import *
+import argparse
+
 
 # Fhirproof reads fhir json from stdin and checks the entries
 class Fhirproof:
@@ -34,8 +28,7 @@ class Fhirproof:
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
 
-    # these functions are accessible by the fhirchecks
-    
+
     # parent returns the entry's parent entry resource, if there is one, else none
     def parent(self, entry):
         parent = None
@@ -49,6 +42,8 @@ class Fhirproof:
         elif pfhirid not in self.entrybyfhirid:
             return None
         return self.entrybyfhirid[pfhirid]['resource']
+
+
 
     def _setuplog(self, logdir):
         # setup a logger to write to a file into logs folder
@@ -68,11 +63,15 @@ class Fhirproof:
         stdout_handler.setFormatter(formatter)
         log.addHandler(stdout_handler)
         self.log = log
-    
-    def __init__(self, target, file, user, logdir):
+
+
+    # init inits fhirproof with db target, input file, centraxx user, log dir and config
+    def __init__(self, target, file, user, logdir, config):
 
         self.target = target
+        # connect to db
         self.db = dbcq(target)
+        # traction for queries
         self.tr = traction(self.db)
 
         # sys.stdin works on powershell
@@ -80,26 +79,20 @@ class Fhirproof:
         for line in file:
             textin += line
 
+        # the other args
         self.textin = textin
         self.user = user
         self.logdir = logdir
+        
+        # is the input ready for centraxx import?
         self.ok = True
+
 
     # init may not return anything, so run function
     def run(self):
         user = self.user
         logdir = self.logdir
         textin = self.textin
-
-        # print("textin: " + textin)
-        
-        #print("hello fhirproof")
-        #self.fruit = "apple"
-        #print("self.fruit: " + self.fruit)
-
-
-        # print("textin: " + textin)
-        # print("after textin print")
 
         jsonin = DictPath(json.loads(textin))
 
@@ -108,6 +101,7 @@ class Fhirproof:
 
         self._setuplog(logdir)
         self.log.info(f"starting against {self.target}")
+
 
         # initialize checks
         aqtmat = AqtMatCheck(self)
@@ -127,64 +121,54 @@ class Fhirproof:
         master_count = 0
         derived_count = 0
 
-        
+
         # run checks
         for entry in jsonin.get("entry"):
-            # keep arrays up to date
-            self.entrybyfhirid[entry.get("fullUrl")] = entry
+                      # keep arrays up to date
+                      self.entrybyfhirid[entry.get("fullUrl")] = entry
+          
+                      if fh.type(entry.get('resource')) == "ALIQUOTGROUP":
+                          aqtg_count += 1
+                          if not entry.get("fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
+                              self.aqtgchildless[entry.get("fullUrl")] = True
+                          aqtmat.check(entry)
+          
+                      print(f"entry resource: {entry.get('resource')}")
+                      sampleid = fh.sampleid(entry.get('resource'))
+                      if sampleid == None:
+                          continue
+          
+                      self.entrybysampleid[sampleid] = entry
+                      if fh.type(entry.get('resource')) == "DERIVED":
+                          derived_count += 1
+                      if fh.type(entry.get('resource')) == "MASTER":
+                          master_count += 1
+                      # primary in db
+                      primary_in_db.check(entry)
+                      # dates
+                      dates.check(entry)
+                      # location
+                      location.check(entry)
+                      # behealter
+                      behealter.check(entry)
+                      # org
+                      ou.check(entry)
+                      # parenting
+                      parenting.check(entry)
+                      # psn
+                      psn.check(entry)
+                      # restmenge
+                      restmenge.check(entry)
+                      # derived material
+                      derivmat.check(entry)
+                      # edit oe?
+                      # mayeditou.check(entry, user)
+          
 
-            ## aliquote checks
-            
-            """
-            Für Aliquotgruppen gibt es keine Sampleid. Weil wir für relativ viele
-            Checks die `sampleid` benutzen, gehen wir zum nächsten Check, wenn es
-            im Json keine Sampleid gibt. Aliquotgruppen haben keine Sampleid, ihre
-            Checks machen wir bevor wir weiter gehen.
-            """
-            if fh.type(entry.get('resource')) == "ALIQUOTGROUP":
-                aqtg_count += 1
-                if not entry.get("fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
-                    self.aqtgchildless[entry.get("fullUrl")] = True
-                aqtmat.check(entry)
 
-            sampleid = fh.sampleid(entry.get('resource'))
-            if sampleid == None:
-                continue
-
-            self.entrybysampleid[sampleid] = entry
-
-            if fh.type(entry.get('resource')) == "DERIVED":
-                derived_count += 1
-            if fh.type(entry.get('resource')) == "MASTER":
-                master_count += 1
-            
-            ## non-aliquote checks
-            
-            #<primary in db>>
-            primary_in_db.check(entry)
-            #<dates>>
-            dates.check(entry)
-            #<location>>
-            location.check(entry)
-            #<behealter>>
-            behealter.check(entry)
-            #<org>>
-            ou.check(entry) # todo uncomment again
-            #<parenting>>
-            parenting.check(entry)
-            #<psn>>
-            psn.check(entry)
-            # restmenge
-            restmenge.check(entry)
-            # derived material
-            derivmat.check(entry)
-            # edit oe?
-            # mayeditou.check(entry, user)
 
         restmenge.end()
         parenting.end()
-
-        
         self.log.info(f"ended against {self.target}: "+
             str(aqtg_count) + " aliquot groups\n" +
             str(master_count) + " master samples\n" +
@@ -194,36 +178,46 @@ class Fhirproof:
         return self.ok # written by FhirCheck.err()
 
 
+
+
+  
+
+# parseargs parses command line arguments
+def parseargs():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("target", help="a database target for db.ini file")
+    parser.add_argument("user", help="a fhir-user")
+    parser.add_argument("--config", help="a fhirproof config") # action="store_true" if true/false value
+    parser.add_argument("--print-config", help="print template config yml", action="store_true")
+    parser.add_argument("--log-dir", help="a directory of the fhirproof log")
+    args = parser.parse_args()
+    return args
+
+
+
+
 # main runs fhirproof
 def main():
-    if len(sys.argv) < 4:
-        print("usage: fhirproof.py <db target> <file name> <user name> [<log dir>]")
-        return
 
-    target = sys.argv[1] # db target
+    # get command line arguments
+    args = parseargs()
 
-    # read
-    # on powershell, there seem to be file-conversion issues with this
-    # namein = sys.argv[1]
-    # filein = open(namein)
-    # textin = filein.read()
-    
-    # name of fhir user
-    user = sys.argv[3]
+    # get config
+    # config = getconfig(args.config) # oder so
 
-    logdir = None
-    # optional log dir, todo maybe do --log-dir mydir
-    if len(sys.argv) == 5:
-        logdir = sys.argv[4]
+    # init fhirproof
+    fp = Fhirproof(args.target, sys.stdin, args.user, args.log_dir, args.config)
 
-    fp = Fhirproof(target, sys.stdin, user, logdir)
+    # run fhirproof
     ok = fp.run()
+    
     if ok:
         print("ok")
     else:
         print("error")
 
+
+
 if __name__ == "__main__":
     main()
-
 

@@ -1,4 +1,4 @@
-# DerivmatCheck checks the organisation of a fhir entry
+# AqtMatCheck checks the organisation of a fhir entry
 
 import re
 
@@ -59,7 +59,7 @@ class AqtMatCheck(FhirCheck):
         # check
         if parent_material in ["CIT", "SER"]:
             if parent_material != child_material:
-                self.err(f"material of aliquotegroup {entry.get('fullUrl')} is {child_material}, but the material of its primary-parent {fh.sample_id(parent('resource')} is {parent_material}")
+                self.err(f"material of aliquotegroup {entry.get('fullUrl')} is {child_material}, but the material of its primary-parent {fh.sample_id(parent('resource'))} is {parent_material}")
         elif not child_material in pamm[parent_material]: # mappings in pamm
             self.err(f"material of aliquotegroup {entry.get('fullUrl')} is {child_material}, but the material of its primary-parent {fh.sampleid(parent.get('resource'))} is {parent_material}")
         

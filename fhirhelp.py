@@ -76,8 +76,11 @@ def restmenge(resource):
 # `SAMPLEID` ist derjenige `identifier`, in dessen `type.coding` Array
 # ein `code` `SAMPLEID` ist.
 def sampleid(resource):
+    # print("resource has identifier: " + str(resource.has("identifier")))
+    print(f"typeof resource: {type(resource)}")
     if "identifier" not in resource:
         if type(resource) != "ALIQUOTGROUP":
+            raise Exception("no identifier") # todo remove
             # print("maybe error: entry " + entry.get("fullUrl") + " is not aliquotgroup and has no identifier field (needed for sampleid).")
             print("maybe error: resource is not aliquotgroup and has no identifier field (needed for sampleid).") # todo put in entry/fullUrl here or some other identifier?
             return None
@@ -85,6 +88,8 @@ def sampleid(resource):
     if "identifier" not in resource:
         return None
     for identifier in resource.get("identifier"):
+        if identifier.get("type/coding") == None:
+            continue
         for coding in identifier.get("type/coding"):
             if coding.get("code") == "SAMPLEID":
                 return identifier.get("value")

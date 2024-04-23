@@ -1,0 +1,9 @@
+#!/usr/bin/bash
+# usage: cttoorg lang file
+pw0="$(dirname "$0")"
+# if two arguments then cat the given file
+if [[ $# == 2 ]]; then
+    cat $2 | python3 $pw0/cttoorg.py $1
+else # else read from stdin 
+    python3 $pw0/cttoorg.py $1
+fi
