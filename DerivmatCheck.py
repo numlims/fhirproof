@@ -2,8 +2,9 @@
 
 import re
 
+from dig import *
 from FhirCheck import *
-import fhirhelp as fh
+from fhirhelp import fhirhelp as fh
 
 class DerivmatCheck(FhirCheck):
 
@@ -12,7 +13,7 @@ class DerivmatCheck(FhirCheck):
 
 
     def check(self, entry):
-        resource = entry.get("resource")
+        resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
 
         """
@@ -22,7 +23,7 @@ class DerivmatCheck(FhirCheck):
         Derived zu seiner Parent-Aliquotgroup kommen wir über die Fhirid.
         """
         
-        child_material = resource.get("type/coding/0/code")
+        child_material = dig(resource, "type/coding/0/code")
 
         parentresource = self.fp.parent(entry)
         if fh.type(resource) == "DERIVED" and parentresource:

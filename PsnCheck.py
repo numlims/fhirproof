@@ -1,7 +1,8 @@
 import re
 
 from FhirCheck import *
-import fhirhelp as fh
+from fhirhelp import fhirhelp as fh
+from dig import *
 
 class PsnCheck(FhirCheck):
 
@@ -21,7 +22,7 @@ class PsnCheck(FhirCheck):
         sagen:
         """
 
-        resource = entry.get("resource")
+        resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
 
         result = self.db.qfad("""

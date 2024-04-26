@@ -2,9 +2,9 @@
 
 import re
 
-# from dbcon import *
+from dig import *
 from FhirCheck import *
-import fhirhelp as fh
+from fhirhelp import fhirhelp as fh
 
 class OUCheck(FhirCheck):
 
@@ -19,7 +19,7 @@ class OUCheck(FhirCheck):
         Patienten holen wir aus der Datenbank.
         """
 
-        resource = entry.get("resource")
+        resource = dig(entry, "resource")
 
         sampleid = fh.sampleid(resource)
 

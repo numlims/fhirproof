@@ -1,8 +1,9 @@
 # DatesCheck checks the time order of samples
 
 from datetime import datetime
-
+from dig import *
 from FhirCheck import *
+from fhirhelp import fhirhelp as fh
 
 class DatesCheck(FhirCheck):
 
@@ -29,26 +30,26 @@ class DatesCheck(FhirCheck):
         wir checken, ob die Zeiten in `timechain` tatsächlich in aufsteigender
         Reihenfolge sind.
         """
-        resource = entry.get("resource")
+        resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
         timechain = [] # ascending order
         if fh.type(resource) == "MASTER" or fh.type(resource) == "DERIVED":
-            if "collection" not in resource or "collectedDateTime" not in resource.get("collection"):
+            if "collection" not in resource or "collectedDateTime" not in dig(resource, "collection"):
                 self.err(f"no collection date in {sampleid}")
             else:
-                timechain.append(["collection date", self.isodate(resource.get("collection/collectedDateTime"))])
+                timechain.append(["collection date", self.isodate(dig(resource, "collection/collectedDateTime"))])
         if fh.type(resource) == "MASTER":
             if "receivedTime" not in resource:
                 self.err(f"no receivedTime in sample {sampleid}")
             else:
-                timechain.append(["received date", self.isodate(resource.get("receivedTime"))])
+                timechain.append(["received date", self.isodate(dig(resource, "receivedTime"))])
         if fh.type(resource) == "MASTER" or fh.type(resource) == "DERIVED":
             centri_date = None
-            for e in resource.get("extension"):
-                if e.get("url") == "https://fhir.centraxx.de/extension/sprec":
-                    for ee in e.get("extension"):
-                        if ee.get("url") == "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate":
-                            centri_date = self.isodate(ee.get("valueDateTime"))
+            for e in dig(resource, "extension"):
+                if dig(e, "url") == "https://fhir.centraxx.de/extension/sprec":
+                    for ee in dig(e, "extension"):
+                        if dig(ee, "url") == "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate":
+                            centri_date = self.isodate(dig(ee, "valueDateTime"))
                             timechain.append(["centrifugation date", centri_date])
 
         """
@@ -58,10 +59,10 @@ class DatesCheck(FhirCheck):
 
         if fh.type(resource) == "DERIVED":
             deriv_date = False
-            for e in resource.get("extension"):
-                if e.get("url") == "https://fhir.centraxx.de/extension/sample/derivalDate":
+            for e in dig(resource, "extension"):
+                if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/derivalDate":
                     deriv_date = True
-                    timechain.append(["derival date", self.isodate(e.get("valueDateTime"))])
+                    timechain.append(["derival date", self.isodate(dig(e, "valueDateTime"))])
             if deriv_date == False:
                 self.err(f"no derival date for sample {sampleid}")
 
@@ -73,10 +74,10 @@ class DatesCheck(FhirCheck):
 
         if fh.type(resource) == "DERIVED":
             repo_date = False
-            for e in resource.get("extension"):
-                if e.get("url") == "https://fhir.centraxx.de/extension/sample/repositionDate":
+            for e in dig(resource, "extension"):
+                if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/repositionDate":
                     repo_date = True
-                    timechain.append(["reposition date", self.isodate(e.get("valueDateTime"))])
+                    timechain.append(["reposition date", self.isodate(dig(e, "valueDateTime"))])
             if repo_date == False:
                 self.err("no reposition date for sample {sampleid}")
 

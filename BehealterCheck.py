@@ -1,6 +1,8 @@
 import re
 
 from FhirCheck import *
+from dig import *
+from fhirhelp import fhirhelp as fh
 
 class BehealterCheck(FhirCheck):
 
@@ -13,10 +15,10 @@ class BehealterCheck(FhirCheck):
         Aliquotcontainer.
 
         """
-        resource = entry.get("resource")
+        resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
         
-        container = resource.get("container/0/identifier/0/value")
+        container = dig(resource, "container/0/identifier/0/value")
         if fh.type(resource) == "MASTER" and container != "ORG":
             self.err(f"container for sample {sampleid} should be ORG (Originalcontainer) but is {container} in json.")
         if fh.type(resource) == "DERIVED" and container != "NUM_AliContainer":

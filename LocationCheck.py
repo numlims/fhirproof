@@ -1,6 +1,8 @@
 import re
 
+from dig import *
 from FhirCheck import *
+from fhirhelp import fhirhelp as fh
 
 class LocationCheck(FhirCheck):
 
@@ -14,15 +16,15 @@ class LocationCheck(FhirCheck):
         Lagerort angegeben, außer ihre Restmenge ist null. Bei Primärproben
         ist nur bei Speichel und PaxGene ein Lagerort angegeben.
         """
-        resource = entry.get("resource")
+        resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
         if (fh.type(resource) == "DERIVED" and fh.restmenge(resource) > 0) or (fh.type(resource) == "MASTER" and (fh.material(resource) == "NUM_speichel" or fh.material(resource) == "PAXgene")):
             locpath = None
-            for e in resource.get("extension"):
-                if e.get("url") == "https://fhir.centraxx.de/extension/sample/sampleLocation":
-                    for ee in e.get("extension"):
-                        if ee.get("url") == "https://fhir.centraxx.de/extension/sample/sampleLocationPath":
-                            locpath = ee.get("valueString")
+            for e in dig(resource, "extension"):
+                if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/sampleLocation":
+                    for ee in dig(e, "extension"):
+                        if dig(ee, "url") == "https://fhir.centraxx.de/extension/sample/sampleLocationPath":
+                            locpath = dig(ee, "valueString")
             if locpath == None:
                 self.err(f"no location path for sample {sampleid}, there should be one though.")
 

@@ -2,7 +2,7 @@
 
 import sys
 
-import fhirhelp as fh
+from fhirhelp import fhirhelp as fh
 # from traction import *
 
 class FhirCheck:
@@ -20,9 +20,9 @@ class FhirCheck:
     # err is an error log shortcut
     def err(self, message):
         self.fp.ok = False # this run is not ok
-        self.fp.log.error("{self.__class__.__name__}: {message}")
+        self.fp.log.error(f"{self.__class__.__name__}: {message}")
 
     # debug is an error log shortcut
     def debug(self, message):
-        self.fp.log.debug("{self.__class__.__name__}: {message}")
+        self.fp.log.debug(f"{self.__class__.__name__}: {message}")
         

@@ -1,7 +1,8 @@
 # PrimaryInDb checks whether a primary sample is in the database
 
-# from dbcon import *
+from dig import *
 from FhirCheck import *
+from fhirhelp import fhirhelp as fh
 
 class PrimaryInDbCheck(FhirCheck):
 
@@ -11,7 +12,7 @@ class PrimaryInDbCheck(FhirCheck):
     # check checks whether the sample is in db if it is a master
     def check(self, entry):
         
-        resource = entry.get("resource")
+        resource = dig(entry, "resource")
 
         sampleid = fh.sampleid(resource)
 

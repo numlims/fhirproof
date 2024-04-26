@@ -1,6 +1,8 @@
 # MayUserEditOECheck checks whether the user who does the fhir import is allowed to edit organisations-einheiten (OEs)
 
+from dig import *
 from FhirCheck import *
+from fhirhelp import fhirhelp as fh
 
 """
 Es sollte geprüft werden, ob der später zu verwendende FHIR-Import-User berechtigt ist, OEs der Proben und Probanden, die im JSON-enthalten sind, zu bearbeiten.
@@ -18,7 +20,7 @@ class MayUserEditOUCheck(FhirCheck):
 
     # check checks whether user may edit the entry
     def check(self, entry, user):
-        resource = entry.get('resource')
+        resource = dig(entry, 'resource')
         # get org unit
         orgunit = fh.org(resource)
         query = """

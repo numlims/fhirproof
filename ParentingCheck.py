@@ -2,8 +2,9 @@
 
 import re
 
+from dig import *
 from FhirCheck import *
-import fhirhelp as fh
+from fhirhelp import fhirhelp as fh
 
 class ParentingCheck(FhirCheck):
 
@@ -11,7 +12,7 @@ class ParentingCheck(FhirCheck):
         FhirCheck.__init__(self, fp)
         
     def check(self, entry):
-        resource = entry.get("resource")
+        resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
 
         """ 

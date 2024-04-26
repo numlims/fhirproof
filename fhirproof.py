@@ -1,6 +1,7 @@
 
 import json
-from dict_path import DictPath
+
+from dig import *
 from AqtMatCheck import *
 from PrimaryInDbCheck import *
 from DatesCheck import *
@@ -12,11 +13,12 @@ from PsnCheck import *
 from RestmengeCheck import *
 from DerivmatCheck import *
 from MayUserEditOUCheck import *
-import fhirhelp as fh
+from fhirhelp import fhirhelp as fh
 import logging
 import sys
 from traction import *
 import argparse
+
 
 
 # Fhirproof reads fhir json from stdin and checks the entries
@@ -33,7 +35,7 @@ class Fhirproof:
     def parent(self, entry):
         parent = None
         resource = entry['resource']
-        if fh.type(resource) != "DERIVED":
+        if fh.type(resource) != "DERIVED":              
             return None
         # get fhirid of aliquotgroup-parent
         pfhirid = fh.parent_fhirid(resource)
@@ -75,7 +77,7 @@ class Fhirproof:
         self.tr = traction(self.db)
 
         # sys.stdin works on powershell
-        textin = ""
+        textin = ""         # maybe use textin = open(0).read()
         for line in file:
             textin += line
 
@@ -94,7 +96,8 @@ class Fhirproof:
         logdir = self.logdir
         textin = self.textin
 
-        jsonin = DictPath(json.loads(textin))
+        #jsonin = DictPath(json.loads(textin))
+        jsonin = json.loads(textin)
 
         if logdir == None:
             logdir = ""
@@ -123,56 +126,57 @@ class Fhirproof:
 
 
         # run checks
-        for entry in jsonin.get("entry"):
-                      # keep arrays up to date
-                      self.entrybyfhirid[entry.get("fullUrl")] = entry
-          
-                      if fh.type(entry.get('resource')) == "ALIQUOTGROUP":
-                          aqtg_count += 1
-                          if not entry.get("fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
-                              self.aqtgchildless[entry.get("fullUrl")] = True
-                          aqtmat.check(entry)
-          
-                      print(f"entry resource: {entry.get('resource')}")
-                      sampleid = fh.sampleid(entry.get('resource'))
-                      if sampleid == None:
-                          continue
-          
-                      self.entrybysampleid[sampleid] = entry
-                      if fh.type(entry.get('resource')) == "DERIVED":
-                          derived_count += 1
-                      if fh.type(entry.get('resource')) == "MASTER":
-                          master_count += 1
-                      # primary in db
-                      primary_in_db.check(entry)
-                      # dates
-                      dates.check(entry)
-                      # location
-                      location.check(entry)
-                      # behealter
-                      behealter.check(entry)
-                      # org
-                      ou.check(entry)
-                      # parenting
-                      parenting.check(entry)
-                      # psn
-                      psn.check(entry)
-                      # restmenge
-                      restmenge.check(entry)
-                      # derived material
-                      derivmat.check(entry)
-                      # edit oe?
-                      # mayeditou.check(entry, user)
-          
+        for entry in dig(jsonin, "entry"):
+            #print(f"type(entry): {type(entry)}")
+            # keep arrays up to date
+            self.entrybyfhirid[dig(entry, "fullUrl")] = entry
+
+            if fh.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
+                aqtg_count += 1
+                if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
+                    self.aqtgchildless[dig(entry, "fullUrl")] = True
+                aqtmat.check(entry)
+
+            # print(f"entry resource: {json.dumps(dig(entry, 'resource'))}")
+            sampleid = fh.sampleid(dig(entry, 'resource'))
+            if sampleid == None:
+                continue
+
+            self.entrybysampleid[sampleid] = entry
+            if fh.type(dig(entry, 'resource')) == "DERIVED":
+                derived_count += 1
+            if fh.type(dig(entry, 'resource')) == "MASTER":
+                master_count += 1
+            # primary in db
+            primary_in_db.check(entry)
+            # dates
+            dates.check(entry)
+            # location
+            location.check(entry)
+            # behealter
+            behealter.check(entry)
+            # org
+            ou.check(entry)
+            # parenting
+            parenting.check(entry)
+            # psn
+            psn.check(entry)
+            # restmenge
+            restmenge.check(entry)
+            # derived material
+            derivmat.check(entry)
+            # edit oe?
+            # mayeditou.check(entry, user)
+
 
 
 
         restmenge.end()
         parenting.end()
         self.log.info(f"ended against {self.target}: "+
-            str(aqtg_count) + " aliquot groups\n" +
-            str(master_count) + " master samples\n" +
-            str(derived_count) + " derived samples\n" +
+            str(aqtg_count) + " aliquot groups, " +
+            str(master_count) + " master samples, " +
+            str(derived_count) + " derived samples, " +
             str(len(jsonin['entry'])) + " total\n" )
         
         return self.ok # written by FhirCheck.err()

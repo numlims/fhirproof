@@ -1,7 +1,5 @@
 # fhirproof: fhir import checker
 
-abc
-
 usage: python fhirproof.py --help
 
 fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
@@ -13,6 +11,7 @@ ruft sie jeweils fuer einen entry auf.
 <<fhirproof.py: fp
 
 <<import>>
+
 # Fhirproof reads fhir json from stdin and checks the entries
 class Fhirproof:
 
@@ -56,10 +55,12 @@ zurueckgeben, wenn man die checks da laufen lassen wuerde.
         <<postloop>>
 >>
 
-run macht aus dem input json ein dictpath objekt, die hoffnung ist,
-dass damit das key retrieval etwas cleaner geht, weil man paths
-angeben kann, und bei fehlenden feldern ein ganzer path None
-zurueckgibt und man nicht zwischendurch immer auf fehler checken muss.
+ein problem war, wie kommt man schnell an verschachtelte dict values
+ran ohne viele none-checks. vielleicht mit DictPath, das kann paths
+entgegen nehmen und gibt bei fehlenden keys none zurueck statt zu
+einen fehler zu werfen. das problem ist nur, der getter von DictPath
+gibt die unter-dicts nicht als DictPath, sondern als plain dict
+zurueck. deswegen benutzen wir dig als getter und dis als setter.
 
 ausserdem drucken wir eine start-nachricht.
 
@@ -68,7 +69,8 @@ ausserdem drucken wir eine start-nachricht.
         logdir = self.logdir
         textin = self.textin
 
-        jsonin = DictPath(json.loads(textin))
+        #jsonin = DictPath(json.loads(textin))
+        jsonin = json.loads(textin)
 
         if logdir == None:
             logdir = ""
@@ -77,11 +79,12 @@ ausserdem drucken wir eine start-nachricht.
         self.log.info(f"starting against {self.target}")
 >>
 
-importiere dazu json und DictPath
+importiere dazu json, dig und dis.
 
 <<import
 import json
-from dict_path import DictPath
+
+from dig import *
 >>
 
 dann initialisiere die checks und fuehre drei counter ein fuer
@@ -126,22 +129,23 @@ from MayUserEditOUCheck import *
 im loop brauchen wir fhirhelp.
 
 <<import
-import fhirhelp as fh
+from fhirhelp import fhirhelp as fh
 >>
 
 der loop leauft ueber jeden entry im json.
 
 <<fp/run/loop
         # run checks
-        for entry in jsonin.get("entry"):
-          <<.>>
+        for entry in dig(jsonin, "entry"):
+            #print(f"type(entry): {type(entry)}")
+            <<.>>
 >>
 
 speicher den entry nach seiner fhirid.
 
 <<
             # keep arrays up to date
-            self.entrybyfhirid[entry.get("fullUrl")] = entry
+            self.entrybyfhirid[dig(entry, "fullUrl")] = entry
 
 >>
 
@@ -152,19 +156,19 @@ gibt. aliquotgruppen haben keine sampleid, mach ihre checks bevor wir
 weitergehen.
 
 <<
-            if fh.type(entry.get('resource')) == "ALIQUOTGROUP":
+            if fh.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
                 aqtg_count += 1
-                if not entry.get("fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
-                    self.aqtgchildless[entry.get("fullUrl")] = True
+                if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
+                    self.aqtgchildless[dig(entry, "fullUrl")] = True
                 aqtmat.check(entry)
 
-            print(f"entry resource: {entry.get('resource')}")
+            # print(f"entry resource: {json.dumps(dig(entry, 'resource'))}")
 >>
 
 ziehe die sampleid und speicher den entry an ihr.
 
 <<
-            sampleid = fh.sampleid(entry.get('resource'))
+            sampleid = fh.sampleid(dig(entry, 'resource'))
             if sampleid == None:
                 continue
 
@@ -172,16 +176,16 @@ ziehe die sampleid und speicher den entry an ihr.
 >>
 
 
-zeahl die counter hoch.
+die counter zeahlen hoch.
 
 <<
-            if fh.type(entry.get('resource')) == "DERIVED":
+            if fh.type(dig(entry, 'resource')) == "DERIVED":
                 derived_count += 1
-            if fh.type(entry.get('resource')) == "MASTER":
+            if fh.type(dig(entry, 'resource')) == "MASTER":
                 master_count += 1
 >>
 
-lass die non-aliquote checks laufen
+die non-aliquot checks laufen.
 
 <<
             # primary in db
@@ -206,36 +210,36 @@ lass die non-aliquote checks laufen
             # mayeditou.check(entry, user)
 >>
 
-wieder aus dem loop raus, ende restmenge und parenting.
+restmenge und parenting enden nach dem loop.
 
 <<fp/run/postloop
         restmenge.end()
         parenting.end()
 >>
 
-druck eine info nachricht, wie viele proben von was, und gib zurueck,
-ob es einen fehler gab oder nicht. self.ok wird beschrieben von der
-err() methode in FhirCheck, das heisst sobald err() einmal aufgerufen
-wurde, gibt ok false zurueck.
+eine info nachricht zeigt wie viele proben von was durchgelaufen
+sind. run gib zurueck, ob es einen fehler gab oder nicht. self.ok wird
+beschrieben von der err() methode in FhirCheck, das heisst sobald
+err() einmal aufgerufen wurde, ist ok nicht mehr ok.
 
 <<fp/run/postloop
         self.log.info(f"ended against {self.target}: "+
-            str(aqtg_count) + " aliquot groups\n" +
-            str(master_count) + " master samples\n" +
-            str(derived_count) + " derived samples\n" +
+            str(aqtg_count) + " aliquot groups, " +
+            str(master_count) + " master samples, " +
+            str(derived_count) + " derived samples, " +
             str(len(jsonin['entry'])) + " total\n" )
         
         return self.ok # written by FhirCheck.err()
 >>
 
-eine methode um an die eltern-resource zu kommen koennen die checks accessen. 
+auf die parent-methode koennen die checks zugreifen.
 
 <<fp/parent
     # parent returns the entry's parent entry resource, if there is one, else none
     def parent(self, entry):
         parent = None
         resource = entry['resource']
-        if fh.type(resource) != "DERIVED":
+        if fh.type(resource) != "DERIVED":              
             return None
         # get fhirid of aliquotgroup-parent
         pfhirid = fh.parent_fhirid(resource)
@@ -290,7 +294,7 @@ init uebernimmt variablen und setzt die datenbankverbindung und traction auf.
         self.tr = traction(self.db)
 
         # sys.stdin works on powershell
-        textin = ""
+        textin = ""         # maybe use textin = open(0).read()
         for line in file:
             textin += line
 
@@ -334,11 +338,10 @@ def main():
         print("error")
 >>
 
-parseargs spannt das cmd-line arg theater auf.
+das arg-theater fuer die commandline handhabt parseargs.
 
-fhirproof takes these arguments: target and user are passed without
-name. the config file, an option for printing a config stub and a log
-dir are passed with name.
+fhirproof nimmt target und user ohne name, und die config datei, eine
+option die konfig stub zu printen und das log dir mit name.
 
 <<fp/parseargs
 # parseargs parses command line arguments
