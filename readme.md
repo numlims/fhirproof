@@ -3,6 +3,9 @@
 fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
 können und loggt errors in `logs/fhirproof.log`.
 
+Ediere die .ct Datei wenn es eine .ct Datei für einen Check
+gibt. Sonst ediere die .py Datei. Make die .ct Dateien mit `make`.
+
 ## Checks
 
 ## Primärprobe in DB: PrimaryInDbCheck
