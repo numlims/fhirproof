@@ -84,11 +84,14 @@ class OUCheck(FhirCheck):
                     WHERE OU.CODE != 'NUM' AND IDCT.CODE=? AND IDC.PSN=?
                     """
                     psn = fh.limspsn(resource)
-                    patorg = self.db.qfad(patorgq, "LIMSPSN", psn)[0]['organisationunit.code'] # todo ist es immer LIMSPSN?
-                    
+                    res = self.db.qfad(patorgq, "LIMSPSN", psn)
+                    patorg = None
+                    if len(res) > 0:
+                        patorg = res[0]['organisationunit.code'] # missing ist es immer LIMSPSN?
+
                     # do the orgs of patient and sample match?
                     if sampleorgjson != patorg: # todo print patient psn
-                        self.err(f"organisation units don't match for patient and sample {sampleid}, json org of sample is {sampleorgjson}, db org of its patient is {dborg}")
+                        self.err(f"organisation units don't match for patient and sample {sampleid}, json org of sample is {sampleorgjson}, db org of its patient is {patorg}")
 
         # Aliquotgruppe: OE nicht notwendig
 

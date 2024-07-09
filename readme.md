@@ -3,7 +3,7 @@
 fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
 können und loggt errors in `logs/fhirproof.log`.
 
-# Checks
+## Checks
 
 ## Primärprobe in DB: PrimaryInDbCheck
 

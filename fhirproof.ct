@@ -56,11 +56,11 @@ zurueckgeben, wenn man die checks da laufen lassen wuerde.
 >>
 
 ein problem war, wie kommt man schnell an verschachtelte dict values
-ran ohne viele none-checks. vielleicht mit DictPath, das kann paths
-entgegen nehmen und gibt bei fehlenden keys none zurueck statt zu
-einen fehler zu werfen. das problem ist nur, der getter von DictPath
-gibt die unter-dicts nicht als DictPath, sondern als plain dict
-zurueck. deswegen benutzen wir dig als getter und dis als setter.
+ran ohne viele none-checks. vielleicht mit DictPath da kann man Paths
+uebergeben und bekommt bei fehlenden keys none zurueck ohne dass ein
+fehler geworfen wird. das problem ist nur, dass der getter von
+DictPath die unter-dicts nicht als DictPath, sondern als plain dict
+zurueckgibt. deswegen benutzen wir dig als getter und dis als setter.
 
 ausserdem drucken wir eine start-nachricht.
 
@@ -281,11 +281,12 @@ import logging
 import sys
 >>
 
-init uebernimmt variablen und setzt die datenbankverbindung und traction auf.
+init uebernimmt variablen und setzt die datenbankverbindung und
+traction auf.
 
 <<fp/init
     # init inits fhirproof with db target, input file, centraxx user, log dir and config
-    def __init__(self, target, file, user, logdir, config):
+    def __init__(self, target, file, user, logdir, config=None):
 
         self.target = target
         # connect to db
@@ -354,7 +355,6 @@ def parseargs():
     parser.add_argument("--log-dir", help="a directory of the fhirproof log")
     args = parser.parse_args()
     return args
-
 >>
 
 importiere dazu argparse.

@@ -34,7 +34,8 @@ def main():
             # remove the _Px from name before adding it, two _Px_Px crashes the upload
             a = Path(namein).stem.split("_")
             name = "_".join(a[0:len(a)-1])
-            json.dump(out, open(outfolder + "/" + name + "_p" + str(nout) + ".json", "w"))
+            path = f"{outfolder}/{name}_p{nout:03}.json" # :03 three leading zeros, for file ordering
+            json.dump(out, open(path, "w"))
             
             nout = nout + 1
             outbundle = []

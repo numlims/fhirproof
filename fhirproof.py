@@ -68,7 +68,7 @@ class Fhirproof:
 
 
     # init inits fhirproof with db target, input file, centraxx user, log dir and config
-    def __init__(self, target, file, user, logdir, config):
+    def __init__(self, target, file, user, logdir, config=None):
 
         self.target = target
         # connect to db
@@ -196,7 +196,6 @@ def parseargs():
     parser.add_argument("--log-dir", help="a directory of the fhirproof log")
     args = parser.parse_args()
     return args
-
 
 
 
