@@ -3,7 +3,10 @@
 fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
 können und loggt errors in `logs/fhirproof.log`.
 
-# Checks
+Ediere die .ct Datei wenn es eine .ct Datei für einen Check
+gibt. Sonst ediere die .py Datei. Make die .ct Dateien mit `make`.
+
+## Checks
 
 ## Primärprobe in DB: PrimaryInDbCheck
 
@@ -153,3 +156,7 @@ Codes und Namen.
 | SER | Serum | Serum |
 | Tempus | unnamed (Tempus™ Blood RNA Tube) | Tempus™ Blood RNA (Vollblut) |
 | URN | Urine | Urin |
+
+## license
+
+[cc0](https://creativecommons.org/publicdomain/zero/1.0/)

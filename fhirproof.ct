@@ -1,0 +1,364 @@
+# fhirproof: fhir import checker
+
+usage: python fhirproof.py --help
+
+fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
+können und loggt in `logs/fhirproof.log`.
+
+die fhirproof klasse instantiiert die einzelnen checks als klassen und
+ruft sie jeweils fuer einen entry auf.
+
+<<fhirproof.py: fp
+
+<<import>>
+
+# Fhirproof reads fhir json from stdin and checks the entries
+class Fhirproof:
+
+    <<vars>>
+    <<parent>>
+    <<setuplog>>
+    <<init>>
+    <<run>>
+  
+
+<<parseargs>>
+<<main>>
+
+if __name__ == "__main__":
+    main()
+>>
+
+die einzelen fhirchecks koennen entries nach fhirid und sampleid
+gespeichert einsehen, ausserdem ob die restmenge fuer einen entry null
+sein sollte und ob eine aliquotgroup ohne children ist.
+
+<<fp/vars
+    # these variables are accessible to the fhirchecks
+    entrybyfhirid = {} # entries referenced by fullUrl / fhirids, e.g. "Specimen/1037700"
+    entrybysampleid = {} # entries referenced by sampleid
+    shouldzerorest = {} # should restmenge be zero
+    aqtgchildless = {} # is a aliquotgroup without children?
+>>
+
+run leasst fuer jeden entry im input die checks laufen.
+
+warum eine extra run method? __init__ kann anscheinend nichts
+zurueckgeben, wenn man die checks da laufen lassen wuerde.
+
+<<fp/run
+    # init may not return anything, so run function
+    def run(self):
+        <<setup>>
+        <<init>>
+        <<loop>>
+        <<postloop>>
+>>
+
+ein problem war, wie kommt man schnell an verschachtelte dict values
+ran ohne viele none-checks. vielleicht mit DictPath da kann man Paths
+uebergeben und bekommt bei fehlenden keys none zurueck ohne dass ein
+fehler geworfen wird. das problem ist nur, dass der getter von
+DictPath die unter-dicts nicht als DictPath, sondern als plain dict
+zurueckgibt. deswegen benutzen wir dig als getter und dis als setter.
+
+ausserdem drucken wir eine start-nachricht.
+
+<<fp/run/setup
+        user = self.user
+        logdir = self.logdir
+        textin = self.textin
+
+        #jsonin = DictPath(json.loads(textin))
+        jsonin = json.loads(textin)
+
+        if logdir == None:
+            logdir = ""
+
+        self._setuplog(logdir)
+        self.log.info(f"starting against {self.target}")
+>>
+
+importiere dazu json, dig und dis.
+
+<<import
+import json
+
+from dig import *
+>>
+
+dann initialisiere die checks und fuehre drei counter ein fuer
+aliquotgroups, masters und deriveds.
+
+<<fp/run/init
+        # initialize checks
+        aqtmat = AqtMatCheck(self)
+        primary_in_db = PrimaryInDbCheck(self)
+        dates = DatesCheck(self)
+        location = LocationCheck(self)
+        behealter = BehealterCheck(self)
+        ou = OUCheck(self)
+        parenting = ParentingCheck(self)
+        psn = PsnCheck(self)
+        restmenge = RestmengeCheck(self)
+        derivmat = DerivmatCheck(self)
+        mayeditou = MayUserEditOUCheck(self)
+
+        # count for some stats
+        aqtg_count = 0
+        master_count = 0
+        derived_count = 0
+>>
+
+dafuer die importe.
+
+<<import
+from AqtMatCheck import *
+from PrimaryInDbCheck import *
+from DatesCheck import *
+from LocationCheck import *
+from BehealterCheck import *
+from OUCheck import *
+from ParentingCheck import *
+from PsnCheck import *
+from RestmengeCheck import *
+from DerivmatCheck import *
+from MayUserEditOUCheck import *
+>>
+
+im loop brauchen wir fhirhelp.
+
+<<import
+from fhirhelp import fhirhelp as fh
+>>
+
+der loop leauft ueber jeden entry im json.
+
+<<fp/run/loop
+        # run checks
+        for entry in dig(jsonin, "entry"):
+            #print(f"type(entry): {type(entry)}")
+            <<.>>
+>>
+
+speicher den entry nach seiner fhirid.
+
+<<
+            # keep arrays up to date
+            self.entrybyfhirid[dig(entry, "fullUrl")] = entry
+
+>>
+
+und beginne mit den aliquot checks. für aliquotgruppen gibt es keine
+sampleid. weil wir für relativ viele checks die `sampleid` benutzen,
+gehen wir zum nächsten check, wenn es im json keine sampleid
+gibt. aliquotgruppen haben keine sampleid, mach ihre checks bevor wir
+weitergehen.
+
+<<
+            if fh.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
+                aqtg_count += 1
+                if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
+                    self.aqtgchildless[dig(entry, "fullUrl")] = True
+                aqtmat.check(entry)
+
+            # print(f"entry resource: {json.dumps(dig(entry, 'resource'))}")
+>>
+
+ziehe die sampleid und speicher den entry an ihr.
+
+<<
+            sampleid = fh.sampleid(dig(entry, 'resource'))
+            if sampleid == None:
+                continue
+
+            self.entrybysampleid[sampleid] = entry
+>>
+
+
+die counter zeahlen hoch.
+
+<<
+            if fh.type(dig(entry, 'resource')) == "DERIVED":
+                derived_count += 1
+            if fh.type(dig(entry, 'resource')) == "MASTER":
+                master_count += 1
+>>
+
+die non-aliquot checks laufen.
+
+<<
+            # primary in db
+            primary_in_db.check(entry)
+            # dates
+            dates.check(entry)
+            # location
+            location.check(entry)
+            # behealter
+            behealter.check(entry)
+            # org
+            ou.check(entry)
+            # parenting
+            parenting.check(entry)
+            # psn
+            psn.check(entry)
+            # restmenge
+            restmenge.check(entry)
+            # derived material
+            derivmat.check(entry)
+            # edit oe?
+            # mayeditou.check(entry, user)
+>>
+
+restmenge und parenting enden nach dem loop.
+
+<<fp/run/postloop
+        restmenge.end()
+        parenting.end()
+>>
+
+eine info nachricht zeigt wie viele proben von was durchgelaufen
+sind. run gib zurueck, ob es einen fehler gab oder nicht. self.ok wird
+beschrieben von der err() methode in FhirCheck, das heisst sobald
+err() einmal aufgerufen wurde, ist ok nicht mehr ok.
+
+<<fp/run/postloop
+        self.log.info(f"ended against {self.target}: "+
+            str(aqtg_count) + " aliquot groups, " +
+            str(master_count) + " master samples, " +
+            str(derived_count) + " derived samples, " +
+            str(len(jsonin['entry'])) + " total\n" )
+        
+        return self.ok # written by FhirCheck.err()
+>>
+
+auf die parent-methode koennen die checks zugreifen.
+
+<<fp/parent
+    # parent returns the entry's parent entry resource, if there is one, else none
+    def parent(self, entry):
+        parent = None
+        resource = entry['resource']
+        if fh.type(resource) != "DERIVED":              
+            return None
+        # get fhirid of aliquotgroup-parent
+        pfhirid = fh.parent_fhirid(resource)
+        if pfhirid == None:
+            return None
+        elif pfhirid not in self.entrybyfhirid:
+            return None
+        return self.entrybyfhirid[pfhirid]['resource']
+
+>>
+
+eine "private" methode setzt den log auf.
+
+<<fp/setuplog
+    def _setuplog(self, logdir):
+        # setup a logger to write to a file into logs folder
+        log = logging.getLogger(__name__)
+        log.setLevel(logging.INFO)
+        formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
+        # log to file
+        if logdir == "":
+            # logdir = Path.joinpath(Path(__file__).parent.parent, 'logs/')
+            logdir = "../logs"
+        # file_handler = logging.FileHandler(Path.joinpath(logdir, 'fhirproof.log'))
+        file_handler = logging.FileHandler(logdir + "/fhirproof.log")
+        file_handler.setFormatter(formatter)
+        log.addHandler(file_handler)
+        # log to stdout
+        stdout_handler = logging.StreamHandler(sys.stdout)
+        stdout_handler.setFormatter(formatter)
+        log.addHandler(stdout_handler)
+        self.log = log
+>>
+
+importiere dazu logging und sys.
+
+<<import
+import logging
+import sys
+>>
+
+init uebernimmt variablen und setzt die datenbankverbindung und
+traction auf.
+
+<<fp/init
+    # init inits fhirproof with db target, input file, centraxx user, log dir and config
+    def __init__(self, target, file, user, logdir, config=None):
+
+        self.target = target
+        # connect to db
+        self.db = dbcq(target)
+        # traction for queries
+        self.tr = traction(self.db)
+
+        # sys.stdin works on powershell
+        textin = ""         # maybe use textin = open(0).read()
+        for line in file:
+            textin += line
+
+        # the other args
+        self.textin = textin
+        self.user = user
+        self.logdir = logdir
+        
+        # is the input ready for centraxx import?
+        self.ok = True
+>>
+
+importiere traction.
+
+<<import
+from traction import *
+>>
+
+main startet fhirproof, uebergibt command-line args, etc.
+
+<<fp/main
+
+# main runs fhirproof
+def main():
+
+    # get command line arguments
+    args = parseargs()
+
+    # get config
+    # config = getconfig(args.config) # oder so
+
+    # init fhirproof
+    fp = Fhirproof(args.target, sys.stdin, args.user, args.log_dir, args.config)
+
+    # run fhirproof
+    ok = fp.run()
+    
+    if ok:
+        print("ok")
+    else:
+        print("error")
+>>
+
+das arg-theater fuer die commandline handhabt parseargs.
+
+fhirproof nimmt target und user ohne name, und die config datei, eine
+option die konfig stub zu printen und das log dir mit name.
+
+<<fp/parseargs
+# parseargs parses command line arguments
+def parseargs():
+    parser = argparse.ArgumentParser()
+    parser.add_argument("target", help="a database target for db.ini file")
+    parser.add_argument("user", help="a fhir-user")
+    parser.add_argument("--config", help="a fhirproof config") # action="store_true" if true/false value
+    parser.add_argument("--print-config", help="print template config yml", action="store_true")
+    parser.add_argument("--log-dir", help="a directory of the fhirproof log")
+    args = parser.parse_args()
+    return args
+>>
+
+importiere dazu argparse.
+
+<<import
+import argparse
+>>

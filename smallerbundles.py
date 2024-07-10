@@ -1,4 +1,6 @@
 # smallerbundles.py splits one file of json bundles in several files
+# and puts them in a folder
+# usage: python smallerbundles.py <fhir json file> <out folder>
 
 import json
 from pathlib import Path
@@ -10,6 +12,7 @@ import fhirhelp as fh
 def main():
     # read
     namein = sys.argv[1]
+    outfolder = sys.argv[2]
     filein = open(namein)
     textin = filein.read()
 
@@ -28,7 +31,11 @@ def main():
                 "entry": outbundle
             }
             print(len(outbundle))
-            json.dump(out, open("out/" + Path(namein).stem + "_p" + str(nout) + ".json", "w"))
+            # remove the _Px from name before adding it, two _Px_Px crashes the upload
+            a = Path(namein).stem.split("_")
+            name = "_".join(a[0:len(a)-1])
+            path = f"{outfolder}/{name}_p{nout:03}.json" # :03 three leading zeros, for file ordering
+            json.dump(out, open(path, "w"))
             
             nout = nout + 1
             outbundle = []
