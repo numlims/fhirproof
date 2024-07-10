@@ -52,10 +52,10 @@ Wenn das Sample ein Derived/Aliquot ist, ist die Limspsn im
 Json-Parent die gleiche?
 
 <<
-        parentresource = self.fp.parent(entry)
-        if parentresource != None:
-            if fh.limspsn(parentresource) != fh.limspsn(resource):
-                self.err(f"the limpspsn of sample {sampleid} is {fh.limspsn(resource)} in json, but {fh.limspsn(parentresource)} of its parent in json")
+parentresource = self.fp.parent(entry)
+if parentresource != None:
+    if fh.limspsn(parentresource) != fh.limspsn(resource):
+        self.err(f"the limpspsn of sample {sampleid} is {fh.limspsn(resource)} in json, but {fh.limspsn(parentresource)} of its parent in json")
 >>
 
 Init.

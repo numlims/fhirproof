@@ -81,7 +81,13 @@ ein check notwendig, sonst nicht.
         # OE nicht im JSON angegeben - kein check notwendig
 >>
 
-Bei einem derived.
+Ist das Aliquot in der DB, gilt: Ist die OE im Json angegeben, checke
+sie gegen die DB. Ist die OE nicht im Json, mach nichts. Ist das
+Aliquot nicht in der DB gilt: Ist im Json keine OE, gib einen Fehler,
+ist die OE im Json, checke, ob die OE des Probanden aus der DB zu dem
+das Aliquot gehört mit der OE im Json übereinstimmt.
+
+Bei einer Aliquotgruppe ist die OE nicht notwendig.
 
 <<
     elif typ == "DERIVED": # derived sample
@@ -147,7 +153,7 @@ Bei einem derived.
     # Aliquotgruppe: OE nicht notwendig
 >>
 
-Eine Check Hilfsfunktion.
+Die Check Hilfsfunktion.
 
 <<checkhelp
 # _check checks whether db org and json org of sample match

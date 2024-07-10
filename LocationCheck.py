@@ -15,20 +15,20 @@ class LocationCheck(FhirCheck):
         ok = True
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
-        if (fh.type(resource) == "DERIVED" and fh.restmenge(resource) > 0) or (fh.type(resource) == "MASTER" and (fh.material(resource) == "NUM_speichel" or fh.material(resource) == "PAXgene")):
-            locpath = None
-            for e in dig(resource, "extension"):
-                if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/sampleLocation":
-                    for ee in dig(e, "extension"):
-                        if dig(ee, "url") == "https://fhir.centraxx.de/extension/sample/sampleLocationPath":
-                            locpath = dig(ee, "valueString")
+        # restmenge zero
+        if fh.restmenge(resource) == 0 and fh.lagerort(resource) != None:
+            self.err(f"restmenge of sample {sampleid} is zero, it shouldn't have a lagerort but it's lagerort is {fh.lagerort(resource)}.")
+        # restmenge greater than zero
+        if fh.restmenge(resource) > 0:
+            locpath = fh.lagerort(resource)
+            # print(f"lagerort of sample {sampleid}: {locpath}")
             if locpath == None:
-                self.err(f"no location path for sample {sampleid}, there should be one though.")
+                self.err(f"no location path for sample {sampleid} in json, there should be one though.")
             query = "select * from centraxx_samplelocation where locationpath = ?"
             result = self.db.qfa(query, locpath)
             if len(result) == 0:
                 # check the shorter path, non-greedy matching
-                shortpath = re.sub(" -->.*$", "", locpath)
+                shortpath = re.sub(" -->[^>]*$", "", locpath)
                 result = self.db.qfa(query, shortpath)
                 if len(result) == 0:
                     self.err(f"location {locpath} for sample {sampleid} is not in db.") 

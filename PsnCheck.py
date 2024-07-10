@@ -27,10 +27,10 @@ class PsnCheck(FhirCheck):
                 self.err(f"no patient psn in db for sample {sampleid}")
         elif fh.limspsn(resource) != result[0]["psn"]:
             self.err(f"limspsn for sample {sampleid} is {fh.limspsn(resource)} in json and {result[0]['psn']} in db")
-                parentresource = self.fp.parent(entry)
-                if parentresource != None:
-                    if fh.limspsn(parentresource) != fh.limspsn(resource):
-                        self.err(f"the limpspsn of sample {sampleid} is {fh.limspsn(resource)} in json, but {fh.limspsn(parentresource)} of its parent in json")
+        parentresource = self.fp.parent(entry)
+        if parentresource != None:
+            if fh.limspsn(parentresource) != fh.limspsn(resource):
+                self.err(f"the limpspsn of sample {sampleid} is {fh.limspsn(resource)} in json, but {fh.limspsn(parentresource)} of its parent in json")
         
 
     
