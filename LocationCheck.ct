@@ -29,34 +29,21 @@ einen Lagerort geben.
         # restmenge zero
         if fh.restmenge(resource) == 0 and fh.lagerort(resource) != None:
             self.err(f"restmenge of sample {sampleid} is zero, it shouldn't have a lagerort but it's lagerort is {fh.lagerort(resource)}.")
-        # restmenge greater than zero
+>>
+
+Wenn die Restmenge groesser 0 ist, gibt es den Lagerort in der DB?
+
+<<
         if fh.restmenge(resource) > 0:
             locpath = fh.lagerort(resource)
             # print(f"lagerort of sample {sampleid}: {locpath}")
             if locpath == None:
                 self.err(f"no location path for sample {sampleid} in json, there should be one though.")
-            <<.>>
->>
 
-Der Lagerort ist ein Pfad, der entweder mit einem Rack endet oder
-nicht. In der Datenbank stehen die Lagerorte ohne Rack. Im Json kann
-man nicht erkennen, ob der letzte Bestandteil vom Lagerort ein Rack
-ist oder nicht, deshalb machen wir zwei Checks, einmal den kompletten
-Pfad und einmal mit abgeschnittenem Ende.
-
-Die Regex "-->.*$" hatte alle Bestandteile von einem Locationpath
-geloescht, nicht nur den letzten. "-->[^>]*" waere erstmal ein
-Quickfix damit nur der letzte Bestandteil geloescht wird.
-
-<<
             query = "select * from centraxx_samplelocation where locationpath = ?"
             result = self.db.qfa(query, locpath)
             if len(result) == 0:
-                # check the shorter path, non-greedy matching
-                shortpath = re.sub(" -->[^>]*$", "", locpath)
-                result = self.db.qfa(query, shortpath)
-                if len(result) == 0:
-                    self.err(f"location {locpath} for sample {sampleid} is not in db.") 
+                self.err(f"location {locpath} for sample {sampleid} is not in db.") 
 >>
 
 Die Init-Funktion.
