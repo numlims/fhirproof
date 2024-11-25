@@ -1,6 +1,6 @@
 [build-system]
-requires = ["hatchling"] # list of packages needed to build your package
-build-backend = "hatchling.build" # name of the python object that frontends use to perform the build
+requires = ["setuptools"] # list of packages needed to build your package
+build-backend = "setuptools.build_meta" # name of the python object that frontends use to perform the build
 
 [project]
 name = "fhirproof"
@@ -12,8 +12,8 @@ description = "fhir import checker"
 readme = "readme.md"
 requires-python = ">=3.8"
 dependencies = [
-  "dbcq",
-  "dig"
+#  "dbcq",
+#  "dig"
 ]
 classifiers = [
   "Programming Language :: Python :: 3"
@@ -21,3 +21,6 @@ classifiers = [
 
 [project.scripts]
 fhirproof = "fhirproof:__main__"
+
+[tool.setuptools]
+packages = ["fhirproof"]
