@@ -1,0 +1,54 @@
+# FhirCheck is the base class for fhir checks
+
+<<FhirCheck.py
+<<import>>
+class FhirCheck:
+
+    <<init>>
+    <<info>>
+    <<err>>
+    <<debug>>
+>>
+
+init hangs db and traction from fhirproof to self for shorter
+notation.
+
+<<init
+    def __init__(self, fp):
+        self.fp = fp
+
+        self.db = fp.db
+        self.tr = fp.tr
+>>
+
+FhirCheck provides three log methods: info, err and debug.
+
+<<info
+    # info is an info log shortcut
+    def info(self, message):
+        self.fp.log.info(f"{self.__class__.__name__}: {message}")
+>>
+
+<<err
+    # err is an error log shortcut
+    def err(self, message):
+        self.fp.ok = False # this run is not ok
+        self.fp.log.error(f"{self.__class__.__name__}: {message}")
+>>
+
+<<debug
+    # debug is an error log shortcut
+    def debug(self, message):
+        self.fp.log.debug(f"{self.__class__.__name__}: {message}")
+        
+>>
+
+do we actually need the import? for the classes that extend FhirCheck?
+would this be sensible here?
+
+<<import
+import sys
+
+from fhirhelp import fhirhelp as fh
+# from traction import *
+>>
