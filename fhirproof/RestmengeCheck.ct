@@ -1,6 +1,6 @@
 RestmengeCheck checks the rest amount of a fhir entry.
 
-<</RestmengeCheck.py
+<<//RestmengeCheck.py
 <<import>>
 class RestmengeCheck(FhirCheck):
     <<init>>
@@ -11,7 +11,7 @@ class RestmengeCheck(FhirCheck):
 
 Die Check-Funktion.
 
-<<check
+<</check
     def check(self, entry):
         <<.>>
 >>
@@ -48,7 +48,7 @@ if (rm == None or rm == 0) and fh.lagerort(resource) != None:
 
 Am Ende werden die Restmengen zusammengekratzt.
 
-<<end
+<</end
 def end(self):
     for entry in self.entries:
         #    restamount = entry["resource"]["container"][0]["specimenQuantity"]["value"]
@@ -62,14 +62,14 @@ def end(self):
 
 init, innit?
 
-<<init
+<</init
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 >>
 
 und imports.
 
-<<import
+<</import
 import re
 
 from dig import *

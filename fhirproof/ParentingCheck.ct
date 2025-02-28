@@ -1,6 +1,6 @@
 ParentingCheck checks that parent references add up.
 
-<</ParentingCheck.py
+<<//ParentingCheck.py
 <<import>>
 class ParentingCheck(FhirCheck):
     <<init>>
@@ -8,7 +8,7 @@ class ParentingCheck(FhirCheck):
     <<end>>
 >>
 
-<<check
+<</check
 def check(self, entry):
     resource = dig(entry, "resource")
     sampleid = fh.sampleid(resource)
@@ -44,7 +44,7 @@ if fh.type(resource) == "DERIVED":
 
 End wird gerufen nachdem alle samples durchgelaufen sind.
 
-<<end
+<</end
 def end(self):
     for fhirid in self.fp.aqtgchildless.keys():
         if self.fp.aqtgchildless[fhirid] == True:
@@ -53,14 +53,14 @@ def end(self):
 
 Init heangt ParentingCheck an fhirproof.
 
-<<init
+<</init
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 >>
 
 Die imports.
 
-<<import
+<</import
 import re
 
 from dig import *

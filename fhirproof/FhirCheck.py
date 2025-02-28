@@ -1,5 +1,3 @@
-# this file is generated automatically, please edit the .ct file from which it stems.
-
 import sys
 
 from fhirhelp import fhirhelp as fh

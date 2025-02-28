@@ -8,7 +8,7 @@ können und loggt in `logs/fhirproof.log`.
 die fhirproof klasse instantiiert die einzelnen checks als klassen und
 ruft sie jeweils fuer einen entry auf.
 
-<</__init__.py: fp
+<</__init__.py: init
 
 <<import>>
 
@@ -29,7 +29,7 @@ die einzelen fhirchecks koennen entries nach fhirid und sampleid
 gespeichert einsehen, ausserdem ob die restmenge fuer einen entry null
 sein sollte und ob eine aliquotgroup ohne children ist.
 
-<<fp/vars
+<</vars
     # these variables are accessible to the fhirchecks
     entrybyfhirid = {} # entries referenced by fullUrl / fhirids, e.g. "Specimen/1037700"
     entrybysampleid = {} # entries referenced by sampleid
@@ -42,7 +42,7 @@ run leasst fuer jeden entry im input die checks laufen.
 warum eine extra run method? __init__ kann anscheinend nichts
 zurueckgeben, wenn man die checks da laufen lassen wuerde.
 
-<<fp/run
+<</init/run
     # init may not return anything, so run function
     def run(self):
         <<setup>>
@@ -60,7 +60,7 @@ zurueckgibt. deswegen benutzen wir dig als getter und dis als setter.
 
 ausserdem drucken wir eine start-nachricht.
 
-<<fp/run/setup
+<</run/setup
         user = self.user
         logdir = self.logdir
         textin = self.textin
@@ -77,7 +77,7 @@ ausserdem drucken wir eine start-nachricht.
 
 importiere dazu json, dig und dis.
 
-<<fp/import
+<</import
 import json
 
 from dig import *
@@ -86,7 +86,7 @@ from dig import *
 dann initialisiere die checks und fuehre drei counter ein fuer
 aliquotgroups, masters und deriveds.
 
-<<fp/run/init
+<</run/init
         # initialize checks
         aqtmat = AqtMatCheck(self)
         primary_in_db = PrimaryInDbCheck(self)
@@ -108,7 +108,7 @@ aliquotgroups, masters und deriveds.
 
 dafuer die importe.
 
-<<fp/import
+<</import
 from AqtMatCheck import *
 from PrimaryInDbCheck import *
 from DatesCheck import *
@@ -124,13 +124,13 @@ from MayUserEditOUCheck import *
 
 im loop brauchen wir fhirhelp.
 
-<<fp/import
+<</import
 from fhirhelp import fhirhelp as fh
 >>
 
 der loop leauft ueber jeden entry im json.
 
-<<fp/run/loop
+<</run/loop
         # run checks
         for entry in dig(jsonin, "entry"):
             #print(f"type(entry): {type(entry)}")
@@ -208,7 +208,7 @@ die non-aliquot checks laufen.
 
 restmenge und parenting enden nach dem loop.
 
-<<fp/run/postloop
+<</run/postloop
         restmenge.end()
         parenting.end()
 >>
@@ -218,7 +218,7 @@ sind. run gib zurueck, ob es einen fehler gab oder nicht. self.ok wird
 beschrieben von der err() methode in FhirCheck, das heisst sobald
 err() einmal aufgerufen wurde, ist ok nicht mehr ok.
 
-<<fp/run/postloop
+<</run/postloop
         self.log.info(f"ended against {self.target}: "+
             str(aqtg_count) + " aliquot groups, " +
             str(master_count) + " master samples, " +
@@ -230,7 +230,7 @@ err() einmal aufgerufen wurde, ist ok nicht mehr ok.
 
 auf die parent-methode koennen die checks zugreifen.
 
-<<fp/parent
+<</parent
     # parent returns the entry's parent entry resource, if there is one, else none
     def parent(self, entry):
         parent = None
@@ -249,7 +249,7 @@ auf die parent-methode koennen die checks zugreifen.
 
 eine "private" methode setzt den log auf.
 
-<<fp/setuplog
+<</setuplog
     def _setuplog(self, logdir):
         # setup a logger to write to a file into logs folder
         log = logging.getLogger(__name__)
@@ -272,7 +272,7 @@ eine "private" methode setzt den log auf.
 
 importiere dazu logging und sys.
 
-<<fp/import
+<</import
 import logging
 import sys
 >>
@@ -280,7 +280,7 @@ import sys
 init uebernimmt variablen und setzt die datenbankverbindung und
 traction auf.
 
-<<fp/init
+<</init
     # init inits fhirproof with db target, input file, centraxx user, log dir and config
     def __init__(self, target, file, user, logdir, config=None):
 
@@ -306,13 +306,13 @@ traction auf.
 
 importiere traction.
 
-<<fp/import
+<</import
 from traction import *
 >>
 
 main startet fhirproof, uebergibt command-line args, etc.
 
-<</__main__.py: main
+<<//__main__.py: main
 
 <<import>>
 <<parseargs>>
@@ -323,14 +323,14 @@ sys.exit(main())
 
 die imports
 
-<<main/import
+<</import
 import sys
 from fhirproof import fhirproof
 >>
 
 main parst die argumente und startet fhirproof
 
-<<main/main
+<</main
 # main runs fhirproof
 def main():
 
@@ -357,7 +357,7 @@ das arg-theater fuer die commandline handhabt parseargs.
 fhirproof nimmt target und user ohne name, und die config datei, eine
 option die konfig stub zu printen und das log dir mit name.
 
-<<main/parseargs
+<</parseargs
 # parseargs parses command line arguments
 def parseargs():
     parser = argparse.ArgumentParser()
@@ -372,6 +372,6 @@ def parseargs():
 
 importiere dazu argparse.
 
-<<main/import
+<</import
 import argparse
 >>

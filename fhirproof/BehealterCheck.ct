@@ -1,15 +1,16 @@
 BehealterCheck checkt die Proben-Behealter.
 
-<</BehealterCheck.py
+<<//BehealterCheck.py
 <<import>>
 class BehealterCheck(FhirCheck):
     <<init>>
     <<check>>
+>>
 
 Primärproben sollen Originalcontainer sein, Aliquot-Deriveds NUM
 Aliquotcontainer.
 
-<<check
+<</check
     def check(self, entry):
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
@@ -24,14 +25,14 @@ Aliquotcontainer.
 
 init inits the stuff.
 
-<<init
+<</init
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 >>
 
 the imports.
 
-<<import
+<</import
 import re
 
 from FhirCheck import *

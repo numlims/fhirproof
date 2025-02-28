@@ -1,6 +1,6 @@
 DatesCheck geht ueber die zeitliche Reihenfolge der Samples.
 
-<</DatesCheck.py
+<<//DatesCheck.py
 <<import>>
 class DatesCheck(FhirCheck):
     <<init>>
@@ -20,7 +20,7 @@ Wir legen die Zeiten für die Verarbeitungsschritte in das Array
 wir checken, ob die Zeiten in `timechain` tatsächlich in aufsteigender
 Reihenfolge sind.
 
-<<check
+<</check
     def check(self, entry):
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
@@ -88,7 +88,7 @@ Reihenfolge liegen.
 
 Die Datumsfunktion.
 
-<<isodate
+<</isodate
     # isodate parses date from iso formatted string
     def isodate(self, s):
         # example date: 2023-07-17T05:16:36.000+02:00
@@ -98,14 +98,14 @@ Die Datumsfunktion.
 
 init
 
-<<init
+<</init
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 >>
 
 und Importe.
 
-<<import
+<</import
 from datetime import datetime
 from dig import *
 from FhirCheck import *

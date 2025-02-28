@@ -1,6 +1,6 @@
 # DerivmatCheck checks the material of a derived (aliquot) entry.
 
-<</DerivmatCheck.py
+<<//DerivmatCheck.py
 <<import>>
 class DerivmatCheck(FhirCheck):
       <<init>>
@@ -12,7 +12,7 @@ sofern es einen Parent gibt. Ist der Entry ein Derived (Aliquot), muss
 es das gleiche Material sein wie seine Parent-Aliquotgroup. Von
 Derived zu seiner Parent-Aliquotgroup kommen wir über die Fhirid.
 
-<<check
+<</check
     def check(self, entry):
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
@@ -29,14 +29,14 @@ Derived zu seiner Parent-Aliquotgroup kommen wir über die Fhirid.
 
 Die Init-Funktion.
 
-<<init
+<</init
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 >>
 
 Und die Importe.
 
-<<import
+<</import
 import re
 
 from dig import *

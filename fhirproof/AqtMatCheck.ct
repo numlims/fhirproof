@@ -1,6 +1,6 @@
 AqtMatCheck kuemmert sich um das Material von einer Resource.
 
-<</AqtMatCheck.py
+<<//AqtMatCheck.py
 <<import>>
 class AqtMatCheck(FhirCheck):
     <<init>>
@@ -13,7 +13,7 @@ Parent-Material zu den möglichen Materialien der Aliquotgroup-Children
 steht in `pamm`.  Material CIT und SER bleiben gleich zwischen Aliquotgroup und
 Primary Parent. Sie sind nicht im Mapping gelistet, wir checken sie so.
 
-<<check
+<</check
     def check(self, entry):
 
         resource = dig(entry, "resource")
@@ -85,14 +85,14 @@ Sonst schau, ob das Kind-Material zu dem Eltern-Material passt.
 
 Initialisiere.
 
-<<init
+<</init
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 >>
 
 Und importiere.
 
-<<import
+<</import
 import re
 import json
 from FhirCheck import *

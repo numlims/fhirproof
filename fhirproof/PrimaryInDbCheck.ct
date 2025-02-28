@@ -1,6 +1,6 @@
 PrimaryInDb checks whether a primary sample is in the database
 
-<</PrimaryInDbCheck.py
+<<//PrimaryInDbCheck.py
 <<import>>
 class PrimaryInDbCheck(FhirCheck):
     <<init>>
@@ -9,7 +9,7 @@ class PrimaryInDbCheck(FhirCheck):
 
 Check checks whether the sample is in db if it is a master.
     
-<<check
+<</check
     def check(self, entry):
         
         resource = dig(entry, "resource")
@@ -25,14 +25,14 @@ Check checks whether the sample is in db if it is a master.
 
 Die init.
 
-<<init
+<</init
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 >>
 
 Die importe.
 
-<<import
+<</import
 from dig import *
 from FhirCheck import *
 from fhirhelp import fhirhelp as fh
