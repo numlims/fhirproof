@@ -8,7 +8,7 @@ können und loggt in `logs/fhirproof.log`.
 die fhirproof klasse instantiiert die einzelnen checks als klassen und
 ruft sie jeweils fuer einen entry auf.
 
-<</__init__.py: init
+<<//__init__.py: init
 
 <<import>>
 
