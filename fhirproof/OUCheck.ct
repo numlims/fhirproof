@@ -3,7 +3,7 @@
 if a derived sample is not (yet) in the db it check's the organisation
 unit of the patient to whom the sample belongs.
 
-<<OUCheck.py
+<<//OUCheck.py
 <<import>>
 class OUCheck(FhirCheck):
     <<init>>
@@ -13,7 +13,7 @@ class OUCheck(FhirCheck):
 
 Die Importe.
 
-<<import
+<</import
 import re
 
 from dig import *
@@ -26,7 +26,7 @@ Ist die Organisationunit vom Patienten und die der Probe die selbe?
 Die Organisationunit der Probe liegt im Json. Die Organisationunit vom
 Patienten holen wir aus der Datenbank.
 
-<<check
+<</check
 def check(self, entry):
 
     resource = dig(entry, "resource")
@@ -155,7 +155,7 @@ Bei einer Aliquotgruppe ist die OE nicht notwendig.
 
 Die Check Hilfsfunktion.
 
-<<checkhelp
+<</checkhelp
 # _check checks whether db org and json org of sample match
 def _check(self, dbresult, jsonorg, sampleid):
     dborg = ""
@@ -175,7 +175,7 @@ def _check(self, dbresult, jsonorg, sampleid):
 
 Die init-Funktion.
 
-<<init
+<</init
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 >>

@@ -1,15 +1,13 @@
-PrimaryInDb checks whether a primary sample is in the database
+from dig import *
+from FhirCheck import *
+from fhirhelp import fhirhelp as fh
 
-<<PrimaryInDbCheck.py
-<<import>>
+
 class PrimaryInDbCheck(FhirCheck):
-    <<init>>
-    <<check>>
->>
+    def __init__(self, fp):
+        FhirCheck.__init__(self, fp)
 
-Check checks whether the sample is in db if it is a master.
-    
-<<check
+
     def check(self, entry):
         
         resource = dig(entry, "resource")
@@ -21,20 +19,6 @@ Check checks whether the sample is in db if it is a master.
         if samplerow == None and fh.type(resource) == "MASTER":
             self.err(f"sample {sampleid} is type master but it is not in the db.")
 
->>
 
-Die init.
 
-<<init
-    def __init__(self, fp):
-        FhirCheck.__init__(self, fp)
->>
-
-Die importe.
-
-<<import
-from dig import *
-from FhirCheck import *
-from fhirhelp import fhirhelp as fh
->>
 
