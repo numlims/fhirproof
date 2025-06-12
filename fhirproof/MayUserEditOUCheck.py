@@ -1,15 +1,14 @@
-from dig import *
-from FhirCheck import *
-from fhirhelp import fhirhelp as fh
-
-
+from dip import dig
+from fhirproof.FhirCheck import *
+from fhirproof.fhirhelp import fhirhelp as fh
 class MayUserEditOUCheck(FhirCheck):
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
-
-
     # check checks whether user may edit the entry
     def check(self, entry, user):
+        if self.db == None:
+            return
+            
         resource = dig(entry, 'resource')
         # get org unit
         orgunit = fh.org(resource)
@@ -30,7 +29,4 @@ class MayUserEditOUCheck(FhirCheck):
         if len(result) == 0:
             self.err(f"user {user} may not edit the sample")
             return 
-
-
-
 

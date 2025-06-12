@@ -1,19 +1,19 @@
 ParentingCheck checks that parent references add up.
 
-<<//ParentingCheck.py
-<<import>>
+``//ParentingCheck.py:
+``import``
 class ParentingCheck(FhirCheck):
-    <<init>>
-    <<check>>
-    <<end>>
->>
+    ``init``
+    ``check``
+    ``end``
+``
 
-<</check
+``/check:
 def check(self, entry):
     resource = dig(entry, "resource")
     sampleid = fh.sampleid(resource)
-    <<.>>
->>
+    ``.``
+``
 
 Wir wuerden gerne checken, ob die Eltern-Kind Beziehungen zwischen
 Proben stimmen.
@@ -24,7 +24,7 @@ kommt.
         
 Aliquotgruppen sollen nicht kinderlos sein.
 
-<<
+``
 # is there a reference to a parent?
 if fh.type(resource) == "DERIVED":
 
@@ -40,31 +40,31 @@ if fh.type(resource) == "DERIVED":
         self.err(f"the aliquotgroup of sample {sampleid} hasn't been encountered yet.") 
     # print(fh.parent_fhirid(resource) + " is not childless")
     self.fp.aqtgchildless[fh.parent_fhirid(resource)] = False
->>
+``
 
 End wird gerufen nachdem alle samples durchgelaufen sind.
 
-<</end
+``/end:
 def end(self):
     for fhirid in self.fp.aqtgchildless.keys():
         if self.fp.aqtgchildless[fhirid] == True:
             self.err(f"aliquotgroup {fhirid} is childless.")
->>
+``
 
 Init heangt ParentingCheck an fhirproof.
 
-<</init
+``/init:
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
->>
+``
 
 Die imports.
 
-<</import
+``/import:
 import re
 
-from dig import *
-from FhirCheck import *
-from fhirhelp import fhirhelp as fh
->>
+from dip import dig
+from fhirproof.FhirCheck import *
+from fhirproof.fhirhelp import fhirhelp as fh
+``
 

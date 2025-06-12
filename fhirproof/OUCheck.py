@@ -1,15 +1,11 @@
 import re
 
-from dig import *
-from FhirCheck import *
-from fhirhelp import fhirhelp as fh
-
-
+from dip import dig
+from fhirproof.FhirCheck import *
+from fhirproof.fhirhelp import fhirhelp as fh
 class OUCheck(FhirCheck):
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
-
-
     # _check checks whether db org and json org of sample match
     def _check(self, dbresult, jsonorg, sampleid):
         dborg = ""
@@ -25,10 +21,11 @@ class OUCheck(FhirCheck):
         # do the orgs of patient and sample match?
         if dborg != jsonorg:
             self.err(f"organisation units don't match for sample {sampleid}, json org of sample is {jsonorg}, db org of is {dborg}")
-    
-
     def check(self, entry):
     
+        if self.db == None:
+            return 
+        
         resource = dig(entry, "resource")
     
         sampleid = fh.sampleid(resource)
@@ -121,8 +118,3 @@ class OUCheck(FhirCheck):
                         self.err(f"organisation units don't match for patient and sample {sampleid}, json org of sample is {sampleorgjson}, db org of its patient is {patorg}")
     
         # Aliquotgruppe: OE nicht notwendig
-    
-
-    
-
-

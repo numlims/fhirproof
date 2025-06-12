@@ -1,16 +1,16 @@
 import re
 
-from FhirCheck import *
-from fhirhelp import fhirhelp as fh
-from dig import *
-
-
+from fhirproof.FhirCheck import *
+from fhirproof.fhirhelp import fhirhelp as fh
+from dip import dig
 class PsnCheck(FhirCheck):
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
-    
-
     def check(self, entry):
+    
+        if self.db == None:
+            return
+            
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
     
@@ -31,8 +31,3 @@ class PsnCheck(FhirCheck):
         if parentresource != None:
             if fh.limspsn(parentresource) != fh.limspsn(resource):
                 self.err(f"the limpspsn of sample {sampleid} is {fh.limspsn(resource)} in json, but {fh.limspsn(parentresource)} of its parent in json")
-        
-
-    
-
-

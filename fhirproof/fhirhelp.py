@@ -16,7 +16,7 @@
 
 # to import, say: from fhirhelp import fhirhelp as fh
 
-from dig import *
+from dip import dig, dis
 
 class fhirhelp:
     

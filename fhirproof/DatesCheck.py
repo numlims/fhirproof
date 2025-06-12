@@ -1,21 +1,15 @@
 from datetime import datetime
-from dig import *
-from FhirCheck import *
-from fhirhelp import fhirhelp as fh
-
-
+from dip import dig, dis
+from fhirproof.FhirCheck import *
+from fhirproof.fhirhelp import fhirhelp as fh
 class DatesCheck(FhirCheck):
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
-
-
     # isodate parses date from iso formatted string
     def isodate(self, s):
         # example date: 2023-07-17T05:16:36.000+02:00
         # return datetime.strptime(s, "%Y-%m-%dT%H:%M:%S")
         return datetime.fromisoformat(s)
-
-
     def check(self, entry):
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
@@ -54,14 +48,9 @@ class DatesCheck(FhirCheck):
                     repo_date = True
                     timechain.append(["reposition date", self.isodate(dig(e, "valueDateTime"))])
             if repo_date == False:
-                self.err("no reposition date for sample {sampleid}")
+                self.err(f"no reposition date for sample {sampleid}")
 
         # print("timechain: " + str(timechain))
         for i in range(1, len(timechain)):
             if timechain[i][1] < timechain[i-1][1]: # [1] accesses the dates
                 self.err(f"in sample {sampleid} is {timechain[i][0]} before {timechain[i-1][0]}") # [0] accesses the names
-
-
-
-
-

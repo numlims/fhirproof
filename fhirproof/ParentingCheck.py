@@ -1,15 +1,11 @@
 import re
 
-from dig import *
-from FhirCheck import *
-from fhirhelp import fhirhelp as fh
-
-
+from dip import dig
+from fhirproof.FhirCheck import *
+from fhirproof.fhirhelp import fhirhelp as fh
 class ParentingCheck(FhirCheck):
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
-
-
     def check(self, entry):
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
@@ -28,14 +24,7 @@ class ParentingCheck(FhirCheck):
                 self.err(f"the aliquotgroup of sample {sampleid} hasn't been encountered yet.") 
             # print(fh.parent_fhirid(resource) + " is not childless")
             self.fp.aqtgchildless[fh.parent_fhirid(resource)] = False
-        
-
-    
-
     def end(self):
         for fhirid in self.fp.aqtgchildless.keys():
             if self.fp.aqtgchildless[fhirid] == True:
                 self.err(f"aliquotgroup {fhirid} is childless.")
-    
-
-

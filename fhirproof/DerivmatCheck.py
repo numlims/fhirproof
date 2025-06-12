@@ -1,15 +1,11 @@
 import re
 
-from dig import *
-from FhirCheck import *
-from fhirhelp import fhirhelp as fh
-
-
+from dip import dig
+from fhirproof.FhirCheck import *
+from fhirproof.fhirhelp import fhirhelp as fh
 class DerivmatCheck(FhirCheck):
       def __init__(self, fp):
           FhirCheck.__init__(self, fp)
-  
-
       def check(self, entry):
           resource = dig(entry, "resource")
           sampleid = fh.sampleid(resource)
@@ -22,6 +18,3 @@ class DerivmatCheck(FhirCheck):
               if parent_material != child_material:
                   self.err(f"parent and child material don't match, parent {p_fhirid} is of material {parent_material}, child {sampleid} is of material {child_material} (that's not SOP-conform)")
   
-  
-
-

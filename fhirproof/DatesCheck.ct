@@ -1,12 +1,12 @@
 DatesCheck geht ueber die zeitliche Reihenfolge der Samples.
 
-<<//DatesCheck.py
-<<import>>
+``//DatesCheck.py:
+``import``
 class DatesCheck(FhirCheck):
-    <<init>>
-    <<isodate>>
-    <<check>>
->>
+    ``init``
+    ``isodate``
+    ``check``
+``
 
 Proben sollten in dieser zeitlichen Reihenfolge verarbeitet werden: 
 
@@ -20,7 +20,7 @@ Wir legen die Zeiten für die Verarbeitungsschritte in das Array
 wir checken, ob die Zeiten in `timechain` tatsächlich in aufsteigender
 Reihenfolge sind.
 
-<</check
+``/check:
     def check(self, entry):
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
@@ -43,13 +43,13 @@ Reihenfolge sind.
                         if dig(ee, "url") == "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate":
                             centri_date = self.isodate(dig(ee, "valueDateTime"))
                             timechain.append(["centrifugation date", centri_date])
-        <<.>>
->>
+        ``.``
+``
 
 Bei Aliquoten sollte die Aliquotierung (Derival) nach der
 Zentrifugation sein, wir legen sie auf `timechain`.
 
-<<
+``
         if fh.type(resource) == "DERIVED":
             deriv_date = False
             for e in dig(resource, "extension"):
@@ -58,12 +58,12 @@ Zentrifugation sein, wir legen sie auf `timechain`.
                     timechain.append(["derival date", self.isodate(dig(e, "valueDateTime"))])
             if deriv_date == False:
                 self.err(f"no derival date for sample {sampleid}")
->>
+``
 
 Aliquote sollten eingefroren worden sein (Reposition-Date) nachdem sie
 derived wurden.
 
-<<
+``
 
         if fh.type(resource) == "DERIVED":
             repo_date = False
@@ -72,45 +72,45 @@ derived wurden.
                     repo_date = True
                     timechain.append(["reposition date", self.isodate(dig(e, "valueDateTime"))])
             if repo_date == False:
-                self.err("no reposition date for sample {sampleid}")
+                self.err(f"no reposition date for sample {sampleid}")
 
->>
+``
 
 Jetzt checken wir, ob die Einträge in `timechain` in aufsteigender
 Reihenfolge liegen.
 
-<<
+``
         # print("timechain: " + str(timechain))
         for i in range(1, len(timechain)):
             if timechain[i][1] < timechain[i-1][1]: # [1] accesses the dates
                 self.err(f"in sample {sampleid} is {timechain[i][0]} before {timechain[i-1][0]}") # [0] accesses the names
->>
+``
 
 Die Datumsfunktion.
 
-<</isodate
+``/isodate:
     # isodate parses date from iso formatted string
     def isodate(self, s):
         # example date: 2023-07-17T05:16:36.000+02:00
         # return datetime.strptime(s, "%Y-%m-%dT%H:%M:%S")
         return datetime.fromisoformat(s)
->>
+``
 
 init
 
-<</init
+``/init:
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
->>
+``
 
 und Importe.
 
-<</import
+``/import:
 from datetime import datetime
-from dig import *
-from FhirCheck import *
-from fhirhelp import fhirhelp as fh
->>
+from dip import dig, dis
+from fhirproof.FhirCheck import *
+from fhirproof.fhirhelp import fhirhelp as fh
+``
 
 
 

@@ -1,20 +1,20 @@
 # MayUserEditOECheck checks whether the user who does the fhir import
   is allowed to edit organisations-einheiten (OEs)
 
-<<//MayUserEditOUCheck.py
-<<import>>
+``//MayUserEditOUCheck.py:
+``import``
 class MayUserEditOUCheck(FhirCheck):
-    <<init>>
-    <<check>>
->>
+    ``init``
+    ``check``
+``
 
 Die Importe.
 
-<</import
-from dig import *
-from FhirCheck import *
-from fhirhelp import fhirhelp as fh
->>
+``/import:
+from dip import dig
+from fhirproof.FhirCheck import *
+from fhirproof.fhirhelp import fhirhelp as fh
+``
 
 Es sollte geprüft werden, ob der später zu verwendende
 FHIR-Import-User berechtigt ist, OEs der Proben und Probanden, die im
@@ -25,9 +25,14 @@ Dafür ist der spätere Import-User als Parameter an das Skript zu
 CENTRAXX_PARTICIPANTORGUNITANO gespeichert.  User in
 CENTRAXX_PARTICIPANT
 
-<</check
+mach den check nur wenn es eine db gibt.
+
+``/check:
     # check checks whether user may edit the entry
     def check(self, entry, user):
+        if self.db == None:
+            return
+            
         resource = dig(entry, 'resource')
         # get org unit
         orgunit = fh.org(resource)
@@ -49,11 +54,11 @@ CENTRAXX_PARTICIPANT
             self.err(f"user {user} may not edit the sample")
             return 
 
->>
+``
 
 Die Init-Funktion.
 
-<</init
+``/init:
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
->>
+``
