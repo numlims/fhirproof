@@ -17,13 +17,14 @@ Sieh auch `fhirproof -h`.
 
 ## Install
 
-Whl von releases downloaden und mit pip installieren:
+Das .whl von [releases](https://github.com/numlims/fhirproof/releases)
+downloaden und mit pip installieren:
 
 ```
 pip install fhirproof-<version>.whl
 ```
 
-installieren aus source:
+Installieren aus source:
 
 ```
 make install
