@@ -39,9 +39,6 @@ generiert werden.
 
 Make die .ct Dateien mit `make`.
 
-test daten sind in `try/`.
-
-
 ## Checks
 
 ## Primärprobe in DB: PrimaryInDbCheck
