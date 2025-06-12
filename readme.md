@@ -1,11 +1,46 @@
 # fhirproof: fhir import checker
 
 fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
-können und loggt errors in `logs/fhirproof.log`.
+können.
 
-Codetext fuer die .ct Dateien kann
-[hier](https://github.com/tnustrings/codetext) installiert
-werden. Make die .ct Dateien mit `make`.
+```
+fhirproof [specimen|observation] <json dir> --db <db target> --user <user> --log <logfile>
+```
+
+example:
+
+```
+fhirproof specimen specimen-dir --db num_prod --user numwuerzfhir --log fp.log
+```
+
+Sieh auch `fhirproof -h`.
+
+## Install
+
+Whl von releases downloaden und mit pip installieren:
+
+```
+pip install fhirproof-<version>.whl
+```
+
+installieren aus source:
+
+```
+make install
+```
+
+## Dev
+
+Der Code kann aus den .ct Dateien mit
+[ct](https://github.com/tnustrings/codetext/releases) oder mit [ct
+fuer
+vscode](https://marketplace.visualstudio.com/items?itemName=tnustrings.codetext)
+generiert werden.
+
+Make die .ct Dateien mit `make`.
+
+test daten sind in `try/`.
+
 
 ## Checks
 
@@ -81,7 +116,9 @@ verbindende Tabelle `sampletype_ml_name` geht.
 
 Ohne order by ml.lang kommt manchmal Deutsch zuerst, manchmal English.
 
-Die Namen zu den Codes sind im Anhang.
+
+
+
 
 ## Test
 
@@ -105,58 +142,6 @@ logfile is in `scripts/sampleids-from-log.sh`.
 
 Vielleicht eine groovy Version zum Einbinden in Centraxx.
 
-## Anhang
-
-Codes und Namen. 
-
-| Code | Name English | Name German |
-| ---- | ---- | ---- |
-| BLD | Whole Blood | Vollblut |
-| CIT | Citrate | Citrat |
-| CITLEFTOVER | unnamed (CITLEFTOVER) | Citrat (Restmaterial) |
-| DHZB_BLDRNASTABIL | unnamed (DHZB_BLDRNASTABIL) | Blut RNA stabilisiert |
-| DHZB_ZB | unnamed (DHZB_ZB) | Zelluläre Blutbestandteile |
-| EDTA | EDTA-Plasma | EDTA-Plasma |
-| EDTABUF | Buffy Coat | Buffy Coat |
-| EDTALEFTOVER | unnamed (EDTAREST) | EDTA-Plasma (Restmaterial) |
-| EDTAWB | Whole Blood EDTA | EDTA Vollblut |
-| GEW | unnamed (GEW) | Gewebe |
-| LH | unnamed (LH) | Lithium-Heparin |
-| MYOCARD | unnamed (MYOCARD) | Myocardbiopsie |
-| NUM_bal | BAL | BAL |
-| NUM_balc | BAL cells | BAL-Zellen |
-| NUM_balf | BAL fluid | BAL-Überstand |
-| NUM_CPT_PL | unnamed (NUM_CPT_PL) | CPT-Plasmaüberstand |
-| NUM_DNA | unnamed (NUM_DNA) | DNA |
-| NUM_enta | endotracheal suction | Trachealsekret |
-| NUM_haare | Hair | Haare |
-| NUM_heppl | Heparin plasma | Heparin-Plasma |
-| NUM_liquor | Liquor | Liquor |
-| NUM_liquorc | CSF cells | Liquor Zellen |
-| NUM_liquorf | CSF supernatant | Liquor Überstand |
-| NUM_nasen-rachenabstrich | Nasopharyngeal swab | Nasopharyngealabstrich |
-| NUM_pax | PAX-Gene | PAX-Gene |
-| NUM_pbmc | PBMC | PBMC |
-| NUM_PBMC_C | PBMC cells | PBMC Zellen |
-| NUM_pbmc_cpt | CPT for PBMC | CPT für PBMC |
-| NUM_pbmc_edta | EDTA for PBMC | EDTA für PBMC |
-| NUM_PBMC_EDTAPL | EDTA plasma PBMC | PBMC EDTA-Plasma |
-| NUM_pbmc_hep | PBMC Heparin | Heparin für PBMC |
-| NUM_PCR | unnamed (NUM_PCR) | PCR-Abstrich |
-| NUM_rachenabstrich | Oropharyngeal swab | Oropharyngealabstrich |
-| NUM_RAG | unnamed (NUM_RAG) | Schnelltest-Abstrich |
-| NUM_RNA | unnamed (NUM_RNA) | RNA |
-| NUM_speichel | Saliva | Speichel |
-| NUM_sputum | Sputum | Sputum |
-| NUM_stuhl | Stool | Stuhl |
-| NUM_urinf | Urine fluid | Urin-Überstand |
-| NUM_urins | urine sediment | Urin-Sediment |
-| NUM_wange | Cheek swab | Wangenabstrich |
-| NUM_ZB | unnamed (NUM_ZB) | Zellulaere Blutbestandteile |
-| PAXgene | PAXgene (Vollblut) | PAXgene |
-| SER | Serum | Serum |
-| Tempus | unnamed (Tempus™ Blood RNA Tube) | Tempus™ Blood RNA (Vollblut) |
-| URN | Urine | Urin |
 
 ## license
 

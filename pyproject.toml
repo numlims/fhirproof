@@ -12,10 +12,10 @@ description = "fhir import checker"
 readme = "readme.md"
 requires-python = ">=3.8"
 dependencies = [
-  "dbcq @ git+https://github.com/numlims/dbcq"
-# local:
-# "traction"
-# "dig"
+  # "dbcq @ git+https://github.com/numlims/dbcq",
+  "dbcq @ https://github.com/numlims/dbcq/archive/refs/tags/v0.0.2.zip",
+  "dip @ https://github.com/numlims/dip/archive/refs/tags/v0.0.1.zip",
+  "traction == 0.0.1",
 ]
 classifiers = [
   "Programming Language :: Python :: 3"
