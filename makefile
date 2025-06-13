@@ -18,6 +18,7 @@ doc:
 
 
 publish:
+	git push --tags
 	gh release create "v${version}" "./dist/${name}-${version}-py3-none-any.whl"
 
 publish-update: # if an asset was already uploaded, delete it before uploading again
