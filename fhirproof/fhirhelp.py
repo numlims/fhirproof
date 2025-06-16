@@ -90,6 +90,9 @@ class fhirhelp:
     @staticmethod
     def type(resource):
         #    return len([e for e in resource["extension"] if "valueCoding" in e and e["valueCoding"]["code"] == typ]) > 0
+        # if no extension return none
+        if dig(resource, "extension") == None:
+            return None
         for e in dig(resource, "extension"):
             if dig(e, "url") == "https://fhir.centraxx.de/extension/sampleCategory":
                 return dig(e, "valueCoding/code")
