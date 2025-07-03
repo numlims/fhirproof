@@ -13,6 +13,7 @@ class BehealterCheck(FhirCheck):
         container = dig(resource, "container/0/identifier/0/value")
         if fh.type(resource) == "MASTER" and container != "ORG":
             self.err(f"container for sample {sampleid} should be ORG (Originalcontainer) but is {container} in json.")
-        if fh.type(resource) == "DERIVED" and container != "NUM_AliContainer":
-            self.err(f"container for sample {sampleid} should be NUM_AliContainer but is {container} in json.")
+        aqt_allowed = ["NUM_AliContainer", "NUMCryoAliquot500", "NUMAliquot1000", "NUMAliquot2000"]
+        if fh.type(resource) == "DERIVED" and container not in aqt_allowed:
+           self.err(f"container for sample {sampleid} should be NUM_AliContainer but is {container} in json.")
 

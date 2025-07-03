@@ -42,5 +42,7 @@ class AqtMatCheck(FhirCheck):
         if parent_material in ["CIT", "SER"]:
             if parent_material != child_material:
                 self.err(f"material of aliquotegroup {dig(entry, 'fullUrl')} is {child_material}, but the material of its primary-parent {fh.sample_id(parent('resource'))} is {parent_material}")
+        elif not parent_material in pamm:
+            self.info(f"material {parent_material} is not in pamm.")
         elif not child_material in pamm[parent_material]: # mappings in pamm
             self.err(f"material of aliquotegroup {dig(entry, 'fullUrl')} is {child_material}, but the material of its primary-parent {fh.sampleid(dig(parent, 'resource'))} is {parent_material}")
