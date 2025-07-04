@@ -1,0 +1,167 @@
+[
+	{
+		"primary":"EDTAWB",
+		"aliquot":
+		[
+			{"material":"EDTA"},
+			{"material":"EDTABUF"},
+			{"material":"DHZB_ZB"}
+		]
+	}, 
+
+	{
+		"primary":"URN",
+		"aliquot":
+		[
+			{"material":"NUM_urins"},
+			{"material":"NUM_urinf"}
+		]
+	},
+
+	{
+		"primary":"NUM_bal",
+		"aliquot":
+		[
+			{"material":"NUM_balf"},
+			{"material":"NUM_balc"}
+		]
+	},
+
+	{
+		"primary":"NUM_pbmc_hep",
+		"aliquot":
+		[
+			{"material":"NUM_heppl"},
+			{"material":"NUM_PBMC_C"}
+		]
+	},
+
+	{
+		"primary":"NUM_pbmc_cpt",
+		"aliquot":
+		[
+			{"material":"NUM_heppl"},
+			{"material":"NUM_PBMC_C"}
+		]
+	},
+
+	{
+		"primary":"NUM_pbmc_edta",
+		"aliquot":
+		[
+			{"material":"NUM_PBMC_EDTAPL"},
+			{"material":"NUM_PBMC_C"}
+		]
+	},
+	
+	{
+		"primary":"EDTABUF",
+		"aliquot":
+		[
+			{"material":"NUM_DNA"}
+			
+		]
+	}, 
+	
+	{
+		"primary":"DHZB_ZB",
+		"aliquot":
+		[
+			{"material":"NUM_DNA"}
+		
+		]
+	},
+	
+	{
+		"primary":"NUM_ZB",
+		"aliquot":
+		[
+			{"material":"NUM_DNA"}
+		
+		]
+	},
+	
+	{
+		"primary":"PAXgene",
+		"aliquot":
+		[
+			{"material":"NUM_RNA"}
+		
+		]
+	},
+	
+	{
+		"primary":"NUM_pax",
+		"aliquot":
+		[
+			{"material":"NUM_RNA"}
+		
+		]
+	},
+	{
+		"primary":"NUM_rachenabstrich",
+		"aliquot":
+		[
+			{"material":"NUM_rachenabstrich"}
+		
+		]
+	},
+	{
+		"primary":"NUM_nasen-rachenabstrich",
+		"aliquot":
+		[
+			{"material":"NUM_nasen-rachenabstrich"}
+		
+		]
+	},
+    {
+        "primary": "LH",
+        "aliquot":
+        [
+            { "material": "NUM_heppl" }
+        ]
+    },
+    {
+        "primary": "NUM_PATHO_DIAGNOSTIC",
+        "aliquot":
+        [
+            { "material": "NUM_PATHO_DIAGNOSTIC" }
+        ]
+    },
+    {
+        "primary": "NUM_PATHO_GENETIC",
+        "aliquot":
+        
+        [
+            { "material": "NUM_PATHO_GENETIC" }
+        ]
+    },
+    {
+        "primary": "NUM_PATHO_ISOLATED",
+        "aliquot":
+        [
+            { "material": "NUM_PATHO_ISOLATED" }
+        ]
+    },
+    {
+        "primary": "NUM_Stuhl_nativ",
+        "aliquot":
+        [
+            { "material": "STL" }
+        ]
+    },
+    {
+        "primary": "NUM_STOOLSWAB",
+        "aliquot":
+        [
+            { "material": "NUM_STOOLSWAB" }
+        ]
+    },
+    {
+        "primary": "NUM_liquor",
+        "aliquot":
+        [
+            { "material": "NUM_liquorf" }
+        ]
+    }
+]

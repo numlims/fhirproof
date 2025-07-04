@@ -17,9 +17,9 @@ class AqtMatCheck(FhirCheck):
         raw = json.loads(open(pamm_path).read()) # maps from primary sample material to aliquote material
         pamm = {} # pamm: primary-aliquot-material-map
         for ptoa in raw:
-            pm = ptoa["primarySampleMaterial"]
+            pm = ptoa["primary"]
             pamm[pm] = []
-            for am in ptoa["aliquotMaterialList"]:
+            for am in ptoa["aliquot"]:
                 pamm[pm].append(am["material"])
         child_material = dig(resource, "type/coding/0/code")
         pid = fh.parent_sampleid(resource)
