@@ -8,7 +8,7 @@ class PsnCheck(FhirCheck):
     ``check``
 ``
 
-Oh schreck, ein check.
+check leasst den check laufen.
 
 ``/check:
 def check(self, entry):

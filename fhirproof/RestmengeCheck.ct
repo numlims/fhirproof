@@ -60,7 +60,7 @@ def end(self):
 
 ``
 
-init, innit?
+init initialisiert RestmengeCheck.
 
 ``/init:
     def __init__(self, fp):
