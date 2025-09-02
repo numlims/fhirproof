@@ -4,7 +4,10 @@ fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
 können.
 
 ```
-fhirproof [specimen|observation] <json dir> --db <db target> --user <user> --log <logfile>
+fhirproof specimen|observation <json dir>
+  [--db <db target>]
+  [--user <user>]
+  --log <logfile>
 ```
 
 example:
