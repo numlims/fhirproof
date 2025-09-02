@@ -7,13 +7,14 @@ können.
 fhirproof specimen|observation <json dir>
   [--db <db target>]
   [--user <user>]
+  --pamm <primary-aliquot-material-map file>
   --log <logfile>
 ```
 
 example:
 
 ```
-fhirproof specimen specimen-dir --db num_prod --user numwuerzfhir --log fp.log
+fhirproof specimen specimen-dir --db num_prod --user numwuerzfhir --pamm pamm.json --log fp.log
 ```
 
 Sieh auch `fhirproof -h`.
