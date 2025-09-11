@@ -165,11 +165,11 @@ class fhirproof:
       
       files = os.listdir(dir)
       for file in files:
-        text = open(os.path.join(dir, file)).read()
-        jsonin = json.loads(text)
+        with open(os.path.join(dir, file), "r", encoding="latin-1") as f:
+          jsonin = json.load(f)
     
-        for entry in dig(jsonin, "entry"):
-          entries.append(entry)
+          for entry in dig(jsonin, "entry"):
+            entries.append(entry)
       return entries
     
     def parent(self, entry):
