@@ -16,5 +16,6 @@ class DerivmatCheck(FhirCheck):
           if fh.type(resource) == "DERIVED" and parentresource:
               parent_material = dig(parentresource, "type/coding/0/code")
               if parent_material != child_material:
-                  self.err(f"parent and child material don't match, parent {p_fhirid} is of material {parent_material}, child {sampleid} is of material {child_material} (that's not SOP-conform)")
+                  parentfhirid = dig(parentresource, "fullUrl")
+                  self.err(f"parent and child material don't match, parent {parentfhirid} is of material {parent_material}, child {sampleid} is of material {child_material} (that's not SOP-conform)")
   
