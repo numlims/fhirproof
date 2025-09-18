@@ -12,12 +12,13 @@ class fhirproof:
 
     ``vars``
     ``init``
-    
-    ``check_specimens``
-    ``check_observations``
 
-    ``check_specimen_entries``
-    ``check_observation_entries``
+    ``check``
+    #`check_specimens``
+    #`check_observations``
+
+    ``check_entries``
+    #`check_observation_entries
 
     ``setuplog``
     ``entries_from_dir``
@@ -71,21 +72,21 @@ initialisiere variablen, die die einzelnen check klassen einsehen koennen.
     aqtgchildless = {} # is a aliquotgroup without children?
 ``
 
-check_specimens checkt alle dateien in einem ein verzeichnis von specimen files.
+check both specimen and observations, depending on an entry's resourceType.
 
-``/check_specimens:
-def check_specimens(self, dir):
+``/check:
+def check(self, dir, encoding=None):
 
   # the collected entries
-  entries = self.entries_from_dir(dir)
+  entries = self.entries_from_dir(dir, encoding)
 
-  self.check_specimen_entries(entries)
+  self.check_entries(entries)
 ``
 
-check_specimen_entries checkt die entries.
+check_entries checkt die entries specimen or observation.
 
-``/check_specimen_entries:
-    def check_specimen_entries(self, entries):
+``/check_entries:
+    def check_entries(self, entries):
         ``setup``
         ``loop``
         ``postloop``
@@ -96,7 +97,7 @@ setze ok zurueck und drucke eine start nachricht.
 ``./setup:
         self.ok = True
 
-        self.log.info(f"starting specimen check against {self.dbtarget}")
+        self.log.info(f"starting check against {self.dbtarget}")
 ``
 
 initialisiere die checks und fuehre drei counter ein fuer
@@ -124,7 +125,7 @@ aliquotgroups, masters und deriveds.
 
 der loop leauft ueber jeden entry.
 
-``../loop:
+``/check_entries/loop:
         # run checks
         for entry in entries:
             ``.``
@@ -132,9 +133,17 @@ der loop leauft ueber jeden entry.
 
 speicher den entry nach seiner fhirid.
 
+check depending on specimen or observation.
+
 ``
             # keep arrays up to date
             self.entrybyfhirid[dig(entry, "fullUrl")] = entry
+
+            resource = dig(entry, "resource")
+            if fh.resourceType(resource) == "Specimen":
+              ``specimen``
+            elif fh.resourceType(resource) == "Observation":
+              ``observation``
 
 ``
 
@@ -152,7 +161,7 @@ gehen wir zum nächsten check, wenn es im json keine sampleid
 gibt. aliquotgruppen haben keine sampleid, mach ihre checks bevor wir
 weitergehen.
 
-``
+``/check_entries/loop/specimen:
             if fh.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
                 aqtg_count += 1
                 if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
@@ -206,9 +215,15 @@ lass die checks fuer die nicht-aliquot (derived) samples laufen.
             # mayeditou.check(entry, self.user)
 ``
 
+if the resource is an observation, do the observation checks.
+
+``/check_entries/loop/observation:
+            print("todo check observation")
+``
+
 restmenge und parenting machen einen extra check nach dem loop.
 
-``/check_specimen_entries/postloop:
+``/check_entries/postloop:
         restmenge.end()
         parenting.end()
 ``
@@ -228,7 +243,7 @@ err() einmal aufgerufen wurde, ist ok nicht mehr ok.
         return self.ok # written by FhirCheck.err()
 ``
 
-die importe fuer check_specimen_entries.
+die importe fuer check_entries.
 
 ``/import
 from dip import dig
@@ -251,57 +266,61 @@ from fhirproof.MayUserEditOUCheck import *
 
 check_observations checkt alle dateien in einem ein verzeichnis von observation files.
 
-``/check_observations:
+`/check_observations:
 def check_observations(self, dir):
 
   # the collected entries
   entries = self.entries_from_dir(dir)
 
   self.check_observation_entries(entries)
-``
+`
 
 check_observation_entries checkt die entries.
 
-``/check_observation_entries:
+`/check_observation_entries:
   def check_observation_entries(self, entries):
     ``setup``
     ``loop``
     ``postloop``
     # todo continue
-``
+`
 
 setze ok zurueck und initialisiere die checks. todo koennten die auch statisch sein?
 
-``./setup:
+`./setup:
     self.ok = True    
     blood_urine = ObsBloodUrine()
 
     self.log.info(f"starting observation check against {self.dbtarget}")
-``
+`
 
 loope ueber die entries und lass die checks laufen.
 
-``../loop:
+`../loop:
     for entry in entries:
       blood_urine.check(entry)
-``
+`
 
 gib ok zurueck, was von den checks beschrieben wurde.
 
-``../postloop:
+`../postloop:
     return self.ok 
-``
+`
 
 entries_from_dir returns the entries in all files in a directory.
 
 ``/entries_from_dir:
-def entries_from_dir(self, dir): # todo could be static?
+def entries_from_dir(self, dir, encoding=None): # todo could be static?
+
+  if encoding == None:
+    encoding = "utf-8"
 
   entries = []
   
   files = os.listdir(dir)
   for file in files:
-    with open(os.path.join(dir, file), "r", encoding="latin-1") as f:
+    #with open(os.path.join(dir, file), "r", encoding="latin-1") as f:
+    with open(os.path.join(dir, file), "r", encoding=encoding) as f:    
       jsonin = json.load(f)
 
       for entry in dig(jsonin, "entry"):
@@ -387,13 +406,9 @@ def main():
     # init fhirproof
     fp = fhirproof(args.db, args.user, args.log, args.config, pamm=args.pamm)
 
-    # run for specimen
-    if args.what == "specimen":
-      # run fhirproof
-      # ok = fp.run()
-      ok = fp.check_specimens(args.dir)
-    elif args.what == "observation":
-      ok = fp.check_observations(args.dir)
+
+    # check both specimen and observations, depending on an entry's resourceType
+    ok = fp.check(args.dir, args.e)
     
     if ok:
         print("ok")
@@ -423,7 +438,7 @@ nimm die positional arguments what und dir.
 
 ``
     parser = argparse.ArgumentParser()
-    parser.add_argument("what", help="observation|specimen")
+    # parser.add_argument("what", help="observation|specimen")
     parser.add_argument("dir", help="read fhir jsons from this dir")
 ``
 
@@ -443,6 +458,7 @@ the other optional flags.
     parser.add_argument("--print-config", help="print template config yml", action="store_true")
     parser.add_argument("--log", help="a logfile")
     parser.add_argument("--pamm", help="the path to the pamm")
+    parser.add_argument("-e", help="file encoding")
 ``
 
 parse and return.

@@ -51,24 +51,20 @@ class fhirproof:
         
         # is the input ready for centraxx import?
         self.ok = True
-    
-    def check_specimens(self, dir):
-    
-      # the collected entries
-      entries = self.entries_from_dir(dir)
-    
-      self.check_specimen_entries(entries)
-    def check_observations(self, dir):
-    
-      # the collected entries
-      entries = self.entries_from_dir(dir)
-    
-      self.check_observation_entries(entries)
 
-    def check_specimen_entries(self, entries):
+    def check(self, dir, encoding=None):
+    
+      # the collected entries
+      entries = self.entries_from_dir(dir, encoding)
+    
+      self.check_entries(entries)
+    #`check_specimens``
+    #`check_observations``
+
+    def check_entries(self, entries):
         self.ok = True
 
-        self.log.info(f"starting specimen check against {self.dbtarget}")
+        self.log.info(f"starting check against {self.dbtarget}")
         # initialize checks
         aqtmat = AqtMatCheck(self)
         primary_in_db = PrimaryInDbCheck(self)
@@ -91,42 +87,47 @@ class fhirproof:
             # keep arrays up to date
             self.entrybyfhirid[dig(entry, "fullUrl")] = entry
 
-            if fh.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
-                aqtg_count += 1
-                if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
-                    self.aqtgchildless[dig(entry, "fullUrl")] = True
-                aqtmat.check(entry)
+            resource = dig(entry, "resource")
+            if fh.resourceType(resource) == "Specimen":
+              if fh.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
+                  aqtg_count += 1
+                  if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
+                      self.aqtgchildless[dig(entry, "fullUrl")] = True
+                  aqtmat.check(entry)
+  
+              # print(f"entry resource: {json.dumps(dig(entry, 'resource'))}")
+              sampleid = fh.sampleid(dig(entry, 'resource'))
+              if sampleid == None:
+                  continue
+              self.entrybysampleid[sampleid] = entry
+  
+              if fh.type(dig(entry, 'resource')) == "DERIVED":
+                  derived_count += 1
+              if fh.type(dig(entry, 'resource')) == "MASTER":
+                  master_count += 1
+              # primary in db
+              primary_in_db.check(entry)
+              # dates
+              dates.check(entry)
+              # location
+              location.check(entry)
+              # behealter
+              behealter.check(entry)
+              # org
+              ou.check(entry)
+              # parenting
+              parenting.check(entry)
+              # psn
+              psn.check(entry)
+              # restmenge
+              restmenge.check(entry)
+              # derived material
+              derivmat.check(entry)
+              # edit oe?
+              # mayeditou.check(entry, self.user)
+            elif fh.resourceType(resource) == "Observation":
+              print("todo check observation")
 
-            # print(f"entry resource: {json.dumps(dig(entry, 'resource'))}")
-            sampleid = fh.sampleid(dig(entry, 'resource'))
-            if sampleid == None:
-                continue
-            self.entrybysampleid[sampleid] = entry
-
-            if fh.type(dig(entry, 'resource')) == "DERIVED":
-                derived_count += 1
-            if fh.type(dig(entry, 'resource')) == "MASTER":
-                master_count += 1
-            # primary in db
-            primary_in_db.check(entry)
-            # dates
-            dates.check(entry)
-            # location
-            location.check(entry)
-            # behealter
-            behealter.check(entry)
-            # org
-            ou.check(entry)
-            # parenting
-            parenting.check(entry)
-            # psn
-            psn.check(entry)
-            # restmenge
-            restmenge.check(entry)
-            # derived material
-            derivmat.check(entry)
-            # edit oe?
-            # mayeditou.check(entry, self.user)
         restmenge.end()
         parenting.end()
         self.log.info(f"ended against {self.dbtarget}: "+
@@ -136,15 +137,7 @@ class fhirproof:
             str(len(entries)) + " total\n" )
         
         return self.ok # written by FhirCheck.err()
-    def check_observation_entries(self, entries):
-      self.ok = True    
-      blood_urine = ObsBloodUrine()
-  
-      self.log.info(f"starting observation check against {self.dbtarget}")
-      for entry in entries:
-        blood_urine.check(entry)
-      return self.ok 
-      # todo continue
+    #`check_observation_entries
 
     def _setuplog(self, logfile):
         # setup a logger to write to a file into logs folder
@@ -159,13 +152,17 @@ class fhirproof:
         stdout_handler.setFormatter(formatter)
         log.addHandler(stdout_handler)
         self.log = log
-    def entries_from_dir(self, dir): # todo could be static?
+    def entries_from_dir(self, dir, encoding=None): # todo could be static?
+    
+      if encoding == None:
+        encoding = "utf-8"
     
       entries = []
       
       files = os.listdir(dir)
       for file in files:
-        with open(os.path.join(dir, file), "r", encoding="latin-1") as f:
+        #with open(os.path.join(dir, file), "r", encoding="latin-1") as f:
+        with open(os.path.join(dir, file), "r", encoding=encoding) as f:    
           jsonin = json.load(f)
     
           for entry in dig(jsonin, "entry"):

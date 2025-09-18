@@ -8,6 +8,7 @@
 # parent_sampleid
 # org
 # restmenge
+# resourceType
 # sampleid
 # type
 
@@ -110,7 +111,7 @@ class fhirhelp:
         if "identifier" not in resource:
             #print(f"type(resource): {type(fhirhelp.resource)}")
             if fhirhelp.type(resource) != "ALIQUOTGROUP":
-                raise Exception("no identifier") # todo remove
+                # raise Exception("no identifier") # todo remove
                 # print("maybe error: entry " + entry.get("fullUrl") + " is not aliquotgroup and has no identifier field (needed for sampleid).")
                 print("maybe error: resource is not aliquotgroup and has no identifier field (needed for sampleid).") # todo put in entry/fullUrl here or some other identifier?
                 return None
@@ -125,3 +126,8 @@ class fhirhelp:
                     return dig(identifier, "value")
         return None
 
+    @staticmethod
+    def resourceType(resource):
+        """resourceType returns the resource type, Specimen or Observation."""
+        return dig(resource, "resourceType")
+    
