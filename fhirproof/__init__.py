@@ -16,6 +16,7 @@ from fhirproof.PsnCheck import *
 from fhirproof.RestmengeCheck import *
 from fhirproof.DerivmatCheck import *
 from fhirproof.MayUserEditOUCheck import *
+from fhirproof.IdContainerCheck import *
 import os
 import json
 import logging
@@ -31,7 +32,6 @@ class fhirproof:
     aqtgchildless = {} # is a aliquotgroup without children?
     # init inits fhirproof with db target, input file, centraxx user, log file and config
     def __init__(self, dbtarget, user, logfile, configpath:str=None):
-        print("configpath: " + configpath)
 
         self.dbtarget = dbtarget
 
@@ -61,8 +61,6 @@ class fhirproof:
       entries = self.entries_from_dir(dir, encoding)
     
       self.check_entries(entries)
-    #`check_specimens``
-    #`check_observations``
 
     def check_entries(self, entries):
         self.ok = True
@@ -80,6 +78,7 @@ class fhirproof:
         restmenge = RestmengeCheck(self)
         derivmat = DerivmatCheck(self)
         mayeditou = MayUserEditOUCheck(self)
+        idcontainer = IdContainerCheck(self)
 
         # count for some stats
         aqtg_count = 0
@@ -128,6 +127,8 @@ class fhirproof:
               derivmat.check(entry)
               # edit oe?
               # mayeditou.check(entry, self.user)
+              # id container
+              idcontainer.check(entry)
             elif fh.resourceType(resource) == "Observation":
               print("todo check observation")
 
@@ -140,7 +141,6 @@ class fhirproof:
             str(len(entries)) + " total\n" )
         
         return self.ok # written by FhirCheck.err()
-    #`check_observation_entries
 
     def _setuplog(self, logfile):
         # setup a logger to write to a file into logs folder
@@ -163,7 +163,7 @@ class fhirproof:
       files = os.listdir(dir)
       for file in files:
         _, ext = os.path.splitext(file)
-        print("ext: " + ext)
+        # print("ext: " + ext)
         if ext != ".json":
           continue
         with open(os.path.join(dir, file), "r", encoding=encoding) as f:    

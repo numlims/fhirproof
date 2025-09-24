@@ -1,0 +1,74 @@
+IdContainerCheck makes sure that specific id containers are passed
+based on the sample's trial.
+
+``//IdContainerCheck.py:
+``import``
+class IdContainerCheck(FhirCheck):
+    ``init``
+    ``check``
+``
+
+check runs the check.
+
+``/check:
+    def check(self, entry):
+        ``.``
+``
+
+get the config.
+
+``
+        confidcs = dig(self.fp.config, "idcontainers")
+        # print("confidcs: " + str(confidcs))
+        if confidcs == None:
+           return
+``
+
+get the trial for the sample.
+
+``
+        resource = dig(entry, "resource")
+        sampleid = fh.sampleid(resource)
+
+        #patientid = fh.limspsn(resource)
+        trialcode = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.trial_code])
+        #trialcode = trials[0]["code"]
+``
+
+get the idcontainers from the json.
+
+``
+        idcs = fh.identifiers(resource).keys()
+``
+
+say what idcontainers are missing and what idcontainers are not
+strictly needed. if the config don't specify anything for this
+trial, pass on.
+
+``
+        if trialcode in list(confidcs.keys()):
+          # missing
+          for idc in confidcs[trialcode]:
+            if idc not in idcs:
+              self.err(f"sample {sampleid} should come with idcontainer {idc} for trial {trialcode}.")
+          # not needed
+          for idc in idcs:
+            if idc not in confidcs[trialcode]:
+              self.info(f"sample {sampleid} comes with idcontainer {idc} which is not specified for trial {trial} in the config.")
+``
+
+init inits IdContainerCheck.
+
+``/init:
+    def __init__(self, fp):
+        FhirCheck.__init__(self, fp)
+``
+
+the imports.
+
+``/import:
+from fhirproof.FhirCheck import *
+from dip import dig, dis
+from fhirproof.fhirhelp import fhirhelp as fh
+import tr
+``

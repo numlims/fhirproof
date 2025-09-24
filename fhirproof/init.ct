@@ -14,11 +14,8 @@ class fhirproof:
     ``init``
 
     ``check``
-    #`check_specimens``
-    #`check_observations``
 
     ``check_entries``
-    #`check_observation_entries
 
     ``setuplog``
     ``entries_from_dir``
@@ -32,7 +29,6 @@ traction auf.
 ``/init:
     # init inits fhirproof with db target, input file, centraxx user, log file and config
     def __init__(self, dbtarget, user, logfile, configpath:str=None):
-        print("configpath: " + configpath)
 
         self.dbtarget = dbtarget
 
@@ -119,6 +115,7 @@ aliquotgroups, masters und deriveds.
         restmenge = RestmengeCheck(self)
         derivmat = DerivmatCheck(self)
         mayeditou = MayUserEditOUCheck(self)
+        idcontainer = IdContainerCheck(self)
 
         # count for some stats
         aqtg_count = 0
@@ -193,7 +190,7 @@ speichere den entry anhand der sampleid, zaehle master und derived samples.
                 master_count += 1
 ``
 
-lass die checks fuer die nicht-aliquot (derived) samples laufen.
+lass die checks fuer die nicht-aliquot (derived) samples laufen. warum nicht-aliquot?
 
 ``
             # primary in db
@@ -216,6 +213,8 @@ lass die checks fuer die nicht-aliquot (derived) samples laufen.
             derivmat.check(entry)
             # edit oe?
             # mayeditou.check(entry, self.user)
+            # id container
+            idcontainer.check(entry)
 ``
 
 if the resource is an observation, do the observation checks.
@@ -263,6 +262,7 @@ from fhirproof.PsnCheck import *
 from fhirproof.RestmengeCheck import *
 from fhirproof.DerivmatCheck import *
 from fhirproof.MayUserEditOUCheck import *
+from fhirproof.IdContainerCheck import *
 ``
 
 ## check observations
@@ -338,7 +338,7 @@ only consider json files.
 
 ``
     _, ext = os.path.splitext(file)
-    print("ext: " + ext)
+    # print("ext: " + ext)
     if ext != ".json":
       continue
 ``
