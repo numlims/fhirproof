@@ -1,0 +1,61 @@
+# fhirproof config
+
+# idcontainers lists the required idcontainers per trial.
+idcontainers:
+    NUM S-SNID:
+        - SAMPLEID
+        - MODULE
+        - TIER
+        - VISIT
+    NUM RAPID_REVIVE:
+        - SAMPLEID
+
+# pamm lists the allowed aliquot materials for each primary sample material.
+pamm:
+    EDTAWB: # primary material
+            - EDTA    # list of aliquot materials
+            - EDTABUF
+            - DHZB_ZB
+    URN:
+            - NUM_urins
+            - NUM_urinf
+    NUM_bal:
+            - NUM_balf
+            - NUM_balc
+    NUM_pbmc_hep:
+            - NUM_heppl
+            - NUM_PBMC_C
+    NUM_pbmc_cpt:
+            - NUM_heppl
+            - NUM_PBMC_C
+    NUM_pbmc_edta:
+            - NUM_PBMC_EDTAPL
+            - NUM_PBMC_C
+    EDTABUF:
+            - NUM_DNA
+    DHZB_ZB:
+            - NUM_DNA
+    NUM_ZB:
+            - NUM_DNA
+    PAXgene:
+            - NUM_RNA
+    NUM_pax:
+            - NUM_RNA
+    NUM_rachenabstrich:
+            - NUM_rachenabstrich
+    NUM_nasen-rachenabstrich:
+            - NUM_nasen-rachenabstrich
+    LH:
+            - NUM_heppl
+    NUM_PATHO_DIAGNOSTIC:
+            - NUM_PATHO_DIAGNOSTIC
+    NUM_PATHO_GENETIC:
+            - NUM_PATHO_GENETIC
+    NUM_PATHO_ISOLATED:
+            - NUM_PATHO_ISOLATED
+    NUM_Stuhl_nativ:
+            - STL
+    NUM_STOOLSWAB:
+            - NUM_STOOLSWAB
+    NUM_liquor:
+            - NUM_liquorf

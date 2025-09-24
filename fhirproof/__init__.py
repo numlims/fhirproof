@@ -1,6 +1,7 @@
 
 import tr
 from dbcq import dbcq
+import yaml
 from dip import dig
 from fhirproof.fhirhelp import fhirhelp as fh
 
@@ -15,6 +16,7 @@ from fhirproof.PsnCheck import *
 from fhirproof.RestmengeCheck import *
 from fhirproof.DerivmatCheck import *
 from fhirproof.MayUserEditOUCheck import *
+from fhirproof.IdContainerCheck import *
 import os
 import json
 import logging
@@ -29,7 +31,7 @@ class fhirproof:
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
     # init inits fhirproof with db target, input file, centraxx user, log file and config
-    def __init__(self, dbtarget, user, logfile, config=None, pamm=None):
+    def __init__(self, dbtarget, user, logfile, configpath:str=None):
 
         self.dbtarget = dbtarget
 
@@ -46,29 +48,24 @@ class fhirproof:
 
         self._setuplog(logfile)
 
-        # remember the pamm path
-        self.pamm_path = pamm
+        # read config file yaml
+        with open(configpath, "r") as file:
+             self.config = yaml.safe_load(file)
         
         # is the input ready for centraxx import?
         self.ok = True
-    
-    def check_specimens(self, dir):
-    
-      # the collected entries
-      entries = self.entries_from_dir(dir)
-    
-      self.check_specimen_entries(entries)
-    def check_observations(self, dir):
-    
-      # the collected entries
-      entries = self.entries_from_dir(dir)
-    
-      self.check_observation_entries(entries)
 
-    def check_specimen_entries(self, entries):
+    def check(self, dir, encoding=None):
+    
+      # the collected entries
+      entries = self.entries_from_dir(dir, encoding)
+    
+      self.check_entries(entries)
+
+    def check_entries(self, entries):
         self.ok = True
 
-        self.log.info(f"starting specimen check against {self.dbtarget}")
+        self.log.info(f"starting check against {self.dbtarget}")
         # initialize checks
         aqtmat = AqtMatCheck(self)
         primary_in_db = PrimaryInDbCheck(self)
@@ -81,6 +78,7 @@ class fhirproof:
         restmenge = RestmengeCheck(self)
         derivmat = DerivmatCheck(self)
         mayeditou = MayUserEditOUCheck(self)
+        idcontainer = IdContainerCheck(self)
 
         # count for some stats
         aqtg_count = 0
@@ -91,42 +89,49 @@ class fhirproof:
             # keep arrays up to date
             self.entrybyfhirid[dig(entry, "fullUrl")] = entry
 
-            if fh.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
-                aqtg_count += 1
-                if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
-                    self.aqtgchildless[dig(entry, "fullUrl")] = True
-                aqtmat.check(entry)
+            resource = dig(entry, "resource")
+            if fh.resourceType(resource) == "Specimen":
+              if fh.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
+                  aqtg_count += 1
+                  if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
+                      self.aqtgchildless[dig(entry, "fullUrl")] = True
+                  aqtmat.check(entry)
+  
+              # print(f"entry resource: {json.dumps(dig(entry, 'resource'))}")
+              sampleid = fh.sampleid(dig(entry, 'resource'))
+              if sampleid == None:
+                  continue
+              self.entrybysampleid[sampleid] = entry
+  
+              if fh.type(dig(entry, 'resource')) == "DERIVED":
+                  derived_count += 1
+              if fh.type(dig(entry, 'resource')) == "MASTER":
+                  master_count += 1
+              # primary in db
+              primary_in_db.check(entry)
+              # dates
+              dates.check(entry)
+              # location
+              location.check(entry)
+              # behealter
+              behealter.check(entry)
+              # org
+              ou.check(entry)
+              # parenting
+              parenting.check(entry)
+              # psn
+              psn.check(entry)
+              # restmenge
+              restmenge.check(entry)
+              # derived material
+              derivmat.check(entry)
+              # edit oe?
+              # mayeditou.check(entry, self.user)
+              # id container
+              idcontainer.check(entry)
+            elif fh.resourceType(resource) == "Observation":
+              print("todo check observation")
 
-            # print(f"entry resource: {json.dumps(dig(entry, 'resource'))}")
-            sampleid = fh.sampleid(dig(entry, 'resource'))
-            if sampleid == None:
-                continue
-            self.entrybysampleid[sampleid] = entry
-
-            if fh.type(dig(entry, 'resource')) == "DERIVED":
-                derived_count += 1
-            if fh.type(dig(entry, 'resource')) == "MASTER":
-                master_count += 1
-            # primary in db
-            primary_in_db.check(entry)
-            # dates
-            dates.check(entry)
-            # location
-            location.check(entry)
-            # behealter
-            behealter.check(entry)
-            # org
-            ou.check(entry)
-            # parenting
-            parenting.check(entry)
-            # psn
-            psn.check(entry)
-            # restmenge
-            restmenge.check(entry)
-            # derived material
-            derivmat.check(entry)
-            # edit oe?
-            # mayeditou.check(entry, self.user)
         restmenge.end()
         parenting.end()
         self.log.info(f"ended against {self.dbtarget}: "+
@@ -136,15 +141,6 @@ class fhirproof:
             str(len(entries)) + " total\n" )
         
         return self.ok # written by FhirCheck.err()
-    def check_observation_entries(self, entries):
-      self.ok = True    
-      blood_urine = ObsBloodUrine()
-  
-      self.log.info(f"starting observation check against {self.dbtarget}")
-      for entry in entries:
-        blood_urine.check(entry)
-      return self.ok 
-      # todo continue
 
     def _setuplog(self, logfile):
         # setup a logger to write to a file into logs folder
@@ -159,13 +155,18 @@ class fhirproof:
         stdout_handler.setFormatter(formatter)
         log.addHandler(stdout_handler)
         self.log = log
-    def entries_from_dir(self, dir): # todo could be static?
-    
+    def entries_from_dir(self, dir, encoding=None): # todo could be static?
+      if encoding == None:
+        encoding = "utf-8"
       entries = []
       
       files = os.listdir(dir)
       for file in files:
-        with open(os.path.join(dir, file), "r", encoding="latin-1") as f:
+        _, ext = os.path.splitext(file)
+        # print("ext: " + ext)
+        if ext != ".json":
+          continue
+        with open(os.path.join(dir, file), "r", encoding=encoding) as f:    
           jsonin = json.load(f)
     
           for entry in dig(jsonin, "entry"):

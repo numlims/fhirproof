@@ -23,18 +23,10 @@ nicht im Mapping gelistet, wir checken sie so.
         ``.``
 ``
 
-Lies die pamm.
+Hol die pamm.
 
 ``
-        # go to the pamm relative from current path
-        pamm_path = os.path.join(os.getcwd(), self.fp.pamm_path)
-        raw = json.loads(open(pamm_path).read()) # maps from primary sample material to aliquote material
-        pamm = {} # pamm: primary-aliquot-material-map
-        for ptoa in raw:
-            pm = ptoa["primary"]
-            pamm[pm] = []
-            for am in ptoa["aliquot"]:
-                pamm[pm].append(am["material"])
+        pamm = self.fp.config["pamm"]
 ``
 
 Hole das Child-Material.

@@ -4,17 +4,17 @@ fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
 können.
 
 ```
-fhirproof specimen|observation <json dir>
+fhirproof <json dir>
   [--db <db target>]
   [--user <user>]
-  --pamm <primary-aliquot-material-map file>
+  --config <config yaml file>
   --log <logfile>
 ```
 
 example:
 
 ```
-fhirproof specimen specimen-dir --db num_prod --user numwuerzfhir --pamm pamm.json --log fp.log
+fhirproof mydir --db num_prod --user numwuerzfhir --config config.yaml --log fp.log
 ```
 
 Sieh auch `fhirproof -h`.

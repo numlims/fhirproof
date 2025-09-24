@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta" # name of the python object that fronten
 
 [project]
 name = "fhirproof"
-version = "0.0.7"
+version = "0.0.9"
 authors = [
   { name="numlims", email="numlims@med.uni-greifswald.de"}
 ]
@@ -12,8 +12,8 @@ description = "fhir import checker"
 readme = "readme.md"
 requires-python = ">=3.8"
 dependencies = [
-  # "dbcq @ git+https://github.com/numlims/dbcq",
   "traction @ https://github.com/numlims/traction/archive/refs/tags/v0.0.5.zip",
+  "pyyaml",
   "dbcq @ https://github.com/numlims/dbcq/archive/refs/tags/v0.0.3.zip",
   "dip @ https://github.com/numlims/dip/archive/refs/tags/v0.0.2.zip"
 ]

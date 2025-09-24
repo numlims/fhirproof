@@ -1,5 +1,6 @@
 import re
 
+import numbers
 from dip import dig
 from fhirproof.FhirCheck import *
 from fhirproof.fhirhelp import fhirhelp as fh
@@ -9,14 +10,21 @@ class RestmengeCheck(FhirCheck):
     entries = []    
     def check(self, entry):
         self.entries.append(entry) # remember for later
-        resource = dig(entry, "resource")
         self.fp.shouldzerorest[entry["fullUrl"]] = False
+        resource = dig(entry, "resource")
         # parents of derived-aliquotes should be with zero rest
         if fh.type(resource) == "DERIVED":
             self.fp.shouldzerorest[fh.parent_fhirid(resource)] = True
-        rm = fh.restmenge(resource)
-        sampleid = fh.sampleid(dig(entry, "resource"))
-        if (rm == None or rm == 0) and fh.lagerort(resource) != None:
+        restamount = fh.restmenge(resource)
+        sampleid = fh.sampleid(resource)
+        if not isinstance(restamount, numbers.Number):
+            self.err(f"restamount for sample {sampleid} needs to be a number ({type(restamount).__name__}).")
+        collectionQuantity = dig(resource, "collection/quantity/value")
+        if not collectionQuantity is None and not isinstance(collectionQuantity, numbers.Number):
+            self.err(f"collection quantity for sample {sampleid} needs to be a number (not {type(collectionQuantity).__name__}).")
+        restamount = fh.restmenge(resource)
+        sampleid = fh.sampleid(resource)
+        if (restamount == None or restamount == 0) and fh.lagerort(resource) != None:
             self.err(f"restmenge for sample {sampleid} is zero, and there is a sampleLocation given, please remove the sampleLocation")
     def end(self):
         for entry in self.entries:
