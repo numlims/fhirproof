@@ -99,32 +99,30 @@ class fhirhelp:
                 return dig(e, "valueCoding/code")
         return None
 
-    # sampleid tries to find the sample id in resource
-    # Die Datenbankabfrage braucht die Sample-ID. `sample_id` sucht die
-    # `SAMPLEID` im Json. Dafür gehen wir über das `identifier` Feld. Die
-    # `SAMPLEID` ist derjenige `identifier`, in dessen `type.coding` Array
-    # ein `code` `SAMPLEID` ist.
     @staticmethod
     def sampleid(resource):
-        # print("resource has identifier: " + str(resource.has("identifier")))
-        #print(f"typeof resource: {fhirhelp.type(resource)}")
-        if "identifier" not in resource:
-            #print(f"type(resource): {type(fhirhelp.resource)}")
-            if fhirhelp.type(resource) != "ALIQUOTGROUP":
-                # raise Exception("no identifier") # todo remove
-                # print("maybe error: entry " + entry.get("fullUrl") + " is not aliquotgroup and has no identifier field (needed for sampleid).")
-                print("maybe error: resource is not aliquotgroup and has no identifier field (needed for sampleid).") # todo put in entry/fullUrl here or some other identifier?
-                return None
-            #  sampleid = pyjq('.identifier | .[] | select(.type.coding[0].code == "SAMPLEID") | .value | tonumber', resource)
+        """sampleid returns the sample id of a resource."""
+        return dig(fhirhelp.identifiers(resource), "SAMPLEID")
+
+    @staticmethod
+    def identifiers(resource):
+        """identifiers returns the identifiers of a resource as dict keyed by the identifier codes, eg:
+        { "SAMPLEID": "abc", "EXTSAMPLEID": "cde" }
+        """
+        out = {}
         if "identifier" not in resource:
             return None
         for identifier in dig(resource, "identifier"):
-            if dig(identifier, "type/coding") == None:
+            # ziehe den code (SAMPLEID, EXTSAMPLEID, etc) aus dem type/coding array
+            codings = dig(identifier, "type/coding")
+            if codings == None:
                 continue
-            for coding in dig(identifier, "type/coding"):
-                if dig(coding, "code") == "SAMPLEID":
-                    return dig(identifier, "value")
-        return None
+            for coding in codings:
+                if dig(coding, "system") == "urn:centraxx":
+                    # take the code as key. the value is a field of identifier.
+                    key = dig(coding, "code")
+                    out[key] = dig(identifier, "value")
+        return out
 
     @staticmethod
     def resourceType(resource):

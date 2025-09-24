@@ -2,6 +2,7 @@
 import sys
 from fhirproof import fhirproof
 import argparse
+import os.path
 # parseargs parses command line arguments
 def parseargs():
     parser = argparse.ArgumentParser()
@@ -12,7 +13,7 @@ def parseargs():
     parser.add_argument("--config", help="a fhirproof config") # action="store_true" if true/false value
     parser.add_argument("--print-config", help="print template config yml", action="store_true")
     parser.add_argument("--log", help="a logfile")
-    parser.add_argument("--pamm", help="the path to the pamm")
+    parser.add_argument("--settings", help="path to the settings yaml")
     parser.add_argument("-e", help="file encoding")
     args = parser.parse_args()
     return args
@@ -22,12 +23,8 @@ def main():
     # get command line arguments
     args = parseargs()
 
-    # get config
-    # config = getconfig(args.config) # oder so
-
     # init fhirproof
-    fp = fhirproof(args.db, args.user, args.log, args.config, pamm=args.pamm)
-
+    fp = fhirproof(args.db, args.user, args.log, configpath=args.config)
 
     # check both specimen and observations, depending on an entry's resourceType
     ok = fp.check(args.dir, args.e)

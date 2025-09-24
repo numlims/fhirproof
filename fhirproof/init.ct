@@ -31,7 +31,8 @@ traction auf.
 
 ``/init:
     # init inits fhirproof with db target, input file, centraxx user, log file and config
-    def __init__(self, dbtarget, user, logfile, config=None, pamm=None):
+    def __init__(self, dbtarget, user, logfile, configpath:str=None):
+        print("configpath: " + configpath)
 
         self.dbtarget = dbtarget
 
@@ -48,8 +49,9 @@ traction auf.
 
         self._setuplog(logfile)
 
-        # remember the pamm path
-        self.pamm_path = pamm
+        # read config file yaml
+        with open(configpath, "r") as file:
+             self.config = yaml.safe_load(file)
         
         # is the input ready for centraxx import?
         self.ok = True
@@ -60,6 +62,7 @@ importiere traction.
 ``/import:
 import tr
 from dbcq import dbcq
+import yaml
 ``
 
 initialisiere variablen, die die einzelnen check klassen einsehen koennen.
@@ -307,24 +310,52 @@ gib ok zurueck, was von den checks beschrieben wurde.
     return self.ok 
 `
 
-entries_from_dir returns the entries in all files in a directory.
+entries_from_dir returns the entries from all json files in a directory.
 
 ``/entries_from_dir:
 def entries_from_dir(self, dir, encoding=None): # todo could be static?
+  ``.``
+``
 
+if no encoding given assume utf-8.
+
+``
   if encoding == None:
     encoding = "utf-8"
+``
 
+collect the entries from the files in the dir.
+
+``
   entries = []
   
   files = os.listdir(dir)
   for file in files:
-    #with open(os.path.join(dir, file), "r", encoding="latin-1") as f:
+    ``.``
+``
+
+only consider json files.
+
+``
+    _, ext = os.path.splitext(file)
+    print("ext: " + ext)
+    if ext != ".json":
+      continue
+``
+
+load the json and append the entries it contains.
+
+``
     with open(os.path.join(dir, file), "r", encoding=encoding) as f:    
       jsonin = json.load(f)
 
       for entry in dig(jsonin, "entry"):
         entries.append(entry)
+``
+
+return the entries.
+
+``/entries_from_dir
   return entries
 ``
 
@@ -378,98 +409,4 @@ importiere dazu logging und sys.
 ``/import
 import logging
 import sys
-``
-
-main liest command line arguments und startet fhirproof.
-
-``//__main__.py:
-
-``import``
-``parseargs``
-``main``
-
-sys.exit(main())
-``
-
-main parst die argumente und startet fhirproof.
-
-``/main:
-# main runs fhirproof
-def main():
-
-    # get command line arguments
-    args = parseargs()
-
-    # get config
-    # config = getconfig(args.config) # oder so
-
-    # init fhirproof
-    fp = fhirproof(args.db, args.user, args.log, args.config, pamm=args.pamm)
-
-
-    # check both specimen and observations, depending on an entry's resourceType
-    ok = fp.check(args.dir, args.e)
-    
-    if ok:
-        print("ok")
-    else:
-        print("error")
-``
-
-die importe fuer main.
-
-``/import:
-import sys
-from fhirproof import fhirproof
-``
-
-parseargs parst die command line argumente.
-
-fhirproof nimmt target und user ohne name, und die config datei, eine
-option die konfig stub zu printen und das log file.
-
-``/parseargs:
-# parseargs parses command line arguments
-def parseargs():
-    ``.``
-``
-
-nimm die positional arguments what und dir.
-
-``
-    parser = argparse.ArgumentParser()
-    # parser.add_argument("what", help="observation|specimen")
-    parser.add_argument("dir", help="read fhir jsons from this dir")
-``
-
-the database is optional, so it can be used to test data locally,
-without centraxx connection.  the idea is when no db is passed the
-checks requiring a db are skipped.
-
-``
-    parser.add_argument("--db", help="a database target for db.ini file")
-``
-
-the other optional flags.
-
-``
-    parser.add_argument("--user", help="a fhir-user")
-    parser.add_argument("--config", help="a fhirproof config") # action="store_true" if true/false value
-    parser.add_argument("--print-config", help="print template config yml", action="store_true")
-    parser.add_argument("--log", help="a logfile")
-    parser.add_argument("--pamm", help="the path to the pamm")
-    parser.add_argument("-e", help="file encoding")
-``
-
-parse and return.
-
-``
-    args = parser.parse_args()
-    return args
-``
-
-importiere dazu argparse.
-
-``/import
-import argparse
 ``

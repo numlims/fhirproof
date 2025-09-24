@@ -1,6 +1,7 @@
 
 import tr
 from dbcq import dbcq
+import yaml
 from dip import dig
 from fhirproof.fhirhelp import fhirhelp as fh
 
@@ -29,7 +30,8 @@ class fhirproof:
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
     # init inits fhirproof with db target, input file, centraxx user, log file and config
-    def __init__(self, dbtarget, user, logfile, config=None, pamm=None):
+    def __init__(self, dbtarget, user, logfile, configpath:str=None):
+        print("configpath: " + configpath)
 
         self.dbtarget = dbtarget
 
@@ -46,8 +48,9 @@ class fhirproof:
 
         self._setuplog(logfile)
 
-        # remember the pamm path
-        self.pamm_path = pamm
+        # read config file yaml
+        with open(configpath, "r") as file:
+             self.config = yaml.safe_load(file)
         
         # is the input ready for centraxx import?
         self.ok = True
@@ -153,15 +156,16 @@ class fhirproof:
         log.addHandler(stdout_handler)
         self.log = log
     def entries_from_dir(self, dir, encoding=None): # todo could be static?
-    
       if encoding == None:
         encoding = "utf-8"
-    
       entries = []
       
       files = os.listdir(dir)
       for file in files:
-        #with open(os.path.join(dir, file), "r", encoding="latin-1") as f:
+        _, ext = os.path.splitext(file)
+        print("ext: " + ext)
+        if ext != ".json":
+          continue
         with open(os.path.join(dir, file), "r", encoding=encoding) as f:    
           jsonin = json.load(f)
     

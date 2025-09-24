@@ -1,0 +1,90 @@
+main liest command line arguments und startet fhirproof.
+
+``//__main__.py:
+
+``import``
+``parseargs``
+``main``
+
+sys.exit(main())
+``
+
+main parst die argumente und startet fhirproof.
+
+``/main:
+# main runs fhirproof
+def main():
+
+    # get command line arguments
+    args = parseargs()
+
+    # init fhirproof
+    fp = fhirproof(args.db, args.user, args.log, configpath=args.config)
+
+    # check both specimen and observations, depending on an entry's resourceType
+    ok = fp.check(args.dir, args.e)
+    
+    if ok:
+        print("ok")
+    else:
+        print("error")
+``
+
+die importe fuer main.
+
+``/import:
+import sys
+from fhirproof import fhirproof
+``
+
+parseargs parst die command line argumente.
+
+fhirproof nimmt target und user ohne name, und die config datei, eine
+option die konfig stub zu printen und das log file.
+
+``/parseargs:
+# parseargs parses command line arguments
+def parseargs():
+    ``.``
+``
+
+nimm die positional arguments what und dir.
+
+``
+    parser = argparse.ArgumentParser()
+    # parser.add_argument("what", help="observation|specimen")
+    parser.add_argument("dir", help="read fhir jsons from this dir")
+``
+
+the database is optional, so it can be used to test data locally,
+without centraxx connection.  the idea is when no db is passed the
+checks requiring a db are skipped.
+
+``
+    parser.add_argument("--db", help="a database target for db.ini file")
+``
+
+the other optional flags.
+
+``
+    parser.add_argument("--user", help="a fhir-user")
+    parser.add_argument("--config", help="a fhirproof config") # action="store_true" if true/false value
+    parser.add_argument("--print-config", help="print template config yml", action="store_true")
+    parser.add_argument("--log", help="a logfile")
+    parser.add_argument("--settings", help="path to the settings yaml")
+    parser.add_argument("-e", help="file encoding")
+``
+
+parse and return.
+
+``
+    args = parser.parse_args()
+    return args
+``
+
+importiere dazu argparse.
+
+``/import
+import argparse
+import os.path
+``
