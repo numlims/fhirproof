@@ -21,7 +21,7 @@ class fhirhelp:
     def parent_fhirid(resource):
         if not "parent" in resource:
             return None
-        return dig(resource, "parent/0/reference") # there should only be one parent, hence one element in the array
+        return dig(resource, "parent/0/reference") # there should only be one parent, so one element in the array
     @staticmethod
     def parent_sampleid(resource):
         if "parent" in resource:
