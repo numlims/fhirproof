@@ -30,7 +30,6 @@ class fhirproof:
     entrybysampleid = {} # entries referenced by sampleid
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
-    # init inits fhirproof with db target, input file, centraxx user, log file and config
     def __init__(self, dbtarget, user, logfile, configpath:str=None):
         self.dbtarget = dbtarget
 

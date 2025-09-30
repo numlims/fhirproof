@@ -44,17 +44,18 @@ get the idcontainers from the json.
 
 say what idcontainers are missing and what idcontainers are not
 strictly needed. if the config doesn't specify anything for this
-trial, pass on.
+trial and sampletype, pass on.
 
 ``
-        if trialcode in list(confidcs.keys()):
+        should = dig(confidcs, f"idcontainers/{trialcode}/{fh.type(resource)}")
+        if should is not None:
           # missing
-          for idc in confidcs[trialcode]:
+          for idc in should:
             if idc not in idcs:
               self.err(f"sample {sampleid} should come with idcontainer {idc} for trial {trialcode}.")
           # not needed
           for idc in idcs:
-            if idc not in confidcs[trialcode]:
+            if idc not in should:
               self.info(f"sample {sampleid} comes with idcontainer {idc} which is not specified for trial {trial} in the config.")
 ``
 

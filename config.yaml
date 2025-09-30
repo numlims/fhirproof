@@ -1,14 +1,22 @@
 # fhirproof config
 
-# idcontainers lists the required idcontainers per trial.
+# sampleid sets the idcontainer code that is used for getting sampleids from json.
+sampleid: SAMPLEID
+
+# patientid sets the idcontainer code that is used for getting patientids from json.
+patientid: LIMSPSN
+
+# idcontainers lists the required idcontainers per trial and sampletype (MASTER|ALIQUOTGROUP|DERIVED)
 idcontainers:
     NUM S-SNID:
-        - SAMPLEID
-        - MODULE
-        - TIER
-        - VISIT
+        MASTER:
+            - SAMPLEID
+            - MODULE
+            - TIER
+            - VISIT
     NUM RAPID_REVIVE:
-        - SAMPLEID
+        MASTER:
+            - SAMPLEID
 
 # pamm lists the allowed aliquot materials for each primary sample material.
 pamm:

@@ -18,12 +18,13 @@ class IdContainerCheck(FhirCheck):
         trialcode = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.trial_code])
         #trialcode = trials[0]["code"]
         idcs = fh.identifiers(resource).keys()
-        if trialcode in list(confidcs.keys()):
+        should = dig(confidcs, f"idcontainers/{trialcode}/{fh.type(resource)}")
+        if should is not None:
           # missing
-          for idc in confidcs[trialcode]:
+          for idc in should:
             if idc not in idcs:
               self.err(f"sample {sampleid} should come with idcontainer {idc} for trial {trialcode}.")
           # not needed
           for idc in idcs:
-            if idc not in confidcs[trialcode]:
+            if idc not in should:
               self.info(f"sample {sampleid} comes with idcontainer {idc} which is not specified for trial {trial} in the config.")

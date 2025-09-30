@@ -19,16 +19,12 @@ def parseargs():
     return args
 # main runs fhirproof
 def main():
-
-    # get command line arguments
     args = parseargs()
-
-    # init fhirproof
+    #try:
     fp = fhirproof(args.db, args.user, args.log, configpath=args.config)
-
-    # check both specimen and observations, depending on an entry's resourceType
+    #except Exception:
+    #    return
     ok = fp.check(args.dir, args.e)
-    
     if ok:
         print("ok")
     else:

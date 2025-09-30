@@ -14,16 +14,34 @@ main parst die argumente und startet fhirproof.
 ``/main:
 # main runs fhirproof
 def main():
+    ``.``
+``
 
-    # get command line arguments
+get the command line arguments.
+
+``
     args = parseargs()
+``
 
-    # init fhirproof
+init fhirproof. traction or dbcq could throw an exception if their
+setting files need editing, in this case do nothing.
+
+``
+    #try:
     fp = fhirproof(args.db, args.user, args.log, configpath=args.config)
+    #except Exception:
+    #    return
+``
 
-    # check both specimen and observations, depending on an entry's resourceType
+check both specimen and observations, depending on an entry's resourceType.
+
+``
     ok = fp.check(args.dir, args.e)
-    
+``
+
+print the result.
+
+``
     if ok:
         print("ok")
     else:
