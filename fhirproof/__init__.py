@@ -32,27 +32,18 @@ class fhirproof:
     aqtgchildless = {} # is a aliquotgroup without children?
     # init inits fhirproof with db target, input file, centraxx user, log file and config
     def __init__(self, dbtarget, user, logfile, configpath:str=None):
-
         self.dbtarget = dbtarget
 
-        # connect to db if target given
         self.db = None
         self.tr = None
         if dbtarget != None:
             self.db = dbcq(dbtarget)
-            # traction for queries
             self.tr = tr.traction(self.db)
-
         self.user = user
         self.logfile = logfile
-
         self._setuplog(logfile)
-
-        # read config file yaml
         with open(configpath, "r") as file:
              self.config = yaml.safe_load(file)
-        
-        # is the input ready for centraxx import?
         self.ok = True
 
     def check(self, dir, encoding=None):
@@ -170,6 +161,7 @@ class fhirproof:
           jsonin = json.load(f)
     
           for entry in dig(jsonin, "entry"):
+            entry["_filename"] = file
             entries.append(entry)
       return entries
     

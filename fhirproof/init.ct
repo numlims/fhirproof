@@ -29,27 +29,45 @@ traction auf.
 ``/init:
     # init inits fhirproof with db target, input file, centraxx user, log file and config
     def __init__(self, dbtarget, user, logfile, configpath:str=None):
+        ``.``
+``
 
+connect to the db if target given and open up a traction instance (tr) for queries.
+
+``
         self.dbtarget = dbtarget
 
-        # connect to db if target given
         self.db = None
         self.tr = None
         if dbtarget != None:
             self.db = dbcq(dbtarget)
-            # traction for queries
             self.tr = tr.traction(self.db)
+``
 
+save variables for use in checks.
+
+``
         self.user = user
         self.logfile = logfile
+``
 
+set up the log.
+
+``
         self._setuplog(logfile)
+``
 
-        # read config file yaml
+read the config file yaml.
+
+``
         with open(configpath, "r") as file:
              self.config = yaml.safe_load(file)
-        
-        # is the input ready for centraxx import?
+``
+
+ok says that the input should be ok for centraxx import, checks set it to
+false if they encounter errors.
+
+``
         self.ok = True
 ``
 
@@ -345,11 +363,14 @@ only consider json files.
 
 load the json and append the entries it contains.
 
+attach the filename to the entry for debugging later.
+
 ``
     with open(os.path.join(dir, file), "r", encoding=encoding) as f:    
       jsonin = json.load(f)
 
       for entry in dig(jsonin, "entry"):
+        entry["_filename"] = file
         entries.append(entry)
 ``
 

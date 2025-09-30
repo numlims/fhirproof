@@ -12,6 +12,7 @@ Aliquotcontainer.
 
 ``/check:
     def check(self, entry):
+        super().check(entry)
         ``.``
 ``
 

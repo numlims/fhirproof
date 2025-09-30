@@ -5,13 +5,13 @@
 class FhirCheck:
 
     ``init``
+    ``check``
     ``info``
     ``err``
     ``debug``
 ``
 
-init hangs db and traction from fhirproof to self for shorter
-notation.
+init creates shortcuts to db and traction.
 
 ``/init:
     def __init__(self, fp):
@@ -21,25 +21,32 @@ notation.
         self.tr = fp.tr
 ``
 
+check remembers the entry so its filename can be accessed by the log functions.
+
+``/check:
+    def check(self, entry):
+        self.entry = entry
+``
+
 FhirCheck provides three log methods: info, err and debug.
 
 ``/info:
     # info is an info log shortcut
     def info(self, message):
-        self.fp.log.info(f"{self.__class__.__name__}: {message}")
+        self.fp.log.info(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
 ``
 
 ``/err:
     # err is an error log shortcut
     def err(self, message):
         self.fp.ok = False # this run is not ok
-        self.fp.log.error(f"{self.__class__.__name__}: {message}")
+        self.fp.log.error(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
 ``
 
 ``/debug:
     # debug is an error log shortcut
     def debug(self, message):
-        self.fp.log.debug(f"{self.__class__.__name__}: {message}")
+        self.fp.log.debug(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
         
 ``
 
@@ -50,5 +57,6 @@ would this be sensible here?
 import sys
 
 from fhirproof.fhirhelp import fhirhelp as fh
+from dip import dig, dis
 # from traction import *
 ``

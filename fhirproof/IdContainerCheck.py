@@ -6,6 +6,7 @@ class IdContainerCheck(FhirCheck):
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
     def check(self, entry):
+        super().check(entry)
         confidcs = dig(self.fp.config, "idcontainers")
         # print("confidcs: " + str(confidcs))
         if confidcs == None:

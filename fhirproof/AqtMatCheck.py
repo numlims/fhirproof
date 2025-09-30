@@ -8,6 +8,7 @@ class AqtMatCheck(FhirCheck):
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
     def check(self, entry):
+        super().check(entry)
 
         resource = dig(entry, "resource")
         self.info(f"checking aliquotgroup {dig(entry, 'fullUrl')}")

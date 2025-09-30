@@ -6,6 +6,7 @@ class MayUserEditOUCheck(FhirCheck):
         FhirCheck.__init__(self, fp)
     # check checks whether user may edit the entry
     def check(self, entry, user):
+        super().check(entry)
         if self.db == None:
             return
             

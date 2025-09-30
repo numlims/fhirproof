@@ -16,6 +16,7 @@ nicht im Mapping gelistet, wir checken sie so.
 
 ``/check:
     def check(self, entry):
+        super().check(entry)
 
         resource = dig(entry, "resource")
         self.info(f"checking aliquotgroup {dig(entry, 'fullUrl')}")

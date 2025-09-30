@@ -16,6 +16,7 @@ Parent-Aliquotgroup kommen wir über die Fhirid.
 
 ``/check:
     def check(self, entry):
+        super().check(entry)
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
 

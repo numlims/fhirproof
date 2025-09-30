@@ -11,6 +11,7 @@ Check checks whether the sample is in db if it is a master.
     
 ``/check:
     def check(self, entry):
+        super().check(entry)
 
         # skip if no id given
         if self.db == None:

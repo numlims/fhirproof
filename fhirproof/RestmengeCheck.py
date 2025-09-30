@@ -9,6 +9,7 @@ class RestmengeCheck(FhirCheck):
         FhirCheck.__init__(self, fp)
     entries = []    
     def check(self, entry):
+        super().check(entry)
         self.entries.append(entry) # remember for later
         self.fp.shouldzerorest[entry["fullUrl"]] = False
         resource = dig(entry, "resource")

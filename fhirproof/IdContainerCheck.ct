@@ -12,6 +12,7 @@ check runs the check.
 
 ``/check:
     def check(self, entry):
+        super().check(entry)
         ``.``
 ``
 
@@ -42,7 +43,7 @@ get the idcontainers from the json.
 ``
 
 say what idcontainers are missing and what idcontainers are not
-strictly needed. if the config don't specify anything for this
+strictly needed. if the config doesn't specify anything for this
 trial, pass on.
 
 ``

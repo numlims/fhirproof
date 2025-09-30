@@ -15,6 +15,7 @@ class OUCheck(FhirCheck):
         if dborga != jsonorga:
             self.err(f"organisation units don't match for sample {sampleid}, json orga is {jsonorga}, db orga is {dborga}")
     def check(self, entry):
+        super().check(entry)
         if self.db == None:
             return 
         resource = dig(entry, "resource")

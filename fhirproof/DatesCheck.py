@@ -11,6 +11,7 @@ class DatesCheck(FhirCheck):
         # return datetime.strptime(s, "%Y-%m-%dT%H:%M:%S")
         return datetime.fromisoformat(s)
     def check(self, entry):
+        super().check(entry)
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
         timechain = [] # ascending order
