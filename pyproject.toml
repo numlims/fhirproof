@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta" # name of the python object that fronten
 
 [project]
 name = "fhirproof"
-version = "0.0.10"
+version = "0.0.11"
 authors = [
   { name="numlims", email="numlims@med.uni-greifswald.de"}
 ]
