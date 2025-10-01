@@ -25,7 +25,7 @@ def main():
     #except Exception:
     #    return
     ok = fp.check(args.dir, args.e)
-    if ok:
+    if ok is True:
         print("ok")
     else:
         print("error")

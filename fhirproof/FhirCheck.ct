@@ -39,6 +39,7 @@ FhirCheck provides three log methods: info, err and debug.
 ``/err:
     # err is an error log shortcut
     def err(self, message):
+        print("err called")
         self.fp.ok = False # this run is not ok
         self.fp.log.error(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
 ``

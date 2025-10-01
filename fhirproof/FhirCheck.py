@@ -17,6 +17,7 @@ class FhirCheck:
         self.fp.log.info(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
     # err is an error log shortcut
     def err(self, message):
+        print("err called")
         self.fp.ok = False # this run is not ok
         self.fp.log.error(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
     # debug is an error log shortcut

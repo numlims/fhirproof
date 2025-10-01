@@ -42,7 +42,7 @@ check both specimen and observations, depending on an entry's resourceType.
 print the result.
 
 ``
-    if ok:
+    if ok is True:
         print("ok")
     else:
         print("error")

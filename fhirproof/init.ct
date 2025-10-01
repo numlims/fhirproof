@@ -91,11 +91,25 @@ check both specimen and observations, depending on an entry's resourceType.
 
 ``/check:
 def check(self, dir, encoding=None):
+  ``.``
+``
 
-  # the collected entries
+read the entries from every file.
+
+``
   entries = self.entries_from_dir(dir, encoding)
+``
 
+check.
+
+``
   self.check_entries(entries)
+``
+
+check sets self.ok. return it.
+
+``
+  return self.ok
 ``
 
 check_entries checkt die entries specimen or observation.

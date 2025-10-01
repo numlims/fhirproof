@@ -46,11 +46,9 @@ class fhirproof:
         self.ok = True
 
     def check(self, dir, encoding=None):
-    
-      # the collected entries
       entries = self.entries_from_dir(dir, encoding)
-    
       self.check_entries(entries)
+      return self.ok
 
     def check_entries(self, entries):
         self.ok = True
