@@ -31,12 +31,14 @@ doc-publish:
 	cd ${docmake} && make publish
 
 publish:
-	make
+	make build
+	make doc-publish
 	git push --tags
 	gh release create "v${version}" "./dist/${name}-${version}-py3-none-any.whl"
 
 publish-update: # if an asset was already uploaded, delete it before uploading again
-	make
+	make build
+	make doc-publish
 	# does the tag updating also update the source code at the resource?
 	# move the version tag to the most recent commit
 	git tag -f "v${version}"

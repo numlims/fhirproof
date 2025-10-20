@@ -12,7 +12,7 @@ class IdContainerCheck(FhirCheck):
         check runs the check.
         """
         super().check(entry)
-        print("traction:" + str(self.fp.tr))
+        print("traction: " + str(self.fp.tr))
         if self.fp.tr == None:
            return
         confidcs = dig(self.fp.config, "idcontainers")

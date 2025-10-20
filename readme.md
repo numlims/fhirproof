@@ -18,7 +18,7 @@ fhirproof mydir --db num_prod --user numwuerzfhir --config config.yaml --log fp.
 
 see `fhirproof -h`.
 
-## Install
+## install
 
 download cnf whl from
 [here](https://github.com/numlims/fhirproof/releases). install whl
@@ -34,7 +34,7 @@ or install from source:
 make install
 ```
 
-## Dev
+## dev
 
 edit [`fhirproof/init.ct`](./fhirproof/init.ct) for the fhirproof
 class, [`fhirproof/main.ct`](./fhirproof/main.ct) for the commandline
@@ -50,7 +50,7 @@ then run
 make build
 ```
 
-## Checks
+## checks
 
 ## Primärprobe in DB: PrimaryInDbCheck
 
