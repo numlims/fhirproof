@@ -5,6 +5,7 @@ class PrimaryInDbCheck(FhirCheck):
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
     def check(self, entry):
+        super().check(entry)
 
         # skip if no id given
         if self.db == None:

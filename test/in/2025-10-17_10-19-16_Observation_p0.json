@@ -1,0 +1,1145 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [ {
+    "fullUrl": "Observation/20891454370007",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "20891454370007",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Biomaterial-Zentrifugation_145437000709.10.2025 14:56:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "DZHKFLAB"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454370007"
+        }
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMGD"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMLI"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMIC"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMHM"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-1",
+            "code": "YES"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMBL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMCL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/20891454370007"
+    }
+  }, {
+    "fullUrl": "Observation/20891454370109",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "20891454370109",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Biomaterial-Zentrifugation_145437010909.10.2025 14:56:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "DZHKFLAB"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454370109"
+        }
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMGD"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-1",
+            "code": "YES"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMLI"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMIC"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMHM"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMBL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMCL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/20891454370109"
+    }
+  }, {
+    "fullUrl": "Observation/20891454370201",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "20891454370201",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Biomaterial-Zentrifugation_145437020109.10.2025 14:56:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "DZHKFLAB"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454370201"
+        }
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMGD"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMLI"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-1",
+            "code": "YES"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMIC"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMHM"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMBL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMCL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/20891454370201"
+    }
+  }, {
+    "fullUrl": "Observation/20891455150007",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "20891455150007",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Biomaterial-Zentrifugation_145515000716.10.2025 11:54:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "DZHKFLAB"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1455150007"
+        }
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMGD"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-1",
+            "code": "YES"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMLI"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMIC"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMHM"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMBL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMCL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/20891455150007"
+    }
+  }, {
+    "fullUrl": "Observation/20891455150109",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "20891455150109",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Biomaterial-Zentrifugation_145515010916.10.2025 11:54:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "DZHKFLAB"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1455150109"
+        }
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMGD"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-1",
+            "code": "YES"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMLI"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMIC"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMHM"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMBL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMCL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/20891455150109"
+    }
+  }, {
+    "fullUrl": "Observation/20891455150201",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "20891455150201",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Biomaterial-Zentrifugation_145515020116.10.2025 11:54:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "DZHKFLAB"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1455150201"
+        }
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMGD"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-1",
+            "code": "YES"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMLI"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMIC"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMHM"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMBL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      }, {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "QMCL"
+          } ]
+        },
+        "valueCodeableConcept": {
+          "coding": [ {
+            "system": "urn:centraxx:CodeSystem/UsageEntry-2",
+            "code": "NO"
+          } ]
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/20891455150201"
+    }
+  }, {
+    "fullUrl": "Observation/70891454370007",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "70891454370007",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Laboreingang-Probe_145437000709.10.2025 13:46:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "version": "1",
+          "code": "NUM_LABENTRY"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454370007"
+        }
+      }
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/70891454370007"
+    }
+  }, {
+    "fullUrl": "Observation/70891454370109",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "70891454370109",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Laboreingang-Probe_145437010909.10.2025 13:46:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "version": "1",
+          "code": "NUM_LABENTRY"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454370109"
+        }
+      }
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/70891454370109"
+    }
+  }, {
+    "fullUrl": "Observation/70891454370201",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "70891454370201",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Laboreingang-Probe_145437020109.10.2025 13:46:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "version": "1",
+          "code": "NUM_LABENTRY"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454370201"
+        }
+      },
+      "component": [ {
+        "code": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "NUM_PART"
+          } ]
+        },
+        "valueString": "Rohrpost"
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/70891454370201"
+    }
+  }, {
+    "fullUrl": "Observation/70891454590069",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "70891454590069",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Laboreingang-Probe_145459006913.10.2025 13:05:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "version": "1",
+          "code": "NUM_LABENTRY"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454590069"
+        }
+      }
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/70891454590069"
+    }
+  }, {
+    "fullUrl": "Observation/70891455150007",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "70891455150007",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Laboreingang-Probe_145515000716.10.2025 11:48:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "version": "1",
+          "code": "NUM_LABENTRY"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1455150007"
+        }
+      }
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/70891455150007"
+    }
+  }, {
+    "fullUrl": "Observation/70891455150109",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "70891455150109",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Laboreingang-Probe_145515010916.10.2025 11:48:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "version": "1",
+          "code": "NUM_LABENTRY"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1455150109"
+        }
+      }
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/70891455150109"
+    }
+  }, {
+    "fullUrl": "Observation/70891455150201",
+    "resource": {
+      "resourceType": "Observation",
+      "id": "70891455150201",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      } ],
+      "status": "unknown",
+      "code": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "Laboreingang-Probe_145515020116.10.2025 11:48:00"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "effectiveDateTime": "2025-10-17T10:19:16+02:00",
+      "method": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "version": "1",
+          "code": "NUM_LABENTRY"
+        } ]
+      },
+      "specimen": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1455150201"
+        }
+      }
+    },
+    "request": {
+      "method": "POST",
+      "url": "Observation/70891455150201"
+    }
+  } ]
+}

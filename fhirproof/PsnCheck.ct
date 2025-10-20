@@ -12,9 +12,12 @@ check leasst den check laufen.
 
 ``/check:
 def check(self, entry):
-
+    super().check(entry)
+    
     if self.db == None:
         return
+
+
         
     resource = dig(entry, "resource")
     sampleid = fh.sampleid(resource)

@@ -9,6 +9,7 @@ class RestmengeCheck(FhirCheck):
         FhirCheck.__init__(self, fp)
     entries = []    
     def check(self, entry):
+        super().check(entry)
         self.entries.append(entry) # remember for later
         self.fp.shouldzerorest[entry["fullUrl"]] = False
         resource = dig(entry, "resource")
@@ -20,11 +21,9 @@ class RestmengeCheck(FhirCheck):
         if not isinstance(restamount, numbers.Number):
             self.err(f"restamount for sample {sampleid} needs to be a number ({type(restamount).__name__}).")
         collectionQuantity = dig(resource, "collection/quantity/value")
-        if not collectionQuantity is None and not isinstance(collectionQuantity, numbers.Number):
+        if collectionQuantity is not None and not isinstance(collectionQuantity, numbers.Number):
             self.err(f"collection quantity for sample {sampleid} needs to be a number (not {type(collectionQuantity).__name__}).")
-        restamount = fh.restmenge(resource)
-        sampleid = fh.sampleid(resource)
-        if (restamount == None or restamount == 0) and fh.lagerort(resource) != None:
+        if (restamount is None or restamount == 0) and fh.lagerort(resource) is not None:
             self.err(f"restmenge for sample {sampleid} is zero, and there is a sampleLocation given, please remove the sampleLocation")
     def end(self):
         for entry in self.entries:

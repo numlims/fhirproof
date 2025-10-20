@@ -6,8 +6,13 @@ from fhirproof.fhirhelp import fhirhelp as fh
 import tr
 class OUCheck(FhirCheck):
     def __init__(self, fp):
+        """
+        """
         FhirCheck.__init__(self, fp)
     def _check(self, dborga, jsonorga, sampleid):
+        """
+        _check checks whether db orga and json orga of sample match.
+        """
         if dborga == None:
             self.err(f"no organisation in db for sample {sampleid}")
         if jsonorga == None:
@@ -15,6 +20,10 @@ class OUCheck(FhirCheck):
         if dborga != jsonorga:
             self.err(f"organisation units don't match for sample {sampleid}, json orga is {jsonorga}, db orga is {dborga}")
     def check(self, entry):
+        """
+        check starts the check.
+        """
+        super().check(entry)
         if self.db == None:
             return 
         resource = dig(entry, "resource")

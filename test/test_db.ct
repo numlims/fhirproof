@@ -1,0 +1,21 @@
+test fhirproof against db
+
+``//test_db.py:
+``import``
+``test_db``
+``
+
+test_db tests fhirproof against db.
+
+``/test_db:
+def test_db():
+    fp = fhirproof("num_prod", "numddfhir", "test/fp.log", configpath="config.yaml")
+    ok = fp.check("test/in", "latin-1")
+    assert ok == True
+``
+
+import.
+
+``/import:
+from fhirproof import fhirproof
+``

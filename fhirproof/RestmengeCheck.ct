@@ -15,6 +15,7 @@ Die Check-Funktion.
 
 ``/check:
     def check(self, entry):
+        super().check(entry)
         ``.``
 ``
 

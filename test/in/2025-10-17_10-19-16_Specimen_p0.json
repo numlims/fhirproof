@@ -1,0 +1,6182 @@
+{
+  "resourceType": "Bundle",
+  "type": "transaction",
+  "entry": [ {
+    "fullUrl": "Specimen/1627940",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "1627940",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-13T10:11:00.000+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "MASTER"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_PATHO_ISOLATED"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1454590069"
+      }, {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "EXTSAMPLEID"
+          } ]
+        },
+        "value": "1506649"
+      } ],
+      "status": "unavailable",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_PATHO_ISOLATED"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-13T13:05:00+02:00",
+      "collection": {
+        "collectedDateTime": "2025-10-13T10:11:00+02:00",
+        "quantity": {
+          "value": 1.0000,
+          "unit": "PC",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "ORG"
+        } ],
+        "specimenQuantity": {
+          "value": 0,
+          "unit": "PC",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/1627940"
+    }
+  }, {
+    "fullUrl": "Specimen/1628766",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "1628766",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T10:48:00.000+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "MASTER"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "EDTAWB"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1455150007"
+      }, {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "EXTSAMPLEID"
+          } ]
+        },
+        "value": "DILB1586626SP"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTAWB"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 7.5000,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "ORG"
+        } ],
+        "specimenQuantity": {
+          "value": 0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/1628766"
+    }
+  }, {
+    "fullUrl": "Specimen/1627628",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "1627628",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T13:36:00.000+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "MASTER"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SER"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1454370201"
+      }, {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "EXTSAMPLEID"
+          } ]
+        },
+        "value": "DILB1454370201"
+      } ],
+      "status": "unavailable",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 4.9000,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "ORG"
+        } ],
+        "specimenQuantity": {
+          "value": 0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/1627628"
+    }
+  }, {
+    "fullUrl": "Specimen/1628768",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "1628768",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T10:48:00.000+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "MASTER"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SER"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1455150201"
+      }, {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "EXTSAMPLEID"
+          } ]
+        },
+        "value": "DILB1586669SP"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 4.9000,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "ORG"
+        } ],
+        "specimenQuantity": {
+          "value": 0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/1628768"
+    }
+  }, {
+    "fullUrl": "Specimen/1627627",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "1627627",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T13:36:00.000+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "MASTER"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "LH"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1454370109"
+      }, {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "EXTSAMPLEID"
+          } ]
+        },
+        "value": "DILB1454370109"
+      } ],
+      "status": "unavailable",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "LH"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 4.9000,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "ORG"
+        } ],
+        "specimenQuantity": {
+          "value": 0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/1627627"
+    }
+  }, {
+    "fullUrl": "Specimen/1628767",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "1628767",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T10:48:00.000+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "MASTER"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "LH"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1455150109"
+      }, {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "EXTSAMPLEID"
+          } ]
+        },
+        "value": "DILB1586691SP"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "LH"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 4.9000,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "ORG"
+        } ],
+        "specimenQuantity": {
+          "value": 0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/1628767"
+    }
+  }, {
+    "fullUrl": "Specimen/1627626",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "1627626",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T13:36:00.000+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "MASTER"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "EDTAWB"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1454370007"
+      }, {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "EXTSAMPLEID"
+          } ]
+        },
+        "value": "DILB1454370007"
+      } ],
+      "status": "unavailable",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTAWB"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 7.5000,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "ORG"
+        } ],
+        "specimenQuantity": {
+          "value": 0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/1627626"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490084",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490084",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": false
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "ALIQUOTGROUP"
+        }
+      } ],
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_heppl"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "parent": [ {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454370109"
+        }
+      }, {
+        "reference": "Specimen/1627627"
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490084"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490077",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490077",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": false
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "ALIQUOTGROUP"
+        }
+      } ],
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "parent": [ {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454370007"
+        }
+      }, {
+        "reference": "Specimen/1627626"
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490077"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490169",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490169",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": false
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "ALIQUOTGROUP"
+        }
+      } ],
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTABUF"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "parent": [ {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1455150007"
+        }
+      }, {
+        "reference": "Specimen/1628766"
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490169"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490183",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490183",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": false
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "ALIQUOTGROUP"
+        }
+      } ],
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "parent": [ {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1455150201"
+        }
+      }, {
+        "reference": "Specimen/1628768"
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490183"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490073",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490073",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": false
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "ALIQUOTGROUP"
+        }
+      } ],
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTABUF"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "parent": [ {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454370007"
+        }
+      }, {
+        "reference": "Specimen/1627626"
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490073"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490149",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490149",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": false
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "ALIQUOTGROUP"
+        }
+      } ],
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "parent": [ {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1455150007"
+        }
+      }, {
+        "reference": "Specimen/1628766"
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490149"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490208",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490208",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": false
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "ALIQUOTGROUP"
+        }
+      } ],
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_heppl"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "parent": [ {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1455150109"
+        }
+      }, {
+        "reference": "Specimen/1628767"
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490208"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490097",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490097",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": false
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "ALIQUOTGROUP"
+        }
+      } ],
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_PATHO_ISOLATED"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "parent": [ {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454590069"
+        }
+      }, {
+        "reference": "Specimen/1627940"
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490097"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490089",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490089",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": false
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "ALIQUOTGROUP"
+        }
+      } ],
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "parent": [ {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "SAMPLEID"
+            } ]
+          },
+          "value": "1454370201"
+        }
+      }, {
+        "reference": "Specimen/1627628"
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490089"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490170",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490170",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586662"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTABUF"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490169"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490170"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490099",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490099",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-14T13:02:19+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-14T12:58:56+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "ZZZ"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "Z"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -80°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBDSP60060985"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_PATHO_ISOLATED"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-13T13:05:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490097"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-13T00:00:00+02:00",
+        "quantity": {
+          "value": 1.0,
+          "unit": "PC",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUM_AliContainer"
+        } ],
+        "specimenQuantity": {
+          "value": 1.0,
+          "unit": "PC",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490099"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490154",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490154",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586637"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490149"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490154"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490184",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490184",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SST"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586680"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490183"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 480.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 480.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490184"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490076",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490076",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543700073"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTABUF"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490073"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490076"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490171",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490171",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586663"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTABUF"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490169"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490171"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490185",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490185",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SST"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586681"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490183"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 480.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 480.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490185"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490085",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490085",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "HEP"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543701091"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_heppl"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490084"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490085"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490093",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490093",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SST"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543702014"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490089"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 950.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 950.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490093"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490186",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490186",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SST"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586682"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490183"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 480.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 480.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490186"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490098",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490098",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-14T13:02:19+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-14T12:58:56+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "ZZZ"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "Z"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -80°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBDSP60060984"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_PATHO_ISOLATED"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-13T13:05:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490097"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-13T00:00:00+02:00",
+        "quantity": {
+          "value": 1.0,
+          "unit": "PC",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUM_AliContainer"
+        } ],
+        "specimenQuantity": {
+          "value": 1.0,
+          "unit": "PC",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490098"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490153",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490153",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586636"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490149"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490153"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490092",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490092",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SST"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543702013"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490089"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 950.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 950.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490092"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490087",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490087",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "HEP"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543701093"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_heppl"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490084"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490087"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490150",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490150",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586633"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490149"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490150"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490172",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490172",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586664"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTABUF"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490169"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490172"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490211",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490211",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "HEP"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586697"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_heppl"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490208"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 490.0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 490.0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490211"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490090",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490090",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SST"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543702011"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490089"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 950.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 950.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490090"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490209",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490209",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "HEP"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586695"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_heppl"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490208"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 490.0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 490.0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490209"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490079",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490079",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543700075"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490077"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490079"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490187",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490187",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SST"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586683"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490183"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 480.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 480.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490187"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490212",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490212",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "HEP"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586698"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_heppl"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490208"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 490.0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 490.0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490212"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490081",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490081",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543700077"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490077"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490081"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490074",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490074",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543700071"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTABUF"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490073"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490074"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490188",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490188",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SST"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586684"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490183"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 480.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 480.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490188"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490082",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490082",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543700078"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490077"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490082"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490151",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490151",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586634"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490149"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490151"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490213",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490213",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "HEP"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586699"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_heppl"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490208"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 490.0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 490.0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490213"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490080",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490080",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543700076"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490077"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490080"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490210",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490210",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "HEP"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586696"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_heppl"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490208"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 490.0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 490.0,
+          "unit": "ML",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490210"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490086",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490086",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "HEP"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543701092"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_heppl"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490084"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490086"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490075",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490075",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543700072"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTABUF"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490073"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 300.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490075"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490091",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490091",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SST"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543702012"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490089"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 950.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 950.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490091"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490078",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490078",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543700074"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490077"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490078"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490094",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490094",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-09T15:36:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-09T15:16:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T15:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-09T14:56:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-09T14:46:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "SST"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "D"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBD543702015"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "SER"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-09T13:46:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490089"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-09T13:36:00+02:00",
+        "quantity": {
+          "value": 950.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 950.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490094"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490152",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490152",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-16T12:22:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-16T12:00:00+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T12:14:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessingDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate",
+          "valueDateTime": "2025-10-16T11:54:00+02:00"
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "PED"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "B"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "NUM_RT15min2000g"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "A1"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -196°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "1586635"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "EDTA"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-16T11:48:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490149"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-16T10:48:00+02:00",
+        "quantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUMCryoAliquot500"
+        } ],
+        "specimenQuantity": {
+          "value": 500.0,
+          "unit": "MICL",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490152"
+    }
+  }, {
+    "fullUrl": "Specimen/BBD1490100",
+    "resource": {
+      "resourceType": "Specimen",
+      "id": "BBD1490100",
+      "extension": [ {
+        "url": "https://fhir.centraxx.de/extension/updateWithOverwrite",
+        "valueBoolean": false
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/repositionDate",
+        "valueDateTime": "2025-10-14T13:02:19+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/derivalDate",
+        "valueDateTime": "2025-10-14T12:58:56+02:00"
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sampleCategory",
+        "valueCoding": {
+          "system": "urn:centraxx",
+          "code": "DERIVED"
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/organizationUnit",
+        "valueReference": {
+          "identifier": {
+            "value": "s-snid/lsu-ukdd-dd-id-1"
+          }
+        }
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sprec",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sprec/useSprec",
+          "valueBoolean": true
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/primarySampleContainer",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "ZZZ"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/postCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/stockProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelay",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "Z"
+          }
+        }, {
+          "url": "https://fhir.centraxx.de/extension/sprec/secondProcessing",
+          "valueCoding": {
+            "system": "urn:centraxx",
+            "code": "N"
+          }
+        } ]
+      }, {
+        "url": "https://fhir.centraxx.de/extension/sample/sampleLocation",
+        "extension": [ {
+          "url": "https://fhir.centraxx.de/extension/sample/sampleLocationPath",
+          "valueString": "NUM --> Universitätsklinikum Dresden --> Biobank --> Importlager -80°C"
+        } ]
+      } ],
+      "identifier": [ {
+        "type": {
+          "coding": [ {
+            "system": "urn:centraxx",
+            "code": "SAMPLEID"
+          } ]
+        },
+        "value": "BBDSP60060986"
+      } ],
+      "status": "available",
+      "type": {
+        "coding": [ {
+          "system": "urn:centraxx",
+          "code": "NUM_PATHO_ISOLATED"
+        } ]
+      },
+      "subject": {
+        "identifier": {
+          "type": {
+            "coding": [ {
+              "system": "urn:centraxx",
+              "code": "LIMSPSN"
+            } ]
+          },
+          "value": "dd-test"
+        }
+      },
+      "receivedTime": "2025-10-13T13:05:00+02:00",
+      "parent": [ {
+        "reference": "Specimen/BBD1490097"
+      } ],
+      "collection": {
+        "collectedDateTime": "2025-10-13T00:00:00+02:00",
+        "quantity": {
+          "value": 1.0,
+          "unit": "PC",
+          "system": "urn:centraxx"
+        }
+      },
+      "container": [ {
+        "identifier": [ {
+          "system": "urn:centraxx",
+          "value": "NUM_AliContainer"
+        } ],
+        "specimenQuantity": {
+          "value": 1.0,
+          "unit": "PC",
+          "system": "urn:centraxx"
+        }
+      } ]
+    },
+    "request": {
+      "method": "POST",
+      "url": "Specimen/BBD1490100"
+    }
+  } ]
+}

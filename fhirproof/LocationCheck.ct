@@ -25,6 +25,7 @@ Warum?
 
 ``/check:
     def check(self, entry):
+        super().check(entry)
         ok = True
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
