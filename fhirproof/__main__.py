@@ -5,6 +5,12 @@ import argparse
 import os.path
 # parseargs parses command line arguments
 def parseargs():
+    """
+    parseargs parst die command line argumente.
+    
+    fhirproof nimmt target und user ohne name, und die config datei, eine
+    option die konfig stub zu printen und das log file.
+    """
     parser = argparse.ArgumentParser()
     # parser.add_argument("what", help="observation|specimen")
     parser.add_argument("dir", help="read fhir jsons from this dir")
@@ -19,6 +25,9 @@ def parseargs():
     return args
 # main runs fhirproof
 def main():
+    """
+    main reads the commandline arguments and starts fhirproof.
+    """
     args = parseargs()
     #try:
     fp = fhirproof(args.db, args.user, args.log, configpath=args.config)
@@ -26,8 +35,10 @@ def main():
     #    return
     ok = fp.check(args.dir, args.e)
     if ok is True:
-        print("ok")
+        print("fhirproof: ok")
+        return 0
     else:
-        print("error")
+        print("fhirproof: not ok")
+        return 1
 
 sys.exit(main())

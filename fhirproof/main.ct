@@ -1,4 +1,4 @@
-main liest command line arguments und startet fhirproof.
+main is the cli interface for fhirproof.
 
 ``//__main__.py:
 
@@ -9,7 +9,7 @@ main liest command line arguments und startet fhirproof.
 sys.exit(main())
 ``
 
-main parst die argumente und startet fhirproof.
+main reads the commandline arguments and starts fhirproof.
 
 ``/main:
 # main runs fhirproof
@@ -39,13 +39,15 @@ check both specimen and observations, depending on an entry's resourceType.
     ok = fp.check(args.dir, args.e)
 ``
 
-print the result.
+print whether the input is ok, return 0 for ok and non 0 for not ok.
 
 ``
     if ok is True:
-        print("ok")
+        print("fhirproof: ok")
+        return 0
     else:
-        print("error")
+        print("fhirproof: not ok")
+        return 1
 ``
 
 die importe fuer main.

@@ -1,5 +1,8 @@
 # name
-name = "fhirproof"
+name = fhirproof
+
+docdir = ~/numlims.github.io/fhirproof/
+docmake = ~/numlims.github.io
 
 # get the version from github tag
 # sort by version; get the last line; delete the v from the version tag cause python build seems to strip it as well
@@ -7,15 +10,25 @@ version = $(shell git tag | sort -V | tail -1 | tr -d v)
 
 all:
 	cd fhirproof; make
+	ct test/test_db.ct
+	ct test/test_nodb.ct
+
+build:
+	make
 	python3 -m build --no-isolation
 
 install:
-	make
+	make build
 	pip install "./dist/${name}-${version}-py3-none-any.whl" --no-deps --force-reinstall
 
 doc:
-	pdoc --html fhirproof --force
+	make
+	pdoc "./${name}" -o html
 
+doc-publish:
+	make doc
+	cp -r html/* ${docdir}
+	cd ${docmake} && make publish
 
 publish:
 	make

@@ -1,3 +1,4 @@
+# automatically generated, DON'T EDIT. please edit init.ct from where this file stems.
 
 import tr
 from dbcq import dbcq
@@ -31,6 +32,8 @@ class fhirproof:
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
     def __init__(self, dbtarget, user, logfile, configpath:str=None):
+        """
+        """
         self.dbtarget = dbtarget
 
         self.db = None
@@ -46,11 +49,17 @@ class fhirproof:
         self.ok = True
 
     def check(self, dir, encoding=None):
-      entries = self.entries_from_dir(dir, encoding)
-      self.check_entries(entries)
-      return self.ok
+        """
+        undefined check both specimen and observations, depending on an entry's resourceType.
+        """
+        entries = self.entries_from_dir(dir, encoding)
+        self.check_entries(entries)
+        return self.ok
 
     def check_entries(self, entries):
+        """
+        undefined check_entries checkt die entries specimen or observation.
+        """
         self.ok = True
 
         self.log.info(f"starting check against {self.dbtarget}")
@@ -125,44 +134,51 @@ class fhirproof:
         self.log.info(f"ended against {self.dbtarget}: "+
             str(aqtg_count) + " aliquot groups, " +
             str(master_count) + " master samples, " +
-            str(derived_count) + " derived samples, " +
-            str(len(entries)) + " total\n" )
+            str(derived_count) + " derived samples.") # , " +
+            # str(len(entries)) + " total" ) 
         
         return self.ok # written by FhirCheck.err()
 
     def _setuplog(self, logfile):
-        # setup a logger to write to a file into logs folder
+        """
+        """
         log = logging.getLogger(__name__)
         log.setLevel(logging.INFO)
         file_handler = logging.FileHandler(logfile)
         formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
         file_handler.setFormatter(formatter)
         log.addHandler(file_handler)
-        # log to stdout
         stdout_handler = logging.StreamHandler(sys.stdout)
         stdout_handler.setFormatter(formatter)
         log.addHandler(stdout_handler)
         self.log = log
     def entries_from_dir(self, dir, encoding=None): # todo could be static?
-      if encoding == None:
-        encoding = "utf-8"
-      entries = []
-      
-      files = os.listdir(dir)
-      for file in files:
-        _, ext = os.path.splitext(file)
-        # print("ext: " + ext)
-        if ext != ".json":
-          continue
-        with open(os.path.join(dir, file), "r", encoding=encoding) as f:    
-          jsonin = json.load(f)
-    
-          for entry in dig(jsonin, "entry"):
-            entry["_filename"] = file
-            entries.append(entry)
-      return entries
-    
+        """
+        undefined entries_from_dir returns the entries from all json files in a directory.
+        """
+        if encoding == None:
+            encoding = "utf-8"
+        entries = []
+
+        files = os.listdir(dir)
+        for file in files:
+          _, ext = os.path.splitext(file)
+          # print("ext: " + ext)
+          if ext != ".json":
+            continue
+          with open(os.path.join(dir, file), "r", encoding=encoding) as f:    
+            jsonin = json.load(f)
+
+            for entry in dig(jsonin, "entry"):
+              entry["_filename"] = file
+              entries.append(entry)
+        return entries
     def parent(self, entry):
+        """
+        undefined parent gibt die parent-resource eines entries zurueck, wenn es eine gibt.
+        undefined 
+        undefined auf parent() koennen die checks zugreifen.
+        """
         parent = None
         resource = entry['resource']
         if fh.type(resource) != "DERIVED":              
@@ -174,4 +190,3 @@ class fhirproof:
         elif pfhirid not in self.entrybyfhirid:
             return None
         return self.entrybyfhirid[pfhirid]['resource']
-  

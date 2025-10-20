@@ -4,9 +4,17 @@ from fhirproof.fhirhelp import fhirhelp as fh
 import tr
 class IdContainerCheck(FhirCheck):
     def __init__(self, fp):
+        """
+        """
         FhirCheck.__init__(self, fp)
     def check(self, entry):
+        """
+        check runs the check.
+        """
         super().check(entry)
+        print("traction:" + str(self.fp.tr))
+        if self.fp.tr == None:
+           return
         confidcs = dig(self.fp.config, "idcontainers")
         # print("confidcs: " + str(confidcs))
         if confidcs == None:

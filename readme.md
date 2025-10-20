@@ -1,7 +1,6 @@
-# fhirproof: fhir import checker
+# fhirproof: fhir import check
 
-fhirproof checkt, ob FHIR Json Dateien ins Centraxx importiert werden
-können.
+fhirproof checks that JSON FHIR resources are ok for centraxx import.
 
 ```
 fhirproof <json dir>
@@ -17,17 +16,19 @@ example:
 fhirproof mydir --db num_prod --user numwuerzfhir --config config.yaml --log fp.log
 ```
 
-Sieh auch `fhirproof -h`.
+see `fhirproof -h`.
 
 ## Install
 
-Whl von releases downloaden und mit pip installieren:
+download cnf whl from
+[here](https://github.com/numlims/fhirproof/releases). install whl
+with pip:
 
 ```
 pip install fhirproof-<version>.whl
 ```
 
-installieren aus source:
+or install from source:
 
 ```
 make install
@@ -35,13 +36,19 @@ make install
 
 ## Dev
 
-Der Code kann aus den .ct Dateien mit
-[ct](https://github.com/tnustrings/codetext/releases) oder mit [ct
-fuer
-vscode](https://marketplace.visualstudio.com/items?itemName=tnustrings.codetext)
-generiert werden.
+edit [`fhirproof/init.ct`](./fhirproof/init.ct) for the fhirproof
+class, [`fhirproof/main.ct`](./fhirproof/main.ct) for the commandline
+interface and `fhirproof/*Check.ct` for the various checks.
 
-Make die .ct Dateien mit `make`.
+generate code from the .ct files with
+[ct](https://github.com/tnustrings/codetext/releases) or [ct for
+vscode](https://marketplace.visualstudio.com/items?itemName=tnustrings.codetext).
+
+then run
+
+```
+make build
+```
 
 ## Checks
 
