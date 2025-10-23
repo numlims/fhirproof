@@ -20,9 +20,7 @@ see `fhirproof -h`.
 
 ## install
 
-download cnf whl from
-[here](https://github.com/numlims/fhirproof/releases). install whl
-with pip:
+download fhirproof whl from [releases](https://github.com/numlims/cnf/releases). install with pip:
 
 ```
 pip install fhirproof-<version>.whl
