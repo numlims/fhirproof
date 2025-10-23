@@ -1,4 +1,4 @@
-AqtMatCheck kuemmert sich um das Material von einer Resource.
+AqtMatCheck checks the material of a resource.
 
 ``//AqtMatCheck.py:
 ``import``
@@ -7,12 +7,10 @@ class AqtMatCheck(FhirCheck):
     ``check``
 ``
 
-Sind wir bei einer Aliquotgroup, kann ihr Material eine Reihe von
-Werten sein, abhängig von ihrem Primary Parent. Das Mapping von
-Parent-Material zu den möglichen Materialien der Aliquotgroup-Children
-steht in der primary-aliquot-material-map, pamm.  Material CIT und SER
-bleiben gleich zwischen Aliquotgroup und Primary Parent. Sie sind
-nicht im Mapping gelistet, wir checken sie so.
+the permissible materials for an aliquot group depend on the material
+of its primary sample.  the config file gives a permissible materials
+in the pamm (primary-aliquot-material-map) field.
+
 
 ``/check:
     def check(self, entry):
@@ -24,13 +22,13 @@ nicht im Mapping gelistet, wir checken sie so.
         ``.``
 ``
 
-Hol die pamm.
+get the pamm.
 
 ``
         pamm = self.fp.config["pamm"]
 ``
 
-Hole das Child-Material.
+get the child material.
 
 ``
         child_material = dig(resource, "type/coding/0/code")
@@ -60,8 +58,8 @@ get the parent from the json, either by fhirid or by sampleid.
         parent_material = fh.material(dig(parent, "resource"))
 ``
 
-Wenn der Parent nicht schon im json aufgetaucht ist schauen wir nach
-ihm und seinem Material in der db.
+if we haven't encountered the parent in the json yet we try to get its
+material from the db.
 
 ``
         if (not parent) and parentid:
@@ -73,32 +71,35 @@ ihm und seinem Material in der db.
                 parent_material = dig(res, "0/" + tr.sampletype_code)
 ``
 
-Bei CIT und SER soll das Material zwischen Parent und Child gleich sein.
+if the parent material isn't in the pamm, give an info message.
 
 ``
-        # check
-        if parent_material in ["CIT", "SER"]:
-            if parent_material != child_material:
-                self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, but the material of its primary-parent {fh.sample_id(parent('resource'))} is {parent_material}")
-``
-
-Sonst schau, ob das Kind-Material zu dem Eltern-Material passt.
-
-``
-        elif not parent_material in pamm:
+        if not parent_material in pamm:
             self.info(f"material {parent_material} is not in pamm.")
-        elif not child_material in pamm[parent_material]: # mappings in pamm
-            self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, but the material of its primary-parent {fh.sampleid(dig(parent, 'resource'))} is {parent_material}")
 ``
 
-Initialisiere.
+if the child material can be any, ignore.
+
+``
+        elif "*" in pamm[parent_material]:
+            pass
+``
+
+is the child material permitted by pamm?
+
+``
+        elif not child_material in pamm[parent_material]: # mappings in pamm
+            self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, needs to be in {pamm[parent_material]} to match the material {parent_material} of its primary parent {fh.sampleid(dig(parent, 'resource'))}")
+``
+
+__init__ inits AqtMatCheck.
 
 ``/init:
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 ``
 
-Und importiere.
+imports.
 
 ``/import:
 import re

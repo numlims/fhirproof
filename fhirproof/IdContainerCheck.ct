@@ -19,7 +19,7 @@ check runs the check.
 do nothing if no db.
 
 ``
-        print("traction: " + str(self.fp.tr))
+        #print("traction: " + str(self.fp.tr))
         if self.fp.tr == None:
            return
 ``

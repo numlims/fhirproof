@@ -1,3 +1,4 @@
+# automatically generated, DON'T EDIT. please edit IdContainerCheck.ct from where this file stems.
 from fhirproof.FhirCheck import *
 from dip import dig, dis
 from fhirproof.fhirhelp import fhirhelp as fh
@@ -9,10 +10,10 @@ class IdContainerCheck(FhirCheck):
         FhirCheck.__init__(self, fp)
     def check(self, entry):
         """
-        check runs the check.
+         check runs the check.
         """
         super().check(entry)
-        print("traction: " + str(self.fp.tr))
+        #print("traction: " + str(self.fp.tr))
         if self.fp.tr == None:
            return
         confidcs = dig(self.fp.config, "idcontainers")

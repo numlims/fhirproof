@@ -1,3 +1,4 @@
+# automatically generated, DON'T EDIT. please edit main.ct from where this file stems.
 
 import sys
 from fhirproof import fhirproof
@@ -6,10 +7,10 @@ import os.path
 # parseargs parses command line arguments
 def parseargs():
     """
-    parseargs parst die command line argumente.
-    
-    fhirproof nimmt target und user ohne name, und die config datei, eine
-    option die konfig stub zu printen und das log file.
+     parseargs parst die command line argumente.
+     
+     fhirproof nimmt target und user ohne name, und die config datei, eine
+     option die konfig stub zu printen und das log file.
     """
     parser = argparse.ArgumentParser()
     # parser.add_argument("what", help="observation|specimen")
@@ -26,7 +27,7 @@ def parseargs():
 # main runs fhirproof
 def main():
     """
-    main reads the commandline arguments and starts fhirproof.
+     main reads the commandline arguments and starts fhirproof.
     """
     args = parseargs()
     #try:
