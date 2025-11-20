@@ -40,8 +40,8 @@ get the trial for the sample.
         sampleid = fh.sampleid(resource)
 
         #patientid = fh.limspsn(resource)
-        trialcode = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.trial_code])
-        #trialcode = trials[0]["code"]
+        res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.trial])
+        trialcode = res[0].trial
 ``
 
 get the idcontainers from the json.

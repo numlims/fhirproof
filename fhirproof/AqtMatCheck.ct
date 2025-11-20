@@ -68,7 +68,7 @@ material from the db.
                 if len(res) == 0:
                     self.err(f"at aliquotgroup {dig(entry, 'fullUrl')}: the parent (id {pid}) is not in the db and hasn't been encountered in the json yet.")
                     return 
-                parent_material = dig(res, "0/" + tr.sampletype_code)
+                parent_material = res[0].type
 ``
 
 if the parent material isn't in the pamm, give an info message.

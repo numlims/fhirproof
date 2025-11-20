@@ -50,7 +50,7 @@ class fhirproof:
 
     def check(self, dir, encoding=None):
         """
-        undefined check both specimen and observations, depending on an entry's resourceType.
+         check both specimen and observations, depending on an entry's resourceType.
         """
         entries = self.entries_from_dir(dir, encoding)
         self.check_entries(entries)
@@ -58,7 +58,7 @@ class fhirproof:
 
     def check_entries(self, entries):
         """
-        undefined check_entries checkt die entries specimen or observation.
+         check_entries checkt die entries specimen or observation.
         """
         self.ok = True
 
@@ -78,9 +78,10 @@ class fhirproof:
         idcontainer = IdContainerCheck(self)
 
         # count for some stats
+        master_count = 0        
         aqtg_count = 0
-        master_count = 0
         derived_count = 0
+        pat_count = 0
         # run checks
         for entry in entries:
             # keep arrays up to date
@@ -100,10 +101,12 @@ class fhirproof:
                   continue
               self.entrybysampleid[sampleid] = entry
   
-              if fh.type(dig(entry, 'resource')) == "DERIVED":
-                  derived_count += 1
               if fh.type(dig(entry, 'resource')) == "MASTER":
                   master_count += 1
+              if fh.type(dig(entry, 'resource')) == "DERIVED":
+                  derived_count += 1
+              if fh.type(dig(entry, 'resource')) == "PATIENT":
+                  pat_count += 1
               # primary in db
               primary_in_db.check(entry)
               # dates
@@ -131,11 +134,12 @@ class fhirproof:
 
         restmenge.end()
         parenting.end()
-        self.log.info(f"ended against {self.dbtarget}: "+
+        self.log.info(f"ended against {self.dbtarget}: " +
+            str(pat_count) + " patients, " +
+            str(master_count) + " master samples, " +        
             str(aqtg_count) + " aliquot groups, " +
-            str(master_count) + " master samples, " +
-            str(derived_count) + " derived samples.") # , " +
-            # str(len(entries)) + " total" ) 
+            str(derived_count) + " derived samples, " + 
+            str(len(entries)) + " total" ) 
         
         return self.ok # written by FhirCheck.err()
 
@@ -154,7 +158,7 @@ class fhirproof:
         self.log = log
     def entries_from_dir(self, dir, encoding=None): # todo could be static?
         """
-        undefined entries_from_dir returns the entries from all json files in a directory.
+         entries_from_dir returns the entries from all json files in a directory.
         """
         if encoding == None:
             encoding = "utf-8"
@@ -175,9 +179,9 @@ class fhirproof:
         return entries
     def parent(self, entry):
         """
-        undefined parent gibt die parent-resource eines entries zurueck, wenn es eine gibt.
-        undefined 
-        undefined auf parent() koennen die checks zugreifen.
+         parent gibt die parent-resource eines entries zurueck, wenn es eine gibt.
+         
+         auf parent() koennen die checks zugreifen.
         """
         parent = None
         resource = entry['resource']

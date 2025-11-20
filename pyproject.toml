@@ -12,7 +12,7 @@ description = "fhir import check"
 readme = "readme.md"
 requires-python = ">=3.8"
 dependencies = [
-  "traction @ https://github.com/numlims/traction/archive/refs/tags/v0.0.5.zip",
+  "traction @ https://github.com/numlims/traction/archive/refs/tags/v0.1.0.zip",
   "pyyaml",
   "dbcq @ https://github.com/numlims/dbcq/archive/refs/tags/v0.0.3.zip",
   "dip @ https://github.com/numlims/dip/archive/refs/tags/v0.0.2.zip"

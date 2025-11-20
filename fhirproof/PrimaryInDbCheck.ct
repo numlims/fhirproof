@@ -21,9 +21,9 @@ Check checks whether the sample is in db if it is a master.
         sampleid = fh.sampleid(resource)
 
         # samplerow = sample(sampleid)
-        samplerow = self.tr.sample(sampleids=[sampleid], verbose_all=True) # todo specify which verbose fields?
+        res = self.tr.sample(sampleids=[sampleid], verbose_all=True) # todo specify which verbose fields?
 
-        if samplerow == None and fh.type(resource) == "MASTER":
+        if (res == None or len(res) == 0) and fh.type(resource) == "MASTER":
             self.err(f"sample {sampleid} is type master but it is not in the db.")
 
 ``

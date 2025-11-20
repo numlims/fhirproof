@@ -41,7 +41,7 @@ class AqtMatCheck(FhirCheck):
                 if len(res) == 0:
                     self.err(f"at aliquotgroup {dig(entry, 'fullUrl')}: the parent (id {pid}) is not in the db and hasn't been encountered in the json yet.")
                     return 
-                parent_material = dig(res, "0/" + tr.sampletype_code)
+                parent_material = res[0].type
         if not parent_material in pamm:
             self.info(f"material {parent_material} is not in pamm.")
         elif "*" in pamm[parent_material]:
