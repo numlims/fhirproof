@@ -10,13 +10,13 @@ patientid: LIMSPSN
 idcontainers:
     NUM S-SNID:
         MASTER:
-            - SAMPLEID
-            - MODULE
+            - MODUL
             - TIER
-            - VISIT
+            - DZHK_VISIT_NR
+            - BISAMID
     NUM RAPID_REVIVE:
         MASTER:
-            - SAMPLEID
+            - BISAMID
 
 # pamm lists the allowed aliquot materials for each primary sample material.
 pamm:

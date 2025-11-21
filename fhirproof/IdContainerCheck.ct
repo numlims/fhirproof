@@ -24,15 +24,6 @@ do nothing if no db.
            return
 ``
 
-get the config.
-
-``
-        confidcs = dig(self.fp.config, "idcontainers")
-        # print("confidcs: " + str(confidcs))
-        if confidcs == None:
-           return
-``
-
 get the trial for the sample.
 
 ``
@@ -53,20 +44,36 @@ get the idcontainers from the json.
 ``
 
 say what idcontainers are missing and what idcontainers are not
-strictly needed. if the config doesn't specify anything for this
-trial and sampletype, pass on.
+strictly needed.
+
+SAMPLEID is required in any case, the others only if update with
+overwrite is true, cause they would be deleted if missing then.
 
 ``
-        should = dig(confidcs, f"idcontainers/{trialcode}/{fh.type(resource)}")
-        if should is not None:
-          # missing
-          for idc in should:
-            if idc not in idcs:
-              self.err(f"sample {sampleid} should come with idcontainer {idc} for trial {trialcode}.")
-          # not needed
-          for idc in idcs:
-            if idc not in should:
-              self.info(f"sample {sampleid} comes with idcontainer {idc} which is not specified for trial {trial} in the config.")
+        should = [ "SAMPLEID" ]
+        
+        confidcs = dig(self.fp.config, f"idcontainers/{trialcode}/{fh.type(resource)}")
+        if confidcs is None:
+            confidcs = []
+        if fh.updatewithoverwrite(resource) == True:
+            should.extend(confidcs)
+``
+
+
+say which idcs are missing from json.
+
+``
+        for idc in should:
+          if idc not in idcs:
+            self.err(f"sample {sampleid} should come with idcontainer {idc} for trial {trialcode}.")
+``
+
+say which idcs from json are not strictly needed.
+
+``
+        for idc in idcs:
+          if idc not in confidcs + [ "SAMPLEID" ]:
+            self.info(f"sample {sampleid} comes with idcontainer {idc} which is not strictly needed for trial {trialcode}.")
 ``
 
 init inits IdContainerCheck.

@@ -16,10 +16,6 @@ class IdContainerCheck(FhirCheck):
         #print("traction: " + str(self.fp.tr))
         if self.fp.tr == None:
            return
-        confidcs = dig(self.fp.config, "idcontainers")
-        # print("confidcs: " + str(confidcs))
-        if confidcs == None:
-           return
         resource = dig(entry, "resource")
         sampleid = fh.sampleid(resource)
 
@@ -29,13 +25,16 @@ class IdContainerCheck(FhirCheck):
         if len(res) > 0:
             trialcode = res[0].trial
         idcs = fh.identifiers(resource).keys()
-        should = dig(confidcs, f"idcontainers/{trialcode}/{fh.type(resource)}")
-        if should is not None:
-          # missing
-          for idc in should:
-            if idc not in idcs:
-              self.err(f"sample {sampleid} should come with idcontainer {idc} for trial {trialcode}.")
-          # not needed
-          for idc in idcs:
-            if idc not in should:
-              self.info(f"sample {sampleid} comes with idcontainer {idc} which is not specified for trial {trial} in the config.")
+        should = [ "SAMPLEID" ]
+        
+        confidcs = dig(self.fp.config, f"idcontainers/{trialcode}/{fh.type(resource)}")
+        if confidcs is None:
+            confidcs = []
+        if fh.updatewithoverwrite(resource) == True:
+            should.extend(confidcs)
+        for idc in should:
+          if idc not in idcs:
+            self.err(f"sample {sampleid} should come with idcontainer {idc} for trial {trialcode}.")
+        for idc in idcs:
+          if idc not in confidcs + [ "SAMPLEID" ]:
+            self.info(f"sample {sampleid} comes with idcontainer {idc} which is not specified for trial {trialcode} in the config.")
