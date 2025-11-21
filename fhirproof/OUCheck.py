@@ -1,3 +1,4 @@
+# automatically generated, DON'T EDIT. please edit OUCheck.ct from where this file stems.
 import re
 
 from dip import dig
@@ -11,7 +12,7 @@ class OUCheck(FhirCheck):
         FhirCheck.__init__(self, fp)
     def _check(self, dborga, jsonorga, sampleid):
         """
-        _check checks whether db orga and json orga of sample match.
+         _check checks whether db orga and json orga of sample match.
         """
         if dborga == None:
             self.err(f"no organisation in db for sample {sampleid}")
@@ -21,7 +22,7 @@ class OUCheck(FhirCheck):
             self.err(f"organisation units don't match for sample {sampleid}, json orga is {jsonorga}, db orga is {dborga}")
     def check(self, entry):
         """
-        check starts the check.
+         check starts the check.
         """
         super().check(entry)
         if self.db == None:
@@ -30,7 +31,7 @@ class OUCheck(FhirCheck):
     
         sampleid = fh.sampleid(resource)
     
-        res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.orgunit_code])
+        res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.orga])
         trsample = None
         if len(res) > 0:
           trsample = res[0]
@@ -38,11 +39,11 @@ class OUCheck(FhirCheck):
         typ = fh.type(resource)
         if trsample != None and typ == "MASTER":
             if sampleorgjson != None:
-                self._check(trsample[tr.orgunit_code], sampleorgjson, sampleid)
+                self._check(trsample.orga, sampleorgjson, sampleid)
         elif typ == "DERIVED": 
             if trsample != None:
                 if sampleorgjson != None:
-                    self._check(trsample[tr.orgunit_code], sampleorgjson, sampleid)
+                    self._check(trsample.orga, sampleorgjson, sampleid)
             else:
                 if sampleorgjson == None:
                     self.err(f"there is no json org for derived sample {sampleid}")

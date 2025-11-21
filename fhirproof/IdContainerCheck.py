@@ -24,8 +24,10 @@ class IdContainerCheck(FhirCheck):
         sampleid = fh.sampleid(resource)
 
         #patientid = fh.limspsn(resource)
-        trialcode = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.trial_code])
-        #trialcode = trials[0]["code"]
+        res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.trial])
+        trialcode = None
+        if len(res) > 0:
+            trialcode = res[0].trial
         idcs = fh.identifiers(resource).keys()
         should = dig(confidcs, f"idcontainers/{trialcode}/{fh.type(resource)}")
         if should is not None:

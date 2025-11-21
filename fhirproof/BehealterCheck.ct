@@ -47,7 +47,7 @@ for now, take the list from freiburg. should this be pulled from cxx
 or be here in a mapping or so?
 
 ``
-        aqt_allowed = ["NUM_AliContainer", "NUMCryoAliquot500", "NUMAliquot1000", "NUMAliquot2000"]
+        aqt_allowed = self.fp.config["alicontainers"] # ["NUM_AliContainer", "NUMCryoAliquot500", "NUMAliquot1000", "NUMAliquot2000"]
         if fh.type(resource) == "DERIVED" and container not in aqt_allowed:
            self.err(f"container for derived sample {sampleid} should be in {aqt_allowed} but is {container} in json.")
 

@@ -71,3 +71,10 @@ pamm:
             - NUM_liquorf
     SER:
             - SER
+
+alicontainers: # allowed aliquot containers
+    - NUM_AliContainer
+    - NUMCryoAliquot500
+    - NUMCryoAliquot300
+    - NUMAliquot1000
+    - NUMAliquot2000
