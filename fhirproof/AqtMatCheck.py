@@ -1,3 +1,4 @@
+# automatically generated, DON'T EDIT. please edit AqtMatCheck.ct from where this file stems.
 import re
 import json
 import os
@@ -6,8 +7,13 @@ from fhirproof.fhirhelp import fhirhelp as fh
 from dip import dig, dis
 class AqtMatCheck(FhirCheck):
     def __init__(self, fp):
+        """
+         __init__ inits AqtMatCheck.
+        """
         FhirCheck.__init__(self, fp)
     def check(self, entry):
+        """
+        """
         super().check(entry)
 
         resource = dig(entry, "resource")
@@ -35,12 +41,10 @@ class AqtMatCheck(FhirCheck):
                 if len(res) == 0:
                     self.err(f"at aliquotgroup {dig(entry, 'fullUrl')}: the parent (id {pid}) is not in the db and hasn't been encountered in the json yet.")
                     return 
-                parent_material = dig(res, "0/" + tr.sampletype_code)
-        # check
-        if parent_material in ["CIT", "SER"]:
-            if parent_material != child_material:
-                self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, but the material of its primary-parent {fh.sample_id(parent('resource'))} is {parent_material}")
-        elif not parent_material in pamm:
+                parent_material = res[0].type
+        if not parent_material in pamm:
             self.info(f"material {parent_material} is not in pamm.")
+        elif "*" in pamm[parent_material]:
+            pass
         elif not child_material in pamm[parent_material]: # mappings in pamm
-            self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, but the material of its primary-parent {fh.sampleid(dig(parent, 'resource'))} is {parent_material}")
+            self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, needs to be in {pamm[parent_material]} to match the material {parent_material} of its primary parent {fh.sampleid(dig(parent, 'resource'))}")

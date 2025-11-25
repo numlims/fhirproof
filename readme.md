@@ -18,7 +18,7 @@ fhirproof mydir --db num_prod --user numwuerzfhir --config config.yaml --log fp.
 
 see `fhirproof -h`.
 
-## Install
+## install
 
 download fhirproof whl from [releases](https://github.com/numlims/fhirproof/releases). install with pip:
 
@@ -36,7 +36,7 @@ after running fhirproof for the first time, fill in your db connection
 info in ~/.dbc and the main idcontainer types for samples and patients
 in ~/.traction/settings.yaml.
 
-## Dev
+## dev
 
 edit [`fhirproof/init.ct`](./fhirproof/init.ct) for the fhirproof
 class, [`fhirproof/main.ct`](./fhirproof/main.ct) for the commandline
@@ -52,7 +52,7 @@ then run
 make build
 ```
 
-## Checks
+## checks
 
 ## Primärprobe in DB: PrimaryInDbCheck
 

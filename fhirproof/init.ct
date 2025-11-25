@@ -147,9 +147,10 @@ aliquotgroups, masters und deriveds.
         idcontainer = IdContainerCheck(self)
 
         # count for some stats
+        master_count = 0        
         aqtg_count = 0
-        master_count = 0
         derived_count = 0
+        pat_count = 0
 ``
 
 der loop leauft ueber jeden entry.
@@ -208,15 +209,18 @@ wenn es keine sampleid gibt, skippe zum naechsten entry.
                 continue
 ``
 
-speichere den entry anhand der sampleid, zaehle master und derived samples.
+speichere den entry anhand der sampleid, zaehle master, derived
+samples und patients.
 
 ``
             self.entrybysampleid[sampleid] = entry
 
-            if fh.type(dig(entry, 'resource')) == "DERIVED":
-                derived_count += 1
             if fh.type(dig(entry, 'resource')) == "MASTER":
                 master_count += 1
+            if fh.type(dig(entry, 'resource')) == "DERIVED":
+                derived_count += 1
+            if fh.type(dig(entry, 'resource')) == "PATIENT":
+                pat_count += 1
 ``
 
 lass die checks fuer die nicht-aliquot (derived) samples laufen. warum nicht-aliquot?
@@ -268,11 +272,12 @@ todo why doesn't total match the three counts? e.g. 5 aliquot groups,
 5 master samples, 22 derived samples, 39 total
 
 ``
-        self.log.info(f"ended against {self.dbtarget}: "+
+        self.log.info(f"ended against {self.dbtarget}: " +
+            str(pat_count) + " patients, " +
+            str(master_count) + " master samples, " +        
             str(aqtg_count) + " aliquot groups, " +
-            str(master_count) + " master samples, " +
-            str(derived_count) + " derived samples.") # , " +
-            # str(len(entries)) + " total" ) 
+            str(derived_count) + " derived samples, " + 
+            str(len(entries)) + " total" ) 
         
         return self.ok # written by FhirCheck.err()
 ``
