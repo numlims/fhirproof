@@ -20,7 +20,7 @@ see `fhirproof -h`.
 
 ## Install
 
-download fhirproof whl from [releases](https://github.com/numlims/cnf/releases). install with pip:
+download fhirproof whl from [releases](https://github.com/numlims/fhirproof/releases). install with pip:
 
 ```
 pip install fhirproof-<version>.whl
@@ -31,6 +31,10 @@ or install from source:
 ```
 make install
 ```
+
+after running fhirproof for the first time, fill in your db connection
+info in ~/.dbc and the main idcontainer types for samples and patients
+in ~/.traction/settings.yaml.
 
 ## Dev
 
