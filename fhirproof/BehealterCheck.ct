@@ -43,9 +43,6 @@ make sure that the incoming primary container is the same as in the db.
 
 check the behealter for aliquot.
 
-for now, take the list from freiburg. should this be pulled from cxx
-or be here in a mapping or so?
-
 ``
         aqt_allowed = self.fp.config["alicontainers"] # ["NUM_AliContainer", "NUMCryoAliquot500", "NUMAliquot1000", "NUMAliquot2000"]
         if fh.type(resource) == "DERIVED" and container not in aqt_allowed:
