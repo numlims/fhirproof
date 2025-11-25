@@ -6,6 +6,7 @@ https://simplifier.net/CentraXX-Structures/Specimen/~details.
 ``//fhirhelp.py:
 ``import``
 class fhirhelp:
+    ``extension``
     ``lagerort``
     ``limspsn``
     ``material``
@@ -15,23 +16,49 @@ class fhirhelp:
     ``restmenge``
     ``type``
     ``sampleid``
+    ``updatewithoverwrite``
     ``identifiers``
     ``resource_type``
 
 ``
 
-lagerort gets the sampleLocation
+extension gives the extension with the specified url.
+
+``/extension:
+    @staticmethod
+    def extension(resource, url:str):
+        exts = dig(resource, "extension")
+        if exts is None:
+            return None
+        for ext in exts:
+            if dig(ext, "url") == url:
+                return ext
+``
+
+lagerort gets the sampleLocation.
 
 ``/lagerort:
     @staticmethod
     def lagerort(resource):
-        for e in dig(resource, "extension"):
-            if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/sampleLocation":
-                # return e["valueReference"]["identifier"]["value"]
-                for ee in dig(e, "extension"):
-                    if dig(ee, "url") == "https://fhir.centraxx.de/extension/sample/sampleLocationPath":
-                        return dig(ee, "valueString")
-        return None
+        ``.``
+``
+
+get the location extension.
+
+``
+        exta = fhirhelp.extension(resource, "https://fhir.centraxx.de/extension/sample/sampleLocation")
+``
+
+get the nested location path extension.
+
+``
+        extb = fhirhelp.extension(exta, "https://fhir.centraxx.de/extension/sample/sampleLocationPath")
+``
+
+return the value.
+
+``
+        return dig(extb, "valueString")
 ``
 
 limspsn gets the lims psn of the patient.
@@ -82,11 +109,19 @@ org returns the organisation or None if no organisation.
 ``/org:
     @staticmethod
     def org(resource):
-        for e in dig(resource, "extension"):
-            # if re.match("organizationUnit", e["url"]):
-            if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/organizationUnit":
-                return dig(e, "valueReference/identifier/value")
-        return None
+        ``.``
+``
+
+get the organization unit extension.
+
+``
+        ext = fhirhelp.extension(resource, "https://fhir.centraxx.de/extension/sample/organizationUnit")
+``
+
+return the value.
+
+``
+        return dig(ext, "valueReference/identifier/value")
 ``
 
 restmenge returns the restmenge of the sample.
@@ -106,12 +141,19 @@ type returns the type from resource, 'MASTER', or 'ALIQUOTGROUP' or 'DERIVED' (t
 ``/type:
     @staticmethod
     def type(resource):
-        if dig(resource, "extension") == None:
-            return None
-        for e in dig(resource, "extension"):
-            if dig(e, "url") == "https://fhir.centraxx.de/extension/sampleCategory":
-                return dig(e, "valueCoding/code")
-        return None
+        ``.``
+``
+
+get the type extension.
+
+``
+        ext = fhirhelp.extension(resource, "https://fhir.centraxx.de/extension/sampleCategory")
+``
+
+return the value.
+
+``
+        return dig(ext, "valueCoding/code")
 ``
 
 sampleid returns the sample id of a resource.
@@ -120,6 +162,21 @@ sampleid returns the sample id of a resource.
     @staticmethod
     def sampleid(resource):
         return dig(fhirhelp.identifiers(resource), "SAMPLEID")
+``
+
+updatewithoverwrite returns update with overwrite of a resource.
+
+``/updatewithoverwrite:
+    @staticmethod
+    def updatewithoverwrite(resource) -> bool:
+        ``.``
+``
+
+get the extension for update with overwrite and return its value.
+
+``
+        ext = fhirhelp.extension(resource, "https://fhir.centraxx.de/extension/updateWithOverwrite")
+        return dig(ext, "valueBoolean")
 ``
 
 identifiers returns the identifiers of a resource as dict keyed by the identifier codes, eg: { "SAMPLEID": "abc", "EXTSAMPLEID": "cde" }

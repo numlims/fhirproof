@@ -33,7 +33,7 @@ get the resource and sampleid, get the sample from traction.
 
     sampleid = fh.sampleid(resource)
 
-    res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.orgunit_code])
+    res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.orga])
     trsample = None
     if len(res) > 0:
       trsample = res[0]
@@ -63,7 +63,7 @@ if the org is not given in the json, don't check.
 
 ``./primary:
         if sampleorgjson != None:
-            self._check(trsample[tr.orgunit_code], sampleorgjson, sampleid)
+            self._check(trsample.orga, sampleorgjson, sampleid)
 ``
 
 check an aliquot sample.
@@ -81,7 +81,7 @@ if orga given in json, check that it matches the db orga.
 
 ``/check/aliquot/in db:
             if sampleorgjson != None:
-                self._check(trsample[tr.orgunit_code], sampleorgjson, sampleid)
+                self._check(trsample.orga, sampleorgjson, sampleid)
 ``
 
 if no orga given in the json, ignore.
@@ -103,7 +103,7 @@ get the patient orga.
 maybe:
 
 patientid = trsample[tr.patientid]
-pat = trac.patient(patientids=[patientid], verbose=[tr.orga_code])
+pat = trac.patient(patientids=[patientid], verbose=[tr.orga])
 
 ``
             else:

@@ -10,18 +10,20 @@ patientid: LIMSPSN
 idcontainers:
     NUM S-SNID:
         MASTER:
-            - SAMPLEID
-            - MODULE
+            - MODUL
             - TIER
-            - VISIT
+            - DZHK_VISIT_NR
+            - BISAMID
     NUM RAPID_REVIVE:
         MASTER:
-            - SAMPLEID
+            - BISAMID
 
 # pamm lists the allowed aliquot materials for each primary sample material.
 pamm:
-    EDTAWB: # primary material
-            - EDTA    # list of aliquot materials
+    CIT:      # primary material
+            - CIT # list of aliquot materials
+    EDTAWB: 
+            - EDTA    
             - EDTABUF
             - DHZB_ZB
     URN:
@@ -56,14 +58,23 @@ pamm:
     LH:
             - NUM_heppl
     NUM_PATHO_DIAGNOSTIC:
-            - NUM_PATHO_DIAGNOSTIC
+            - "*" # any material. some patho samples are aliquoted into diferent materials, e.g. BAL patho, into BAL zellen and BAL ueberstand, which is selected as aliquotierungsschema
     NUM_PATHO_GENETIC:
-            - NUM_PATHO_GENETIC
+            - "*" # any material
     NUM_PATHO_ISOLATED:
-            - NUM_PATHO_ISOLATED
+            - "*" # any material
     NUM_Stuhl_nativ:
             - STL
     NUM_STOOLSWAB:
             - NUM_STOOLSWAB
     NUM_liquor:
             - NUM_liquorf
+    SER:
+            - SER
+
+alicontainers: # allowed aliquot containers
+    - NUM_AliContainer
+    - NUMCryoAliquot500
+    - NUMCryoAliquot300
+    - NUMAliquot1000
+    - NUMAliquot2000

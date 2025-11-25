@@ -8,6 +8,8 @@ docmake = ~/numlims.github.io
 # sort by version; get the last line; delete the v from the version tag cause python build seems to strip it as well
 version = $(shell git tag | sort -V | tail -1 | tr -d v)
 
+.PHONY: test
+
 all:
 	cd fhirproof; make
 	ct test/test_db.ct
@@ -17,6 +19,9 @@ build:
 	make
 	python3 -m build --no-isolation
 
+test:
+	make install
+	pytest -s
 install:
 	make build
 	pip install "./dist/${name}-${version}-py3-none-any.whl" --no-deps --force-reinstall
@@ -31,12 +36,14 @@ doc-publish:
 	cd ${docmake} && make publish
 
 publish:
-	make
+	make build
+	make doc-publish
 	git push --tags
 	gh release create "v${version}" "./dist/${name}-${version}-py3-none-any.whl"
 
 publish-update: # if an asset was already uploaded, delete it before uploading again
-	make
+	make build
+	make doc-publish
 	# does the tag updating also update the source code at the resource?
 	# move the version tag to the most recent commit
 	git tag -f "v${version}"
