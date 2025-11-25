@@ -38,6 +38,8 @@ in ~/.traction/settings.yaml.
 
 ## dev
 
+api doc [here](https://numlims.github.io/fhirproof/).
+
 edit [`fhirproof/init.ct`](./fhirproof/init.ct) for the fhirproof
 class, [`fhirproof/main.ct`](./fhirproof/main.ct) for the commandline
 interface and `fhirproof/*Check.ct` for the various checks.
