@@ -20,6 +20,7 @@ from fhirproof.MayUserEditOUCheck import *
 from fhirproof.IdContainerCheck import *
 import os
 import json
+from natsort import natsorted
 import logging
 import sys
 
@@ -62,6 +63,10 @@ class fhirproof:
         """
         self.ok = True
 
+        self.log.info(f"") # blank lines
+        self.log.info(f"") # blank lines
+        self.log.info(f"") # blank lines                 
+        self.log.info(f"START CHECK")
         self.log.info(f"starting check against {self.dbtarget}")
         # initialize checks
         aqtmat = AqtMatCheck(self)
@@ -134,12 +139,12 @@ class fhirproof:
 
         restmenge.end()
         parenting.end()
-        self.log.info(f"ended against {self.dbtarget}: " +
+        self.log.info(f"ended check against {self.dbtarget}: " +
             str(pat_count) + " patients, " +
             str(master_count) + " master samples, " +        
             str(aqtg_count) + " aliquot groups, " +
             str(derived_count) + " derived samples, " + 
-            str(len(entries)) + " total" ) 
+            str(len(entries)) + " total" )
         
         return self.ok # written by FhirCheck.err()
 
@@ -165,6 +170,8 @@ class fhirproof:
         entries = []
 
         files = os.listdir(dir)
+        files = natsorted(files)
+        
         for file in files:
           _, ext = os.path.splitext(file)
           # print("ext: " + ext)

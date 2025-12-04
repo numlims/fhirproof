@@ -125,6 +125,10 @@ setze ok zurueck und drucke eine start nachricht.
 ``./setup:
         self.ok = True
 
+        self.log.info(f"") # blank lines
+        self.log.info(f"") # blank lines
+        self.log.info(f"") # blank lines                 
+        self.log.info(f"START CHECK")
         self.log.info(f"starting check against {self.dbtarget}")
 ``
 
@@ -272,12 +276,12 @@ todo why doesn't total match the three counts? e.g. 5 aliquot groups,
 5 master samples, 22 derived samples, 39 total
 
 ``
-        self.log.info(f"ended against {self.dbtarget}: " +
+        self.log.info(f"ended check against {self.dbtarget}: " +
             str(pat_count) + " patients, " +
             str(master_count) + " master samples, " +        
             str(aqtg_count) + " aliquot groups, " +
             str(derived_count) + " derived samples, " + 
-            str(len(entries)) + " total" ) 
+            str(len(entries)) + " total" )
         
         return self.ok # written by FhirCheck.err()
 ``
@@ -361,12 +365,16 @@ if no encoding given assume utf-8.
             encoding = "utf-8"
 ``
 
-collect the entries from the files in the dir.
+collect the entries from the files in the dir. sort the file
+considering the natural sort of the page numbers, that takes care that
+the order isn't p1, p10, p11, ..., p2, p3.
 
 ``
         entries = []
 
         files = os.listdir(dir)
+        files = natsorted(files)
+        
         for file in files:
           ``.``
 ``
@@ -399,11 +407,12 @@ return the entries.
         return entries
 ``
 
-importiere os und json.
+neue importe.
 
 ``/import
 import os
 import json
+from natsort import natsorted
 ``
 
 parent gibt die parent-resource eines entries zurueck, wenn es eine gibt.
