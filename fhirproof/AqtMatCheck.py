@@ -3,7 +3,7 @@ import re
 import json
 import os
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 from dip import dig, dis
 class AqtMatCheck(FhirCheck):
     def __init__(self, fp):
@@ -16,13 +16,13 @@ class AqtMatCheck(FhirCheck):
         """
         super().check(entry)
 
-        resource = dig(entry, "resource")
-        self.info(f"checking aliquotgroup {dig(entry, 'fullUrl')}")
+        resource = figs.resource(entry)
+        self.info(f"checking aliquotgroup {figs.full_url(entry)}")
 
         pamm = self.fp.config["pamm"]
-        child_material = dig(resource, "type/coding/0/code")
-        parentid = fh.parent_sampleid(resource)
-        parentfhirid = fh.parent_fhirid(resource)        
+        child_material = figs.type(resource)
+        parentid = figs.parent_sampleid(resource)
+        parentfhirid = figs.parent_fhirid(resource)        
         if parentid == None and parentfhirid == None:
             self.err(f"no parent reference given for aliquotgroup {dig(entry, 'fullUrl')}.")
             return 
@@ -34,7 +34,7 @@ class AqtMatCheck(FhirCheck):
         elif parentfhirid and parentfhirid in self.fp.entrybyfhirid:
            parent = self.fp.entrybyfhirid[parentfhirid]
 
-        parent_material = fh.material(dig(parent, "resource"))
+        parent_material = figs.material(figs.resource(parent))
         if (not parent) and parentid:
             if self.tr != None:
                 res = self.tr.sample(sampleids = [parentid], verbose_all = True) # todo specify which verbose fields?
@@ -47,4 +47,4 @@ class AqtMatCheck(FhirCheck):
         elif "*" in pamm[parent_material]:
             pass
         elif not child_material in pamm[parent_material]: # mappings in pamm
-            self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, needs to be in {pamm[parent_material]} to match the material {parent_material} of its primary parent {fh.sampleid(dig(parent, 'resource'))}")
+            self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, needs to be in {pamm[parent_material]} to match the material {parent_material} of its primary parent {figs.sampleid(figs.resource(parent))}")

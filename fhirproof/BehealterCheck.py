@@ -2,7 +2,7 @@
 import tr
 import re
 from dip import dig, dis
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 from fhirproof.FhirCheck import *
 class BehealterCheck(FhirCheck):
     def __init__(self, fp):
@@ -14,16 +14,16 @@ class BehealterCheck(FhirCheck):
         """
         super().check(entry)
         resource = dig(entry, "resource")
-        sampleid = fh.sampleid(resource)
+        sampleid = figs.sampleid(resource)
         
         container = dig(resource, "container/0/identifier/0/value")
         dbsample = None
         res = self.tr.sample(sampleids=[sampleid], verbose=[tr.receptacle])
         if len(res) > 0:
            dbsample = res[0]
-        if fh.type(resource) == "MASTER" and (dbsample != None and container != dbsample.receptacle):
+        if figs.type(resource) == "MASTER" and (dbsample != None and container != dbsample.receptacle):
             self.err(f"container for primary sample {sampleid} should be {dbsample.receptacle} but is {container} in json.")
         aqt_allowed = self.fp.config["alicontainers"] # ["NUM_AliContainer", "NUMCryoAliquot500", "NUMAliquot1000", "NUMAliquot2000"]
-        if fh.type(resource) == "DERIVED" and container not in aqt_allowed:
+        if figs.type(resource) == "DERIVED" and container not in aqt_allowed:
            self.err(f"container for derived sample {sampleid} should be in {aqt_allowed} but is {container} in json.")
 

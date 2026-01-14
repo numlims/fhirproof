@@ -13,7 +13,7 @@ Die Importe.
 ``/import:
 from dip import dig
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 ``
 
 Es sollte geprüft werden, ob der später zu verwendende
@@ -36,7 +36,7 @@ mach den check nur wenn es eine db gibt.
             
         resource = dig(entry, 'resource')
         # get org unit
-        orgunit = fh.org(resource)
+        orgunit = figs.orga(resource)
         query = """
         select * from centraxx_participantorgunitano as poa
         join centraxx_participant as p on p.oid = poa.creator

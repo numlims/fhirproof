@@ -22,7 +22,7 @@ class fhirproof:
     ``parent``
 ``
 
-init inits fhirproof with db target, centrax user, logfile and config.
+__init__ inits fhirproof with db target, centraxx user, logfile and config.
 
 ``/init:
     def __init__(self, dbtarget, user, logfile, configpath:str=None):
@@ -174,9 +174,9 @@ check depending on specimen or observation.
             self.entrybyfhirid[dig(entry, "fullUrl")] = entry
 
             resource = dig(entry, "resource")
-            if fh.resourceType(resource) == "Specimen":
+            if figs.resource_type(resource) == "Specimen":
               ``specimen``
-            elif fh.resourceType(resource) == "Observation":
+            elif figs.resource_type(resource) == "Observation":
               ``observation``
 
 ``
@@ -196,7 +196,7 @@ gibt. aliquotgruppen haben keine sampleid, mach ihre checks bevor wir
 weitergehen.
 
 ``/check_entries/loop/specimen:
-            if fh.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
+            if figs.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
                 aqtg_count += 1
                 if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
                     self.aqtgchildless[dig(entry, "fullUrl")] = True
@@ -208,7 +208,7 @@ weitergehen.
 wenn es keine sampleid gibt, skippe zum naechsten entry.
 
 ``
-            sampleid = fh.sampleid(dig(entry, 'resource'))
+            sampleid = figs.sampleid(dig(entry, 'resource'))
             if sampleid == None:
                 continue
 ``
@@ -219,11 +219,11 @@ samples und patients.
 ``
             self.entrybysampleid[sampleid] = entry
 
-            if fh.type(dig(entry, 'resource')) == "MASTER":
+            if figs.type(dig(entry, 'resource')) == "MASTER":
                 master_count += 1
-            if fh.type(dig(entry, 'resource')) == "DERIVED":
+            if figs.type(dig(entry, 'resource')) == "DERIVED":
                 derived_count += 1
-            if fh.type(dig(entry, 'resource')) == "PATIENT":
+            if figs.type(dig(entry, 'resource')) == "PATIENT":
                 pat_count += 1
 ``
 
@@ -423,10 +423,10 @@ auf parent() koennen die checks zugreifen.
     def parent(self, entry):
         parent = None
         resource = entry['resource']
-        if fh.type(resource) != "DERIVED":              
+        if figs.type(resource) != "DERIVED":              
             return None
         # get fhirid of aliquotgroup-parent
-        pfhirid = fh.parent_fhirid(resource)
+        pfhirid = figs.parent_fhirid(resource)
         if pfhirid == None:
             return None
         elif pfhirid not in self.entrybyfhirid:

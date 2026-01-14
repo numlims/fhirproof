@@ -8,13 +8,13 @@ patientid: LIMSPSN
 
 # idcontainers lists the required idcontainers per trial and sampletype (MASTER|ALIQUOTGROUP|DERIVED)
 idcontainers:
-    NUM S-SNID:
+    "NUM S-SNID":
         MASTER:
             - MODUL
             - TIER
             - DZHK_VISIT_NR
             - BISAMID
-    NUM RAPID_REVIVE:
+    "NUM RAPID_REVIVE":
         MASTER:
             - BISAMID
 

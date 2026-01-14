@@ -34,6 +34,7 @@ class fhirproof:
     aqtgchildless = {} # is a aliquotgroup without children?
     def __init__(self, dbtarget, user, logfile, configpath:str=None):
         """
+         __init__ inits fhirproof with db target, centraxx user, logfile and config.
         """
         self.dbtarget = dbtarget
 
@@ -93,24 +94,24 @@ class fhirproof:
             self.entrybyfhirid[dig(entry, "fullUrl")] = entry
 
             resource = dig(entry, "resource")
-            if fh.resourceType(resource) == "Specimen":
-              if fh.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
+            if figs.resource_type(resource) == "Specimen":
+              if figs.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
                   aqtg_count += 1
                   if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
                       self.aqtgchildless[dig(entry, "fullUrl")] = True
                   aqtmat.check(entry)
   
               # print(f"entry resource: {json.dumps(dig(entry, 'resource'))}")
-              sampleid = fh.sampleid(dig(entry, 'resource'))
+              sampleid = figs.sampleid(dig(entry, 'resource'))
               if sampleid == None:
                   continue
               self.entrybysampleid[sampleid] = entry
   
-              if fh.type(dig(entry, 'resource')) == "MASTER":
+              if figs.type(dig(entry, 'resource')) == "MASTER":
                   master_count += 1
-              if fh.type(dig(entry, 'resource')) == "DERIVED":
+              if figs.type(dig(entry, 'resource')) == "DERIVED":
                   derived_count += 1
-              if fh.type(dig(entry, 'resource')) == "PATIENT":
+              if figs.type(dig(entry, 'resource')) == "PATIENT":
                   pat_count += 1
               # primary in db
               primary_in_db.check(entry)
@@ -134,7 +135,7 @@ class fhirproof:
               # mayeditou.check(entry, self.user)
               # id container
               idcontainer.check(entry)
-            elif fh.resourceType(resource) == "Observation":
+            elif figs.resource_type(resource) == "Observation":
               print("todo check observation")
 
         restmenge.end()
@@ -192,10 +193,10 @@ class fhirproof:
         """
         parent = None
         resource = entry['resource']
-        if fh.type(resource) != "DERIVED":              
+        if figs.type(resource) != "DERIVED":              
             return None
         # get fhirid of aliquotgroup-parent
-        pfhirid = fh.parent_fhirid(resource)
+        pfhirid = figs.parent_fhirid(resource)
         if pfhirid == None:
             return None
         elif pfhirid not in self.entrybyfhirid:

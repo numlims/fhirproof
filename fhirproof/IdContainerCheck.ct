@@ -28,9 +28,9 @@ get the trial for the sample.
 
 ``
         resource = dig(entry, "resource")
-        sampleid = fh.sampleid(resource)
+        sampleid = figs.sampleid(resource)
 
-        #patientid = fh.limspsn(resource)
+        #patientid = figs.limspsn(resource)
         res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.trial])
         trialcode = None
         if len(res) > 0:
@@ -40,7 +40,7 @@ get the trial for the sample.
 get the idcontainers from the json.
 
 ``
-        idcs = fh.identifiers(resource).keys()
+        idcs = figs.identifiers(resource).keys()
 ``
 
 say what idcontainers are missing and what idcontainers are not
@@ -52,10 +52,10 @@ overwrite is true, cause they would be deleted if missing then.
 ``
         should = [ "SAMPLEID" ]
         
-        confidcs = dig(self.fp.config, f"idcontainers/{trialcode}/{fh.type(resource)}")
+        confidcs = dig(self.fp.config, f"idcontainers/{trialcode}/{figs.type(resource)}")
         if confidcs is None:
             confidcs = []
-        if fh.updatewithoverwrite(resource) == True:
+        if figs.updatewithoverwrite(resource) == True:
             should.extend(confidcs)
 ``
 
@@ -88,6 +88,6 @@ the imports.
 ``/import:
 from fhirproof.FhirCheck import *
 from dip import dig, dis
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 import tr
 ``

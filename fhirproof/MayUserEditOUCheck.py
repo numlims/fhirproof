@@ -1,18 +1,23 @@
+# automatically generated, DON'T EDIT. please edit MayUserEditOUCheck.ct from where this file stems.
 from dip import dig
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 class MayUserEditOUCheck(FhirCheck):
     def __init__(self, fp):
+        """
+        """
         FhirCheck.__init__(self, fp)
     # check checks whether user may edit the entry
     def check(self, entry, user):
+        """
+        """
         super().check(entry)
         if self.db == None:
             return
             
         resource = dig(entry, 'resource')
         # get org unit
-        orgunit = fh.org(resource)
+        orgunit = figs.orga(resource)
         query = """
         select * from centraxx_participantorgunitano as poa
         join centraxx_participant as p on p.oid = poa.creator

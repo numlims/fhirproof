@@ -1,12 +1,18 @@
+# automatically generated, DON'T EDIT. please edit PsnCheck.ct from where this file stems.
 import re
 
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 from dip import dig
 class PsnCheck(FhirCheck):
     def __init__(self, fp):
+        """
+        """
         FhirCheck.__init__(self, fp)
     def check(self, entry):
+        """
+         check leasst den check laufen.
+        """
         super().check(entry)
         
         if self.db == None:
@@ -15,7 +21,7 @@ class PsnCheck(FhirCheck):
     
             
         resource = dig(entry, "resource")
-        sampleid = fh.sampleid(resource)
+        sampleid = figs.sampleid(resource)
     
         
         result = self.db.qfad("""
@@ -25,12 +31,15 @@ class PsnCheck(FhirCheck):
         inner join centraxx_idcontainer idc on idc.patientcontainer = pc.oid
         where sidc.psn = ? and sidc.idcontainertype = 6""", sampleid)
         
+        patid = figs.patientid(resource, "LIMSPSN")
+        
         if len(result) == 0:
-            if fh.type(resource) == "MASTER":
+            if figs.type(resource) == "MASTER":
                 self.err(f"no patient psn in db for sample {sampleid}")
-        elif fh.limspsn(resource) != result[0]["psn"]:
-            self.err(f"limspsn for sample {sampleid} is {fh.limspsn(resource)} in json and {result[0]['psn']} in db")
+        elif patid != result[0]["psn"]:
+            self.err(f"limspsn for sample {sampleid} is {patid} in json and {result[0]['psn']} in db.")
         parentresource = self.fp.parent(entry)
         if parentresource != None:
-            if fh.limspsn(parentresource) != fh.limspsn(resource):
-                self.err(f"the limpspsn of sample {sampleid} is {fh.limspsn(resource)} in json, but {fh.limspsn(parentresource)} of its parent in json")
+            parent_patid = figs.patientid(parentresource, "LIMSPSN")
+            if parent_patid != patid:
+                self.err(f"the limpspsn of sample {sampleid} is {patid} in json, but {parent_patid} of its parent in json")

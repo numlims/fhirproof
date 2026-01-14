@@ -16,8 +16,8 @@ in the pamm (primary-aliquot-material-map) field.
     def check(self, entry):
         super().check(entry)
 
-        resource = dig(entry, "resource")
-        self.info(f"checking aliquotgroup {dig(entry, 'fullUrl')}")
+        resource = figs.resource(entry)
+        self.info(f"checking aliquotgroup {figs.full_url(entry)}")
 
         ``.``
 ``
@@ -31,14 +31,14 @@ get the pamm.
 get the child material.
 
 ``
-        child_material = dig(resource, "type/coding/0/code")
+        child_material = figs.type(resource)
 ``
 
 get the parent. the parent may be referenced by sampleid or by fhirid.
 
 ``
-        parentid = fh.parent_sampleid(resource)
-        parentfhirid = fh.parent_fhirid(resource)        
+        parentid = figs.parent_sampleid(resource)
+        parentfhirid = figs.parent_fhirid(resource)        
         if parentid == None and parentfhirid == None:
             self.err(f"no parent reference given for aliquotgroup {dig(entry, 'fullUrl')}.")
             return 
@@ -55,7 +55,7 @@ get the parent from the json, either by fhirid or by sampleid.
         elif parentfhirid and parentfhirid in self.fp.entrybyfhirid:
            parent = self.fp.entrybyfhirid[parentfhirid]
 
-        parent_material = fh.material(dig(parent, "resource"))
+        parent_material = figs.material(figs.resource(parent))
 ``
 
 if we haven't encountered the parent in the json yet we try to get its
@@ -89,7 +89,7 @@ is the child material permitted by pamm?
 
 ``
         elif not child_material in pamm[parent_material]: # mappings in pamm
-            self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, needs to be in {pamm[parent_material]} to match the material {parent_material} of its primary parent {fh.sampleid(dig(parent, 'resource'))}")
+            self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, needs to be in {pamm[parent_material]} to match the material {parent_material} of its primary parent {figs.sampleid(figs.resource(parent))}")
 ``
 
 __init__ inits AqtMatCheck.
@@ -106,7 +106,7 @@ import re
 import json
 import os
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 from dip import dig, dis
 ``
 

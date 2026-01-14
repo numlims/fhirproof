@@ -31,7 +31,7 @@ get the resource and sampleid, get the sample from traction.
 ``
     resource = dig(entry, "resource")
 
-    sampleid = fh.sampleid(resource)
+    sampleid = figs.sampleid(resource)
 
     res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.orga])
     trsample = None
@@ -42,8 +42,8 @@ get the resource and sampleid, get the sample from traction.
 get the sample org from json.
 
 ``
-    sampleorgjson = fh.org(resource)
-    typ = fh.type(resource)
+    sampleorgjson = figs.orga(resource)
+    typ = figs.type(resource)
 ``
 
 do different checks for primary and aliquot samples.
@@ -114,7 +114,7 @@ pat = trac.patient(patientids=[patientid], verbose=[tr.orga])
                 INNER JOIN CENTRAXX_ORGANISATIONUNIT OU ON POU.ORGUNIT_OID=OU.OID 
                 WHERE OU.CODE != 'NUM' AND IDCT.CODE=? AND IDC.PSN=?
                 """
-                psn = fh.limspsn(resource)
+                psn = figs.patientid(resource, "LIMSPSN")
                 res = self.db.qfad(patorgq, "LIMSPSN", psn)
                 patorg = None
                 if len(res) > 0:
@@ -170,7 +170,7 @@ import re
 
 from dip import dig
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 import tr
 ``
 

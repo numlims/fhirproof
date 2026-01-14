@@ -3,7 +3,7 @@ import re
 
 from dip import dig
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 import tr
 class OUCheck(FhirCheck):
     def __init__(self, fp):
@@ -29,14 +29,14 @@ class OUCheck(FhirCheck):
             return 
         resource = dig(entry, "resource")
     
-        sampleid = fh.sampleid(resource)
+        sampleid = figs.sampleid(resource)
     
         res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.orga])
         trsample = None
         if len(res) > 0:
           trsample = res[0]
-        sampleorgjson = fh.org(resource)
-        typ = fh.type(resource)
+        sampleorgjson = figs.orga(resource)
+        typ = figs.type(resource)
         if trsample != None and typ == "MASTER":
             if sampleorgjson != None:
                 self._check(trsample.orga, sampleorgjson, sampleid)
@@ -55,7 +55,7 @@ class OUCheck(FhirCheck):
                     INNER JOIN CENTRAXX_ORGANISATIONUNIT OU ON POU.ORGUNIT_OID=OU.OID 
                     WHERE OU.CODE != 'NUM' AND IDCT.CODE=? AND IDC.PSN=?
                     """
-                    psn = fh.limspsn(resource)
+                    psn = figs.patientid(resource, "LIMSPSN")
                     res = self.db.qfad(patorgq, "LIMSPSN", psn)
                     patorg = None
                     if len(res) > 0:

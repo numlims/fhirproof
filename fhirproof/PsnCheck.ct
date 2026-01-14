@@ -20,7 +20,7 @@ def check(self, entry):
 
         
     resource = dig(entry, "resource")
-    sampleid = fh.sampleid(resource)
+    sampleid = figs.sampleid(resource)
 
     ``.``
 ``
@@ -48,11 +48,13 @@ weil das Sample in der DB liegen sollte. Ansonsten, falls es ein
 Ergebnis gibt, checken wir es, sonst ist es nicht so schlimm.
 
 ``
+patid = figs.patientid(resource, "LIMSPSN")
+
 if len(result) == 0:
-    if fh.type(resource) == "MASTER":
+    if figs.type(resource) == "MASTER":
         self.err(f"no patient psn in db for sample {sampleid}")
-elif fh.limspsn(resource) != result[0]["psn"]:
-    self.err(f"limspsn for sample {sampleid} is {fh.limspsn(resource)} in json and {result[0]['psn']} in db")
+elif patid != result[0]["psn"]:
+    self.err(f"limspsn for sample {sampleid} is {patid} in json and {result[0]['psn']} in db.")
 ``
 
 Wenn das Sample ein Derived/Aliquot ist, ist die Limspsn im
@@ -61,8 +63,9 @@ Json-Parent die gleiche?
 ``
 parentresource = self.fp.parent(entry)
 if parentresource != None:
-    if fh.limspsn(parentresource) != fh.limspsn(resource):
-        self.err(f"the limpspsn of sample {sampleid} is {fh.limspsn(resource)} in json, but {fh.limspsn(parentresource)} of its parent in json")
+    parent_patid = figs.patientid(parentresource, "LIMSPSN")
+    if parent_patid != patid:
+        self.err(f"the limpspsn of sample {sampleid} is {patid} in json, but {parent_patid} of its parent in json")
 ``
 
 Init.
@@ -78,7 +81,7 @@ Die importe.
 import re
 
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 from dip import dig
 ``
 
