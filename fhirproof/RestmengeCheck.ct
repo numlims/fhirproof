@@ -61,20 +61,20 @@ if collectionQuantity is not None and not isinstance(collectionQuantity, numbers
     self.err(f"collection quantity for sample {sampleid} needs to be a number (not {type(collectionQuantity).__name__}).")
 ``
 
-if the restamout is zero there shouldn't be a lagerort.
+if the restamount is zero there shouldn't be a lagerort.
 
 ``
 if (restamount is None or restamount == 0) and figs.locationpath(resource) is not None:
     self.err(f"restmenge for sample {sampleid} is zero, and there is a sampleLocation given, please remove the sampleLocation")
 ``
 
-Am Ende werden die Restmengen zusammengekratzt.
+at the end, add up the restamounts.
 
 ``/end:
 def end(self):
     for entry in self.entries:
         #    restamount = entry["resource"]["container"][0]["specimenQuantity"]["value"]
-        restamount = figs.restamout(figs.resource(entry))
+        restamount = figs.restamount(figs.resource(entry))
         sampleid = figs.sampleid(figs.resource(entry))
         # should restamount be zero, but isn't?
         if dig(entry, "fullUrl") in self.fp.shouldzerorest and self.fp.shouldzerorest[dig(entry, "fullUrl")] == True and restamount > 0:

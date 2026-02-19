@@ -30,7 +30,7 @@ class IdContainerCheck(FhirCheck):
         confidcs = dig(self.fp.config, f"idcontainers/{trialcode}/{figs.type(resource)}")
         if confidcs is None:
             confidcs = []
-        if figs.updatewithoverwrite(resource) == True:
+        if figs.update_with_overwrite(resource) == True:
             should.extend(confidcs)
         for idc in should:
           if idc not in idcs:

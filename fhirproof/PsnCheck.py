@@ -18,25 +18,26 @@ class PsnCheck(FhirCheck):
         if self.db == None:
             return
     
-    
-            
         resource = dig(entry, "resource")
         sampleid = figs.sampleid(resource)
-    
-        
         result = self.db.qfad("""
-        select idc.psn from centraxx_sample s 
-        inner join centraxx_sampleidcontainer sidc on sidc.sample = s.oid
-        inner join centraxx_patientcontainer pc on s.patientcontainer = pc.oid 
-        inner join centraxx_idcontainer idc on idc.patientcontainer = pc.oid
-        where sidc.psn = ? and sidc.idcontainertype = 6""", sampleid)
-        
+    select idc.psn from centraxx_sample s 
+    inner join centraxx_sampleidcontainer sidc on sidc.sample = s.oid
+    inner join centraxx_patientcontainer pc on s.patientcontainer = pc.oid 
+    inner join centraxx_idcontainer idc on idc.patientcontainer = pc.oid
+    where sidc.psn = ? and sidc.idcontainertype = 6""", sampleid)
+    
         patid = figs.patientid(resource, "LIMSPSN")
-        
+    
         if len(result) == 0:
             if figs.type(resource) == "MASTER":
                 self.err(f"no patient psn in db for sample {sampleid}")
         elif patid != result[0]["psn"]:
+            res = self.tr.patient(sampleids=[sampleid])
+            dbpatid = res[0].id()
+            print("tr pat id: " + dbpatid)
+            print("query pat id: " + result[0]["psn"])
+        
             self.err(f"limspsn for sample {sampleid} is {patid} in json and {result[0]['psn']} in db.")
         parentresource = self.fp.parent(entry)
         if parentresource != None:

@@ -35,7 +35,7 @@ class RestmengeCheck(FhirCheck):
         """
         for entry in self.entries:
             #    restamount = entry["resource"]["container"][0]["specimenQuantity"]["value"]
-            restamount = figs.restamout(figs.resource(entry))
+            restamount = figs.restamount(figs.resource(entry))
             sampleid = figs.sampleid(figs.resource(entry))
             # should restamount be zero, but isn't?
             if dig(entry, "fullUrl") in self.fp.shouldzerorest and self.fp.shouldzerorest[dig(entry, "fullUrl")] == True and restamount > 0:

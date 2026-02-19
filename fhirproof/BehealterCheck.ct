@@ -59,7 +59,7 @@ from dip import dig, dis
 from figs import specimen as figs
 ``
 
-init inits the stuff.
+init inits the check.
 
 ``/init:
     def __init__(self, fp):

@@ -18,10 +18,10 @@ class LocationCheck(FhirCheck):
         resource = dig(entry, "resource")
         sampleid = figs.sampleid(resource)
         # restmenge zero
-        if figs.restmenge(resource) == 0 and figs.lagerort(resource) != None:
-            self.err(f"restmenge of sample {sampleid} is zero, it shouldn't have a lagerort but it's lagerort is {figs.lagerort(resource)}.")
-        if figs.restmenge(resource) > 0 and self.db != None:
-            locpath = figs.lagerort(resource)
+        if figs.restamount(resource) == 0 and figs.locationpath(resource) != None:
+            self.err(f"restmenge of sample {sampleid} is zero, it shouldn't have a lagerort but it's lagerort is {figs.locationpath(resource)}.")
+        if figs.restamount(resource) > 0 and self.db != None:
+            locpath = figs.locationpath(resource)
             # print(f"lagerort of sample {sampleid}: {locpath}")
             if locpath == None:
                 self.err(f"no location path for sample {sampleid} in json, there should be one though.")
