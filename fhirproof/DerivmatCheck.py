@@ -19,7 +19,7 @@ class DerivmatCheck(FhirCheck):
           child_material = dig(resource, "type/coding/0/code")
   
           parentresource = self.fp.parent(entry)
-          if figs.type(resource) == "DERIVED" and parentresource:
+          if figs.category(resource) == "DERIVED" and parentresource:
               parent_material = dig(parentresource, "type/coding/0/code")
               if parent_material != child_material:
                   parentfhirid = dig(parentresource, "fullUrl")

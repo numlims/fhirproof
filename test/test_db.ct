@@ -9,7 +9,18 @@ test_db tests fhirproof against db.
 
 ``/test_db:
 def test_db():
+    ``.``
+``
+
+start fhirproof.
+
+``
     fp = fhirproof("num_prod", "numddfhir", "test/fp.log", configpath="config.yaml")
+``
+
+check the resources in test/in.
+
+``
     ok = fp.check("test/in", "latin-1")
     assert ok == True
 ``

@@ -78,3 +78,55 @@ alicontainers: # allowed aliquot containers
     - NUMCryoAliquot300
     - NUMAliquot1000
     - NUMAliquot2000
+
+# amountunits lists the allowed amount units
+amountunits:
+  - CL
+  - CM
+  - CM3
+  - DL
+  - L
+  - ML
+  - MM
+  - NL
+  - PL
+  - G
+  - KG
+  - MG
+  - MICG
+  - MICL
+  - NG
+  - PC
+  - PG
+  - NG_MICL
+  - SLICE
+  - BEADS
+  - XE05
+  - XE06
+  - XE07
+  - XE05ML
+  - XE06ML
+  - XE07ML
+  - X
+  - MICG_MICL
+  - PG_MICL
+  - MG_ML
+  - CAPS
+  - PERCENT
+  - MOL
+  - MOL_L
+  - CELLCOUNT_CM2
+  - CELLCOUNT_MICL
+  - CELLCOUNT_ML
+  - MMOL
+
+# skip specifies which checks shouldn't be run based on trial and sampletype.
+# if * is part of the class list, all checks are skipped for this material.
+skip:
+  "NUM S-SNID": # trial
+    NUM_PATHO_DIAGNOSTIC: # sample type
+      - DatesCheck
+    NUM_PATHO_GENETIC:
+      - DatesCheck
+    NUM_PATHO_ISOLATED:
+      - DatesCheck

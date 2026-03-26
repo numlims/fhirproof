@@ -4,8 +4,9 @@ import tr
 from dbcq import dbcq
 import yaml
 from dip import dig
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 
+from fhirproof.AmountUnitCheck import *
 from fhirproof.AqtMatCheck import *
 from fhirproof.PrimaryInDbCheck import *
 from fhirproof.DatesCheck import *
@@ -70,6 +71,7 @@ class fhirproof:
         self.log.info(f"START CHECK")
         self.log.info(f"starting check against {self.dbtarget}")
         # initialize checks
+        amountunit = AmountUnitCheck(self)
         aqtmat = AqtMatCheck(self)
         primary_in_db = PrimaryInDbCheck(self)
         dates = DatesCheck(self)
@@ -107,16 +109,20 @@ class fhirproof:
                   continue
               self.entrybysampleid[sampleid] = entry
   
-              if figs.type(dig(entry, 'resource')) == "MASTER":
+              if figs.category(dig(entry, 'resource')) == "MASTER":
                   master_count += 1
-              if figs.type(dig(entry, 'resource')) == "DERIVED":
+              if figs.category(dig(entry, 'resource')) == "DERIVED":
                   derived_count += 1
-              if figs.type(dig(entry, 'resource')) == "PATIENT":
+              if figs.category(dig(entry, 'resource')) == "PATIENT":
                   pat_count += 1
+              sampletype = figs.type(figs.resource(entry))
+              # amount units
+              amountunit.check(entry)
               # primary in db
               primary_in_db.check(entry)
               # dates
-              dates.check(entry)
+              if not self._skip(type(dates).__name__, "NUM S-SNID", sampletype):
+                  dates.check(entry)
               # location
               location.check(entry)
               # behealter
@@ -202,3 +208,13 @@ class fhirproof:
         elif pfhirid not in self.entrybyfhirid:
             return None
         return self.entrybyfhirid[pfhirid]['resource']
+    def _skip(self, classname:str, trial:str, sampletype:str) -> bool:
+        """
+         _skip says whether a check should be skipped based on trial and sampletype.
+        """
+        if classname is None or trial is None or sampletype is None:
+            return False
+        skipchecks = dig(self.config, f"skip/{trial}/{sampletype}")
+        if skipchecks is None:
+            return False
+        return classname in skipchecks or "*" in skipchecks

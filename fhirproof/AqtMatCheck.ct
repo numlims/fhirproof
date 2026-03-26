@@ -31,7 +31,7 @@ get the pamm.
 get the child material.
 
 ``
-        child_material = figs.type(resource)
+        child_material = figs.category(resource)
 ``
 
 get the parent. the parent may be referenced by sampleid or by fhirid.

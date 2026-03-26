@@ -30,7 +30,7 @@ class PsnCheck(FhirCheck):
         patid = figs.patientid(resource, "LIMSPSN")
     
         if len(result) == 0:
-            if figs.type(resource) == "MASTER":
+            if figs.category(resource) == "MASTER":
                 self.err(f"no patient psn in db for sample {sampleid}")
         elif patid != result[0]["psn"]:
             res = self.tr.patient(sampleids=[sampleid])

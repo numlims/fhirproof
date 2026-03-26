@@ -44,7 +44,7 @@ edit [`fhirproof/init.ct`](./fhirproof/init.ct) for the fhirproof
 class, [`fhirproof/main.ct`](./fhirproof/main.ct) for the commandline
 interface and `fhirproof/*Check.ct` for the various checks.
 
-generate code from the .ct files with
+generate the code from ct with
 [ct](https://github.com/tnustrings/codetext/releases) or [ct for
 vscode](https://marketplace.visualstudio.com/items?itemName=tnustrings.codetext).
 

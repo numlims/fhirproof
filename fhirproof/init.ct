@@ -20,6 +20,7 @@ class fhirproof:
     ``setuplog``
     ``entries_from_dir``
     ``parent``
+    ``_skip``
 ``
 
 __init__ inits fhirproof with db target, centraxx user, logfile and config.
@@ -137,6 +138,7 @@ aliquotgroups, masters und deriveds.
 
 ``
         # initialize checks
+        amountunit = AmountUnitCheck(self)
         aqtmat = AqtMatCheck(self)
         primary_in_db = PrimaryInDbCheck(self)
         dates = DatesCheck(self)
@@ -219,21 +221,32 @@ samples und patients.
 ``
             self.entrybysampleid[sampleid] = entry
 
-            if figs.type(dig(entry, 'resource')) == "MASTER":
+            if figs.category(dig(entry, 'resource')) == "MASTER":
                 master_count += 1
-            if figs.type(dig(entry, 'resource')) == "DERIVED":
+            if figs.category(dig(entry, 'resource')) == "DERIVED":
                 derived_count += 1
-            if figs.type(dig(entry, 'resource')) == "PATIENT":
+            if figs.category(dig(entry, 'resource')) == "PATIENT":
                 pat_count += 1
+``
+
+get the trial and sampletype, for finding which checks to skip.
+
+get the trial from db or sample?
+
+``
+            sampletype = figs.type(figs.resource(entry))
 ``
 
 lass die checks fuer die nicht-aliquot (derived) samples laufen. warum nicht-aliquot?
 
 ``
+            # amount units
+            amountunit.check(entry)
             # primary in db
             primary_in_db.check(entry)
             # dates
-            dates.check(entry)
+            if not self._skip(type(dates).__name__, "NUM S-SNID", sampletype):
+                dates.check(entry)
             # location
             location.check(entry)
             # behealter
@@ -290,8 +303,9 @@ die importe fuer check_entries.
 
 ``/import
 from dip import dig
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 
+from fhirproof.AmountUnitCheck import *
 from fhirproof.AqtMatCheck import *
 from fhirproof.PrimaryInDbCheck import *
 from fhirproof.DatesCheck import *
@@ -432,6 +446,34 @@ auf parent() koennen die checks zugreifen.
         elif pfhirid not in self.entrybyfhirid:
             return None
         return self.entrybyfhirid[pfhirid]['resource']
+``
+
+_skip says whether a check should be skipped based on trial and sampletype.
+
+``/_skip:
+    def _skip(self, classname:str, trial:str, sampletype:str) -> bool:
+        ``.``
+``
+
+don't skip if not complete info.
+
+``
+        if classname is None or trial is None or sampletype is None:
+            return False
+``
+
+get the config entry.
+
+``
+        skipchecks = dig(self.config, f"skip/{trial}/{sampletype}")
+        if skipchecks is None:
+            return False
+``
+
+say whether the class is listed in the checks to skip.
+
+``
+        return classname in skipchecks or "*" in skipchecks
 ``
 
 setuplog setzt den log auf.

@@ -22,6 +22,6 @@ class PrimaryInDbCheck(FhirCheck):
         # samplerow = sample(sampleid)
         res = self.tr.sample(sampleids=[sampleid], verbose_all=True) # todo specify which verbose fields?
 
-        if (res == None or len(res) == 0) and figs.type(resource) == "MASTER":
+        if (res == None or len(res) == 0) and figs.category(resource) == "MASTER":
             self.err(f"sample {sampleid} is type master but it is not in the db.")
 

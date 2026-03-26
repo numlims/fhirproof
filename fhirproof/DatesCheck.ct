@@ -8,35 +8,46 @@ class DatesCheck(FhirCheck):
     ``check``
 ``
 
-Proben sollten in dieser zeitlichen Reihenfolge verarbeitet werden: 
+the dates belonging to a sample should be in that order:
 
-Abnahme (Collection) [bei Primär]<br/>
-Laboreingang (Received)  <br/>
-Zentrifugation [wenn da] <br/>
-Aliquotierung (Derival) [bei Aliquoten]   <br/>
+abnahme (collection) [bei Primär]<br/>
+laboreingang (received)  <br/>
+zentrifugation [wenn da] <br/>
+aliquotierung (derival) [bei Aliquoten]   <br/>
 
-Wir legen die Zeiten für die Verarbeitungsschritte in das Array
-`timechain` in der Reihenfolge, in der wir sie erwarten. Dann können
-wir checken, ob die Zeiten in `timechain` tatsächlich in aufsteigender
-Reihenfolge sind.
+put the datetimes of a sample in the list `timechain` in the order
+that they should be. then check that the dates in timechain are
+actually in order.
+
 
 ``/check:
     def check(self, entry):
         super().check(entry)
+        ``.``
+``
+
+make the timechain.
+
+``
         resource = dig(entry, "resource")
         sampleid = figs.sampleid(resource)
         timechain = [] # ascending order
-        if figs.type(resource) == "MASTER" or figs.type(resource) == "DERIVED":
+``
+
+put the dates on timechain.
+
+``
+        if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
             if "collection" not in resource or "collectedDateTime" not in dig(resource, "collection"):
-                self.err(f"no collection date in {sampleid}")
+                self.err(f"no collection date for sample {sampleid}")
             else:
                 timechain.append(["collection date", self.isodate(dig(resource, "collection/collectedDateTime"))])
-        if figs.type(resource) == "MASTER":
+        if figs.category(resource) == "MASTER":
             if "receivedTime" not in resource:
-                self.err(f"no receivedTime in sample {sampleid}")
+                self.err(f"no receivedTime for sample {sampleid}")
             else:
                 timechain.append(["received date", self.isodate(dig(resource, "receivedTime"))])
-        if figs.type(resource) == "MASTER" or figs.type(resource) == "DERIVED":
+        if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
             centri_date = None
             for e in dig(resource, "extension"):
                 if dig(e, "url") == "https://fhir.centraxx.de/extension/sprec":
@@ -44,14 +55,13 @@ Reihenfolge sind.
                         if dig(ee, "url") == "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate":
                             centri_date = self.isodate(dig(ee, "valueDateTime"))
                             timechain.append(["centrifugation date", centri_date])
-        ``.``
 ``
 
 Bei Aliquoten sollte die Aliquotierung (Derival) nach der
 Zentrifugation sein, wir legen sie auf `timechain`.
 
 ``
-        if figs.type(resource) == "DERIVED":
+        if figs.category(resource) == "DERIVED":
             deriv_date = False
             for e in dig(resource, "extension"):
                 if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/derivalDate":
@@ -66,7 +76,7 @@ derived wurden.
 
 ``
 
-        if figs.type(resource) == "DERIVED":
+        if figs.category(resource) == "DERIVED":
             repo_date = False
             for e in dig(resource, "extension"):
                 if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/repositionDate":

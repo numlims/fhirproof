@@ -36,7 +36,7 @@ class OUCheck(FhirCheck):
         if len(res) > 0:
           trsample = res[0]
         sampleorgjson = figs.orga(resource)
-        typ = figs.type(resource)
+        typ = figs.category(resource)
         if trsample != None and typ == "MASTER":
             if sampleorgjson != None:
                 self._check(trsample.orga, sampleorgjson, sampleid)

@@ -19,7 +19,7 @@ class RestmengeCheck(FhirCheck):
         self.fp.shouldzerorest[entry["fullUrl"]] = False
         resource = dig(entry, "resource")
         # parents of derived-aliquotes should be with zero rest
-        if figs.type(resource) == "DERIVED":
+        if figs.category(resource) == "DERIVED":
             self.fp.shouldzerorest[figs.parent_fhirid(resource)] = True
         restamount = figs.restamount(resource)
         sampleid = figs.sampleid(resource)

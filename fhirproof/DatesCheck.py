@@ -24,17 +24,17 @@ class DatesCheck(FhirCheck):
         resource = dig(entry, "resource")
         sampleid = figs.sampleid(resource)
         timechain = [] # ascending order
-        if figs.type(resource) == "MASTER" or figs.type(resource) == "DERIVED":
+        if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
             if "collection" not in resource or "collectedDateTime" not in dig(resource, "collection"):
-                self.err(f"no collection date in {sampleid}")
+                self.err(f"no collection date for sample {sampleid}")
             else:
                 timechain.append(["collection date", self.isodate(dig(resource, "collection/collectedDateTime"))])
-        if figs.type(resource) == "MASTER":
+        if figs.category(resource) == "MASTER":
             if "receivedTime" not in resource:
-                self.err(f"no receivedTime in sample {sampleid}")
+                self.err(f"no receivedTime for sample {sampleid}")
             else:
                 timechain.append(["received date", self.isodate(dig(resource, "receivedTime"))])
-        if figs.type(resource) == "MASTER" or figs.type(resource) == "DERIVED":
+        if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
             centri_date = None
             for e in dig(resource, "extension"):
                 if dig(e, "url") == "https://fhir.centraxx.de/extension/sprec":
@@ -42,7 +42,7 @@ class DatesCheck(FhirCheck):
                         if dig(ee, "url") == "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate":
                             centri_date = self.isodate(dig(ee, "valueDateTime"))
                             timechain.append(["centrifugation date", centri_date])
-        if figs.type(resource) == "DERIVED":
+        if figs.category(resource) == "DERIVED":
             deriv_date = False
             for e in dig(resource, "extension"):
                 if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/derivalDate":
@@ -51,7 +51,7 @@ class DatesCheck(FhirCheck):
             if deriv_date == False:
                 self.err(f"no derival date for sample {sampleid}")
 
-        if figs.type(resource) == "DERIVED":
+        if figs.category(resource) == "DERIVED":
             repo_date = False
             for e in dig(resource, "extension"):
                 if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/repositionDate":

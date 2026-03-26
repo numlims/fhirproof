@@ -15,20 +15,15 @@ class ParentingCheck(FhirCheck):
         super().check(entry)
         resource = dig(entry, "resource")
         sampleid = figs.sampleid(resource)
-        # is there a reference to a parent?
-        if figs.type(resource) == "DERIVED":
-        
-            # is there a fhirid referencing a parent?
+        if figs.category(resource) == "DERIVED":
             pfhirid = figs.parent_fhirid(resource)
             if pfhirid == None:
                 self.err(f"sample {sampleid} is a derived, but there isn't a reference to a parent.")
                 # we assume that we already visited the parent, if not, message
             elif pfhirid not in self.fp.entrybyfhirid:
                 self.err(f"the parent of derived sample {sampleid} hasn't been encountered in the json file yet.")
-        
-            if figs.parent_fhirid(resource) not in self.fp.aqtgchildless:
+            if figs.parent_fhirid(resource) not in self.fp.entrybyfhirid:
                 self.err(f"the aliquotgroup of sample {sampleid} hasn't been encountered yet.") 
-            # print(figs.parent_fhirid(resource) + " is not childless")
             self.fp.aqtgchildless[figs.parent_fhirid(resource)] = False
     def end(self):
         """

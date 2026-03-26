@@ -24,7 +24,7 @@ class LocationCheck(FhirCheck):
             locpath = figs.locationpath(resource)
             # print(f"lagerort of sample {sampleid}: {locpath}")
             if locpath == None:
-                self.err(f"no location path for sample {sampleid} in json, there should be one though.")
+                self.err(f"no location path for sample {sampleid} in json, there should be one, because the restamount ({figs.restamount(resource)}) is greater than 0.")
 
             query = "select * from centraxx_samplelocation where locationpath = ?"
             result = self.db.qfa(query, locpath)

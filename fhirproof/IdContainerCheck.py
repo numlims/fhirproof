@@ -27,7 +27,7 @@ class IdContainerCheck(FhirCheck):
         idcs = figs.identifiers(resource).keys()
         should = [ "SAMPLEID" ]
         
-        confidcs = dig(self.fp.config, f"idcontainers/{trialcode}/{figs.type(resource)}")
+        confidcs = dig(self.fp.config, f"idcontainers/{trialcode}/{figs.category(resource)}")
         if confidcs is None:
             confidcs = []
         if figs.update_with_overwrite(resource) == True:

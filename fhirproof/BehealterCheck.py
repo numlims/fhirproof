@@ -21,9 +21,9 @@ class BehealterCheck(FhirCheck):
         res = self.tr.sample(sampleids=[sampleid], verbose=[tr.receptacle])
         if len(res) > 0:
            dbsample = res[0]
-        if figs.type(resource) == "MASTER" and (dbsample != None and container != dbsample.receptacle):
+        if figs.category(resource) == "MASTER" and (dbsample != None and container != dbsample.receptacle):
             self.err(f"container for primary sample {sampleid} should be {dbsample.receptacle} but is {container} in json.")
         aqt_allowed = self.fp.config["alicontainers"] # ["NUM_AliContainer", "NUMCryoAliquot500", "NUMAliquot1000", "NUMAliquot2000"]
-        if figs.type(resource) == "DERIVED" and container not in aqt_allowed:
-           self.err(f"container for derived sample {sampleid} should be in {aqt_allowed} but is {container} in json.")
+        if figs.category(resource) == "DERIVED" and container not in aqt_allowed:
+           self.err(f"container for derived sample {sampleid} is {container} in json but should be in {aqt_allowed}.")
 

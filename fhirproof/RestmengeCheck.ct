@@ -35,7 +35,7 @@ self.entries.append(entry) # remember for later
 self.fp.shouldzerorest[entry["fullUrl"]] = False
 resource = dig(entry, "resource")
 # parents of derived-aliquotes should be with zero rest
-if figs.type(resource) == "DERIVED":
+if figs.category(resource) == "DERIVED":
     self.fp.shouldzerorest[figs.parent_fhirid(resource)] = True
 ``
 
