@@ -1,9 +1,7 @@
 # automatically generated, DON'T EDIT. please edit FhirCheck.ct from where this file stems.
 import sys
 
-from fhirproof.fhirhelp import fhirhelp as fh
 from dip import dig, dis
-# from traction import *
 class FhirCheck:
 
     def __init__(self, fp):

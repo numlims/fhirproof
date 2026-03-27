@@ -3,6 +3,7 @@ from datetime import datetime
 from dip import dig, dis
 from fhirproof.FhirCheck import *
 from figs import specimen as figs
+from tram import Sample
 class DatesCheck(FhirCheck):
     def __init__(self, fp):
         """
@@ -17,7 +18,7 @@ class DatesCheck(FhirCheck):
         # return datetime.strptime(s, "%Y-%m-%dT%H:%M:%S")
         #return datetime.fromisoformat(s)
         return datetime.fromisoformat(s).date()
-    def check(self, entry):
+    def check(self, entry, dbsample:Sample):
         """
         """
         super().check(entry)
@@ -25,39 +26,36 @@ class DatesCheck(FhirCheck):
         sampleid = figs.sampleid(resource)
         timechain = [] # ascending order
         if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
-            if "collection" not in resource or "collectedDateTime" not in dig(resource, "collection"):
+            collectiondate = figs.collected_date(resource)
+            if collectiondate is None:
                 self.err(f"no collection date for sample {sampleid}")
             else:
-                timechain.append(["collection date", self.isodate(dig(resource, "collection/collectedDateTime"))])
+                timechain.append(["collection date", self.isodate(collectiondate)])
         if figs.category(resource) == "MASTER":
-            if "receivedTime" not in resource:
+            receiveddate = figs.received_date(resource)
+            if receiveddate is None:
                 self.err(f"no receivedTime for sample {sampleid}")
             else:
-                timechain.append(["received date", self.isodate(dig(resource, "receivedTime"))])
+                timechain.append(["received date", self.isodate(receiveddate)])
         if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
-            centri_date = None
-            for e in dig(resource, "extension"):
-                if dig(e, "url") == "https://fhir.centraxx.de/extension/sprec":
-                    for ee in dig(e, "extension"):
-                        if dig(ee, "url") == "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate":
-                            centri_date = self.isodate(dig(ee, "valueDateTime"))
-                            timechain.append(["centrifugation date", centri_date])
+            centridate = figs.centrifugation_date(resource)
+            if centridate is not None:
+                timechain.append(["centrifugation date", self.isodate(centridate)])
+            else:
+                if dbsample is not None and dbsample.stockprocessing not in [None, "", "Sprec-N", "NO"]:
+                    self.err(f"sample {sampleid} should come with a centrifugation date (stock processing: {dbsample.stockprocessing}).")
         if figs.category(resource) == "DERIVED":
-            deriv_date = False
-            for e in dig(resource, "extension"):
-                if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/derivalDate":
-                    deriv_date = True
-                    timechain.append(["derival date", self.isodate(dig(e, "valueDateTime"))])
-            if deriv_date == False:
+            deriv_date = figs.derival_date(resource)
+            if deriv_date is not None:    
+                timechain.append(["derival date", self.isodate(deriv_date)])
+            else:
                 self.err(f"no derival date for sample {sampleid}")
 
         if figs.category(resource) == "DERIVED":
-            repo_date = False
-            for e in dig(resource, "extension"):
-                if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/repositionDate":
-                    repo_date = True
-                    timechain.append(["reposition date", self.isodate(dig(e, "valueDateTime"))])
-            if repo_date == False:
+            repo_date = figs.reposition_date(resource)
+            if repo_date is not None:
+                timechain.append(["reposition date", self.isodate(repo_date)])
+            else:
                 self.err(f"no reposition date for sample {sampleid}")
         # print("timechain: " + str(timechain))
         for i in range(1, len(timechain)):

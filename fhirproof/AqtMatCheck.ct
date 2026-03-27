@@ -55,7 +55,7 @@ get the parent from the json, either by fhirid or by sampleid.
         elif parentfhirid and parentfhirid in self.fp.entrybyfhirid:
            parent = self.fp.entrybyfhirid[parentfhirid]
 
-        parent_material = figs.material(figs.resource(parent))
+        parent_material = figs.type(figs.resource(parent))
 ``
 
 if we haven't encountered the parent in the json yet we try to get its

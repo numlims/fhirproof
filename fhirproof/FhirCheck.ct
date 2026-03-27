@@ -56,7 +56,5 @@ would this be sensible here?
 ``/import:
 import sys
 
-from fhirproof.fhirhelp import fhirhelp as fh
 from dip import dig, dis
-# from traction import *
 ``

@@ -21,6 +21,7 @@ class fhirproof:
     ``entries_from_dir``
     ``parent``
     ``_skip``
+    ``_trial_from_orga``
 ``
 
 __init__ inits fhirproof with db target, centraxx user, logfile and config.
@@ -151,6 +152,7 @@ aliquotgroups, masters und deriveds.
         derivmat = DerivmatCheck(self)
         mayeditou = MayUserEditOUCheck(self)
         idcontainer = IdContainerCheck(self)
+        primmat = PrimaryMatCheck(self)
 
         # count for some stats
         master_count = 0        
@@ -173,13 +175,13 @@ check depending on specimen or observation.
 
 ``
             # keep arrays up to date
-            self.entrybyfhirid[dig(entry, "fullUrl")] = entry
+            self.entrybyfhirid[figs.full_url(entry)] = entry
 
-            resource = dig(entry, "resource")
+            resource = figs.resource(entry)
             if figs.resource_type(resource) == "Specimen":
               ``specimen``
-            elif figs.resource_type(resource) == "Observation":
-              ``observation``
+            #elif figs.resource_type(resource) == "Observation":
+            #  `observation`
 
 ``
 
@@ -198,22 +200,37 @@ gibt. aliquotgruppen haben keine sampleid, mach ihre checks bevor wir
 weitergehen.
 
 ``/check_entries/loop/specimen:
-            if figs.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
+            if figs.category(resource) == "ALIQUOTGROUP":
                 aqtg_count += 1
-                if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
-                    self.aqtgchildless[dig(entry, "fullUrl")] = True
+                if not figs.full_url(entry) in self.aqtgchildless: # tmp way to prohibit overwrites
+                    self.aqtgchildless[figs.full_url(entry)] = True
                 aqtmat.check(entry)
 
-            # print(f"entry resource: {json.dumps(dig(entry, 'resource'))}")
+            # print(f"entry resource: {json.dumps(figs.resource(entry))}")
 ``
 
 wenn es keine sampleid gibt, skippe zum naechsten entry.
 
+todo should there be an error then?
+
 ``
-            sampleid = figs.sampleid(dig(entry, 'resource'))
+            sampleid = figs.sampleid(resource)
             if sampleid == None:
                 continue
 ``
+
+get the sample from db, to pass it to checks, so there aren't
+repeated sample fetches by each check.
+
+if the sample isn't in the db (yet), a None dbsample is passed to the
+methods.
+
+``
+            res = self.tr.sample(sampleids=[sampleid], verbose_all=True)
+            dbsample:Sample = None
+            if len(res) > 0:
+                dbsample = res[0]
+``                
 
 speichere den entry anhand der sampleid, zaehle master, derived
 samples und patients.
@@ -221,57 +238,76 @@ samples und patients.
 ``
             self.entrybysampleid[sampleid] = entry
 
-            if figs.category(dig(entry, 'resource')) == "MASTER":
+            if figs.category(resource) == "MASTER":
                 master_count += 1
-            if figs.category(dig(entry, 'resource')) == "DERIVED":
+            if figs.category(resource) == "DERIVED":
                 derived_count += 1
-            if figs.category(dig(entry, 'resource')) == "PATIENT":
+            if figs.category(resource) == "PATIENT":
                 pat_count += 1
 ``
 
 get the trial and sampletype, for finding which checks to skip.
 
-get the trial from db or sample?
-
 ``
-            sampletype = figs.type(figs.resource(entry))
+            sampletype = figs.type(resource)
 ``
 
-lass die checks fuer die nicht-aliquot (derived) samples laufen. warum nicht-aliquot?
+the trial isn't in the json, and for non-primary samples not in the
+db. for now, extract the trial from the sample's orga.
+
+``
+            trial = self._trial_from_orga(figs.orga(resource))
+``
+
+run the checks for non aliquotgroup specimens.  make sure that a check
+shouldn't be skipped for the trial and sampletype.
 
 ``
             # amount units
-            amountunit.check(entry)
+            if not self._skip(type(amountunit).__name__, trial, sampletype):
+                amountunit.check(entry)
             # primary in db
-            primary_in_db.check(entry)
+            if not self._skip(type(primary_in_db).__name__, trial, sampletype):
+                primary_in_db.check(entry)
             # dates
-            if not self._skip(type(dates).__name__, "NUM S-SNID", sampletype):
-                dates.check(entry)
+            if not self._skip(type(dates).__name__, trial, sampletype):
+                dates.check(entry, dbsample)
             # location
-            location.check(entry)
+            if not self._skip(type(location).__name__, trial, sampletype):  
+                location.check(entry)
             # behealter
-            behealter.check(entry)
+            if not self._skip(type(behealter).__name__, trial, sampletype):
+                behealter.check(entry)
             # org
-            ou.check(entry)
+            if not self._skip(type(ou).__name__, trial, sampletype):
+                ou.check(entry)
             # parenting
-            parenting.check(entry)
+            if not self._skip(type(parenting).__name__, trial, sampletype):
+                parenting.check(entry)
             # psn
-            psn.check(entry)
+            if not self._skip(type(psn).__name__, trial, sampletype):
+                psn.check(entry)
             # restmenge
-            restmenge.check(entry)
+            if not self._skip(type(restmenge).__name__, trial, sampletype):
+                restmenge.check(entry)
             # derived material
-            derivmat.check(entry)
+            if not self._skip(type(derivmat).__name__, trial, sampletype):
+                derivmat.check(entry)
             # edit oe?
             # mayeditou.check(entry, self.user)
             # id container
-            idcontainer.check(entry)
+            if not self._skip(type(idcontainer).__name__, trial, sampletype):
+                idcontainer.check(entry)
+            # primary material
+            if not self._skip(type(primmat).__name__, trial, sampletype):
+                idcontainer.check(entry)
 ``
 
 if the resource is an observation, do the observation checks.
 
-``/check_entries/loop/observation:
-            print("todo check observation")
-``
+`/check_entries/loop/observation:
+            #print("todo check observation")
+`
 
 restmenge und parenting machen einen extra check nach dem loop.
 
@@ -304,6 +340,7 @@ die importe fuer check_entries.
 ``/import
 from dip import dig
 from figs import specimen as figs
+from tram import Sample
 
 from fhirproof.AmountUnitCheck import *
 from fhirproof.AqtMatCheck import *
@@ -318,6 +355,7 @@ from fhirproof.RestmengeCheck import *
 from fhirproof.DerivmatCheck import *
 from fhirproof.MayUserEditOUCheck import *
 from fhirproof.IdContainerCheck import *
+from fhirproof.PrimaryMatCheck import *
 ``
 
 ## check observations
@@ -437,7 +475,7 @@ auf parent() koennen die checks zugreifen.
     def parent(self, entry):
         parent = None
         resource = entry['resource']
-        if figs.type(resource) != "DERIVED":              
+        if figs.category(resource) != "DERIVED":              
             return None
         # get fhirid of aliquotgroup-parent
         pfhirid = figs.parent_fhirid(resource)
@@ -476,7 +514,7 @@ say whether the class is listed in the checks to skip.
         return classname in skipchecks or "*" in skipchecks
 ``
 
-setuplog setzt den log auf.
+_setuplog setzt den log auf.
 
 ``/setuplog:
     def _setuplog(self, logfile):
@@ -501,6 +539,25 @@ log to stdout.
         stdout_handler.setFormatter(formatter)
         log.addHandler(stdout_handler)
         self.log = log
+``
+
+
+_trial_from_orga extracts the trial from orga, since trial's aren't in the json.
+
+``/_trial_from_orga:
+    def _trial_from_orga(self, orga:str):
+        ``.``
+``
+
+SNID orgas are named like s-snid/lsu-ukl-id-1, REVIVE orgas are named like NUM_W_REVIVE.
+
+``
+        if re.match(r"^s-snid", orga):
+            return "NUM S-SNID"
+        elif re.match(r"REVIVE$", orga):
+            return "RAPID_REVIVE"
+        else:
+            return None
 ``
 
 importiere logging und sys.

@@ -5,6 +5,7 @@ from dbcq import dbcq
 import yaml
 from dip import dig
 from figs import specimen as figs
+from tram import Sample
 
 from fhirproof.AmountUnitCheck import *
 from fhirproof.AqtMatCheck import *
@@ -19,6 +20,7 @@ from fhirproof.RestmengeCheck import *
 from fhirproof.DerivmatCheck import *
 from fhirproof.MayUserEditOUCheck import *
 from fhirproof.IdContainerCheck import *
+from fhirproof.PrimaryMatCheck import *
 import os
 import json
 from natsort import natsorted
@@ -84,6 +86,7 @@ class fhirproof:
         derivmat = DerivmatCheck(self)
         mayeditou = MayUserEditOUCheck(self)
         idcontainer = IdContainerCheck(self)
+        primmat = PrimaryMatCheck(self)
 
         # count for some stats
         master_count = 0        
@@ -93,56 +96,74 @@ class fhirproof:
         # run checks
         for entry in entries:
             # keep arrays up to date
-            self.entrybyfhirid[dig(entry, "fullUrl")] = entry
+            self.entrybyfhirid[figs.full_url(entry)] = entry
 
-            resource = dig(entry, "resource")
+            resource = figs.resource(entry)
             if figs.resource_type(resource) == "Specimen":
-              if figs.type(dig(entry, 'resource')) == "ALIQUOTGROUP":
+              if figs.category(resource) == "ALIQUOTGROUP":
                   aqtg_count += 1
-                  if not dig(entry, "fullUrl") in self.aqtgchildless: # tmp way to prohibit overwrites
-                      self.aqtgchildless[dig(entry, "fullUrl")] = True
+                  if not figs.full_url(entry) in self.aqtgchildless: # tmp way to prohibit overwrites
+                      self.aqtgchildless[figs.full_url(entry)] = True
                   aqtmat.check(entry)
   
-              # print(f"entry resource: {json.dumps(dig(entry, 'resource'))}")
-              sampleid = figs.sampleid(dig(entry, 'resource'))
+              # print(f"entry resource: {json.dumps(figs.resource(entry))}")
+              sampleid = figs.sampleid(resource)
               if sampleid == None:
                   continue
+              res = self.tr.sample(sampleids=[sampleid], verbose_all=True)
+              dbsample:Sample = None
+              if len(res) > 0:
+                  dbsample = res[0]
               self.entrybysampleid[sampleid] = entry
   
-              if figs.category(dig(entry, 'resource')) == "MASTER":
+              if figs.category(resource) == "MASTER":
                   master_count += 1
-              if figs.category(dig(entry, 'resource')) == "DERIVED":
+              if figs.category(resource) == "DERIVED":
                   derived_count += 1
-              if figs.category(dig(entry, 'resource')) == "PATIENT":
+              if figs.category(resource) == "PATIENT":
                   pat_count += 1
-              sampletype = figs.type(figs.resource(entry))
+              sampletype = figs.type(resource)
+              trial = self._trial_from_orga(figs.orga(resource))
               # amount units
-              amountunit.check(entry)
+              if not self._skip(type(amountunit).__name__, trial, sampletype):
+                  amountunit.check(entry)
               # primary in db
-              primary_in_db.check(entry)
+              if not self._skip(type(primary_in_db).__name__, trial, sampletype):
+                  primary_in_db.check(entry)
               # dates
-              if not self._skip(type(dates).__name__, "NUM S-SNID", sampletype):
-                  dates.check(entry)
+              if not self._skip(type(dates).__name__, trial, sampletype):
+                  dates.check(entry, dbsample)
               # location
-              location.check(entry)
+              if not self._skip(type(location).__name__, trial, sampletype):  
+                  location.check(entry)
               # behealter
-              behealter.check(entry)
+              if not self._skip(type(behealter).__name__, trial, sampletype):
+                  behealter.check(entry)
               # org
-              ou.check(entry)
+              if not self._skip(type(ou).__name__, trial, sampletype):
+                  ou.check(entry)
               # parenting
-              parenting.check(entry)
+              if not self._skip(type(parenting).__name__, trial, sampletype):
+                  parenting.check(entry)
               # psn
-              psn.check(entry)
+              if not self._skip(type(psn).__name__, trial, sampletype):
+                  psn.check(entry)
               # restmenge
-              restmenge.check(entry)
+              if not self._skip(type(restmenge).__name__, trial, sampletype):
+                  restmenge.check(entry)
               # derived material
-              derivmat.check(entry)
+              if not self._skip(type(derivmat).__name__, trial, sampletype):
+                  derivmat.check(entry)
               # edit oe?
               # mayeditou.check(entry, self.user)
               # id container
-              idcontainer.check(entry)
-            elif figs.resource_type(resource) == "Observation":
-              print("todo check observation")
+              if not self._skip(type(idcontainer).__name__, trial, sampletype):
+                  idcontainer.check(entry)
+              # primary material
+              if not self._skip(type(primmat).__name__, trial, sampletype):
+                  idcontainer.check(entry)
+            #elif figs.resource_type(resource) == "Observation":
+            #  `observation`
 
         restmenge.end()
         parenting.end()
@@ -157,6 +178,7 @@ class fhirproof:
 
     def _setuplog(self, logfile):
         """
+         _setuplog setzt den log auf.
         """
         log = logging.getLogger(__name__)
         log.setLevel(logging.INFO)
@@ -199,7 +221,7 @@ class fhirproof:
         """
         parent = None
         resource = entry['resource']
-        if figs.type(resource) != "DERIVED":              
+        if figs.category(resource) != "DERIVED":              
             return None
         # get fhirid of aliquotgroup-parent
         pfhirid = figs.parent_fhirid(resource)
@@ -218,3 +240,13 @@ class fhirproof:
         if skipchecks is None:
             return False
         return classname in skipchecks or "*" in skipchecks
+    def _trial_from_orga(self, orga:str):
+        """
+         _trial_from_orga extracts the trial from orga, since trial's aren't in the json.
+        """
+        if re.match(r"^s-snid", orga):
+            return "NUM S-SNID"
+        elif re.match(r"REVIVE$", orga):
+            return "RAPID_REVIVE"
+        else:
+            return None

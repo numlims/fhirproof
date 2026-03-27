@@ -34,7 +34,7 @@ class AqtMatCheck(FhirCheck):
         elif parentfhirid and parentfhirid in self.fp.entrybyfhirid:
            parent = self.fp.entrybyfhirid[parentfhirid]
 
-        parent_material = figs.material(figs.resource(parent))
+        parent_material = figs.type(figs.resource(parent))
         if (not parent) and parentid:
             if self.tr != None:
                 res = self.tr.sample(sampleids = [parentid], verbose_all = True) # todo specify which verbose fields?

@@ -16,6 +16,7 @@ dependencies = [
   "dip @ git+https://github.com/numlims/dip.git",
   "figs @ git+https://github.com/numlims/figs.git",  
   "traction @ git+https://github.com/numlims/traction.git",
+  "tram @ git+https://github.com/numlims/tram.git",  
   "pyyaml",
   "natsort"
 ]
