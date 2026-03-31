@@ -76,7 +76,7 @@ for NUM the code for 'no centrifugation' is "Sprec-N", for IKCL it's
 "NO".
 
 ``./no centri:
-                if dbsample is not None and dbsample.stockprocessing not in [None, "", "Sprec-N", "NO"]:
+                if figs.category(resource) == "MASTER" and dbsample is not None and dbsample.stockprocessing not in [None, "", "Sprec-N", "NO"]:
                     self.err(f"sample {sampleid} should come with a centrifugation date (stock processing: {dbsample.stockprocessing}).")
 ``
 

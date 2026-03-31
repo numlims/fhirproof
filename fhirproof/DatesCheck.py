@@ -42,7 +42,7 @@ class DatesCheck(FhirCheck):
             if centridate is not None:
                 timechain.append(["centrifugation date", self.isodate(centridate)])
             else:
-                if dbsample is not None and dbsample.stockprocessing not in [None, "", "Sprec-N", "NO"]:
+                if figs.category(resource) == "MASTER" and dbsample is not None and dbsample.stockprocessing not in [None, "", "Sprec-N", "NO"]:
                     self.err(f"sample {sampleid} should come with a centrifugation date (stock processing: {dbsample.stockprocessing}).")
         if figs.category(resource) == "DERIVED":
             deriv_date = figs.derival_date(resource)

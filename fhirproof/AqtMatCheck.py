@@ -20,7 +20,7 @@ class AqtMatCheck(FhirCheck):
         self.info(f"checking aliquotgroup {figs.full_url(entry)}")
 
         pamm = self.fp.config["pamm"]
-        child_material = figs.category(resource)
+        child_material = figs.type(resource)
         parentid = figs.parent_sampleid(resource)
         parentfhirid = figs.parent_fhirid(resource)        
         if parentid == None and parentfhirid == None:

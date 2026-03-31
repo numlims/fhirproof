@@ -35,7 +35,7 @@ class fhirproof:
     entrybysampleid = {} # entries referenced by sampleid
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
-    def __init__(self, dbtarget, user, logfile, configpath:str=None):
+    def __init__(self, dbtarget, user, logfile, configpath:str=None, loglevel:list=None):
         """
          __init__ inits fhirproof with db target, centraxx user, logfile and config.
         """
@@ -48,6 +48,7 @@ class fhirproof:
             self.tr = tr.traction(self.db)
         self.user = user
         self.logfile = logfile
+        self.loglevel = loglevel
         self._setuplog(logfile)
         with open(configpath, "r") as file:
              self.config = yaml.safe_load(file)

@@ -33,20 +33,23 @@ FhirCheck provides three log methods: info, err and debug.
 ``/info:
     # info is an info log shortcut
     def info(self, message):
-        self.fp.log.info(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
+        if "INFO" in self.fp.loglevel:
+            self.fp.log.info(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
 ``
 
 ``/err:
     # err is an error log shortcut
     def err(self, message):
         self.fp.ok = False # this run is not ok
-        self.fp.log.error(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
+        if "ERROR" in self.fp.loglevel:
+            self.fp.log.error(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
 ``
 
 ``/debug:
     # debug is an error log shortcut
     def debug(self, message):
-        self.fp.log.debug(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
+        if "DEBUG" in self.fp.loglevel:
+            self.fp.log.debug(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
         
 ``
 
