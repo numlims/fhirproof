@@ -20,19 +20,19 @@ class FhirCheck:
     def info(self, message):
         """
         """
-        if "INFO" in self.fp.loglevel:
+        if self.fp.loglevel is None or  "INFO" in self.fp.loglevel:
             self.fp.log.info(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
     # err is an error log shortcut
     def err(self, message):
         """
         """
         self.fp.ok = False # this run is not ok
-        if "ERROR" in self.fp.loglevel:
+        if self.fp.loglevel is None or "ERROR" in self.fp.loglevel:
             self.fp.log.error(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
     # debug is an error log shortcut
     def debug(self, message):
         """
         """
-        if "DEBUG" in self.fp.loglevel:
+        if self.fp.loglevel is None or "DEBUG" in self.fp.loglevel:
             self.fp.log.debug(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
         
