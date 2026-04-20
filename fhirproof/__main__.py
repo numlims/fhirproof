@@ -4,10 +4,13 @@ import sys
 from fhirproof import fhirproof
 import argparse
 import os.path
+import versionflag
 # parseargs parses command line arguments
 def parseargs():
     """
-     parseargs parst die command line argumente.
+     parseargs parst die command line argumente, returnt den parser.
+     
+     todo rename makeparse()
      
      fhirproof nimmt target und user ohne name, und die config datei, eine
      option die konfig stub zu printen und das log file.
@@ -23,6 +26,7 @@ def parseargs():
     parser.add_argument("--settings", help="path to the settings yaml")
     parser.add_argument("-e", help="file encoding")
     parser.add_argument("--log-level", help="INFO|DEBUG|ERROR comma-seperated list.")    
+    versionflag.flag(parser, "fhirproof")
     args = parser.parse_args()
     return args
 # main runs fhirproof
@@ -32,7 +36,7 @@ def main():
     """
     args = parseargs()
     #try:
-    loglevel = []
+    loglevel = None
     if args.log_level is not None:
         loglevel = args.log_level.split(",")
     fp = fhirproof(args.db, args.user, args.log, configpath=args.config, loglevel=loglevel)

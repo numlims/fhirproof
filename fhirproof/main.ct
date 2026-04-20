@@ -17,7 +17,7 @@ def main():
     ``.``
 ``
 
-get the command line arguments.
+register the command line arguments.
 
 ``
     args = parseargs()
@@ -28,7 +28,7 @@ setting files need editing, in this case do nothing.
 
 ``
     #try:
-    loglevel = []
+    loglevel = None
     if args.log_level is not None:
         loglevel = args.log_level.split(",")
     fp = fhirproof(args.db, args.user, args.log, configpath=args.config, loglevel=loglevel)
@@ -60,7 +60,9 @@ import sys
 from fhirproof import fhirproof
 ``
 
-parseargs parst die command line argumente.
+parseargs parst die command line argumente, returnt den parser.
+
+todo rename makeparse()
 
 fhirproof nimmt target und user ohne name, und die config datei, eine
 option die konfig stub zu printen und das log file.
@@ -99,10 +101,21 @@ the other optional flags.
     parser.add_argument("--log-level", help="INFO|DEBUG|ERROR comma-seperated list.")    
 ``
 
-parse and return.
+add version flag.
+
+``
+    versionflag.flag(parser, "fhirproof")
+``
+
+parse the args.
 
 ``
     args = parser.parse_args()
+``
+
+return.
+
+``
     return args
 ``
 
@@ -111,4 +124,5 @@ importiere dazu argparse.
 ``/import
 import argparse
 import os.path
+import versionflag
 ``

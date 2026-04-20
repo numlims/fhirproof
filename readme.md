@@ -18,6 +18,13 @@ fhirproof mydir --db num_prod --user numwuerzfhir --config config.yaml --log fp.
 
 see `fhirproof -h`.
 
+## fhir spec
+
+specimen: [simplifier.net/centraxx-structures/specimen](https://simplifier.net/centraxx-structures/specimen)\ 
+patient: [simplifier.net/centraxx-structures/patient](https://simplifier.net/centraxx-structures/patient)\
+observation: [simplifier.net/centraxx-structures/observation](https://simplifier.net/centraxx-structures/observation)\
+
+
 ## install
 
 download fhirproof whl from [releases](https://github.com/numlims/fhirproof/releases). install with pip:

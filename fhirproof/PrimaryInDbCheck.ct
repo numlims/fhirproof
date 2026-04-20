@@ -7,7 +7,7 @@ class PrimaryInDbCheck(FhirCheck):
     ``check``
 ``
 
-Check checks whether the sample is in db if it is a master.
+check checks whether the sample is in db if it is a master.
     
 ``/check:
     def check(self, entry):

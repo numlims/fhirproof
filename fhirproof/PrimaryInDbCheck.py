@@ -9,6 +9,7 @@ class PrimaryInDbCheck(FhirCheck):
         FhirCheck.__init__(self, fp)
     def check(self, entry):
         """
+         check checks whether the sample is in db if it is a master.
         """
         super().check(entry)
 

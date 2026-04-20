@@ -4,7 +4,7 @@ import tr
 from dbcq import dbcq
 import yaml
 from dip import dig
-from figs import specimen as figs
+from figs import specimen as fgs
 from tram import Sample
 
 from fhirproof.AmountUnitCheck import *
@@ -21,6 +21,7 @@ from fhirproof.DerivmatCheck import *
 from fhirproof.MayUserEditOUCheck import *
 from fhirproof.IdContainerCheck import *
 from fhirproof.PrimaryMatCheck import *
+from fhirproof.LamaObs import *
 import os
 import json
 from natsort import natsorted
@@ -64,7 +65,7 @@ class fhirproof:
 
     def check_entries(self, entries):
         """
-         check_entries checkt die entries specimen or observation.
+         check_entries checks the specimen or observation in the entry.
         """
         self.ok = True
 
@@ -73,7 +74,6 @@ class fhirproof:
         self.log.info(f"") # blank lines                 
         self.log.info(f"START CHECK")
         self.log.info(f"starting check against {self.dbtarget}")
-        # initialize checks
         amountunit = AmountUnitCheck(self)
         aqtmat = AqtMatCheck(self)
         primary_in_db = PrimaryInDbCheck(self)
@@ -88,8 +88,7 @@ class fhirproof:
         mayeditou = MayUserEditOUCheck(self)
         idcontainer = IdContainerCheck(self)
         primmat = PrimaryMatCheck(self)
-
-        # count for some stats
+        lamaobs = LamaObs(self)
         master_count = 0        
         aqtg_count = 0
         derived_count = 0
@@ -97,18 +96,19 @@ class fhirproof:
         # run checks
         for entry in entries:
             # keep arrays up to date
-            self.entrybyfhirid[figs.full_url(entry)] = entry
+            self.entrybyfhirid[fgs.full_url(entry)] = entry
+            #print(type(fgs).__name__)
 
-            resource = figs.resource(entry)
-            if figs.resource_type(resource) == "Specimen":
-              if figs.category(resource) == "ALIQUOTGROUP":
+            resource = fgs.resource(entry)
+            if fgs.resource_type(resource) == "Specimen":
+              if fgs.category(resource) == "ALIQUOTGROUP":
                   aqtg_count += 1
-                  if not figs.full_url(entry) in self.aqtgchildless: # tmp way to prohibit overwrites
-                      self.aqtgchildless[figs.full_url(entry)] = True
+                  if not fgs.full_url(entry) in self.aqtgchildless: # tmp way to prohibit overwrites
+                      self.aqtgchildless[fgs.full_url(entry)] = True
                   aqtmat.check(entry)
   
-              # print(f"entry resource: {json.dumps(figs.resource(entry))}")
-              sampleid = figs.sampleid(resource)
+              # print(f"entry resource: {json.dumps(fgs.resource(entry))}")
+              sampleid = fgs.sampleid(resource)
               if sampleid == None:
                   continue
               res = self.tr.sample(sampleids=[sampleid], verbose_all=True)
@@ -117,14 +117,14 @@ class fhirproof:
                   dbsample = res[0]
               self.entrybysampleid[sampleid] = entry
   
-              if figs.category(resource) == "MASTER":
+              if fgs.category(resource) == "MASTER":
                   master_count += 1
-              if figs.category(resource) == "DERIVED":
+              if fgs.category(resource) == "DERIVED":
                   derived_count += 1
-              if figs.category(resource) == "PATIENT":
+              if fgs.category(resource) == "PATIENT":
                   pat_count += 1
-              sampletype = figs.type(resource)
-              trial = self._trial_from_orga(figs.orga(resource))
+              sampletype = fgs.type(resource)
+              trial = self._trial_from_orga(fgs.orga(resource))
               # amount units
               if not self._skip(type(amountunit).__name__, trial, sampletype):
                   amountunit.check(entry)
@@ -163,8 +163,12 @@ class fhirproof:
               # primary material
               if not self._skip(type(primmat).__name__, trial, sampletype):
                   idcontainer.check(entry)
-            #elif figs.resource_type(resource) == "Observation":
-            #  `observation`
+            elif fgs.resource_type(resource) == "Observation":
+              #print("todo check observation")
+              trial = None
+              sampletype = None
+              #if not self._skip(type(lamaobs).__name__, trial, sampletype):
+                  #lamaobs.check(entry)
 
         restmenge.end()
         parenting.end()
@@ -222,10 +226,10 @@ class fhirproof:
         """
         parent = None
         resource = entry['resource']
-        if figs.category(resource) != "DERIVED":              
+        if fgs.category(resource) != "DERIVED":              
             return None
         # get fhirid of aliquotgroup-parent
-        pfhirid = figs.parent_fhirid(resource)
+        pfhirid = fgs.parent_fhirid(resource)
         if pfhirid == None:
             return None
         elif pfhirid not in self.entrybyfhirid:

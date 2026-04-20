@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta" # name of the python object that fronten
 
 [project]
 name = "fhirproof"
-version = "0.0.15"
+version = "0.0.16"
 authors = [
   { name="numlims", email="numlims@med.uni-greifswald.de"}
 ]
@@ -18,7 +18,8 @@ dependencies = [
   "traction @ git+https://github.com/numlims/traction.git",
   "tram @ git+https://github.com/numlims/tram.git",  
   "pyyaml",
-  "natsort"
+  "natsort",
+  "versionflag @ git+https://github.com/numlims/versionflag.git"  
 ]
 classifiers = [
   "Programming Language :: Python :: 3"
