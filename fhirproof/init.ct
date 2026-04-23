@@ -172,9 +172,22 @@ initialize counts.
 loop over every entry and run the checks.
 
 ``/check_entries/loop:
+        currentfile = ""
         # run checks
         for entry in entries:
             ``.``
+``
+
+for each newly encountered file, say we're checking it.
+
+don't log for each entry, to not clutter up the log too much?
+
+the filenames are saved in each entry.
+
+``
+            if currentfile != dig(entry, "_filename"):
+                currentfile = dig(entry, "_filename")
+                self.log.info(currentfile + ": checking file")
 ``
 
 speicher den entry nach seiner fhirid.

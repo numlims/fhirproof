@@ -17,7 +17,7 @@ class AqtMatCheck(FhirCheck):
         super().check(entry)
 
         resource = figs.resource(entry)
-        self.info(f"checking aliquotgroup {figs.full_url(entry)}")
+        #self.info(f"checking aliquotgroup {figs.full_url(entry)}")
 
         pamm = self.fp.config["pamm"]
         child_material = figs.type(resource)

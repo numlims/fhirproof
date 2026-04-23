@@ -17,7 +17,7 @@ in the pamm (primary-aliquot-material-map) field.
         super().check(entry)
 
         resource = figs.resource(entry)
-        self.info(f"checking aliquotgroup {figs.full_url(entry)}")
+        #self.info(f"checking aliquotgroup {figs.full_url(entry)}")
 
         ``.``
 ``

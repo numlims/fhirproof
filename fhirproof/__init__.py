@@ -93,8 +93,12 @@ class fhirproof:
         aqtg_count = 0
         derived_count = 0
         pat_count = 0
+        currentfile = ""
         # run checks
         for entry in entries:
+            if currentfile != dig(entry, "_filename"):
+                currentfile = dig(entry, "_filename")
+                self.log.info(currentfile + ": checking file")
             # keep arrays up to date
             self.entrybyfhirid[fgs.full_url(entry)] = entry
             #print(type(fgs).__name__)
