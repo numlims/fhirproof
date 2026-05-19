@@ -45,10 +45,10 @@ def main():
     #    return
     ok = fp.check(args.dir, args.e)
     if ok is True:
-        print("fhirproof: ok")
+        #print("fhirproof: ok")
         return 0
     else:
-        print("fhirproof: not ok")
+        #print("fhirproof: not ok")
         return 1
 
 sys.exit(main())

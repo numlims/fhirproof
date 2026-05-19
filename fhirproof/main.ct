@@ -46,10 +46,10 @@ print whether the input is ok, return 0 for ok and non 0 for not ok.
 
 ``
     if ok is True:
-        print("fhirproof: ok")
+        #print("fhirproof: ok")
         return 0
     else:
-        print("fhirproof: not ok")
+        #print("fhirproof: not ok")
         return 1
 ``
 

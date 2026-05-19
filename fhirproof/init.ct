@@ -325,7 +325,6 @@ shouldn't be skipped for the trial and sampletype.
 if the resource is an observation, do the observation checks.
 
 ``/check_entries/loop/observation:
-            print("check observation")
             trial = None
             sampletype = None
             if not self._skip(type(lamaobs).__name__, trial, sampletype):

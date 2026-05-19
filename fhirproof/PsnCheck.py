@@ -35,8 +35,8 @@ class PsnCheck(FhirCheck):
         elif patid != result[0]["psn"]:
             res = self.tr.patient(sampleids=[sampleid])
             dbpatid = res[0].id()
-            print("tr pat id: " + dbpatid)
-            print("query pat id: " + result[0]["psn"])
+            #print("tr pat id: " + dbpatid)
+            #print("query pat id: " + result[0]["psn"])
         
             self.err(f"limspsn for sample {sampleid} is {patid} in json and {result[0]['psn']} in db.")
         parentresource = self.fp.parent(entry)

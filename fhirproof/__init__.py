@@ -167,7 +167,6 @@ class fhirproof:
               if not self._skip(type(primmat).__name__, trial, sampletype):
                   idcontainer.check(entry)
             elif fgs.resource_type(resource) == "Observation":
-              print("check observation")
               trial = None
               sampletype = None
               if not self._skip(type(lamaobs).__name__, trial, sampletype):
