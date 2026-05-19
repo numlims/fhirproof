@@ -27,7 +27,7 @@ class fhirproof:
 __init__ inits fhirproof with db target, centraxx user, logfile and config.
 
 ``/init:
-    def __init__(self, dbtarget, user, logfile, configpath:str=None, loglevel:list=None):
+    def __init__(self, dbtarget, user, logfile, configpath:str=None, loglevel:list=None, quiet:bool=False):
         ``.``
 ``
 
@@ -54,7 +54,7 @@ save variables for use in checks.
 set up the log.
 
 ``
-        self._setuplog(logfile)
+        self._setuplog(logfile, quiet)
 ``
 
 read the config file yaml.
@@ -128,9 +128,6 @@ reset ok and print a start message.
 ``./setup:
         self.ok = True
 
-        self.log.info(f"") # blank lines
-        self.log.info(f"") # blank lines
-        self.log.info(f"") # blank lines                 
         self.log.info(f"START CHECK")
         self.log.info(f"starting check against {self.dbtarget}")
 ``
@@ -328,11 +325,11 @@ shouldn't be skipped for the trial and sampletype.
 if the resource is an observation, do the observation checks.
 
 ``/check_entries/loop/observation:
-            #print("todo check observation")
+            print("check observation")
             trial = None
             sampletype = None
-            #if not self._skip(type(lamaobs).__name__, trial, sampletype):
-                #lamaobs.check(entry)
+            if not self._skip(type(lamaobs).__name__, trial, sampletype):
+                lamaobs.check(entry)
 ``
 
 restmenge und parenting machen einen extra check nach dem loop.
@@ -541,10 +538,10 @@ say whether the class is listed in the checks to skip.
         return classname in skipchecks or "*" in skipchecks
 ``
 
-_setuplog setzt den log auf.
+_setuplog setzt den log auf, if quiet is true, log isn't printed to console.
 
 ``/setuplog:
-    def _setuplog(self, logfile):
+    def _setuplog(self, logfile, quiet:bool=False):
         ``.``
 ``
 
@@ -559,17 +556,25 @@ set up a logger to write to a file into logs folder.
         log.addHandler(file_handler)
 ``
 
-log to stdout.
+log to stdout if we shouldn't be quiet.
 
 ``
-        stdout_handler = logging.StreamHandler(sys.stdout)
-        stdout_handler.setFormatter(formatter)
-        log.addHandler(stdout_handler)
+        if not quiet:
+            stdout_handler = logging.StreamHandler(sys.stdout)
+            stdout_handler.setFormatter(formatter)
+            log.addHandler(stdout_handler)
         self.log = log
 ``
 
+import.
 
-_trial_from_orga extracts the trial from orga, since trial's aren't in the json.
+``/import
+from pathlib import Path
+import os.path
+``
+
+
+_trial_from_orga extracts the trial from orga, since trials aren't in the json.
 
 ``/_trial_from_orga:
     def _trial_from_orga(self, orga:str):

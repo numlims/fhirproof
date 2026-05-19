@@ -25,7 +25,8 @@ def parseargs():
     parser.add_argument("--log", help="a logfile")
     parser.add_argument("--settings", help="path to the settings yaml")
     parser.add_argument("-e", help="file encoding")
-    parser.add_argument("--log-level", help="INFO|DEBUG|ERROR comma-seperated list.")    
+    parser.add_argument("--log-level", help="INFO|DEBUG|ERROR comma-seperated list.")
+    parser.add_argument("--quiet", "-q", help="don't print log messages to console", action="store_true")
     versionflag.flag(parser, "fhirproof")
     args = parser.parse_args()
     return args
@@ -39,7 +40,7 @@ def main():
     loglevel = None
     if args.log_level is not None:
         loglevel = args.log_level.split(",")
-    fp = fhirproof(args.db, args.user, args.log, configpath=args.config, loglevel=loglevel)
+    fp = fhirproof(args.db, args.user, args.log, configpath=args.config, loglevel=loglevel, quiet=args.quiet)
     #except Exception:
     #    return
     ok = fp.check(args.dir, args.e)

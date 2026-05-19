@@ -1,4 +1,6 @@
-LamaObs checks that observations only hold permissible codes.
+# LamaObs
+
+LamaObs checks that observations com only with permissible labval masterdata (lama).
 
 ``//LamaObs.py:
 ``import``
@@ -16,14 +18,15 @@ check checks that only the codes belonging to the observation's method
         ``.``
 ``
 
-get the method code.
+get the method code from json.
 
 ``
-        resource = figs.resource(entry)
-        method = figs.method(resource)
+        self.info("lamaobs check")
+        resource = fgo.resource(entry)
+        method = fgo.method(resource)
 ``
 
-get the method masterdata (mema).
+get the method masterdata (mema) from db.
 
 ``
         res = self.tr.method(methods=[method])
@@ -32,25 +35,25 @@ get the method masterdata (mema).
         mema = res[method]
 ``
 
-get the catalogs. pass them instead to avoid multiple fetches?
+get the catalogs from db. pass them instead to avoid multiple fetches?
 
 ``
         cats = self.tr.catalog()
 ``
 
-get the components (recorded values) of the observation keyed by labval.
+iterate through the json labvals and their components. 
 
 ``
-        comps = figs.component(resource)
+        comps = fgo.component(resource)
         #print("comps:")
         #print(comps)
-        for labval, comp in comps:
+        for labval, comp in comps.items():
             ``.``
 ``
 
-is the labval part of the method masterdata?
+is the json labval part of the method masterdata?
 
-save the labval masterdata (lama) for the current component.
+remember the labval masterdata (lama) for the json labval.
 
 ``
             if labval not in mema["labvals"]:
@@ -58,8 +61,8 @@ save the labval masterdata (lama) for the current component.
             lama = mema["labvals"][labval]                
 ``
 
-is it a catalog component? make sure that the catalog exists and that
-the given value is part of the catalog.
+is it a catalog? make sure that the catalog exists and that
+the given json value is part of the catalog.
 
 ``
             if lama["type"] == "CATALOG":
@@ -70,21 +73,22 @@ the given value is part of the catalog.
                     self.err(f"code {comp['value']} is not in catalog {catcode}.")
 ``
 
-is it an enumeration component? make sure the given values is part of
+is it an enumeration component? make sure the given json values are part of
 the masterdata usageentries.
 
 ``
             if lama["type"] == "ENUMERATION":
                 usageentries = lama["usageentry"]
-                if comp["value"] not in usageentries:
-                    self.err(f"code {comp['value']} is not part of usageentries for labval {lama['code']}. should be in {usageentries.keys()}")
+                for val in comp["value"]:
+                    if val not in usageentries:
+                        self.err(f"code {comp['value']} is not part of usageentries for labval {lama['code']}. should be in {usageentries.keys()}")
 ``
              
 import.
 
 ``/import:
 from fhirproof.FhirCheck import *
-from figs import observation as figs
+from figs import observation as fgo
 ``
 
 init initializes ObsCodes.

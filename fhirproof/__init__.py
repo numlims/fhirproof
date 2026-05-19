@@ -25,6 +25,8 @@ from fhirproof.LamaObs import *
 import os
 import json
 from natsort import natsorted
+from pathlib import Path
+import os.path
 import logging
 import sys
 
@@ -36,7 +38,7 @@ class fhirproof:
     entrybysampleid = {} # entries referenced by sampleid
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
-    def __init__(self, dbtarget, user, logfile, configpath:str=None, loglevel:list=None):
+    def __init__(self, dbtarget, user, logfile, configpath:str=None, loglevel:list=None, quiet:bool=False):
         """
          __init__ inits fhirproof with db target, centraxx user, logfile and config.
         """
@@ -50,7 +52,7 @@ class fhirproof:
         self.user = user
         self.logfile = logfile
         self.loglevel = loglevel
-        self._setuplog(logfile)
+        self._setuplog(logfile, quiet)
         with open(configpath, "r") as file:
              self.config = yaml.safe_load(file)
         self.ok = True
@@ -69,9 +71,6 @@ class fhirproof:
         """
         self.ok = True
 
-        self.log.info(f"") # blank lines
-        self.log.info(f"") # blank lines
-        self.log.info(f"") # blank lines                 
         self.log.info(f"START CHECK")
         self.log.info(f"starting check against {self.dbtarget}")
         amountunit = AmountUnitCheck(self)
@@ -168,11 +167,11 @@ class fhirproof:
               if not self._skip(type(primmat).__name__, trial, sampletype):
                   idcontainer.check(entry)
             elif fgs.resource_type(resource) == "Observation":
-              #print("todo check observation")
+              print("check observation")
               trial = None
               sampletype = None
-              #if not self._skip(type(lamaobs).__name__, trial, sampletype):
-                  #lamaobs.check(entry)
+              if not self._skip(type(lamaobs).__name__, trial, sampletype):
+                  lamaobs.check(entry)
 
         restmenge.end()
         parenting.end()
@@ -185,9 +184,9 @@ class fhirproof:
         
         return self.ok # written by FhirCheck.err()
 
-    def _setuplog(self, logfile):
+    def _setuplog(self, logfile, quiet:bool=False):
         """
-         _setuplog setzt den log auf.
+         _setuplog setzt den log auf, if quiet is true, log isn't printed to console.
         """
         log = logging.getLogger(__name__)
         log.setLevel(logging.INFO)
@@ -195,9 +194,10 @@ class fhirproof:
         formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
         file_handler.setFormatter(formatter)
         log.addHandler(file_handler)
-        stdout_handler = logging.StreamHandler(sys.stdout)
-        stdout_handler.setFormatter(formatter)
-        log.addHandler(stdout_handler)
+        if not quiet:
+            stdout_handler = logging.StreamHandler(sys.stdout)
+            stdout_handler.setFormatter(formatter)
+            log.addHandler(stdout_handler)
         self.log = log
     def entries_from_dir(self, dir, encoding=None): # todo could be static?
         """
@@ -251,7 +251,7 @@ class fhirproof:
         return classname in skipchecks or "*" in skipchecks
     def _trial_from_orga(self, orga:str):
         """
-         _trial_from_orga extracts the trial from orga, since trial's aren't in the json.
+         _trial_from_orga extracts the trial from orga, since trials aren't in the json.
         """
         if re.match(r"^s-snid", orga):
             return "NUM S-SNID"
