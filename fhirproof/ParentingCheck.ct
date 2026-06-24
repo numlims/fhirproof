@@ -16,11 +16,10 @@ def check(self, entry):
     ``.``
 ``
 
-Wenn eine Probe Derived ist, sollte sie auf einen Parent zeigen, der
-entweder schon in der db ist oder der in der json Datei vor der Probe
-kommt.  todo is the db check done?
-        
-for aliquots, is there a fhirid referencing a parent?
+if the sample is an aliquot, it should point to an aliquot group that
+comes before the sample in the json.
+
+TODO allow aliquot to point to a sample that's already in the db?
 
 ``
     if figs.category(resource) == "DERIVED":
@@ -32,21 +31,26 @@ for aliquots, is there a fhirid referencing a parent?
             self.err(f"the parent of derived sample {sampleid} hasn't been encountered in the json file yet.")
 ``
 
-has the parent aliquotgroup been encountered?
-
-
-``
-        if figs.parent_fhirid(resource) not in self.fp.entrybyfhirid:
-            self.err(f"the aliquotgroup of sample {sampleid} hasn't been encountered yet.") 
-``
-
 remember that the parent aliquotgroup isn't childless.
 
 ``
-        self.fp.aqtgchildless[figs.parent_fhirid(resource)] = False
+        self.fp.aqtgchildless[pfhirid] = False
 ``
 
-End wird gerufen nachdem alle samples durchgelaufen sind.
+if the sample is an aliquotgroup, it should reference a parent primary that was already encountered in the json or that is in the db.
+
+``
+    if figs.category(resource) == "ALIQUOTGROUP":
+        parentid = figs.parent_sampleid(resource)
+        res = []
+        if self.tr is not None:
+            res = self.tr.sample(sampleids = [parentid])
+        
+        if not parentid in self.fp.entrybysampleid and len(res) == 0:
+            self.err(f"the parent primary ({parentid}) of aliquot {figs.fhirid(resource)} isn't in the db and hasn't been encountered in the json yet.")
+``
+
+end filters childless aliquot groups. it is called after all samples are checked.
 
 ``/end:
 def end(self):
@@ -55,14 +59,14 @@ def end(self):
             self.err(f"aliquotgroup {fhirid} is childless.")
 ``
 
-Init heangt ParentingCheck an fhirproof.
+init initializes ParentingCheck.
 
 ``/init:
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 ``
 
-Die imports.
+imports.
 
 ``/import:
 import re

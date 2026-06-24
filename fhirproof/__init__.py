@@ -38,6 +38,7 @@ class fhirproof:
     entrybysampleid = {} # entries referenced by sampleid
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
+    _accept = {} # was this file accepted? keyed by filename.
     def __init__(self, dbtarget, user, logfile, configpath:str=None, loglevel:list=None, quiet:bool=False):
         """
          __init__ inits fhirproof with db target, centraxx user, logfile and config.
@@ -63,7 +64,11 @@ class fhirproof:
         """
         entries = self.entries_from_dir(dir, encoding)
         self.check_entries(entries)
-        return self.ok
+        accepted = []
+        for k, v in self._accept.items():
+            if v == True:
+                accepted.append(k)
+        return self.ok, accepted
 
     def check_entries(self, entries):
         """
@@ -92,6 +97,8 @@ class fhirproof:
         aqtg_count = 0
         derived_count = 0
         pat_count = 0
+        for entry in entries:
+            self._accept[entry["_filename"]] = True
         currentfile = ""
         # run checks
         for entry in entries:

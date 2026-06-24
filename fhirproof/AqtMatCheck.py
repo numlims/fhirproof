@@ -38,13 +38,13 @@ class AqtMatCheck(FhirCheck):
         if (not parent) and parentid:
             if self.tr != None:
                 res = self.tr.sample(sampleids = [parentid], verbose_all = True) # todo specify which verbose fields?
-                if len(res) == 0:
-                    self.err(f"at aliquotgroup {dig(entry, 'fullUrl')}: the parent (id {pid}) is not in the db and hasn't been encountered in the json yet.")
-                    return 
-                parent_material = res[0].type
+                if len(res) > 0:
+                    parent_material = res[0].type
+        if parent_material is None:
+            self.error(f"material for parent {parentid} is None.")
         if not parent_material in pamm:
             self.info(f"material {parent_material} is not in pamm.")
         elif "*" in pamm[parent_material]:
             pass
         elif not child_material in pamm[parent_material]: # mappings in pamm
-            self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, needs to be in {pamm[parent_material]} to match the material {parent_material} of its primary parent {figs.sampleid(figs.resource(parent))}")
+            self.err(f"material of aliquotgroup {dig(entry, 'fullUrl')} is {child_material}, needs to be in {pamm[parent_material]} to match the material {parent_material} of its primary parent {parentid}.")

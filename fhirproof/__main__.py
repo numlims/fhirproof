@@ -24,6 +24,7 @@ def parseargs():
     parser.add_argument("--print-config", help="print template config yml", action="store_true")
     parser.add_argument("--log", help="a logfile")
     parser.add_argument("--settings", help="path to the settings yaml")
+    parser.add_argument("--accept", help="move accepted files to this directory")
     parser.add_argument("-e", help="file encoding")
     parser.add_argument("--log-level", help="INFO|DEBUG|ERROR comma-seperated list.")
     parser.add_argument("--quiet", "-q", help="don't print log messages to console", action="store_true")
@@ -43,7 +44,10 @@ def main():
     fp = fhirproof(args.db, args.user, args.log, configpath=args.config, loglevel=loglevel, quiet=args.quiet)
     #except Exception:
     #    return
-    ok = fp.check(args.dir, args.e)
+    ok, acceptedfiles = fp.check(args.dir, args.e)
+    if args.accept:
+        for file in acceptedfiles:
+            os.replace(file, os.path.join(args.accept, file))
     if ok is True:
         #print("fhirproof: ok")
         return 0

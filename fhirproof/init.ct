@@ -87,6 +87,7 @@ initialisiere variablen, die die einzelnen check klassen einsehen koennen.
     entrybysampleid = {} # entries referenced by sampleid
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
+    _accept = {} # was this file accepted? keyed by filename.
 ``
 
 check both specimen and observations, depending on an entry's resourceType.
@@ -108,10 +109,19 @@ check.
         self.check_entries(entries)
 ``
 
+collect the accepted filenames.
+
+``
+        accepted = []
+        for k, v in self._accept.items():
+            if v == True:
+                accepted.append(k)
+``
+
 check sets self.ok. return it.
 
 ``
-        return self.ok
+        return self.ok, accepted
 ``
 
 check_entries checks the specimen or observation in the entry.
@@ -164,6 +174,13 @@ initialize counts.
         aqtg_count = 0
         derived_count = 0
         pat_count = 0
+``
+
+set accepted for each file to true.
+
+``
+        for entry in entries:
+            self._accept[entry["_filename"]] = True
 ``
 
 loop over every entry and run the checks.

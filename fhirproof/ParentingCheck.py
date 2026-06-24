@@ -22,11 +22,18 @@ class ParentingCheck(FhirCheck):
                 # we assume that we already visited the parent, if not, message
             elif pfhirid not in self.fp.entrybyfhirid:
                 self.err(f"the parent of derived sample {sampleid} hasn't been encountered in the json file yet.")
-            if figs.parent_fhirid(resource) not in self.fp.entrybyfhirid:
-                self.err(f"the aliquotgroup of sample {sampleid} hasn't been encountered yet.") 
-            self.fp.aqtgchildless[figs.parent_fhirid(resource)] = False
+            self.fp.aqtgchildless[pfhirid] = False
+        if figs.category(resource) == "ALIQUOTGROUP":
+            parentid = figs.parent_sampleid(resource)
+            res = []
+            if self.tr is not None:
+                res = self.tr.sample(sampleids = [parentid])
+            
+            if not parentid in self.fp.entrybysampleid and len(res) == 0:
+                self.err(f"the parent primary ({parentid}) of aliquot {figs.fhirid(resource)} isn't in the db and hasn't been encountered in the json yet.")
     def end(self):
         """
+         end filters childless aliquot groups. it is called after all samples are checked.
         """
         for fhirid in self.fp.aqtgchildless.keys():
             if self.fp.aqtgchildless[fhirid] == True:

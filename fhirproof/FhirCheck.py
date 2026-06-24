@@ -27,8 +27,10 @@ class FhirCheck:
         """
         """
         self.fp.ok = False # this run is not ok
+        filename = dig(self.entry, '_filename')
+        self.fp._accept[filename] = False
         if self.fp.loglevel is None or "ERROR" in self.fp.loglevel:
-            self.fp.log.error(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
+            self.fp.log.error(f"{filename}: {self.__class__.__name__}: {message}")
     # debug is an error log shortcut
     def debug(self, message):
         """
