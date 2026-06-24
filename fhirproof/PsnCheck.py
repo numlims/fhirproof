@@ -4,6 +4,7 @@ import re
 from fhirproof.FhirCheck import *
 from figs import specimen as figs
 from dip import dig
+import tr
 class PsnCheck(FhirCheck):
     def __init__(self, fp):
         """
@@ -11,7 +12,7 @@ class PsnCheck(FhirCheck):
         FhirCheck.__init__(self, fp)
     def check(self, entry):
         """
-         check leasst den check laufen.
+         check runs the check.
         """
         super().check(entry)
         
@@ -20,27 +21,19 @@ class PsnCheck(FhirCheck):
     
         resource = dig(entry, "resource")
         sampleid = figs.sampleid(resource)
-        result = self.db.qfad("""
-    select idc.psn from centraxx_sample s 
-    inner join centraxx_sampleidcontainer sidc on sidc.sample = s.oid
-    inner join centraxx_patientcontainer pc on s.patientcontainer = pc.oid 
-    inner join centraxx_idcontainer idc on idc.patientcontainer = pc.oid
-    where sidc.psn = ? and sidc.idcontainertype = 6""", sampleid)
-    
-        patid = figs.patientid(resource, "LIMSPSN")
-    
-        if len(result) == 0:
+        res = self.tr.sample(sampleids=[sampleid], verbose=[tr.patientid])
+        dbpatid = None
+        if len(res) > 0:
+            dbsample = res[0]
+            dbpatid = dbsample.patient.id()
+        jpatid = figs.patientid(resource, "LIMSPSN")
+        if dbpatid is None:
             if figs.category(resource) == "MASTER":
                 self.err(f"no patient psn in db for sample {sampleid}")
-        elif patid != result[0]["psn"]:
-            res = self.tr.patient(sampleids=[sampleid])
-            dbpatid = res[0].id()
-            #print("tr pat id: " + dbpatid)
-            #print("query pat id: " + result[0]["psn"])
-        
-            self.err(f"limspsn for sample {sampleid} is {patid} in json and {result[0]['psn']} in db.")
+        elif dbpatid.strip().casefold() != jpatid.strip().casefold():
+            self.err(f"limspsn for sample {sampleid} is {jpatid} in json and {dbpatid} in db.")
         parentresource = self.fp.parent(entry)
         if parentresource != None:
             parent_patid = figs.patientid(parentresource, "LIMSPSN")
-            if parent_patid != patid:
-                self.err(f"the limpspsn of sample {sampleid} is {patid} in json, but {parent_patid} of its parent in json")
+            if parent_patid != jpatid:
+                self.err(f"the limpspsn of sample {sampleid} is {jpatid} in json, but {parent_patid} of its parent in json.")
