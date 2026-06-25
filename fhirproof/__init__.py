@@ -166,10 +166,11 @@ class fhirproof:
               if not self._skip(type(derivmat).__name__, trial, sampletype):
                   derivmat.check(entry, dbsample)
               # edit oe
-              mayeditou.check(entry, self.user)
+              if not self._skip(type(mayeditou).__name__, trial, sampletype):            
+                  mayeditou.check(entry, self.user)
               # id container
               if not self._skip(type(idcontainer).__name__, trial, sampletype):
-                  idcontainer.check(entry)
+                  idcontainer.check(entry, dbsample)
               # primary material
               if not self._skip(type(primmat).__name__, trial, sampletype):
                   primmat.check(entry, dbsample)

@@ -12,7 +12,7 @@ class LabvalMasterObs(FhirCheck):
          (messprofil) are given.
         """
         super().check(entry)
-        self.info("lamaobs check")
+        #self.info("lamaobs check")
         resource = fgo.resource(entry)
         method = fgo.method(resource)
         res = self.tr.method(methods=[method])

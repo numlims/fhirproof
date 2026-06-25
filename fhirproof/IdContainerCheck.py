@@ -8,22 +8,19 @@ class IdContainerCheck(FhirCheck):
         """
         """
         FhirCheck.__init__(self, fp)
-    def check(self, entry):
+    def check(self, entry, dbsample):
         """
          check runs the check.
         """
         super().check(entry)
         #print("traction: " + str(self.fp.tr))
-        if self.fp.tr == None:
+        if dbsample is None:
            return
         resource = dig(entry, "resource")
         sampleid = figs.sampleid(resource)
 
         #patientid = figs.limspsn(resource)
-        res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.trial])
-        trialcode = None
-        if len(res) > 0:
-            trialcode = res[0].trial
+        trialcode = dbsample.trial
         idcs = figs.identifiers(resource).keys()
         should = [ "SAMPLEID" ]
         

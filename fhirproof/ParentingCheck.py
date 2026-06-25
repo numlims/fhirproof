@@ -30,12 +30,15 @@ class ParentingCheck(FhirCheck):
                 res = self.tr.sample(sampleids = [parentid])
             
             if not parentid in self.fp.entrybysampleid and len(res) == 0:
-                self.err(f"the parent primary ({parentid}) of aliquot {figs.fhirid(resource)} isn't in the db and hasn't been encountered in the json yet.")
+                self.err(f"the parent primary ({parentid}) of aliquot {figs.full_url(resource)} isn't in the db and hasn't been encountered in the json yet.")
     def end(self):
         """
          end filters childless aliquot groups. it is called after all samples are checked.
         """
         for fhirid in self.fp.aqtgchildless.keys():
             if self.fp.aqtgchildless[fhirid] == True:
-                super().check(dig(self.fp.entrybyfhirid, fhirid)) # for err to reference the correct file
+                #print(fhirid)
+                #print("entrybyfhirid:")
+                #print(self.fp.entrybyfhirid[fhirid])
+                super().check(self.fp.entrybyfhirid[fhirid]) # for err to reference the correct file
                 self.err(f"aliquotgroup {fhirid} is childless.")

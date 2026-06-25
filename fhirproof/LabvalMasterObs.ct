@@ -21,7 +21,7 @@ check checks that only the codes belonging to the observation's method
 get the method code from json.
 
 ``
-        self.info("lamaobs check")
+        #self.info("lamaobs check")
         resource = fgo.resource(entry)
         method = fgo.method(resource)
 ``

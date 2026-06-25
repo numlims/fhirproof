@@ -14,9 +14,7 @@ class MayUserEditOUCheck(FhirCheck):
          named in the entry.
         """
         super().check(entry)
-        print("user:")
-        print(user)
-        if self.db == None:
+        if self.db is None or user is None:
             return
         resource = dig(entry, 'resource')
         orgunit = figs.orga(resource)
