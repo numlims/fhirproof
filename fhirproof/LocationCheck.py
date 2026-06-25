@@ -10,7 +10,7 @@ class LocationCheck(FhirCheck):
         """
         """
         FhirCheck.__init__(self, fp)
-    def check(self, entry):
+    def check(self, entry, dbsample):
         """
         """
         super().check(entry)

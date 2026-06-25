@@ -10,7 +10,7 @@ class PsnCheck(FhirCheck):
         """
         """
         FhirCheck.__init__(self, fp)
-    def check(self, entry):
+    def check(self, entry, dbsample):
         """
          check runs the check.
         """
@@ -21,10 +21,8 @@ class PsnCheck(FhirCheck):
     
         resource = dig(entry, "resource")
         sampleid = figs.sampleid(resource)
-        res = self.tr.sample(sampleids=[sampleid], verbose=[tr.patientid])
         dbpatid = None
-        if len(res) > 0:
-            dbsample = res[0]
+        if dbsample is not None:
             dbpatid = dbsample.patient.id()
         jpatid = figs.patientid(resource, "LIMSPSN")
         if dbpatid is None:

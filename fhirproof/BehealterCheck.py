@@ -9,7 +9,7 @@ class BehealterCheck(FhirCheck):
         """
         """
         FhirCheck.__init__(self, fp)
-    def check(self, entry):
+    def check(self, entry, dbsample):
         """
         """
         super().check(entry)
@@ -17,10 +17,6 @@ class BehealterCheck(FhirCheck):
         sampleid = figs.sampleid(resource)
         
         container = dig(resource, "container/0/identifier/0/value")
-        dbsample = None
-        res = self.tr.sample(sampleids=[sampleid], verbose=[tr.receptacle])
-        if len(res) > 0:
-           dbsample = res[0]
         if figs.category(resource) == "MASTER" and (dbsample != None and container != dbsample.receptacle):
             self.err(f"container for primary sample {sampleid} should be {dbsample.receptacle} but is {container} in json.")
         aqt_allowed = self.fp.config["alicontainers"] # ["NUM_AliContainer", "NUMCryoAliquot500", "NUMAliquot1000", "NUMAliquot2000"]

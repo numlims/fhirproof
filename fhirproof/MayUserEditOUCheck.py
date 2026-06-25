@@ -14,6 +14,8 @@ class MayUserEditOUCheck(FhirCheck):
          named in the entry.
         """
         super().check(entry)
+        print("user:")
+        print(user)
         if self.db == None:
             return
         resource = dig(entry, 'resource')

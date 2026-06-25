@@ -19,10 +19,10 @@ named in the entry.
         ``.``
 ``
 
-if no db do nothing.
+if no db or no user do nothing.
 
 ``
-        if self.db == None:
+        if self.db is None or user is None:
             return
 ``
 

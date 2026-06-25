@@ -6,7 +6,7 @@ class PrimaryMatCheck(FhirCheck):
         """
         """
         FhirCheck.__init__(self, fp)
-    def check(self, entry):
+    def check(self, entry, dbsample):
         """
          check checks that the material doesn't change for primary samples.
         """
@@ -15,9 +15,7 @@ class PrimaryMatCheck(FhirCheck):
         if figs.category(resource) != "MASTER":
             return
         sampleid = figs.sampleid(resource)
-        res = self.tr.sample(sampleids=[sampleid])
-        if len(res) == 0:
+        if dbsample is None:
             return
-        dbsample = res[0]
         if figs.type(resource) != dbsample.type:
             self.err(f"material of primary sample {sampleid} can't be changed. (from {dbsample.type} to {figs.type(resource)})")

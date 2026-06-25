@@ -92,7 +92,7 @@ class fhirproof:
         mayeditou = MayUserEditOUCheck(self)
         idcontainer = IdContainerCheck(self)
         primmat = PrimaryMatCheck(self)
-        lamaobs = LabvalMasterObs(self)
+        labvalmasterobs = LabvalMasterObs(self)
         master_count = 0        
         aqtg_count = 0
         derived_count = 0
@@ -111,78 +111,73 @@ class fhirproof:
 
             resource = fgs.resource(entry)
             if fgs.resource_type(resource) == "Specimen":
-                sampleid = fgs.sampleid(resource)
-                res = self.tr.sample(sampleids=[sampleid], verbose_all=True)
-                dbsample = None
-                if len(res) > 0:
-                    dbsample = res[0]
-            if fgs.category(resource) == "ALIQUOTGROUP":
-                aqtg_count += 1
-                if not fgs.full_url(entry) in self.aqtgchildless: # tmp way to prohibit overwrites
-                    self.aqtgchildless[fgs.full_url(entry)] = True
-                aqtmat.check(entry)
-
-            # print(f"entry resource: {json.dumps(fgs.resource(entry))}")
-            sampleid = fgs.sampleid(resource)
-            if sampleid == None:
-                continue
-            res = self.tr.sample(sampleids=[sampleid], verbose_all=True)
-            dbsample:Sample = None
-            if len(res) > 0:
-                dbsample = res[0]
-            self.entrybysampleid[sampleid] = entry
-
-            if fgs.category(resource) == "MASTER":
-                master_count += 1
-            if fgs.category(resource) == "DERIVED":
-                derived_count += 1
-            if fgs.category(resource) == "PATIENT":
-                pat_count += 1
-            sampletype = fgs.type(resource)
-            trial = self._trial_from_orga(fgs.orga(resource))
-            # amount units
-            if not self._skip(type(amountunit).__name__, trial, sampletype):
-                amountunit.check(entry)
-            # primary in db
-            if not self._skip(type(primary_in_db).__name__, trial, sampletype):
-                primary_in_db.check(entry)
-            # dates
-            if not self._skip(type(dates).__name__, trial, sampletype):
-                dates.check(entry, dbsample)
-            # location
-            if not self._skip(type(location).__name__, trial, sampletype):  
-                location.check(entry)
-            # behealter
-            if not self._skip(type(behealter).__name__, trial, sampletype):
-                behealter.check(entry)
-            # org
-            if not self._skip(type(ou).__name__, trial, sampletype):
-                ou.check(entry)
-            # parenting
-            if not self._skip(type(parenting).__name__, trial, sampletype):
-                parenting.check(entry)
-            # psn
-            if not self._skip(type(psn).__name__, trial, sampletype):
-                psn.check(entry)
-            # restmenge
-            if not self._skip(type(restmenge).__name__, trial, sampletype):
-                restmenge.check(entry)
-            # derived material
-            if not self._skip(type(derivmat).__name__, trial, sampletype):
-                derivmat.check(entry)
-            # edit oe
-            mayeditou.check(entry, self.user)
-            # id container
-            if not self._skip(type(idcontainer).__name__, trial, sampletype):
-                idcontainer.check(entry)
-            # primary material
-            if not self._skip(type(primmat).__name__, trial, sampletype):
-                idcontainer.check(entry)
+              if fgs.category(resource) == "ALIQUOTGROUP":
+                  aqtg_count += 1
+                  if not fgs.full_url(entry) in self.aqtgchildless: # tmp way to prohibit overwrites
+                      self.aqtgchildless[fgs.full_url(entry)] = True
+                  aqtmat.check(entry)
+  
+              # print(f"entry resource: {json.dumps(fgs.resource(entry))}")
+              sampleid = fgs.sampleid(resource)
+              if sampleid == None:
+                  continue
+              res = self.tr.sample(sampleids=[sampleid], verbose_all=True)
+              dbsample:Sample = None
+              if len(res) > 0:
+                  dbsample = res[0]
+              self.entrybysampleid[sampleid] = entry
+  
+              if fgs.category(resource) == "MASTER":
+                  master_count += 1
+              if fgs.category(resource) == "DERIVED":
+                  derived_count += 1
+              if fgs.category(resource) == "PATIENT":
+                  pat_count += 1
+              sampletype = fgs.type(resource)
+              trial = self._trial_from_orga(fgs.orga(resource))
+              # amount units
+              if not self._skip(type(amountunit).__name__, trial, sampletype):
+                  amountunit.check(entry, dbsample)
+              # primary in db
+              if not self._skip(type(primary_in_db).__name__, trial, sampletype):
+                  primary_in_db.check(entry, dbsample)
+              # dates
+              if not self._skip(type(dates).__name__, trial, sampletype):
+                  dates.check(entry, dbsample)
+              # location
+              if not self._skip(type(location).__name__, trial, sampletype):  
+                  location.check(entry, dbsample)
+              # behealter
+              if not self._skip(type(behealter).__name__, trial, sampletype):
+                  behealter.check(entry, dbsample)
+              # org
+              if not self._skip(type(ou).__name__, trial, sampletype):
+                  ou.check(entry, dbsample)
+              # parenting
+              if not self._skip(type(parenting).__name__, trial, sampletype):
+                  parenting.check(entry, dbsample)
+              # psn
+              if not self._skip(type(psn).__name__, trial, sampletype):
+                  psn.check(entry, dbsample)
+              # restmenge
+              if not self._skip(type(restmenge).__name__, trial, sampletype):
+                  restmenge.check(entry, dbsample)
+              # derived material
+              if not self._skip(type(derivmat).__name__, trial, sampletype):
+                  derivmat.check(entry, dbsample)
+              # edit oe
+              mayeditou.check(entry, self.user)
+              # id container
+              if not self._skip(type(idcontainer).__name__, trial, sampletype):
+                  idcontainer.check(entry)
+              # primary material
+              if not self._skip(type(primmat).__name__, trial, sampletype):
+                  primmat.check(entry, dbsample)
             elif fgs.resource_type(resource) == "Observation":
               trial = None
               sampletype = None
-              if not self._skip(type(lamaobs).__name__, trial, sampletype):
-                  lamaobs.check(entry)
+              if not self._skip(type(labvalmasterobs).__name__, trial, sampletype):
+                  labvalmasterobs.check(entry)
 
         restmenge.end()
         parenting.end()

@@ -3,7 +3,7 @@ from dip import dig
 from fhirproof.FhirCheck import FhirCheck
 from figs import specimen as figs
 class AmountUnitCheck(FhirCheck):
-    def check(self, entry):
+    def check(self, entry, dbsample):
         """
          check checks the amount unit for initial and rest amount.
         """

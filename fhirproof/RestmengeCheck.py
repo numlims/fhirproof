@@ -11,7 +11,7 @@ class RestmengeCheck(FhirCheck):
         """
         FhirCheck.__init__(self, fp)
     entries = []    
-    def check(self, entry):
+    def check(self, entry, dbsample):
         """
         """
         super().check(entry)

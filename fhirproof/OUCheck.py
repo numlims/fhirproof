@@ -20,7 +20,7 @@ class OUCheck(FhirCheck):
             self.err(f"no organisation in json for sample {sampleid}")
         if dborga != jsonorga:
             self.err(f"organisation units don't match for sample {sampleid}, json orga is {jsonorga}, db orga is {dborga}")
-    def check(self, entry):
+    def check(self, entry, dbsample):
         """
          check starts the check.
         """
@@ -30,20 +30,15 @@ class OUCheck(FhirCheck):
         resource = dig(entry, "resource")
     
         sampleid = figs.sampleid(resource)
-    
-        res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.orga])
-        trsample = None
-        if len(res) > 0:
-          trsample = res[0]
         sampleorgjson = figs.orga(resource)
         typ = figs.category(resource)
-        if trsample != None and typ == "MASTER":
+        if dbsample is not None and typ == "MASTER":
             if sampleorgjson != None:
-                self._check(trsample.orga, sampleorgjson, sampleid)
+                self._check(dbsample.orga, sampleorgjson, sampleid)
         elif typ == "DERIVED": 
-            if trsample != None:
+            if dbsample != None:
                 if sampleorgjson != None:
-                    self._check(trsample.orga, sampleorgjson, sampleid)
+                    self._check(dbsample.orga, sampleorgjson, sampleid)
             else:
                 if sampleorgjson == None:
                     self.err(f"there is no json org for derived sample {sampleid}")

@@ -7,7 +7,7 @@ class PrimaryInDbCheck(FhirCheck):
         """
         """
         FhirCheck.__init__(self, fp)
-    def check(self, entry):
+    def check(self, entry, dbsample):
         """
          check checks whether the sample is in db if it is a master.
         """
@@ -21,8 +21,8 @@ class PrimaryInDbCheck(FhirCheck):
         sampleid = figs.sampleid(resource)
 
         # samplerow = sample(sampleid)
-        res = self.tr.sample(sampleids=[sampleid], verbose_all=True) # todo specify which verbose fields?
+        #res = self.tr.sample(sampleids=[sampleid], verbose_all=True) # todo specify which verbose fields?
 
-        if (res == None or len(res) == 0) and figs.category(resource) == "MASTER":
+        if dbsample is None and figs.category(resource) == "MASTER":
             self.err(f"sample {sampleid} is type master but it is not in the db.")
 
