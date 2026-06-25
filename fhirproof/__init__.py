@@ -34,11 +34,11 @@ import sys
 class fhirproof:
 
     # these variables are accessible to the fhirchecks
-    entrybyfhirid = {} # entries referenced by fullUrl / fhirids, e.g. "Specimen/1037700"
+    entrybyfhirid = {} # entries referenced by fhirid (fullUrl), e.g. "Specimen/1037700"
     entrybysampleid = {} # entries referenced by sampleid
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
-    _accept = {} # was this file accepted? keyed by filename.
+    _accept = {} # was this file without errors? keyed by filename.
     def __init__(self, dbtarget, user, logfile, configpath:str=None, loglevel:list=None, quiet:bool=False):
         """
          __init__ inits fhirproof with db target, centraxx user, logfile and config.

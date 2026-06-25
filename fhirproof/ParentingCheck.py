@@ -37,4 +37,5 @@ class ParentingCheck(FhirCheck):
         """
         for fhirid in self.fp.aqtgchildless.keys():
             if self.fp.aqtgchildless[fhirid] == True:
+                super().check(dig(self.fp.entrybyfhirid, fhirid)) # for err to reference the correct file
                 self.err(f"aliquotgroup {fhirid} is childless.")

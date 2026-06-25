@@ -16,24 +16,36 @@ class FhirCheck:
          check remembers the entry so its filename can be accessed by the log functions.
         """
         self.entry = entry
-    # info is an info log shortcut
     def info(self, message):
         """
+         info is an info log shortcut.
+         
+         when called in subclasses, super().check(entry) must be called first
+         (especially in end-checks), so that the log message gives the file
+         name of the corresponding entry.
         """
         if self.fp.loglevel is None or  "INFO" in self.fp.loglevel:
             self.fp.log.info(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
-    # err is an error log shortcut
-    def err(self, message):
+    def err(self, message, entry=None):
         """
+         err is an error log shortcut.
+         
+         when called in subclasses, super().check(entry) must be called first
+         (especially in end-checks), so that the log message gives the file
+         name of the corresponding entry.
         """
         self.fp.ok = False # this run is not ok
         filename = dig(self.entry, '_filename')
         self.fp._accept[filename] = False
         if self.fp.loglevel is None or "ERROR" in self.fp.loglevel:
             self.fp.log.error(f"{filename}: {self.__class__.__name__}: {message}")
-    # debug is an error log shortcut
     def debug(self, message):
         """
+         debug is an error log shortcut.
+         
+         when called in subclasses, super().check(entry) must be called first
+         (especially in end-checks), so that the log message gives the file
+         name of the corresponding entry.
         """
         if self.fp.loglevel is None or "DEBUG" in self.fp.loglevel:
             self.fp.log.debug(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
