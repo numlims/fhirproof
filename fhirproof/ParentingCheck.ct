@@ -9,7 +9,7 @@ class ParentingCheck(FhirCheck):
 ``
 
 ``/check:
-def check(self, entry):
+def check(self, entry, dbsample):
     super().check(entry)
     resource = dig(entry, "resource")
     sampleid = figs.sampleid(resource)

@@ -1,10 +1,10 @@
-# LamaObs
+# LabvalMasterObs
 
-LamaObs checks that observations com only with permissible labval masterdata (lama).
+LabvalMasterObs checks that observations com only with permissible labval masterdata (lama).
 
-``//LamaObs.py:
+``//LabvalMasterObs.py:
 ``import``
-class LamaObs(FhirCheck):
+class LabvalMasterObs(FhirCheck):
     ``init``
     ``check``
 ``

@@ -16,7 +16,7 @@ from fhirproof.FhirCheck import FhirCheck
 check checks that the material doesn't change for primary samples.
     
 ``/check:
-    def check(self, entry):
+    def check(self, entry, dbsample):
         super().check(entry)
         ``.``
 ``
@@ -35,13 +35,11 @@ get the sampleid from json.
         sampleid = figs.sampleid(resource)
 ``
 
-get the sample from db, if not in db do nothing.
+if the sample is not in the db do nothing.
 
 ``
-        res = self.tr.sample(sampleids=[sampleid])
-        if len(res) == 0:
+        if dbsample is None:
             return
-        dbsample = res[0]
 ``
 
 give an error if the material from json and db don't match.

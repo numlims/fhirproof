@@ -11,7 +11,7 @@ Primärproben sollen Originalcontainer sein, Aliquot-Deriveds NUM
 Aliquotcontainer.
 
 ``/check:
-    def check(self, entry):
+    def check(self, entry, dbsample):
         super().check(entry)
         ``.``
 ``
@@ -23,15 +23,6 @@ get the resource, sampleid and container.
         sampleid = figs.sampleid(resource)
         
         container = dig(resource, "container/0/identifier/0/value")
-``
-
-get the sample from the db.
-
-``
-        dbsample = None
-        res = self.tr.sample(sampleids=[sampleid], verbose=[tr.receptacle])
-        if len(res) > 0:
-           dbsample = res[0]
 ``
 
 make sure that the incoming primary container is the same as in the db.

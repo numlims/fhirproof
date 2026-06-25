@@ -15,7 +15,7 @@ sein wie das seiner Parent-Aliquotgroup. Vom Derived zur
 Parent-Aliquotgroup kommen wir über die Fhirid.
 
 ``/check:
-    def check(self, entry):
+    def check(self, entry, dbsample):
         super().check(entry)
         resource = dig(entry, "resource")
         sampleid = figs.sampleid(resource)

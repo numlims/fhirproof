@@ -13,7 +13,7 @@ class AmountUnitCheck(FhirCheck):
 check checks the amount unit for initial and rest amount.
 
 ``/check:
-    def check(self, entry):
+    def check(self, entry, dbsample):
         super().check(entry)
         ``.``
 ``

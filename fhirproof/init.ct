@@ -164,7 +164,7 @@ initialize specimen checks.
 initialize observation checks.
 
 ``
-        lamaobs = LamaObs(self)
+        labvalmasterobs = LabvalMasterObs(self)
 ``
 
 initialize counts.
@@ -206,14 +206,17 @@ the filenames are saved in each entry.
 
 speicher den entry nach seiner fhirid.
 
-check depending on specimen or observation.
-
 ``
             # keep arrays up to date
             self.entrybyfhirid[fgs.full_url(entry)] = entry
             #print(type(fgs).__name__)
 
             resource = fgs.resource(entry)
+``
+
+check depending on specimen or observation.
+
+``
             if fgs.resource_type(resource) == "Specimen":
               ``specimen``
             elif fgs.resource_type(resource) == "Observation":
@@ -301,34 +304,34 @@ shouldn't be skipped for the trial and sampletype.
 ``
             # amount units
             if not self._skip(type(amountunit).__name__, trial, sampletype):
-                amountunit.check(entry)
+                amountunit.check(entry, dbsample)
             # primary in db
             if not self._skip(type(primary_in_db).__name__, trial, sampletype):
-                primary_in_db.check(entry)
+                primary_in_db.check(entry, dbsample)
             # dates
             if not self._skip(type(dates).__name__, trial, sampletype):
                 dates.check(entry, dbsample)
             # location
             if not self._skip(type(location).__name__, trial, sampletype):  
-                location.check(entry)
+                location.check(entry, dbsample)
             # behealter
             if not self._skip(type(behealter).__name__, trial, sampletype):
-                behealter.check(entry)
+                behealter.check(entry, dbsample)
             # org
             if not self._skip(type(ou).__name__, trial, sampletype):
-                ou.check(entry)
+                ou.check(entry, dbsample)
             # parenting
             if not self._skip(type(parenting).__name__, trial, sampletype):
-                parenting.check(entry)
+                parenting.check(entry, dbsample)
             # psn
             if not self._skip(type(psn).__name__, trial, sampletype):
-                psn.check(entry)
+                psn.check(entry, dbsample)
             # restmenge
             if not self._skip(type(restmenge).__name__, trial, sampletype):
-                restmenge.check(entry)
+                restmenge.check(entry, dbsample)
             # derived material
             if not self._skip(type(derivmat).__name__, trial, sampletype):
-                derivmat.check(entry)
+                derivmat.check(entry, dbsample)
             # edit oe
             mayeditou.check(entry, self.user)
             # id container
@@ -336,7 +339,7 @@ shouldn't be skipped for the trial and sampletype.
                 idcontainer.check(entry)
             # primary material
             if not self._skip(type(primmat).__name__, trial, sampletype):
-                idcontainer.check(entry)
+                primmat.check(entry, dbsample)
 ``
 
 if the resource is an observation, do the observation checks.
@@ -344,8 +347,8 @@ if the resource is an observation, do the observation checks.
 ``/check_entries/loop/observation:
             trial = None
             sampletype = None
-            if not self._skip(type(lamaobs).__name__, trial, sampletype):
-                lamaobs.check(entry)
+            if not self._skip(type(labvalmasterobs).__name__, trial, sampletype):
+                labvalmasterobs.check(entry)
 ``
 
 restmenge und parenting machen einen extra check nach dem loop.
@@ -395,7 +398,7 @@ from fhirproof.DerivmatCheck import *
 from fhirproof.MayUserEditOUCheck import *
 from fhirproof.IdContainerCheck import *
 from fhirproof.PrimaryMatCheck import *
-from fhirproof.LamaObs import *
+from fhirproof.LabvalMasterObs import *
 ``
 
 ## check observations

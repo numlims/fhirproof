@@ -34,6 +34,7 @@ class RestmengeCheck(FhirCheck):
         """
         """
         for entry in self.entries:
+            super().check(entry) # for err to reference the correct file    
             #    restamount = entry["resource"]["container"][0]["specimenQuantity"]["value"]
             restamount = figs.restamount(figs.resource(entry))
             sampleid = figs.sampleid(figs.resource(entry))

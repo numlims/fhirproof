@@ -12,7 +12,7 @@ class PsnCheck(FhirCheck):
 check runs the check.
 
 ``/check:
-def check(self, entry):
+def check(self, entry, dbsample):
     super().check(entry)
     
     ``.``
@@ -28,13 +28,11 @@ get the sampleid from the json.
     sampleid = figs.sampleid(resource)
 ``
 
-get the patient psn from the db.
+get the patient psn from the db sample.
 
 ``
-    res = self.tr.sample(sampleids=[sampleid], verbose=[tr.patientid])
     dbpatid = None
-    if len(res) > 0:
-        dbsample = res[0]
+    if dbsample is not None:
         dbpatid = dbsample.patient.id()
 ``
 
