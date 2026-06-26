@@ -7,6 +7,8 @@ ruft sie jeweils fuer einen entry auf.
 
 ``import``
 
+``page_cmp``
+
 # fhirproof reads fhir json from stdin and checks the entries
 class fhirproof:
 
@@ -209,7 +211,6 @@ speicher den entry nach seiner fhirid.
 ``
             # keep arrays up to date
             self.entrybyfhirid[fgs.full_url(entry)] = entry
-            #print(type(fgs).__name__)
 
             resource = fgs.resource(entry)
 ``
@@ -449,6 +450,11 @@ gib ok zurueck, was von den checks beschrieben wurde.
 
 entries_from_dir returns the entries from all json files in a directory.
 
+it sorts the files page-number first, T1_p0, T2_p0, T3_p0, ..., T1_p1,
+T2_p1..., that's the way the cxx importer reads them.
+
+should read try to read the files in the same order the importer reads them
+
 ``/entries_from_dir:
     def entries_from_dir(self, dir, encoding=None): # todo could be static?
         ``.``
@@ -469,9 +475,13 @@ the order isn't p1, p10, p11, ..., p2, p3.
         entries = []
 
         files = os.listdir(dir)
-        files = natsorted(files)
+        files = natsorted(files)  ## doesn't sort by page numbers first
+
+        files.sort(key=cmp_to_key(page_cmp))
+        #print("files:")
         
         for file in files:
+          #print(file)
           ``.``
 ``
 
@@ -509,6 +519,7 @@ neue importe.
 import os
 import json
 from natsort import natsorted
+from functools import cmp_to_key
 ``
 
 parent gibt die parent-resource eines entries zurueck, wenn es eine gibt.
@@ -618,3 +629,57 @@ importiere logging und sys.
 import logging
 import sys
 ``
+
+page_cmp sorts fhir file names first by page-number, then by time, like t1_p0, t2_p0, t3_p0, ..., t1_p1, t2_p1, t3_p1...
+
+assumes file name format 2026-06-25_16-41-05-999-Specimen_P131.json.
+
+see https://stackoverflow.com/a/36075587.
+
+``/page_cmp:
+def page_cmp(a:str, b:str):
+    ``.``
+``
+
+get the pagenumbers.
+
+``
+    #print("hello page_cmp")
+    pagea = int(re.findall('_P(\d+).json', a)[0])
+    pageb = int(re.findall('_P(\d+).json', b)[0])
+    #print("pagea: " + str(pagea))
+``
+
+compare by pagenumbers.
+
+``
+    if pagea > pageb:
+        return 1
+    elif pagea < pageb:
+        return -1
+``
+
+if it's the same page, break the tie with the datetime.
+
+get the datetime.
+
+``
+    datetimea = re.findall('^([0-9\-_]+)', a)
+    datetimeb = re.findall('^([0-9\-_]+)', b)
+``
+
+compare by datetime (as strings).
+
+``
+    if datetimea > datetimeb:
+        return 1
+    elif datetimea < datetimeb:
+        return -1
+    else:
+        return 0
+``
+
+
+
+
+

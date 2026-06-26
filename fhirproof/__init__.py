@@ -25,10 +25,36 @@ from fhirproof.LabvalMasterObs import *
 import os
 import json
 from natsort import natsorted
+from functools import cmp_to_key
 from pathlib import Path
 import os.path
 import logging
 import sys
+
+def page_cmp(a:str, b:str):
+    """
+     page_cmp sorts fhir file names first by page-number, then by time, like t1_p0, t2_p0, t3_p0, ..., t1_p1, t2_p1, t3_p1...
+     
+     assumes file name format 2026-06-25_16-41-05-999-Specimen_P131.json.
+     
+     see https://stackoverflow.com/a/36075587.
+    """
+    #print("hello page_cmp")
+    pagea = int(re.findall('_P(\d+).json', a)[0])
+    pageb = int(re.findall('_P(\d+).json', b)[0])
+    #print("pagea: " + str(pagea))
+    if pagea > pageb:
+        return 1
+    elif pagea < pageb:
+        return -1
+    datetimea = re.findall('^([0-9\-_]+)', a)
+    datetimeb = re.findall('^([0-9\-_]+)', b)
+    if datetimea > datetimeb:
+        return 1
+    elif datetimea < datetimeb:
+        return -1
+    else:
+        return 0
 
 # fhirproof reads fhir json from stdin and checks the entries
 class fhirproof:
@@ -107,7 +133,6 @@ class fhirproof:
                 self.log.info(currentfile + ": checking file")
             # keep arrays up to date
             self.entrybyfhirid[fgs.full_url(entry)] = entry
-            #print(type(fgs).__name__)
 
             resource = fgs.resource(entry)
             if fgs.resource_type(resource) == "Specimen":
@@ -209,15 +234,24 @@ class fhirproof:
     def entries_from_dir(self, dir, encoding=None): # todo could be static?
         """
          entries_from_dir returns the entries from all json files in a directory.
+         
+         it sorts the files page-number first, T1_p0, T2_p0, T3_p0, ..., T1_p1,
+         T2_p1..., that's the way the cxx importer reads them.
+         
+         should read try to read the files in the same order the importer reads them
         """
         if encoding == None:
             encoding = "utf-8"
         entries = []
 
         files = os.listdir(dir)
-        files = natsorted(files)
+        files = natsorted(files)  ## doesn't sort by page numbers first
+
+        files.sort(key=cmp_to_key(page_cmp))
+        #print("files:")
         
         for file in files:
+          #print(file)
           _, ext = os.path.splitext(file)
           # print("ext: " + ext)
           if ext != ".json":

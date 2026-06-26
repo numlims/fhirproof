@@ -21,7 +21,7 @@ class ParentingCheck(FhirCheck):
                 self.err(f"sample {sampleid} is a derived, but there isn't a reference to a parent.")
                 # we assume that we already visited the parent, if not, message
             elif pfhirid not in self.fp.entrybyfhirid:
-                self.err(f"the parent of derived sample {sampleid} hasn't been encountered in the json file yet.")
+                self.err(f"the parent {pfhirid} of derived sample {sampleid} hasn't been encountered in the json file yet.")
             self.fp.aqtgchildless[pfhirid] = False
         if figs.category(resource) == "ALIQUOTGROUP":
             parentid = figs.parent_sampleid(resource)

@@ -29,7 +29,7 @@ make sure that the incoming primary container is the same as in the db.
 
 ``
         if figs.category(resource) == "MASTER" and (dbsample != None and container != dbsample.receptacle):
-            self.err(f"container for primary sample {sampleid} should be {dbsample.receptacle} but is {container} in json.")
+            self.err(f"container for primary sample {sampleid} is {dbsample.receptacle} in db but is {container} in json.")
 ``
 
 check the behealter for aliquot.
