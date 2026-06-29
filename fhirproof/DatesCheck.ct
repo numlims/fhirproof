@@ -1,26 +1,26 @@
-DatesCheck geht ueber die zeitliche Reihenfolge der Samples.
+# DatesCheck
+
+DatesCheck checks the dates / times of a sample.
 
 ``//DatesCheck.py:
 ``import``
 ``isunknown``
 class DatesCheck(FhirCheck):
     ``init``
-    ``dateonly``
-    ``withtime``
     ``check``
+    ``compare``
 ``
 
-the dates belonging to a sample should be in that order:
+check makes sure that the dates belonging to a sample are in the following order:
 
-abnahme (collection) [bei Primär]<br/>
-laboreingang (received)  <br/>
-zentrifugation [wenn da] <br/>
-aliquotierung (derival) [bei Aliquoten]   <br/>
+collection (abnahme) [for primary samples]<br/>
+received (laboratory entry)  <br/>
+stock-processing (centrifugation) [if there] <br/>
+derival (aliquoting) [for aliquots]   <br/>
+reposition
 
-put the datetimes of a sample in the list `timechain` in the order
-that they should be. then check that the dates in timechain are
-actually in order.
-
+the dates can be on date-level ("2025-06-07") or time-level
+("2025-10-27T00:00:00+01:00").
 
 ``/check:
     def check(self, entry, dbsample:Sample):
@@ -28,7 +28,9 @@ actually in order.
         ``.``
 ``
 
-make the timechain.
+put the datetimes of a sample in the list `timechain` in the order
+that they should be. then check that the dates in timechain are
+actually in order.
 
 ``
         resource = dig(entry, "resource")
@@ -40,7 +42,7 @@ put the dates on timechain.
 
 collection date for primary and aliquot.
 
-special case: collection dates from freiburg can be year-month only,
+special case 'isunknown': collection dates from freiburg can be year-month only,
 when they weren't there and were approximated from entry dates. in
 this case, don't put them on the timechain.
 
@@ -49,6 +51,8 @@ this case, don't put them on the timechain.
             collectiondate = figs.collected_date(resource)
             if collectiondate is None and not isunknown(resource, "collection/_collectedDateTime"):
                 self.err(f"no collection date for sample {sampleid}")
+            else:
+                timechain.append(["collection date", collectiondate])
 ``
 
 received date for primary.
@@ -59,7 +63,7 @@ received date for primary.
             if receiveddate is None:
                 self.err(f"no receivedTime for sample {sampleid}")
             else:
-                timechain.append(["received date", self.dateonly(receiveddate)])
+                timechain.append(["received date", receiveddate])
 ``
 
 centrifugation date for primary or aliquot.
@@ -68,7 +72,7 @@ centrifugation date for primary or aliquot.
         if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
             stockprodate = figs.stockprocessing_date(resource)
             if stockprodate is not None:
-                timechain.append(["stockprocessing date", self.dateonly(stockprodate)])
+                timechain.append(["stockprocessing date", stockprodate])
             else:
                 ``no centri``
 ``
@@ -84,90 +88,94 @@ for NUM the code for 'no stockprocessing' is "Sprec-N", for IKCL it's
                     self.err(f"sample {sampleid} should come with a stockprocessing date (stock processing: {dbsample.stockprocessing}).")
 ``
 
-Bei Aliquoten sollte die Aliquotierung (Derival) nach der
-Zentrifugation sein, wir legen sie auf `timechain`.
+for aliquots, the derival (aliquoting) should come after
+centrifugation, put their derival date on the timechain.
 
 ``../
         if figs.category(resource) == "DERIVED":
             deriv_date = figs.derival_date(resource)
             if deriv_date is not None:    
-                timechain.append(["derival date", self.dateonly(deriv_date)])
+                timechain.append(["derival date", deriv_date])
             else:
                 self.err(f"no derival date for sample {sampleid}")
 ``
 
-Aliquote sollten eingefroren worden sein (Reposition-Date) nachdem sie
-derived wurden.
+the reposition date for aliquots should come after their derival date.
 
 ``
 
         if figs.category(resource) == "DERIVED":
             repo_date = figs.reposition_date(resource)
             if repo_date is not None:
-                timechain.append(["reposition date", self.dateonly(repo_date)])
+                timechain.append(["reposition date", repo_date])
             else:
                 self.err(f"no reposition date for sample {sampleid}")
 ``
 
-now check whether the dates in timechain are in ascending order.
+check whether the dates in timechain are in ascending order.
 
-there can be dates without a time, like 2025-12-05.  datetime sets
-their time to 00:00 when parsing.  this would mean that a chain with
-middle time 00:00 would be correct if it's on the same day:
+for now the datetimes are allowed to be equal in case they are on date-level.
+
+``
+        # print("timechain: " + str(timechain))
+        for i in range(1, len(timechain)):
+            a = datetime.fromisoformat(timechain[i-1][1])
+            b = datetime.fromisoformat(timechain[1][1])
+            if DatesCheck.compare(a, b) == 1:
+                self.err(f"in sample {sampleid} is {timechain[i][0]} before {timechain[i-1][0]}.") # [0] access the names
+``
+
+compare compares two datetimes. if one datetime is date-level
+(%YYYY-%mm-%dd) compare both on date-level, otherwise compare on
+time-level.
+
+this handling is needed because there can be dates without a time,
+like 2025-12-05.  datetime sets their time to 00:00 when parsing.
+this would mean that a chain with middle time 00:00 would be correct
+if it's on the same day:
 
   2025-12-05 09:00
   2025-12-05 00:00
   2025-12-05 12:00
 
-use smaller than or equal to allow equal days if the time is omitted
-and only %YYYY-%mm-%dd is sent.
-
-todo maybe allow equal only if precision is day?
-
-``
-        # print("timechain: " + str(timechain))
-        for i in range(1, len(timechain)):
-            if timechain[i][1] < timechain[i-1][1]: # [1] accesses the dates
-                self.err(f"in sample {sampleid} is {timechain[i][0]} before {timechain[i-1][0]}") # [0] accesses the names
-``
-
-dateonly parses date from iso formatted string and returns the date
-part without time, to allow order checking of mixed day-precision and
-exact-precision dates.
-
-``/dateonly:
-    def dateonly(self, s):
+``/compare:
+    @staticmethod
+    def compare(a:datetime, b:datetime):
         ``.``
 ``
 
-return date part without time for day-precision dates.
+make midnight time to find dates without a time.
+
+if one of the dates comes without a time, reduce both to date-level.
 
 ``
-        #return datetime.fromisoformat(s)
-        return datetime.fromisoformat(s).date()
+        midnight = datetime.strptime("00:00:00", "%H:%M:%S")
+        if a.time() == midnight.time() or b.time() == midnight.time():
+            a = a.date()
+            b = b.date()
 ``
 
-withtime parses an iso date as datetime, returning both string and time.
-
-``/withtime:
-    def withtime(self, s):
-        ``.``
-``
-
-return the datetime.
+compare.  if the first is bigger return 1, if both are equal return 0,
+if the second is bigger return -1.
 
 ``
-        return datetime.fromisoformat(s)
+        if a > b:
+            return 1
+        elif b > a:
+            return -1
+        else:
+            return 0
 ``
+        
 
-init
+init inits DatesCheck.
 
 ``/init:
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 ``
 
-und Importe.
+imports.
 
 ``/import:
 from datetime import datetime
@@ -177,7 +185,8 @@ from figs import specimen as figs
 from tram import Sample
 ``
 
-isunknown says when it's ok not to give an error when a date is missing, because it is unknown.
+isunknown says when it's ok not to give an error when a date is
+missing, because it is unknown.
 
 it expects a object at path in the resource, holding an extension:
 

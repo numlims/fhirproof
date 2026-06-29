@@ -34,4 +34,4 @@ class PsnCheck(FhirCheck):
         if parentresource != None:
             parent_patid = figs.patientid(parentresource, "LIMSPSN")
             if parent_patid != jpatid:
-                self.err(f"the limpspsn of sample {sampleid} is {jpatid} in json, but {parent_patid} of its parent in json.")
+                self.err(f"the limspsn of sample {sampleid} is {jpatid} in json, but {parent_patid} of its parent in json.")
