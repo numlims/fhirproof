@@ -1,6 +1,6 @@
 # PsnCheck
 
-is the limspsn the same in the db as it is in json?
+PsnCheck checks the limspsn.
 
 ``//PsnCheck.py:
 ``import``
@@ -9,10 +9,11 @@ class PsnCheck(FhirCheck):
     ``check``
 ``
 
-check runs the check.
+check makes sure that the limspsn of the fhir-entry sample is the same
+it is in dbsample.
 
 ``/check:
-def check(self, entry, dbsample):
+def check(self, entry, dbsample:Sample):
     super().check(entry)
     
     ``.``
@@ -80,5 +81,6 @@ from fhirproof.FhirCheck import *
 from figs import specimen as figs
 from dip import dig
 import tr
+from tram import Sample
 ``
 

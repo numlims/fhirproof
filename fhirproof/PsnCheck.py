@@ -5,14 +5,16 @@ from fhirproof.FhirCheck import *
 from figs import specimen as figs
 from dip import dig
 import tr
+from tram import Sample
 class PsnCheck(FhirCheck):
     def __init__(self, fp):
         """
         """
         FhirCheck.__init__(self, fp)
-    def check(self, entry, dbsample):
+    def check(self, entry, dbsample:Sample):
         """
-         check runs the check.
+         check makes sure that the limspsn of the fhir-entry sample is the same
+         it is in dbsample.
         """
         super().check(entry)
         

@@ -6,7 +6,8 @@ from figs import specimen as figs
 from tram import Sample
 def isunknown(resource, path:str):
     """
-     isunknown says when it's ok not to give an error when a date is missing, because it is unknown.
+     isunknown says when it's ok not to give an error when a date is
+     missing, because it is unknown.
      
      it expects a object at path in the resource, holding an extension:
      
@@ -41,38 +42,50 @@ class DatesCheck(FhirCheck):
         FhirCheck.__init__(self, fp)
     def check(self, entry, dbsample:Sample):
         """
+         check makes sure that the dates belonging to a sample in a fhir-entry
+         are in the following order:
+         
+         collection (abnahme) [for primary samples]<br/>
+         received (laboratory entry)  <br/>
+         stock-processing (centrifugation) [if there] <br/>
+         derival (aliquoting) [for aliquots]   <br/>
+         reposition
+         
+         the dates can be on date-level ("2025-06-07") or time-level
+         ("2025-10-27T00:00:00+01:00").
         """
         super().check(entry)
         resource = dig(entry, "resource")
         sampleid = figs.sampleid(resource)
         timechain = [] # ascending order
-        if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
+        category = figs.category(resource)
+        if category == "MASTER" or category == "DERIVED":
             collectiondate = figs.collected_date(resource)
             if collectiondate is None and not isunknown(resource, "collection/_collectedDateTime"):
                 self.err(f"no collection date for sample {sampleid}")
             else:
                 timechain.append(["collection date", collectiondate])
-        if figs.category(resource) == "MASTER":
+        if category == "MASTER":
             receiveddate = figs.received_date(resource)
             if receiveddate is None:
                 self.err(f"no receivedTime for sample {sampleid}")
             else:
                 timechain.append(["received date", receiveddate])
-        if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
+        if category == "MASTER" or category == "DERIVED":
             stockprodate = figs.stockprocessing_date(resource)
             if stockprodate is not None:
                 timechain.append(["stockprocessing date", stockprodate])
             else:
-                if figs.category(resource) == "MASTER" and dbsample is not None and dbsample.stockprocessing not in [None, "", "Sprec-N", "NO"]:
+                if category == "MASTER" and dbsample is not None and dbsample.stockprocessing not in [None, "", "Sprec-N", "NO"]:
                     self.err(f"sample {sampleid} should come with a stockprocessing date (stock processing: {dbsample.stockprocessing}).")
-        if figs.category(resource) == "DERIVED":
+        if category == "DERIVED":
             deriv_date = figs.derival_date(resource)
             if deriv_date is not None:    
                 timechain.append(["derival date", deriv_date])
             else:
                 self.err(f"no derival date for sample {sampleid}")
 
-        if figs.category(resource) == "DERIVED":
+        if category == "DERIVED":
             repo_date = figs.reposition_date(resource)
             if repo_date is not None:
                 timechain.append(["reposition date", repo_date])
@@ -80,16 +93,15 @@ class DatesCheck(FhirCheck):
                 self.err(f"no reposition date for sample {sampleid}")
         # print("timechain: " + str(timechain))
         for i in range(1, len(timechain)):
-            #if timechain[i][1] < timechain[i-1][1]: # [1] accesses the dates
             a = datetime.fromisoformat(timechain[i-1][1])
             b = datetime.fromisoformat(timechain[1][1])
             if DatesCheck.compare(a, b) == 1:
-                self.err(f"in sample {sampleid} is {timechain[i][0]} before {timechain[i-1][0]}.") # [0] accesses the names
+                self.err(f"in sample {sampleid} is {timechain[i][0]} before {timechain[i-1][0]}.") # [0] access the names
     @staticmethod
     def compare(a:datetime, b:datetime):
         """
-         compare compares two datetimes. if one datetime is date-level (not
-         time-level) compare both on date-level, otherwise compare on
+         compare compares two datetimes. if one datetime is date-level
+         (%YYYY-%mm-%dd) compare both on date-level, otherwise compare on
          time-level.
          
          this handling is needed because there can be dates without a time,

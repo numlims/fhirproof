@@ -11,7 +11,8 @@ class DatesCheck(FhirCheck):
     ``compare``
 ``
 
-check makes sure that the dates belonging to a sample are in the following order:
+check makes sure that the dates belonging to a sample in a fhir-entry
+are in the following order:
 
 collection (abnahme) [for primary samples]<br/>
 received (laboratory entry)  <br/>
@@ -47,7 +48,8 @@ when they weren't there and were approximated from entry dates. in
 this case, don't put them on the timechain.
 
 ``
-        if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
+        category = figs.category(resource)
+        if category == "MASTER" or category == "DERIVED":
             collectiondate = figs.collected_date(resource)
             if collectiondate is None and not isunknown(resource, "collection/_collectedDateTime"):
                 self.err(f"no collection date for sample {sampleid}")
@@ -58,7 +60,7 @@ this case, don't put them on the timechain.
 received date for primary.
 
 ``
-        if figs.category(resource) == "MASTER":
+        if category == "MASTER":
             receiveddate = figs.received_date(resource)
             if receiveddate is None:
                 self.err(f"no receivedTime for sample {sampleid}")
@@ -69,7 +71,7 @@ received date for primary.
 centrifugation date for primary or aliquot.
 
 ``
-        if figs.category(resource) == "MASTER" or figs.category(resource) == "DERIVED":
+        if category == "MASTER" or category == "DERIVED":
             stockprodate = figs.stockprocessing_date(resource)
             if stockprodate is not None:
                 timechain.append(["stockprocessing date", stockprodate])
@@ -84,7 +86,7 @@ for NUM the code for 'no stockprocessing' is "Sprec-N", for IKCL it's
 "NO".
 
 ``./no centri:
-                if figs.category(resource) == "MASTER" and dbsample is not None and dbsample.stockprocessing not in [None, "", "Sprec-N", "NO"]:
+                if category == "MASTER" and dbsample is not None and dbsample.stockprocessing not in [None, "", "Sprec-N", "NO"]:
                     self.err(f"sample {sampleid} should come with a stockprocessing date (stock processing: {dbsample.stockprocessing}).")
 ``
 
@@ -92,7 +94,7 @@ for aliquots, the derival (aliquoting) should come after
 centrifugation, put their derival date on the timechain.
 
 ``../
-        if figs.category(resource) == "DERIVED":
+        if category == "DERIVED":
             deriv_date = figs.derival_date(resource)
             if deriv_date is not None:    
                 timechain.append(["derival date", deriv_date])
@@ -104,7 +106,7 @@ the reposition date for aliquots should come after their derival date.
 
 ``
 
-        if figs.category(resource) == "DERIVED":
+        if category == "DERIVED":
             repo_date = figs.reposition_date(resource)
             if repo_date is not None:
                 timechain.append(["reposition date", repo_date])

@@ -33,7 +33,8 @@ for initial amount:
 ``
         aulist = dig(self.fp.config, "amountunits")
         if aulist is None:
-            aulist = []
+            self.info(f"'amountunits' list missing from config yaml. skipping AmountUnitCheck.")
+            return
         if initialau is not None and initialau not in aulist:
             self.err(f"sample {figs.sampleid(resource)} comes with initial amount unit {initialau}, it needs to be in {dig(self.fp.config, 'amountunits')}.")
 ``

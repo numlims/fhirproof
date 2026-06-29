@@ -21,7 +21,7 @@ from fhirproof.DerivmatCheck import *
 from fhirproof.MayUserEditOUCheck import *
 from fhirproof.IdContainerCheck import *
 from fhirproof.PrimaryMatCheck import *
-from fhirproof.LabvalMasterObs import *
+from fhirproof.ObsMasterdataCheck import *
 import os
 import json
 from natsort import natsorted
@@ -78,13 +78,12 @@ class fhirproof:
             self.tr = tr.traction(self.db)
         self.user = user
         self.logfile = logfile
-        self.loglevel = loglevel
-        self._setuplog(logfile, quiet)
+        self._setuplog(logfile, loglevel, quiet)
         with open(configpath, "r") as file:
              self.config = yaml.safe_load(file)
         self.ok = True
 
-    def check(self, dir, encoding=None):
+    def check(self, dir, encoding="utf-8"):
         """
          check both specimen and observations, depending on an entry's resourceType.
         """
@@ -118,7 +117,7 @@ class fhirproof:
         mayeditou = MayUserEditOUCheck(self)
         idcontainer = IdContainerCheck(self)
         primmat = PrimaryMatCheck(self)
-        labvalmasterobs = LabvalMasterObs(self)
+        labvalmasterobs = ObsMasterdataCheck(self)
         master_count = 0        
         aqtg_count = 0
         derived_count = 0
@@ -216,12 +215,19 @@ class fhirproof:
         
         return self.ok # written by FhirCheck.err()
 
-    def _setuplog(self, logfile, quiet:bool=False):
+    def _setuplog(self, logfile, loglevel, quiet:bool=False):
         """
          _setuplog setzt den log auf, if quiet is true, log isn't printed to console.
         """
         log = logging.getLogger(__name__)
-        log.setLevel(logging.INFO)
+        if loglevel == "INFO":
+            log.setLevel(logging.INFO)
+        elif loglevel == "DEBUG":
+            log.setLevel(logging.DEBUG)
+        elif loglevel == "ERROR":
+            log.setLevel(logging.ERROR)
+        else:
+            print(f"log level {loglevel} not supported.")
         file_handler = logging.FileHandler(logfile)
         formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
         file_handler.setFormatter(formatter)
@@ -231,7 +237,7 @@ class fhirproof:
             stdout_handler.setFormatter(formatter)
             log.addHandler(stdout_handler)
         self.log = log
-    def entries_from_dir(self, dir, encoding=None): # todo could be static?
+    def entries_from_dir(self, dir, encoding="utf-8"): # todo could be static?
         """
          entries_from_dir returns the entries from all json files in a directory.
          
@@ -240,18 +246,12 @@ class fhirproof:
          
          should read try to read the files in the same order the importer reads them
         """
-        if encoding == None:
-            encoding = "utf-8"
         entries = []
 
         files = os.listdir(dir)
-        files = natsorted(files)  ## doesn't sort by page numbers first
-
         files.sort(key=cmp_to_key(page_cmp))
-        #print("files:")
         
         for file in files:
-          #print(file)
           _, ext = os.path.splitext(file)
           # print("ext: " + ext)
           if ext != ".json":
@@ -274,12 +274,12 @@ class fhirproof:
         if fgs.category(resource) != "DERIVED":              
             return None
         # get fhirid of aliquotgroup-parent
-        pfhirid = fgs.parent_fhirid(resource)
-        if pfhirid == None:
+        parent_fhirid = fgs.parent_fhirid(resource)
+        if parent_fhirid == None:
             return None
-        elif pfhirid not in self.entrybyfhirid:
+        elif parent_fhirid not in self.entrybyfhirid:
             return None
-        return self.entrybyfhirid[pfhirid]['resource']
+        return self.entrybyfhirid[parent_fhirid]['resource']
     def _skip(self, classname:str, trial:str, sampletype:str) -> bool:
         """
          _skip says whether a check should be skipped based on trial and sampletype.

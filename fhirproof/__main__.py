@@ -26,7 +26,7 @@ def parseargs():
     parser.add_argument("--settings", help="path to the settings yaml")
     parser.add_argument("--accept", help="move accepted files to this directory")
     parser.add_argument("-e", help="file encoding")
-    parser.add_argument("--log-level", help="INFO|DEBUG|ERROR comma-seperated list.")
+    parser.add_argument("--log-level", help="INFO|DEBUG|ERROR")
     parser.add_argument("--quiet", "-q", help="don't print log messages to console", action="store_true")
     versionflag.flag(parser, "fhirproof")
     args = parser.parse_args()
@@ -39,13 +39,13 @@ def main():
     args = parseargs()
     #try:
     loglevel = None
-    if args.log_level is not None:
-        loglevel = args.log_level.split(",")
-    fp = fhirproof(args.db, args.user, args.log, configpath=args.config, loglevel=loglevel, quiet=args.quiet)
+    fp = fhirproof(args.db, args.user, args.log, configpath=args.config, loglevel=args.log_level, quiet=args.quiet)
     #except Exception:
     #    return
     ok, acceptedfiles = fp.check(args.dir, args.e)
     if args.accept:
+        if not os.path.exists(args.accept):
+            os.makedirs(args.accept)
         for file in acceptedfiles:
             os.replace(file, os.path.join(args.accept, file))
     if ok is True:

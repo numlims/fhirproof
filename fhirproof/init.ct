@@ -50,13 +50,12 @@ save variables for use in checks.
 ``
         self.user = user
         self.logfile = logfile
-        self.loglevel = loglevel
 ``
 
 set up the log.
 
 ``
-        self._setuplog(logfile, quiet)
+        self._setuplog(logfile, loglevel, quiet)
 ``
 
 read the config file yaml.
@@ -95,7 +94,7 @@ initialisiere variablen, die die einzelnen check klassen einsehen koennen.
 check both specimen and observations, depending on an entry's resourceType.
 
 ``/check:
-    def check(self, dir, encoding=None):
+    def check(self, dir, encoding="utf-8"):
         ``.``
 ``
 
@@ -166,7 +165,7 @@ initialize specimen checks.
 initialize observation checks.
 
 ``
-        labvalmasterobs = LabvalMasterObs(self)
+        labvalmasterobs = ObsMasterdataCheck(self)
 ``
 
 initialize counts.
@@ -400,7 +399,7 @@ from fhirproof.DerivmatCheck import *
 from fhirproof.MayUserEditOUCheck import *
 from fhirproof.IdContainerCheck import *
 from fhirproof.PrimaryMatCheck import *
-from fhirproof.LabvalMasterObs import *
+from fhirproof.ObsMasterdataCheck import *
 ``
 
 ## check observations
@@ -456,32 +455,37 @@ T2_p1..., that's the way the cxx importer reads them.
 should read try to read the files in the same order the importer reads them
 
 ``/entries_from_dir:
-    def entries_from_dir(self, dir, encoding=None): # todo could be static?
+    def entries_from_dir(self, dir, encoding="utf-8"): # todo could be static?
         ``.``
 ``
 
-if no encoding given assume utf-8.
-
-``
-        if encoding == None:
-            encoding = "utf-8"
-``
-
-collect the entries from the files in the dir. sort the file
-considering the natural sort of the page numbers, that takes care that
-the order isn't p1, p10, p11, ..., p2, p3.
+collect the entries from the files in the dir.
 
 ``
         entries = []
 
         files = os.listdir(dir)
-        files = natsorted(files)  ## doesn't sort by page numbers first
+``
 
+sort the file considering the natural sort of the page numbers, that
+takes care that the order is p1, p2, p3, ..., p10, p11 instead of p1,
+p10, p11, ..., p2, p3.
+
+maybe use natsort.os_sorted() to sort as in OS.
+
+not needed cause we use page_cmp as sorting functions to consider
+page-numbers before dates.
+
+`
+        # files = natsorted(files)  ## doesn't sort by page numbers first
+`
+
+sort page-number first, t1_p0, t2_p0, t3_p0, ..., t1_p1, t2_p1 etc.
+
+``
         files.sort(key=cmp_to_key(page_cmp))
-        #print("files:")
         
         for file in files:
-          #print(file)
           ``.``
 ``
 
@@ -533,12 +537,12 @@ auf parent() koennen die checks zugreifen.
         if fgs.category(resource) != "DERIVED":              
             return None
         # get fhirid of aliquotgroup-parent
-        pfhirid = fgs.parent_fhirid(resource)
-        if pfhirid == None:
+        parent_fhirid = fgs.parent_fhirid(resource)
+        if parent_fhirid == None:
             return None
-        elif pfhirid not in self.entrybyfhirid:
+        elif parent_fhirid not in self.entrybyfhirid:
             return None
-        return self.entrybyfhirid[pfhirid]['resource']
+        return self.entrybyfhirid[parent_fhirid]['resource']
 ``
 
 _skip says whether a check should be skipped based on trial and sampletype.
@@ -572,7 +576,7 @@ say whether the class is listed in the checks to skip.
 _setuplog setzt den log auf, if quiet is true, log isn't printed to console.
 
 ``/setuplog:
-    def _setuplog(self, logfile, quiet:bool=False):
+    def _setuplog(self, logfile, loglevel, quiet:bool=False):
         ``.``
 ``
 
@@ -580,7 +584,14 @@ set up a logger to write to a file into logs folder.
 
 ``
         log = logging.getLogger(__name__)
-        log.setLevel(logging.INFO)
+        if loglevel == "INFO":
+            log.setLevel(logging.INFO)
+        elif loglevel == "DEBUG":
+            log.setLevel(logging.DEBUG)
+        elif loglevel == "ERROR":
+            log.setLevel(logging.ERROR)
+        else:
+            print(f"log level {loglevel} not supported.")
         file_handler = logging.FileHandler(logfile)
         formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
         file_handler.setFormatter(formatter)

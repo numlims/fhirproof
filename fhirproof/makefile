@@ -1,0 +1,38 @@
+all: __init__.py __main__.py AmountUnitCheck.py AqtMatCheck.py BehealterCheck.py DatesCheck.py DerivmatCheck.py FhirCheck.py IdContainerCheck.py LocationCheck.py MayUserEditOUCheck.py ObsMasterdataCheck.py OUCheck.py ParentingCheck.py PrimaryInDbCheck.py PrimaryMatCheck.py PsnCheck.py RestmengeCheck.py
+
+__init__.py: init.ct
+	ct init.ct
+__main__.py: main.ct
+	ct main.ct
+AmountUnitCheck.py: AmountUnitCheck.ct
+	ct AmountUnitCheck.ct
+AqtMatCheck.py: AqtMatCheck.ct
+	ct AqtMatCheck.ct
+BehealterCheck.py: BehealterCheck.ct
+	ct BehealterCheck.ct
+DatesCheck.py: DatesCheck.ct
+	ct DatesCheck.ct
+DerivmatCheck.py: DerivmatCheck.ct
+	ct DerivmatCheck.ct
+FhirCheck.py: FhirCheck.ct
+	ct FhirCheck.ct
+IdContainerCheck.py: IdContainerCheck.ct
+	ct IdContainerCheck.ct
+ObsMasterdataCheck.py: ObsMasterdataCheck.ct
+	ct ObsMasterdataCheck.ct
+LocationCheck.py: LocationCheck.ct
+	ct LocationCheck.ct
+MayUserEditOUCheck.py: MayUserEditOUCheck.ct
+	ct MayUserEditOUCheck.ct
+OUCheck.py: OUCheck.ct
+	ct OUCheck.ct
+ParentingCheck.py: ParentingCheck.ct
+	ct ParentingCheck.ct
+PrimaryInDbCheck.py: PrimaryInDbCheck.ct
+	ct PrimaryInDbCheck.ct
+PrimaryMatCheck.py: PrimaryMatCheck.ct
+	ct PrimaryMatCheck.ct
+PsnCheck.py: PsnCheck.ct
+	ct PsnCheck.ct
+RestmengeCheck.py: RestmengeCheck.ct
+	ct RestmengeCheck.ct
