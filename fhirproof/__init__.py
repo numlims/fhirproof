@@ -219,16 +219,7 @@ class fhirproof:
         """
          _setuplog setzt den log auf, if quiet is true, log isn't printed to console.
         """
-        log = logging.getLogger(__name__)
-        """if loglevel == "INFO":
-            log.setLevel(logging.INFO)
-        elif loglevel == "DEBUG":
-            log.setLevel(logging.DEBUG)
-        elif loglevel == "ERROR":
-            log.setLevel(logging.ERROR)
-        else:
-            print(f"log level {loglevel} not supported.")"""
-            
+        log = logging.getLogger(__name__)            
         log.setLevel(loglevel)
         file_handler = logging.FileHandler(logfile)
         formatter = logging.Formatter('%(asctime)s:%(levelname)s: %(message)s')
