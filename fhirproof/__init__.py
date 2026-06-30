@@ -65,7 +65,7 @@ class fhirproof:
     shouldzerorest = {} # should restmenge be zero
     aqtgchildless = {} # is a aliquotgroup without children?
     _accept = {} # was this file without errors? keyed by filename.
-    def __init__(self, dbtarget, user, logfile, configpath:str=None, loglevel:list=None, quiet:bool=False):
+    def __init__(self, dbtarget, user, logfile, configpath:str=None, loglevel:str="INFO", quiet:bool=False):
         """
          __init__ inits fhirproof with db target, centraxx user, logfile and config.
         """

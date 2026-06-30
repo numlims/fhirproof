@@ -15,7 +15,7 @@ def test_db():
 start fhirproof.
 
 ``
-    fp = fhirproof("num_prod", "numddfhir", "test/fp.log", configpath="config.yaml")
+    fp = fhirproof("num_prod", "numddfhir", "test/fp.log", configpath="/home/max/cxx_config/fhirproof/config-prod.yaml")
 ``
 
 check the resources in test/in.
