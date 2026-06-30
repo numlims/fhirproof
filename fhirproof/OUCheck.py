@@ -3,7 +3,7 @@ import re
 
 from dip import dig
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 import tr
 class OUCheck(FhirCheck):
     def __init__(self, fp):
@@ -20,7 +20,7 @@ class OUCheck(FhirCheck):
             self.err(f"no organisation in json for sample {sampleid}")
         if dborga != jsonorga:
             self.err(f"organisation units don't match for sample {sampleid}, json orga is {jsonorga}, db orga is {dborga}")
-    def check(self, entry):
+    def check(self, entry, dbsample):
         """
          check starts the check.
         """
@@ -29,21 +29,16 @@ class OUCheck(FhirCheck):
             return 
         resource = dig(entry, "resource")
     
-        sampleid = fh.sampleid(resource)
-    
-        res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.orga])
-        trsample = None
-        if len(res) > 0:
-          trsample = res[0]
-        sampleorgjson = fh.org(resource)
-        typ = fh.type(resource)
-        if trsample != None and typ == "MASTER":
+        sampleid = figs.sampleid(resource)
+        sampleorgjson = figs.orga(resource)
+        typ = figs.category(resource)
+        if dbsample is not None and typ == "MASTER":
             if sampleorgjson != None:
-                self._check(trsample.orga, sampleorgjson, sampleid)
+                self._check(dbsample.orga, sampleorgjson, sampleid)
         elif typ == "DERIVED": 
-            if trsample != None:
+            if dbsample != None:
                 if sampleorgjson != None:
-                    self._check(trsample.orga, sampleorgjson, sampleid)
+                    self._check(dbsample.orga, sampleorgjson, sampleid)
             else:
                 if sampleorgjson == None:
                     self.err(f"there is no json org for derived sample {sampleid}")
@@ -55,7 +50,7 @@ class OUCheck(FhirCheck):
                     INNER JOIN CENTRAXX_ORGANISATIONUNIT OU ON POU.ORGUNIT_OID=OU.OID 
                     WHERE OU.CODE != 'NUM' AND IDCT.CODE=? AND IDC.PSN=?
                     """
-                    psn = fh.limspsn(resource)
+                    psn = figs.patientid(resource, "LIMSPSN")
                     res = self.db.qfad(patorgq, "LIMSPSN", psn)
                     patorg = None
                     if len(res) > 0:

@@ -11,7 +11,8 @@ class FhirCheck:
     ``debug``
 ``
 
-init creates shortcuts to db and traction.
+init remembers the fhirproof instance from which a check was started
+for a check to access it, making shortcuts to db and traction.
 
 ``/init:
     def __init__(self, fp):
@@ -28,23 +29,39 @@ check remembers the entry so its filename can be accessed by the log functions.
         self.entry = entry
 ``
 
-FhirCheck provides three log methods: info, err and debug.
+info is an info log shortcut.
+
+when called in subclasses, super().check(entry) must be called first
+(especially in end-checks when err refers to different entries), so
+that the log message gives the file name of the corresponding entry.
 
 ``/info:
-    # info is an info log shortcut
     def info(self, message):
         self.fp.log.info(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
 ``
 
+err is called when an error was found for a sample.  it logs the
+error message, and changes fp.ok und fp._accept to record the error.
+
+when called in subclasses, super().check(entry) must be called first
+(especially in end-checks when err refers to different entries), so
+that the log message gives the file name of the corresponding entry.
+
 ``/err:
-    # err is an error log shortcut
-    def err(self, message):
+    def err(self, message, entry=None):
         self.fp.ok = False # this run is not ok
-        self.fp.log.error(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
+        filename = dig(self.entry, '_filename')
+        self.fp._accept[filename] = False
+        self.fp.log.error(f"{filename}: {self.__class__.__name__}: {message}")
 ``
 
+debug is an error log shortcut.
+
+when called in subclasses, super().check(entry) must be called first
+(especially in end-checks when debug refers to different entries), so
+that the log message gives the file name of the corresponding entry.
+
 ``/debug:
-    # debug is an error log shortcut
     def debug(self, message):
         self.fp.log.debug(f"{dig(self.entry, '_filename')}: {self.__class__.__name__}: {message}")
         
@@ -56,7 +73,5 @@ would this be sensible here?
 ``/import:
 import sys
 
-from fhirproof.fhirhelp import fhirhelp as fh
 from dip import dig, dis
-# from traction import *
 ``

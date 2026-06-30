@@ -1,57 +1,125 @@
+# automatically generated, DON'T EDIT. please edit DatesCheck.ct from where this file stems.
 from datetime import datetime
 from dip import dig, dis
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
+from tram import Sample
+def isunknown(resource, path:str):
+    """
+     isunknown says when it's ok not to give an error when a date is
+     missing, because it is unknown.
+     
+     it expects a object at path in the resource, holding an extension:
+     
+     path: `collection/_collectedDateTime`
+     
+     resource:
+     
+     `
+     ...
+     "collection" : {
+         "collectedDateTime": "",
+         "_collectedDateTime": {
+         "extension": [
+             {
+                 "url": "http://hl7.org/fhir/StructureDefinition/data-absent-reason",
+                 "valueCode": "unknown"
+             }
+         ]
+     }
+     ...
+     `
+    """
+    atpath = dig(resource, path)
+    if atpath is None:
+        return False
+    absent_reason = figs.extension(atpath, "http://hl7.org/fhir/StructureDefinition/data-absent-reason")
+    return dig(absent_reason, "valueCode") == "unknown"
 class DatesCheck(FhirCheck):
     def __init__(self, fp):
+        """
+        """
         FhirCheck.__init__(self, fp)
-    # isodate parses date from iso formatted string
-    def isodate(self, s):
-        # example date: 2023-07-17T05:16:36.000+02:00
-        # return datetime.strptime(s, "%Y-%m-%dT%H:%M:%S")
-        return datetime.fromisoformat(s)
-    def check(self, entry):
+    def check(self, entry, dbsample:Sample):
+        """
+         check makes sure that the dates belonging to a sample in a fhir-entry
+         are in the following order:
+         
+         collection (abnahme) [for primary samples]<br/>
+         received (laboratory entry)  <br/>
+         stock-processing (centrifugation) [if there] <br/>
+         derival (aliquoting) [for aliquots]   <br/>
+         reposition
+         
+         the dates can be on date-level ("2025-06-07") or time-level
+         ("2025-10-27T00:00:00+01:00").
+        """
         super().check(entry)
         resource = dig(entry, "resource")
-        sampleid = fh.sampleid(resource)
+        sampleid = figs.sampleid(resource)
         timechain = [] # ascending order
-        if fh.type(resource) == "MASTER" or fh.type(resource) == "DERIVED":
-            if "collection" not in resource or "collectedDateTime" not in dig(resource, "collection"):
-                self.err(f"no collection date in {sampleid}")
+        category = figs.category(resource)
+        if category == "MASTER" or category == "DERIVED":
+            collectiondate = figs.collected_date(resource)
+            if collectiondate is None and not isunknown(resource, "collection/_collectedDateTime"):
+                self.err(f"no collection date for sample {sampleid}")
             else:
-                timechain.append(["collection date", self.isodate(dig(resource, "collection/collectedDateTime"))])
-        if fh.type(resource) == "MASTER":
-            if "receivedTime" not in resource:
-                self.err(f"no receivedTime in sample {sampleid}")
+                timechain.append(["collection date", collectiondate])
+        if category == "MASTER":
+            receiveddate = figs.received_date(resource)
+            if receiveddate is None:
+                self.err(f"no receivedTime for sample {sampleid}")
             else:
-                timechain.append(["received date", self.isodate(dig(resource, "receivedTime"))])
-        if fh.type(resource) == "MASTER" or fh.type(resource) == "DERIVED":
-            centri_date = None
-            for e in dig(resource, "extension"):
-                if dig(e, "url") == "https://fhir.centraxx.de/extension/sprec":
-                    for ee in dig(e, "extension"):
-                        if dig(ee, "url") == "https://fhir.centraxx.de/extension/sprec/preCentrifugationDelayDate":
-                            centri_date = self.isodate(dig(ee, "valueDateTime"))
-                            timechain.append(["centrifugation date", centri_date])
-        if fh.type(resource) == "DERIVED":
-            deriv_date = False
-            for e in dig(resource, "extension"):
-                if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/derivalDate":
-                    deriv_date = True
-                    timechain.append(["derival date", self.isodate(dig(e, "valueDateTime"))])
-            if deriv_date == False:
+                timechain.append(["received date", receiveddate])
+        if category == "MASTER" or category == "DERIVED":
+            stockprodate = figs.stockprocessing_date(resource)
+            if stockprodate is not None:
+                timechain.append(["stockprocessing date", stockprodate])
+            else:
+                if category == "MASTER" and dbsample is not None and dbsample.stockprocessing not in [None, "", "Sprec-N", "NO"]:
+                    self.err(f"sample {sampleid} should come with a stockprocessing date (stock processing: {dbsample.stockprocessing}).")
+        if category == "DERIVED":
+            deriv_date = figs.derival_date(resource)
+            if deriv_date is not None:    
+                timechain.append(["derival date", deriv_date])
+            else:
                 self.err(f"no derival date for sample {sampleid}")
 
-        if fh.type(resource) == "DERIVED":
-            repo_date = False
-            for e in dig(resource, "extension"):
-                if dig(e, "url") == "https://fhir.centraxx.de/extension/sample/repositionDate":
-                    repo_date = True
-                    timechain.append(["reposition date", self.isodate(dig(e, "valueDateTime"))])
-            if repo_date == False:
+        if category == "DERIVED":
+            repo_date = figs.reposition_date(resource)
+            if repo_date is not None:
+                timechain.append(["reposition date", repo_date])
+            else:
                 self.err(f"no reposition date for sample {sampleid}")
-
         # print("timechain: " + str(timechain))
         for i in range(1, len(timechain)):
-            if timechain[i][1] < timechain[i-1][1]: # [1] accesses the dates
-                self.err(f"in sample {sampleid} is {timechain[i][0]} before {timechain[i-1][0]}") # [0] accesses the names
+            a = datetime.fromisoformat(timechain[i-1][1])
+            b = datetime.fromisoformat(timechain[1][1])
+            if DatesCheck.compare(a, b) == 1:
+                self.err(f"in sample {sampleid} is {timechain[i][0]} before {timechain[i-1][0]}.") # [0] access the names
+    @staticmethod
+    def compare(a:datetime, b:datetime):
+        """
+         compare compares two datetimes. if one datetime is date-level
+         (%YYYY-%mm-%dd) compare both on date-level, otherwise compare on
+         time-level.
+         
+         this handling is needed because there can be dates without a time,
+         like 2025-12-05.  datetime sets their time to 00:00 when parsing.
+         this would mean that a chain with middle time 00:00 would be correct
+         if it's on the same day:
+         
+           2025-12-05 09:00
+           2025-12-05 00:00
+           2025-12-05 12:00
+        """
+        midnight = datetime.strptime("00:00:00", "%H:%M:%S")
+        if a.time() == midnight.time() or b.time() == midnight.time():
+            a = a.date()
+            b = b.date()
+        if a > b:
+            return 1
+        elif b > a:
+            return -1
+        else:
+            return 0

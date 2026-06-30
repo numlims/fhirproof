@@ -1,5 +1,7 @@
-# MayUserEditOECheck checks whether the user who does the fhir import
-  is allowed to edit organisations-einheiten (OEs)
+# MayUserEditOECheck
+
+MayUserEditOECheck checks whether the user who does the fhir import is
+allowed to edit organisations-einheiten (OEs).
 
 ``//MayUserEditOUCheck.py:
 ``import``
@@ -8,39 +10,36 @@ class MayUserEditOUCheck(FhirCheck):
     ``check``
 ``
 
-Die Importe.
-
-``/import:
-from dip import dig
-from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
-``
-
-Es sollte geprüft werden, ob der später zu verwendende
-FHIR-Import-User berechtigt ist, OEs der Proben und Probanden, die im
-JSON-enthalten sind, zu bearbeiten.
-
-Dafür ist der spätere Import-User als Parameter an das Skript zu
-übergeben Die Zuordnung eines Users zu OEs ist in
-CENTRAXX_PARTICIPANTORGUNITANO gespeichert.  User in
-CENTRAXX_PARTICIPANT
-
-mach den check nur wenn es eine db gibt.
+check checks whether the fhir import user may edit the orga that is
+named in the entry.
 
 ``/check:
-    # check checks whether user may edit the entry
     def check(self, entry, user):
         super().check(entry)
-        if self.db == None:
+        ``.``
+``
+
+if no db or no user do nothing.
+
+``
+        if self.db is None or user is None:
             return
-            
+``
+
+get the orga.
+
+``
         resource = dig(entry, 'resource')
-        # get org unit
-        orgunit = fh.org(resource)
+        orgunit = figs.orga(resource)
+``
+
+find out whether the user ('participant') can edit the orga.
+
+``
         query = """
-        select * from centraxx_participantorgunitano as poa
-        join centraxx_participant as p on p.oid = poa.creator
-        join centraxx_organisationunit as ou where poa.organisation = ou.oid
+        select p.username from centraxx_participantorgunitano as poa
+        join centraxx_participant as p on p.oid = poa.participant
+        join centraxx_organisationunit as ou on poa.organisation = ou.oid
         where p.username = ? and ou.code = ?
         """
 
@@ -54,12 +53,20 @@ mach den check nur wenn es eine db gibt.
         if len(result) == 0:
             self.err(f"user {user} may not edit the sample")
             return 
-
 ``
 
-Die Init-Funktion.
+__init__ inits the check.
 
 ``/init:
     def __init__(self, fp):
         FhirCheck.__init__(self, fp)
 ``
+
+import.
+
+``/import:
+from dip import dig
+from fhirproof.FhirCheck import *
+from figs import specimen as figs
+``
+

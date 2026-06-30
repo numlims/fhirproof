@@ -1,0 +1,99 @@
+# ObsMasterdataCheck
+
+ObsMasterdataCheck checks that observations com only with permissible labval masterdata (lama).
+
+``//ObsMasterdataCheck.py:
+``import``
+class ObsMasterdataCheck(FhirCheck):
+    ``init``
+    ``check``
+``
+
+check checks that only the codes belonging to the observation's method
+(messprofil) are given.
+    
+``/check:
+    def check(self, entry):
+        super().check(entry)
+        ``.``
+``
+
+get the method code from json.
+
+``
+        #self.info("lamaobs check")
+        resource = fgo.resource(entry)
+        method = fgo.method(resource)
+``
+
+get the method masterdata (mema) from db.
+
+``
+        res = self.tr.method(methods=[method])
+        if method not in res:
+            self.err(f"{method} not in db masterdata.")
+        mema = res[method]
+``
+
+get the catalogs from db. pass them instead to avoid multiple fetches?
+
+``
+        cats = self.tr.catalog()
+``
+
+iterate through the json labvals and their components. 
+
+``
+        comps = fgo.component(resource)
+        #print("comps:")
+        #print(comps)
+        for labval, comp in comps.items():
+            ``.``
+``
+
+is the json labval part of the method masterdata?
+
+remember the labval masterdata (lama) for the json labval.
+
+``
+            if labval not in mema["labvals"]:
+                self.err(f"labval {labval} not in db masterdata for method {method}.")
+            lama = mema["labvals"][labval]                
+``
+
+is it a catalog? make sure that the catalog exists and that
+the given json value is part of the catalog.
+
+``
+            if lama["type"] == "CATALOG":
+                catcode = lama["catalog"]
+                if catcode not in cats:
+                    self.err(f"no catalog {catcode} in db masterdata.")
+                if comp['value'] not in cats[catcode]:
+                    self.err(f"code {comp['value']} is not in catalog {catcode}.")
+``
+
+is it an enumeration component? make sure the given json values are part of
+the masterdata usageentries.
+
+``
+            if lama["type"] == "ENUMERATION":
+                usageentries = lama["usageentry"]
+                for val in comp["value"]:
+                    if val not in usageentries:
+                        self.err(f"code {comp['value']} is not part of usageentries for labval {lama['code']}. should be in {usageentries.keys()}")
+``
+             
+import.
+
+``/import:
+from fhirproof.FhirCheck import *
+from figs import observation as fgo
+``
+
+init initializes ObsCodes.
+
+``/init:
+    def __init__(self, fp):
+        FhirCheck.__init__(self, fp)
+``

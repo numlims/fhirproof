@@ -18,6 +18,13 @@ fhirproof mydir --db num_prod --user numwuerzfhir --config config.yaml --log fp.
 
 see `fhirproof -h`.
 
+## fhir spec
+
+specimen: [simplifier.net/centraxx-structures/specimen](https://simplifier.net/centraxx-structures/specimen)\ 
+patient: [simplifier.net/centraxx-structures/patient](https://simplifier.net/centraxx-structures/patient)\
+observation: [simplifier.net/centraxx-structures/observation](https://simplifier.net/centraxx-structures/observation)\
+
+
 ## install
 
 download fhirproof whl from [releases](https://github.com/numlims/fhirproof/releases). install with pip:
@@ -44,7 +51,7 @@ edit [`fhirproof/init.ct`](./fhirproof/init.ct) for the fhirproof
 class, [`fhirproof/main.ct`](./fhirproof/main.ct) for the commandline
 interface and `fhirproof/*Check.ct` for the various checks.
 
-generate code from the .ct files with
+generate the code from ct with
 [ct](https://github.com/tnustrings/codetext/releases) or [ct for
 vscode](https://marketplace.visualstudio.com/items?itemName=tnustrings.codetext).
 

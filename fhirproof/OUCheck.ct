@@ -14,7 +14,7 @@ class OUCheck(FhirCheck):
 check starts the check.
 
 ``/check:
-def check(self, entry):
+def check(self, entry, dbsample):
     super().check(entry)
     ``.``
 ``
@@ -26,24 +26,19 @@ if there's no db connection don't check.
         return 
 ``
 
-get the resource and sampleid, get the sample from traction.
+get the resource and sampleid.
 
 ``
     resource = dig(entry, "resource")
 
-    sampleid = fh.sampleid(resource)
-
-    res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.orga])
-    trsample = None
-    if len(res) > 0:
-      trsample = res[0]
+    sampleid = figs.sampleid(resource)
 ``
 
 get the sample org from json.
 
 ``
-    sampleorgjson = fh.org(resource)
-    typ = fh.type(resource)
+    sampleorgjson = figs.orga(resource)
+    typ = figs.category(resource)
 ``
 
 do different checks for primary and aliquot samples.
@@ -51,7 +46,7 @@ do different checks for primary and aliquot samples.
 don't check the org for aliquot groups.
 
 ``
-    if trsample != None and typ == "MASTER":
+    if dbsample is not None and typ == "MASTER":
         ``primary``
     elif typ == "DERIVED": 
         ``aliquot``
@@ -63,13 +58,13 @@ if the org is not given in the json, don't check.
 
 ``./primary:
         if sampleorgjson != None:
-            self._check(trsample.orga, sampleorgjson, sampleid)
+            self._check(dbsample.orga, sampleorgjson, sampleid)
 ``
 
 check an aliquot sample.
 
 ``/check/aliquot:
-        if trsample != None:
+        if dbsample != None:
             ``in db``
         else:
             ``not in db``
@@ -81,7 +76,7 @@ if orga given in json, check that it matches the db orga.
 
 ``/check/aliquot/in db:
             if sampleorgjson != None:
-                self._check(trsample.orga, sampleorgjson, sampleid)
+                self._check(dbsample.orga, sampleorgjson, sampleid)
 ``
 
 if no orga given in the json, ignore.
@@ -102,7 +97,7 @@ get the patient orga.
 
 maybe:
 
-patientid = trsample[tr.patientid]
+patientid = dbsample[tr.patientid]
 pat = trac.patient(patientids=[patientid], verbose=[tr.orga])
 
 ``
@@ -114,7 +109,7 @@ pat = trac.patient(patientids=[patientid], verbose=[tr.orga])
                 INNER JOIN CENTRAXX_ORGANISATIONUNIT OU ON POU.ORGUNIT_OID=OU.OID 
                 WHERE OU.CODE != 'NUM' AND IDCT.CODE=? AND IDC.PSN=?
                 """
-                psn = fh.limspsn(resource)
+                psn = figs.patientid(resource, "LIMSPSN")
                 res = self.db.qfad(patorgq, "LIMSPSN", psn)
                 patorg = None
                 if len(res) > 0:
@@ -170,7 +165,7 @@ import re
 
 from dip import dig
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 import tr
 ``
 

@@ -1,25 +1,30 @@
+# automatically generated, DON'T EDIT. please edit LocationCheck.ct from where this file stems.
 import re
 
 from dip import dig
 from fhirproof.FhirCheck import *
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 
 class LocationCheck(FhirCheck):
     def __init__(self, fp):
+        """
+        """
         FhirCheck.__init__(self, fp)
-    def check(self, entry):
+    def check(self, entry, dbsample):
+        """
+        """
         super().check(entry)
         ok = True
         resource = dig(entry, "resource")
-        sampleid = fh.sampleid(resource)
+        sampleid = figs.sampleid(resource)
         # restmenge zero
-        if fh.restmenge(resource) == 0 and fh.lagerort(resource) != None:
-            self.err(f"restmenge of sample {sampleid} is zero, it shouldn't have a lagerort but it's lagerort is {fh.lagerort(resource)}.")
-        if fh.restmenge(resource) > 0 and self.db != None:
-            locpath = fh.lagerort(resource)
+        if figs.restamount(resource) == 0 and figs.locationpath(resource) != None:
+            self.err(f"restmenge of sample {sampleid} is zero, it shouldn't have a lagerort but it's lagerort is {figs.locationpath(resource)}.")
+        if figs.restamount(resource) > 0 and self.db != None:
+            locpath = figs.locationpath(resource)
             # print(f"lagerort of sample {sampleid}: {locpath}")
             if locpath == None:
-                self.err(f"no location path for sample {sampleid} in json, there should be one though.")
+                self.err(f"no location path for sample {sampleid} in json, there should be one, because the restamount ({figs.restamount(resource)}) is greater than 0.")
 
             query = "select * from centraxx_samplelocation where locationpath = ?"
             result = self.db.qfa(query, locpath)

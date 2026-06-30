@@ -11,7 +11,7 @@ class IdContainerCheck(FhirCheck):
 check runs the check.
 
 ``/check:
-    def check(self, entry):
+    def check(self, entry, dbsample):
         super().check(entry)
         ``.``
 ``
@@ -20,7 +20,7 @@ do nothing if no db.
 
 ``
         #print("traction: " + str(self.fp.tr))
-        if self.fp.tr == None:
+        if dbsample is None:
            return
 ``
 
@@ -28,19 +28,16 @@ get the trial for the sample.
 
 ``
         resource = dig(entry, "resource")
-        sampleid = fh.sampleid(resource)
+        sampleid = figs.sampleid(resource)
 
-        #patientid = fh.limspsn(resource)
-        res = self.fp.tr.sample(sampleids=[sampleid], verbose=[tr.trial])
-        trialcode = None
-        if len(res) > 0:
-            trialcode = res[0].trial
+        #patientid = figs.limspsn(resource)
+        trialcode = dbsample.trial
 ``
 
 get the idcontainers from the json.
 
 ``
-        idcs = fh.identifiers(resource).keys()
+        idcs = figs.identifiers(resource).keys()
 ``
 
 say what idcontainers are missing and what idcontainers are not
@@ -52,10 +49,10 @@ overwrite is true, cause they would be deleted if missing then.
 ``
         should = [ "SAMPLEID" ]
         
-        confidcs = dig(self.fp.config, f"idcontainers/{trialcode}/{fh.type(resource)}")
+        confidcs = dig(self.fp.config, f"idcontainers/{trialcode}/{figs.category(resource)}")
         if confidcs is None:
             confidcs = []
-        if fh.updatewithoverwrite(resource) == True:
+        if figs.update_with_overwrite(resource) == True:
             should.extend(confidcs)
 ``
 
@@ -88,6 +85,6 @@ the imports.
 ``/import:
 from fhirproof.FhirCheck import *
 from dip import dig, dis
-from fhirproof.fhirhelp import fhirhelp as fh
+from figs import specimen as figs
 import tr
 ``
