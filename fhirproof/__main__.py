@@ -26,7 +26,7 @@ def parseargs():
     parser.add_argument("--settings", help="path to the settings yaml")
     parser.add_argument("--accept", help="move accepted files to this directory")
     parser.add_argument("-e", help="file encoding")
-    parser.add_argument("--log-level", help="INFO|DEBUG|ERROR")
+    parser.add_argument("--log-level", default="INFO", choices=["INFO", "DEBUG", "ERROR"], help="INFO|DEBUG|ERROR")
     parser.add_argument("--quiet", "-q", help="don't print log messages to console", action="store_true")
     versionflag.flag(parser, "fhirproof")
     args = parser.parse_args()
