@@ -46,7 +46,7 @@ give an error if the material from json and db don't match.
 
 ``
         if figs.type(resource) != dbsample.type:
-            self.err(f"material of primary sample {sampleid} can't be changed. (from {dbsample.type} to {figs.type(resource)})")
+            self.err(f"material of primary sample {sampleid} can't be changed. (db: {dbsample.type}, json: {figs.type(resource)})")
 ``
 
 import.

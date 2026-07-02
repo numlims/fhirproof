@@ -18,4 +18,4 @@ class PrimaryMatCheck(FhirCheck):
         if dbsample is None:
             return
         if figs.type(resource) != dbsample.type:
-            self.err(f"material of primary sample {sampleid} can't be changed. (from {dbsample.type} to {figs.type(resource)})")
+            self.err(f"material of primary sample {sampleid} can't be changed. (db: {dbsample.type}, json: {figs.type(resource)})")

@@ -1,6 +1,7 @@
 # ObsMasterdataCheck
 
-ObsMasterdataCheck checks that observations com only with permissible labval masterdata (lama).
+ObsMasterdataCheck checks that observations com only with permissible
+labval masterdata (lama).
 
 ``//ObsMasterdataCheck.py:
 ``import``
@@ -91,7 +92,7 @@ from fhirproof.FhirCheck import *
 from figs import observation as fgo
 ``
 
-init initializes ObsCodes.
+init initializes ObsMasterdataCheck.
 
 ``/init:
     def __init__(self, fp):
