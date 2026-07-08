@@ -95,7 +95,7 @@ class DatesCheck(FhirCheck):
         #print("timechain: " + str(timechain))
         for i in range(1, len(timechain)):
             a = datetime.fromisoformat(timechain[i-1][1])
-            b = datetime.fromisoformat(timechain[1][1])
+            b = datetime.fromisoformat(timechain[i][1])
             if DatesCheck.compare(a, b) == 1:
                 self.err(f"in sample {sampleid} is {timechain[i][0]} before {timechain[i-1][0]}.") # [0] access the names
     @staticmethod
