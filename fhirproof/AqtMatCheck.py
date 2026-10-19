@@ -1,4 +1,3 @@
-# automatically generated, DON'T EDIT. please edit AqtMatCheck.ct from where this file stems.
 import re
 import json
 import os
@@ -7,17 +6,12 @@ from figs import specimen as figs
 from dip import dig, dis
 class AqtMatCheck(FhirCheck):
     def __init__(self, fp):
-        """
-         __init__ inits AqtMatCheck.
-        """
         FhirCheck.__init__(self, fp)
     def check(self, entry):
-        """
-        """
         super().check(entry)
 
         resource = figs.resource(entry)
-        #self.info(f"checking aliquotgroup {figs.full_url(entry)}")
+      #  self.info(f"checking aliquotgroup {figs.full_url(entry)}")
 
         pamm = self.fp.config["pamm"]
         child_material = figs.type(resource)
@@ -41,7 +35,7 @@ class AqtMatCheck(FhirCheck):
                 if len(res) > 0:
                     parent_material = res[0].type
         if parent_material is None:
-            self.error(f"material for parent {parentid} is None.")
+            self.err(f"material for parent {parentid} is None.")
         if not parent_material in pamm:
             self.info(f"material {parent_material} is not in pamm.")
         elif "*" in pamm[parent_material]:

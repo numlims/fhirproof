@@ -17,7 +17,7 @@ in the pamm (primary-aliquot-material-map) field.
         super().check(entry)
 
         resource = figs.resource(entry)
-        #self.info(f"checking aliquotgroup {figs.full_url(entry)}")
+      #  self.info(f"checking aliquotgroup {figs.full_url(entry)}")
 
         ``.``
 ``
@@ -75,7 +75,7 @@ not strictly necessary, cause missing parent samples are handled by ParentingChe
 
 ``
         if parent_material is None:
-            self.error(f"material for parent {parentid} is None.")
+            self.err(f"material for parent {parentid} is None.")
 ``
 
 if the parent material isn't in the pamm, give an info message.
