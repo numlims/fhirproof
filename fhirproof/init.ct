@@ -98,7 +98,7 @@ check both specimen and observations, depending on an entry's resourceType.
 read the entries from every file.
 
 ``
-        entries = fhirio.read_entries(dir, encoding)
+        entries = fhirio.read_entries(dir, encoding, keep_filenames=True)
 ``
 
 check.
@@ -381,7 +381,7 @@ die importe fuer check_entries.
 from dip import dig
 from figs import specimen as fgs
 from tram import Sample
-from fhirio import fhirio
+import fhirio
 
 from fhirproof.AmountUnitCheck import *
 from fhirproof.AqtMatCheck import *
@@ -450,8 +450,6 @@ neue importe.
 ``/import
 import os
 import json
-from natsort import natsorted
-from functools import cmp_to_key
 ``
 
 parent gibt die parent-resource eines entries zurueck, wenn es eine gibt.
@@ -531,13 +529,6 @@ log to stdout if we shouldn't be quiet.
         self.log = log
 ``
 
-import.
-
-``/import
-from pathlib import Path
-import os.path
-``
-
 
 _trial_from_orga extracts the trial from orga, since trials aren't in the json.
 
@@ -563,9 +554,3 @@ importiere logging und sys.
 import logging
 import sys
 ``
-
-
-
-
-
-
