@@ -61,9 +61,10 @@ class DatesCheck(FhirCheck):
         category = figs.category(resource)
         if category == "MASTER" or category == "DERIVED":
             collectiondate = figs.collected_date(resource)
-            if collectiondate is None and not isunknown(resource, "collection/_collectedDateTime"):
+            unknown = isunknown(resource, "collection/_collectedDateTime")
+            if not unknown and collectiondate is None:
                 self.err(f"no collection date for sample {sampleid}")
-            else:
+            elif not unknown:
                 timechain.append(["collection date", collectiondate])
         if category == "MASTER":
             receiveddate = figs.received_date(resource)
@@ -91,10 +92,10 @@ class DatesCheck(FhirCheck):
                 timechain.append(["reposition date", repo_date])
             else:
                 self.err(f"no reposition date for sample {sampleid}")
-        # print("timechain: " + str(timechain))
+        #print("timechain: " + str(timechain))
         for i in range(1, len(timechain)):
             a = datetime.fromisoformat(timechain[i-1][1])
-            b = datetime.fromisoformat(timechain[1][1])
+            b = datetime.fromisoformat(timechain[i][1])
             if DatesCheck.compare(a, b) == 1:
                 self.err(f"in sample {sampleid} is {timechain[i][0]} before {timechain[i-1][0]}.") # [0] access the names
     @staticmethod

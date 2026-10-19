@@ -6,6 +6,7 @@ import yaml
 from dip import dig
 from figs import specimen as fgs
 from tram import Sample
+from fhirio import fhirio
 
 from fhirproof.AmountUnitCheck import *
 from fhirproof.AqtMatCheck import *
@@ -30,31 +31,6 @@ from pathlib import Path
 import os.path
 import logging
 import sys
-
-def page_cmp(a:str, b:str):
-    """
-     page_cmp sorts fhir file names first by page-number, then by time, like t1_p0, t2_p0, t3_p0, ..., t1_p1, t2_p1, t3_p1...
-     
-     assumes file name format 2026-06-25_16-41-05-999-Specimen_P131.json.
-     
-     see https://stackoverflow.com/a/36075587.
-    """
-    #print("hello page_cmp")
-    pagea = int(re.findall('_P(\d+).json', a)[0])
-    pageb = int(re.findall('_P(\d+).json', b)[0])
-    #print("pagea: " + str(pagea))
-    if pagea > pageb:
-        return 1
-    elif pagea < pageb:
-        return -1
-    datetimea = re.findall('^([0-9\-_]+)', a)
-    datetimeb = re.findall('^([0-9\-_]+)', b)
-    if datetimea > datetimeb:
-        return 1
-    elif datetimea < datetimeb:
-        return -1
-    else:
-        return 0
 
 # fhirproof reads fhir json from stdin and checks the entries
 class fhirproof:
@@ -87,7 +63,7 @@ class fhirproof:
         """
          check both specimen and observations, depending on an entry's resourceType.
         """
-        entries = self.entries_from_dir(dir, encoding)
+        entries = fhirio.read_entries(dir, encoding)
         self.check_entries(entries)
         accepted = []
         for k, v in self._accept.items():
@@ -230,32 +206,6 @@ class fhirproof:
             stdout_handler.setFormatter(formatter)
             log.addHandler(stdout_handler)
         self.log = log
-    def entries_from_dir(self, dir, encoding="utf-8"): # todo could be static?
-        """
-         entries_from_dir returns the entries from all json files in a directory.
-         
-         it sorts the files page-number first, T1_p0, T2_p0, T3_p0, ..., T1_p1,
-         T2_p1..., that's the way the cxx importer reads them.
-         
-         should read try to read the files in the same order the importer reads them
-        """
-        entries = []
-
-        files = os.listdir(dir)
-        files.sort(key=cmp_to_key(page_cmp))
-        
-        for file in files:
-          _, ext = os.path.splitext(file)
-          # print("ext: " + ext)
-          if ext != ".json":
-            continue
-          with open(os.path.join(dir, file), "r", encoding=encoding) as f:    
-            jsonin = json.load(f)
-
-            for entry in dig(jsonin, "entry"):
-              entry["_filename"] = file
-              entries.append(entry)
-        return entries
     def parent(self, entry):
         """
          parent gibt die parent-resource eines entries zurueck, wenn es eine gibt.
