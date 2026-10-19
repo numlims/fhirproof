@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta" # name of the python object that fronten
 
 [project]
 name = "fhirproof"
-version = "0.0.19"
+version = "0.0.20"
 authors = [
   { name="numlims", email="numlims@med.uni-greifswald.de"}
 ]
@@ -14,6 +14,7 @@ requires-python = ">=3.8"
 dependencies = [
   "dbcq @ git+https://github.com/numlims/dbcq.git",
   "dip @ git+https://github.com/numlims/dip.git",
+  "fhirio @ git+https://github.com/numlims/fhirio.git",    
   "figs @ git+https://github.com/numlims/figs.git",  
   "traction @ git+https://github.com/numlims/traction.git",
   "tram @ git+https://github.com/numlims/tram.git",  
