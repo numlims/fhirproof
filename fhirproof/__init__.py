@@ -1,4 +1,3 @@
-# automatically generated, DON'T EDIT. please edit init.ct from where this file stems.
 
 import tr
 from dbcq import dbcq
@@ -6,7 +5,7 @@ import yaml
 from dip import dig
 from figs import specimen as fgs
 from tram import Sample
-from fhirio import fhirio
+import fhirio
 
 from fhirproof.AmountUnitCheck import *
 from fhirproof.AqtMatCheck import *
@@ -25,10 +24,6 @@ from fhirproof.PrimaryMatCheck import *
 from fhirproof.ObsMasterdataCheck import *
 import os
 import json
-from natsort import natsorted
-from functools import cmp_to_key
-from pathlib import Path
-import os.path
 import logging
 import sys
 
@@ -42,9 +37,6 @@ class fhirproof:
     aqtgchildless = {} # is a aliquotgroup without children?
     _accept = {} # was this file without errors? keyed by filename.
     def __init__(self, dbtarget, user, logfile, configpath:str=None, loglevel:str="INFO", quiet:bool=False):
-        """
-         __init__ inits fhirproof with db target, centraxx user, logfile and config.
-        """
         self.dbtarget = dbtarget
 
         self.db = None
@@ -60,10 +52,7 @@ class fhirproof:
         self.ok = True
 
     def check(self, dir, encoding="utf-8"):
-        """
-         check both specimen and observations, depending on an entry's resourceType.
-        """
-        entries = fhirio.read_entries(dir, encoding)
+        entries = fhirio.read_entries(dir, encoding, keep_filenames=True)
         self.check_entries(entries)
         accepted = []
         for k, v in self._accept.items():
@@ -72,9 +61,6 @@ class fhirproof:
         return self.ok, accepted
 
     def check_entries(self, entries):
-        """
-         check_entries checks the specimen or observation in the entry.
-        """
         self.ok = True
 
         self.log.info(f"START CHECK")
@@ -105,7 +91,7 @@ class fhirproof:
         for entry in entries:
             if currentfile != dig(entry, "_filename"):
                 currentfile = dig(entry, "_filename")
-                self.log.info(currentfile + ": checking file")
+                self.log.info(str(currentfile) + ": checking file")
             # keep arrays up to date
             self.entrybyfhirid[fgs.full_url(entry)] = entry
 
@@ -192,9 +178,6 @@ class fhirproof:
         return self.ok # written by FhirCheck.err()
 
     def _setuplog(self, logfile, loglevel, quiet:bool=False):
-        """
-         _setuplog setzt den log auf, if quiet is true, log isn't printed to console.
-        """
         log = logging.getLogger(__name__)            
         log.setLevel(loglevel)
         file_handler = logging.FileHandler(logfile)
@@ -207,11 +190,6 @@ class fhirproof:
             log.addHandler(stdout_handler)
         self.log = log
     def parent(self, entry):
-        """
-         parent gibt die parent-resource eines entries zurueck, wenn es eine gibt.
-         
-         auf parent() koennen die checks zugreifen.
-        """
         parent = None
         resource = entry['resource']
         if fgs.category(resource) != "DERIVED":              
@@ -224,9 +202,6 @@ class fhirproof:
             return None
         return self.entrybyfhirid[parent_fhirid]['resource']
     def _skip(self, classname:str, trial:str, sampletype:str) -> bool:
-        """
-         _skip says whether a check should be skipped based on trial and sampletype.
-        """
         if classname is None or trial is None or sampletype is None:
             return False
         skipchecks = dig(self.config, f"skip/{trial}/{sampletype}")
@@ -234,9 +209,6 @@ class fhirproof:
             return False
         return classname in skipchecks or "*" in skipchecks
     def _trial_from_orga(self, orga:str):
-        """
-         _trial_from_orga extracts the trial from orga, since trials aren't in the json.
-        """
         if re.match(r"^s-snid", orga):
             return "NUM S-SNID"
         elif re.match(r"REVIVE$", orga):
